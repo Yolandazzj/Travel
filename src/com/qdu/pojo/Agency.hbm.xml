@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Agency" table="agency" schema="bishe">
+        <id name="agencyId" column="AgencyID"/>
+        <property name="agencyName" column="AgencyName"/>
+        <property name="agencyContact" column="AgencyContact"/>
+        <property name="agencyScore" column="AgencyScore"/>
+        <property name="agencyContent" column="AgencyContent"/>
+    </class>
+</hibernate-mapping>

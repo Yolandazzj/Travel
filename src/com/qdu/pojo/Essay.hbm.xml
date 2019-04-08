@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Essay" table="essay" schema="bishe">
+        <id name="essayId" column="EssayID"/>
+        <property name="eTitle" column="ETitle"/>
+        <property name="eContent" column="EContent"/>
+        <property name="eScore" column="EScore"/>
+        <property name="eTime" column="ETime"/>
+    </class>
+</hibernate-mapping>

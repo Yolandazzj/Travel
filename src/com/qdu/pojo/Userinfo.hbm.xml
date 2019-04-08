@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Userinfo" table="userinfo" schema="bishe">
+        <id name="uid" column="UID"/>
+        <property name="uGender" column="UGender"/>
+        <property name="uCity" column="UCity"/>
+        <property name="uContact" column="UContact"/>
+        <property name="uEmail" column="UEmail"/>
+        <property name="isBan" column="IsBan"/>
+        <property name="uPassword" column="UPassword"/>
+        <property name="uRank" column="URank"/>
+    </class>
+</hibernate-mapping>

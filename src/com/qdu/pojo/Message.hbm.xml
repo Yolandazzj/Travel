@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Message" table="message" schema="bishe">
+        <id name="messageId" column="MessageID"/>
+        <property name="messageContent" column="MessageContent"/>
+        <property name="messageScore" column="MessageScore"/>
+        <property name="messageTime" column="MessageTime"/>
+    </class>
+</hibernate-mapping>

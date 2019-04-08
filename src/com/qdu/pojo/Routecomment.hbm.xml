@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Routecomment" table="routecomment" schema="bishe">
+        <id name="rCommentId" column="RCommentID"/>
+        <property name="rCommentContent" column="RCommentContent"/>
+        <property name="rCommentScore" column="RCommentScore"/>
+        <property name="rCommentTime" column="RCommentTime"/>
+    </class>
+</hibernate-mapping>

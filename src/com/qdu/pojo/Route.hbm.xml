@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.qdu.pojo.Route" table="route" schema="bishe">
+        <id name="routeId" column="RouteID"/>
+        <property name="routeName" column="RouteName"/>
+        <property name="routeContent" column="RouteContent"/>
+        <property name="routeDay" column="RouteDay"/>
+        <property name="routeScore" column="RouteScore"/>
+        <property name="routePrice" column="RoutePrice"/>
+        <property name="routeImage" column="RouteImage"/>
+        <property name="routeStartDay" column="RouteStartDay"/>
+    </class>
+</hibernate-mapping>
