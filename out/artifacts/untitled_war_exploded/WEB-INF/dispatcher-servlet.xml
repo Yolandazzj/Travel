@@ -11,9 +11,9 @@
 
     <mvc:annotation-driven />
     
-    <context:component-scan base-package="com.qdu.controller" />
-
-    
+    <context:component-scan base-package="com.qdu.controller"  use-default-filters="false">
+            <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"

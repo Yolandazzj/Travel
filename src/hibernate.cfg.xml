@@ -1,13 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bishe</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">123456</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-  </session-factory>
-</hibernate-configuration>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!--<hibernate-configuration>-->
+<!--  <session-factory>-->
+<!--    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+<!--    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>-->
+<!--    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bishe</property>-->
+<!--    <property name="hibernate.show_sql">true</property>-->
+<!--    <property name="hibernate.format_sql">true</property>-->
+<!--    <mapping class="com.qdu.pojo.Admininfo"/>-->
+<!--    <mapping resource="com/qdu/pojo/Admininfo.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Agency.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Agency"/>-->
+<!--    <mapping resource="com/qdu/pojo/Apply.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Apply"/>-->
+<!--    <mapping class="com.qdu.pojo.Category"/>-->
+<!--    <mapping resource="com/qdu/pojo/Category.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/City.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.City"/>-->
+<!--    <mapping resource="com/qdu/pojo/Essay.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Essay"/>-->
+<!--    <mapping resource="com/qdu/pojo/Essaycomment.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Essaycomment"/>-->
+<!--    <mapping class="com.qdu.pojo.Foodcomment"/>-->
+<!--    <mapping resource="com/qdu/pojo/Foodcomment.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Foodinfo.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Foodinfo"/>-->
+<!--    <mapping class="com.qdu.pojo.Foodstore"/>-->
+<!--    <mapping resource="com/qdu/pojo/Foodstore.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Group.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Group"/>-->
+<!--    <mapping resource="com/qdu/pojo/Hotel.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Hotel"/>-->
+<!--    <mapping class="com.qdu.pojo.Hotelcomment"/>-->
+<!--    <mapping resource="com/qdu/pojo/Hotelcomment.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Hotelorders.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Hotelorders"/>-->
+<!--    <mapping resource="com/qdu/pojo/Layout.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Layout"/>-->
+<!--    <mapping class="com.qdu.pojo.Message"/>-->
+<!--    <mapping resource="com/qdu/pojo/Message.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Province"/>-->
+<!--    <mapping resource="com/qdu/pojo/Province.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Report.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Report"/>-->
+<!--    <mapping class="com.qdu.pojo.Route"/>-->
+<!--    <mapping resource="com/qdu/pojo/Route.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Routecomment"/>-->
+<!--    <mapping resource="com/qdu/pojo/Routecomment.hbm.xml"/>-->
+<!--    <mapping resource="com/qdu/pojo/Routeorders.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Routeorders"/>-->
+<!--    <mapping resource="com/qdu/pojo/Scene.hbm.xml"/>-->
+<!--    <mapping class="com.qdu.pojo.Scene"/>-->
+<!--    <mapping class="com.qdu.pojo.Userinfo"/>-->
+<!--    <mapping resource="com/qdu/pojo/Userinfo.hbm.xml"/>-->
+
+
+<!--  </session-factory>-->
+<!--</hibernate-configuration>-->
