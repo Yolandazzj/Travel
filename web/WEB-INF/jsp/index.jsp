@@ -1,11 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
 <html lang="en">
 <head>
+    <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>哈啤旅行</title>
-    <link rel="stylesheet" href="css/reset.css"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <title>途牛旅行</title>
+    <link rel="stylesheet" href="resources/css/reset.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
 </head>
 <body>
 <!--滚动屏-->
@@ -15,274 +19,287 @@
     <div class="top-info">
         <div class="top-left">
             <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">站长素材</a>
-                <span class="down-icon"></span>
+                <a href="#">登录</a>
+<%--                <span class="down-icon"></span>--%>
             </div>
             <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-envelope fa-gray"></i>
-                <a href="#">消息</a>
-                <span class="down-icon"></span>
+                <i class="fa fa-gray"></i>
+                <a href="#">注册</a>
+
             </div>
-            <a class="a-float-left" href="#">手机淘宝</a>
-            <img height="34px" a-float-left src="img/qqq.gif" />
-            <!--hidden-box-->
-            <div data-toggle="hidden-box" id="nav-box1" class="user-box">
-                <img class="my-head" src="img/user-head.jpg" />
-                <div class="my-grow">
-                    <h1><a href="#">账号管理</a>&nbsp;|&nbsp;<a href="#">退出</a></h1>
-                    <p>
-                    <h2><a href="#">查看我会员特权</a></h2>
-                    <a href="#">我的成长</a>
-                    </p>
-                </div>
-                <p style="height: 10px; clear: both;">&nbsp;</p>
-                <div class="my-card">
-                    <div class="cards-info">
-                        <ul>
-                            <li><img src="img/icon.png" /></li>
-                            <li><img src="img/icon.png" /></li>
-                        </ul>
-                    </div>
-                    <div class="toggle-box">
-                        <div class="toggle">
-                            <i style="vertical-align: top" class="fa fa-angle-left arrow-left"></i>
-                            <i style="vertical-align: top" class="fa fa-angle-right arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-toggle="hidden-box" id="nav-box2" class="msg-box">
-                <h1>未读新消息<a href="#" class="fa fa-pencil-square-o pencil"></a></h1>
-                <div class="read-info">
-                    <h2><span class="orange">&nbsp;&nbsp;|</span>&nbsp;你的书架&nbsp;<span style="font-weight: lighter">收到了<span class="orange">1</span>本书</span><span class="fa fa-times close-msg"></span></h2>
-                    <img src="img/book-1.png" />
-                    <div style="float: right">
-                        <p>
-                            全中国最穷的小伙子发财日记<br/>
-                            掏彩票公共账号
-                        </p>
-                        <h3><a href="#">去看看</a></h3>
-                    </div>
-                </div>
-                <div class="msg-setting">
-                    <a href="#" class="fa fa-cog"></a>
-                    <a href="#" class="fa fa-pencil-square-o"></a>
-                    <a style="margin-left: 70px" href="#">买家消息&nbsp;|&nbsp;</a>
-                    <a href="#">卖家消息</a>
-                </div>
-            </div>
+<%--            <a class="a-float-left" href="#">手机淘宝</a>--%>
+<%--            <img height="34px" a-float-left src="img/qqq.gif" />--%>
+
+<%--   隐藏--%>
+<%--            <div data-toggle="hidden-box" id="nav-box1" class="user-box" style="background-color: #8bc144;">--%>
+<%--                <img class="my-head" src="img/user-head.jpg" />--%>
+<%--                <div class="my-grow">--%>
+<%--                    <h1><a href="#">账号管理</a>&nbsp;|&nbsp;<a href="#">退出</a></h1>--%>
+<%--                    <p>--%>
+<%--                    <h2><a href="#">查看我会员特权</a></h2>--%>
+<%--                    <a href="#">我的成长</a>--%>
+<%--                    </p>--%>
+<%--                </div>--%>
+<%--                <p style="height: 10px; clear: both;">&nbsp;</p>--%>
+<%--                <div class="my-card">--%>
+<%--                    <div class="cards-info">--%>
+<%--                        <ul>--%>
+<%--                            <li><img src="img/icon.png" /></li>--%>
+<%--                            <li><img src="img/icon.png" /></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="toggle-box">--%>
+<%--                        <div class="toggle">--%>
+<%--                            <i style="vertical-align: top" class="fa fa-angle-left arrow-left"></i>--%>
+<%--                            <i style="vertical-align: top" class="fa fa-angle-right arrow-right"></i>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div data-toggle="hidden-box" id="nav-box2" class="msg-box">--%>
+<%--                <h1>未读新消息<a href="#" class="fa fa-pencil-square-o pencil"></a></h1>--%>
+<%--                <div class="read-info">--%>
+<%--                    <h2><span class="orange">&nbsp;&nbsp;|</span>&nbsp;你的书架&nbsp;<span style="font-weight: lighter">收到了<span class="orange">1</span>本书</span><span class="fa fa-times close-msg"></span></h2>--%>
+<%--                    <img src="img/book-1.png" />--%>
+<%--                    <div style="float: right">--%>
+<%--                        <p>--%>
+<%--                            全中国最穷的小伙子发财日记<br/>--%>
+<%--                            掏彩票公共账号--%>
+<%--                        </p>--%>
+<%--                        <h3><a href="#">去看看</a></h3>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="msg-setting">--%>
+<%--                    <a href="#" class="fa fa-cog"></a>--%>
+<%--                    <a href="#" class="fa fa-pencil-square-o"></a>--%>
+<%--                    <a style="margin-left: 70px" href="#">买家消息&nbsp;|&nbsp;</a>--%>
+<%--                    <a href="#">卖家消息</a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </div>
+
         <!--top-right-->
         <div class="top-right">
             <div data-toggle="arrowdown" id="arrow3" class="user-name">
-                <a href="#">我的淘宝</a>
-                <span class="down-icon"></span>
+                <a href="#">我的账户</a>
+
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="#">购物车</a>
-                <span class="down-icon"></span>
+                <a href="#">我的订单</a>
+
             </div>
             <div data-toggle="arrowdown" id="arrow5" class="user-name">
                 <i class="fa fa-star fa-gray"></i>
                 <a href="#">收藏夹</a>
-                <span class="down-icon"></span>
+
             </div>
-            <a class="a-float-left" href="#">商品分类</a>
-            <span class="vertical-line">|</span>
-            <div data-toggle="arrowdown" id="arrow6" class="user-name">
-                <a href="#">卖家中心</a>
-                <span class="down-icon"></span>
-            </div>
-            <a class="a-float-left" href="#">联系客户</a>
-            <div data-toggle="arrowdown" id="arrow7" class="user-name">
-                <i class="fa fa-list-ul fa-orange"></i>
-                <a href="#">网站导航</a>
-                <span class="down-icon"></span>
-            </div>
+<%--            <a class="a-float-left" href="#">商品分类</a>--%>
+<%--            <span class="vertical-line">|</span>--%>
+<%--            <div data-toggle="arrowdown" id="arrow6" class="user-name">--%>
+<%--                <a href="#">卖家中心</a>--%>
+<%--                <span class="down-icon"></span>--%>
+<%--            </div>--%>
+<%--            <a class="a-float-left" href="#">联系客户</a>--%>
+<%--            <div data-toggle="arrowdown" id="arrow7" class="user-name">--%>
+<%--                <i class="fa fa-list-ul fa-orange"></i>--%>
+<%--                <a href="#">网站导航</a>--%>
+<%--                <span class="down-icon"></span>--%>
+<%--            </div>--%>
+
             <!--hidden-box-->
-            <div data-toggle="hidden-box" id="nav-box3" class="my-taobao-box">
-                <ul>
-                    <li>已买到的宝贝</li>
-                    <li>新欢</li>
-                    <li>我的足迹</li>
-                    <li>我的上新</li>
-                    <li>我的优惠</li>
-                </ul>
-            </div>
-            <div data-toggle="hidden-box" id="nav-box4" class="shopping-box">
-                <span>您购物车里还没有任何宝贝。</span><a class="check-shopp" href="#">查看我的购物车</a>
-            </div>
-            <div data-toggle="hidden-box" id="nav-box5" class="get-box">
-                <ul>
-                    <li>收藏的宝贝</li>
-                    <li>收藏的店铺</li>
-                </ul>
-            </div>
-            <div data-toggle="hidden-box" id="nav-box6" class="center-box">
-                <ul>
-                    <li>已卖出的宝贝</li>
-                    <li>出售中的宝贝</li>
-                    <li>卖家服务市场</li>
-                    <li>卖家培训中心</li>
-                </ul>
-            </div>
-            <div data-toggle="hidden-box" id="nav-box7" class="nav-box">
-                <div class="sub-nav top-sub-nav">
-                    <!--<input type="button" class="more-btn" value="更多"/>-->
-                    <!--sub-nav-cell-->
-                    <div class="sub-nav-cell right-shadow">
-                        <h3 class="orange">主题市场</h3>
-                        <ul class="sub-nav-box">
-                            <li><a href="#">爱美女人</a></li>
-                            <li><a href="#">品质男人</a></li>
-                            <li><a href="#">淘宝二手</a></li>
-                            <li><a href="#">全球购</a></li>
-                            <li><a href="#">品牌街</a></li>
-                            <li><a href="#">汽车生活</a></li>
-                            <li><a href="#">花嫁新娘</a></li>
-                            <li><a href="#">孕婴童</a></li>
-                            <li><a href="#">同城便民</a></li>
-                            <li><a href="#">爱么装</a></li>
-                            <li><a href="#">运动户外</a></li>
-                            <li><a href="#">家用电器</a></li>
-                            <li><a href="#">狠爱</a></li>
-                            <li><a href="#">网络游戏</a></li>
-                            <li><a href="#">潮流设计</a></li>
-                            <li><a href="#">淘宝星愿</a></li>
-                        </ul>
-                    </div>
-                    <div class="sub-nav-cell right-shadow">
-                        <h3 class="green-sp">特色购物</h3>
-                        <ul class="sub-nav-box sp">
-                            <li><a href="#">爱美女人</a></li>
-                            <li><a href="#">品质男人</a></li>
-                            <li><a href="#">淘宝二手</a></li>
-                            <li><a href="#">全球购</a></li>
-                            <li><a href="#">品牌街</a></li>
-                            <li><a href="#">汽车生活</a></li>
-                            <li><a href="#">花嫁新娘</a></li>
-                            <li><a href="#">孕婴童</a></li>
-                            <li><a href="#">同城便民</a></li>
-                            <li><a href="#">爱么装</a></li>
-                            <li><a href="#">运动户外</a></li>
-                            <li><a href="#">家用电器</a></li>
-                            <li><a href="#">狠爱</a></li>
-                            <li><a href="#">网络游戏</a></li>
-                            <li><a href="#">潮流设计</a></li>
-                            <li><a href="#">淘宝星愿</a></li>
+<%--            <div data-toggle="hidden-box" id="nav-box3" class="my-taobao-box">--%>
+<%--                <ul>--%>
+<%--                    <li>已买到的宝贝</li>--%>
+<%--                    <li>新欢</li>--%>
+<%--                    <li>我的足迹</li>--%>
+<%--                    <li>我的上新</li>--%>
+<%--                    <li>我的优惠</li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--            <div data-toggle="hidden-box" id="nav-box4" class="shopping-box">--%>
+<%--                <span>您购物车里还没有任何宝贝。</span><a class="check-shopp" href="#">查看我的购物车</a>--%>
+<%--            </div>--%>
+<%--            <div data-toggle="hidden-box" id="nav-box5" class="get-box">--%>
+<%--                <ul>--%>
+<%--                    <li>收藏的宝贝</li>--%>
+<%--                    <li>收藏的店铺</li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--            <div data-toggle="hidden-box" id="nav-box6" class="center-box">--%>
+<%--                <ul>--%>
+<%--                    <li>已卖出的宝贝</li>--%>
+<%--                    <li>出售中的宝贝</li>--%>
+<%--                    <li>卖家服务市场</li>--%>
+<%--                    <li>卖家培训中心</li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--            <div data-toggle="hidden-box" id="nav-box7" class="nav-box">--%>
+<%--                <div class="sub-nav top-sub-nav">--%>
+<%--                    <!--<input type="button" class="more-btn" value="更多"/>-->--%>
+<%--                    <!--sub-nav-cell-->--%>
+<%--                    <div class="sub-nav-cell right-shadow">--%>
+<%--                        <h3 class="orange">当季热门景点</h3>--%>
+<%--                        <ul class="sub-nav-box">--%>
+<%--                            <li><a href="#">爱美女人</a></li>--%>
+<%--                            <li><a href="#">品质男人</a></li>--%>
+<%--                            <li><a href="#">淘宝二手</a></li>--%>
+<%--                            <li><a href="#">全球购</a></li>--%>
+<%--                            <li><a href="#">品牌街</a></li>--%>
+<%--                            <li><a href="#">汽车生活</a></li>--%>
+<%--                            <li><a href="#">花嫁新娘</a></li>--%>
+<%--                            <li><a href="#">孕婴童</a></li>--%>
+<%--                            <li><a href="#">同城便民</a></li>--%>
+<%--                            <li><a href="#">爱么装</a></li>--%>
+<%--                            <li><a href="#">运动户外</a></li>--%>
+<%--                            <li><a href="#">家用电器</a></li>--%>
+<%--                            <li><a href="#">狠爱</a></li>--%>
+<%--                            <li><a href="#">网络游戏</a></li>--%>
+<%--                            <li><a href="#">潮流设计</a></li>--%>
+<%--                            <li><a href="#">淘宝星愿</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="sub-nav-cell right-shadow">--%>
+<%--                        <h3 class="green-sp">特色购物</h3>--%>
+<%--                        <ul class="sub-nav-box sp">--%>
+<%--                            <li><a href="#">爱美女人</a></li>--%>
+<%--                            <li><a href="#">品质男人</a></li>--%>
+<%--                            <li><a href="#">淘宝二手</a></li>--%>
+<%--                            <li><a href="#">全球购</a></li>--%>
+<%--                            <li><a href="#">品牌街</a></li>--%>
+<%--                            <li><a href="#">汽车生活</a></li>--%>
+<%--                            <li><a href="#">花嫁新娘</a></li>--%>
+<%--                            <li><a href="#">孕婴童</a></li>--%>
+<%--                            <li><a href="#">同城便民</a></li>--%>
+<%--                            <li><a href="#">爱么装</a></li>--%>
+<%--                            <li><a href="#">运动户外</a></li>--%>
+<%--                            <li><a href="#">家用电器</a></li>--%>
+<%--                            <li><a href="#">狠爱</a></li>--%>
+<%--                            <li><a href="#">网络游戏</a></li>--%>
+<%--                            <li><a href="#">潮流设计</a></li>--%>
+<%--                            <li><a href="#">淘宝星愿</a></li>--%>
 
-                        </ul>
-                    </div>
-                    <div class="sub-nav-cell right-shadow">
-                        <h3 class="red-now">当前热点</h3>
-                        <ul class="sub-nav-box now">
-                            <li><a href="#">爱美女人</a></li>
-                            <li><a href="#">品质男人</a></li>
-                            <li><a href="#">淘宝二手</a></li>
-                            <li><a href="#">全球购</a></li>
-                            <li><a href="#">品牌街</a></li>
-                            <li><a href="#">汽车生活</a></li>
-                            <li><a href="#">花嫁新娘</a></li>
-                            <li><a href="#">孕婴童</a></li>
-                            <li><a href="#">同城便民</a></li>
-                            <li><a href="#">爱么装</a></li>
-                            <li><a href="#">运动户外</a></li>
-                            <li><a href="#">家用电器</a></li>
-                            <li><a href="#">狠爱</a></li>
-                            <li><a href="#">网络游戏</a></li>
-                            <li><a href="#">潮流设计</a></li>
-                            <li><a href="#">淘宝星愿</a></li>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="sub-nav-cell right-shadow">--%>
+<%--                        <h3 class="red-now">当前热点</h3>--%>
+<%--                        <ul class="sub-nav-box now">--%>
+<%--                            <li><a href="#">爱美女人</a></li>--%>
+<%--                            <li><a href="#">品质男人</a></li>--%>
+<%--                            <li><a href="#">淘宝二手</a></li>--%>
+<%--                            <li><a href="#">全球购</a></li>--%>
+<%--                            <li><a href="#">品牌街</a></li>--%>
+<%--                            <li><a href="#">汽车生活</a></li>--%>
+<%--                            <li><a href="#">花嫁新娘</a></li>--%>
+<%--                            <li><a href="#">孕婴童</a></li>--%>
+<%--                            <li><a href="#">同城便民</a></li>--%>
+<%--                            <li><a href="#">爱么装</a></li>--%>
+<%--                            <li><a href="#">运动户外</a></li>--%>
+<%--                            <li><a href="#">家用电器</a></li>--%>
+<%--                            <li><a href="#">狠爱</a></li>--%>
+<%--                            <li><a href="#">网络游戏</a></li>--%>
+<%--                            <li><a href="#">潮流设计</a></li>--%>
+<%--                            <li><a href="#">淘宝星愿</a></li>--%>
 
-                        </ul>
-                    </div>
-                    <div class="sub-nav-cell">
-                        <h3 class="blue-more">更多精彩</h3>
-                        <ul class="sub-nav-box more">
-                            <li><a href="#">爱美女人</a></li>
-                            <li><a href="#">品质男人</a></li>
-                            <li><a href="#">淘宝二手</a></li>
-                            <li><a href="#">全球购</a></li>
-                            <li><a href="#">品牌街</a></li>
-                            <li><a href="#">汽车生活</a></li>
-                            <li><a href="#">花嫁新娘</a></li>
-                            <li><a href="#">孕婴童</a></li>
-                            <li><a href="#">同城便民</a></li>
-                            <li><a href="#">爱么装</a></li>
-                            <li><a href="#">运动户外</a></li>
-                            <li><a href="#">家用电器</a></li>
-                            <li><a href="#">狠爱</a></li>
-                            <li><a href="#">网络游戏</a></li>
-                            <li><a href="#">潮流设计</a></li>
-                            <li><a href="#">淘宝星愿</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="sub-nav-cell">--%>
+<%--                        <h3 class="blue-more">更多精彩</h3>--%>
+<%--                        <ul class="sub-nav-box more">--%>
+<%--                            <li><a href="#">爱美女人</a></li>--%>
+<%--                            <li><a href="#">品质男人</a></li>--%>
+<%--                            <li><a href="#">淘宝二手</a></li>--%>
+<%--                            <li><a href="#">全球购</a></li>--%>
+<%--                            <li><a href="#">品牌街</a></li>--%>
+<%--                            <li><a href="#">汽车生活</a></li>--%>
+<%--                            <li><a href="#">花嫁新娘</a></li>--%>
+<%--                            <li><a href="#">孕婴童</a></li>--%>
+<%--                            <li><a href="#">同城便民</a></li>--%>
+<%--                            <li><a href="#">爱么装</a></li>--%>
+<%--                            <li><a href="#">运动户外</a></li>--%>
+<%--                            <li><a href="#">家用电器</a></li>--%>
+<%--                            <li><a href="#">狠爱</a></li>--%>
+<%--                            <li><a href="#">网络游戏</a></li>--%>
+<%--                            <li><a href="#">潮流设计</a></li>--%>
+<%--                            <li><a href="#">淘宝星愿</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </div>
     </div>
+
+
     <!--scroll-top-->
-    <div class="scroll-search">
-        <div class="search-litter">
-            <img class="scroll-logo" src="img/logo.png" />
-            <!--scroll-search-->
-            <div class="search-wrapper-scroll">
-                <div class="search-box-scroll">
-                    <div data-toggle="arrowdown" id="arrow9" class="search-toggle-scroll">
-                        宝贝<span class="down-icon"></span>
-                    </div>
-                    <input class="search-in-scroll" type="text" placeholder="    搜‘健康椅’试试，办公好选择" />
-                    <input type="button" class="search-but-scroll" value="搜索">
-                    <div data-toggle="hidden-box" id="nav-box9" class="search-toggle-box-scroll">店铺</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<%--    <div class="scroll-search">--%>
+<%--        <div class="search-litter">--%>
+<%--            <img src="resources/image/logo.png" alt="">--%>
+<%--           <img class="scroll-logo" src="resources/image/logo.png" alt="logo" />--%>
+
+<%--            <div class="search-wrapper-scroll">--%>
+<%--               <div class="search-box-scroll">--%>
+<%--                   <div data-toggle="arrowdown" id="arrow9" class="search-toggle-scroll">--%>
+<%--                        所有产品<span class="down-icon"></span>&ndash;%&gt;--%>
+<%--                   </div>&ndash;%&gt;--%>
+<%--                  <input class="search-in-scroll" type="text" placeholder="请输入关键字搜索" />--%>
+
+<%--                   <input type="button" class="search-but-scroll" value="搜索">--%>
+<%--                  <div data-toggle="hidden-box" id="nav-box9" class="search-toggle-box-scroll">店铺</div>--%>
+<%--               </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 </div>
 
 <!--top-main-->
 <div class="top-main">
-    <img src="img/logo.gif" />
+    <img src="resources/image/logo.jpg" alt="logo" />
     <div class="search-wrapper">
         <div class="search-box">
-            <div data-toggle="arrowdown" id="arrow8" class="search-toggle">
-                宝贝<span class="down-icon"></span>
+            <div data-toggle="arrowdown" id="arrow8" class="search-toggle">所有产品
+<%--                <span class="down-icon"></span>--%>
             </div>
-            <input class="search-in" type="text" placeholder="    搜‘健康椅’试试，办公好选择">
+            <input class="search-in" type="text" placeholder="请输入关键字">
             <input type="button" class="search-but" value="搜索">
-            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">店铺</div>
+            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">组团游</div>
+            <div data-toggle="hidden-box" id="nav-box9" class="search-toggle-box">酒店</div>
+            <div data-toggle="hidden-box" id="nav-box10" class="search-toggle-box">景点</div>
+            <div data-toggle="hidden-box" id="nav-box11" class="search-toggle-box">游记</div>
         </div>
-        <a class="a-float-left hight-search" href="#">高级<br/>搜索</a>
+
+<%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box" style="background-color: red;">店铺</div>--%>
+<%--        <a class="a-float-left hight-search" href="#">高级<br/>搜索</a>--%>
         <!--other-search-->
-        <div class="other-search">
-            <a href="#">女士凉鞋</a>
-            <a href="#">男士T恤</a>
-            <a href="#">连衣裙</a>
-            <a href="#">时尚女包</a>
-            <a href="#">女士T恤</a>
-            <a href="#">雪纺衫</a>
-            <a href="#">中老年女装</a>
-            <a href="#">风衣</a>
-            <a href="#">童装</a>
-            <a href="#">孕妇装</a>
-            <a href="#">运动套装</a>
-            <a href="#">打底裤</a>
-            <a href="#">蚊帐</a>
-            <a href="#" class="more-other">更多<i class="fa fa-angle-right"></i></a>
-        </div>
+<%--        <div class="other-search">--%>
+<%--            <a href="#">女士凉鞋</a>--%>
+<%--            <a href="#">男士T恤</a>--%>
+<%--            <a href="#">连衣裙</a>--%>
+<%--            <a href="#">时尚女包</a>--%>
+<%--            <a href="#">女士T恤</a>--%>
+<%--            <a href="#">雪纺衫</a>--%>
+<%--            <a href="#">中老年女装</a>--%>
+<%--            <a href="#">风衣</a>--%>
+<%--            <a href="#">童装</a>--%>
+<%--            <a href="#">孕妇装</a>--%>
+<%--            <a href="#">运动套装</a>--%>
+<%--            <a href="#">打底裤</a>--%>
+<%--            <a href="#">蚊帐</a>--%>
+<%--            <a href="#" class="more-other">更多<i class="fa fa-angle-right"></i></a>--%>
+<%--        </div>--%>
     </div>
     <!--two-code-->
     <div class="two-code">
-        <h3>手机淘宝</h3>
-        <img src="img/code.png" />
-        <div class="close-code"><i class="fa fa-times"></i></div>
+        <h3>定位板块</h3>
+
     </div>
+
 </div>
+
 <!--content-top-->
 <div class="content-top">
     <!--sidebar-->
     <div class="sidebar">
-        <h3>商品服务分类</h3>
+        <h3>产品服务</h3>
         <!--sidebar-info-->
         <div class="sidebar-info">
             <ul class="side-li">
@@ -4972,9 +4989,9 @@
 </div>
 
 
-<script src="js/jquery_1.9.js"></script>
-<script src="js/main.js"></script>
-<script src="js/img-show.js"></script>
+<script src="resources/js/jquery_1.9.js"></script>
+<script src="resources/js/main.js"></script>
+<script src="resources/js/img-show.js"></script>
 
 </body>
 </html>
