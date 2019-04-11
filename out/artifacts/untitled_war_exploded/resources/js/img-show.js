@@ -3,7 +3,7 @@ $(document).ready(function(){
         $iNum = $('.imgNum'),  //缓存优化
         indexImg = 1,          //初始下标
         totalImg = 5,          //图片总数量
-        imgSize = 520,         //图片尺寸 宽度
+        imgSize = 720,         //图片尺寸 宽度
         moveTime = 1100,        //切换动画时间
         setTime = 2500,        //中间暂停时间
         clc = null;
@@ -56,51 +56,51 @@ $(document).ready(function(){
 //        return false;允许传播
     });
     //向右边前进
-    $('.to-right').click(function(){
-        if(indexImg != totalImg){
-            $iBox.animate({
-                left: -(indexImg*imgSize) + 'px'
-            }, moveTime);
-            $iNum.removeClass('mark-color')
-                .eq(indexImg)
-                .addClass('mark-color');
-            indexImg++;
-        }
-        else{
-            indexImg = 1;
-            $iNum.removeClass('mark-color')
-                .eq(indexImg - 1)
-                .addClass('mark-color');
-            $iBox.animate({
-                left: 0
-            }, moveTime);
-        }
-    });
+    // $('.to-right').click(function(){
+    //     if(indexImg != totalImg){
+    //         $iBox.animate({
+    //             left: -(indexImg*imgSize) + 'px'
+    //         }, moveTime);
+    //         $iNum.removeClass('mark-color')
+    //             .eq(indexImg)
+    //             .addClass('mark-color');
+    //         indexImg++;
+    //     }
+    //     else{
+    //         indexImg = 1;
+    //         $iNum.removeClass('mark-color')
+    //             .eq(indexImg - 1)
+    //             .addClass('mark-color');
+    //         $iBox.animate({
+    //             left: 0
+    //         }, moveTime);
+    //     }
+    // });
     //向左边前进
-    $('.to-left').click(function(){
-        indexImg--;
-        if(indexImg != 0){
-            $iBox.animate({
-                left: -((indexImg - 1)*imgSize) + 'px'
-            }, moveTime);
-            $iNum.removeClass('mark-color')
-                .eq((indexImg - 1))
-                .addClass('mark-color');
-        }
-        else{
-            indexImg = totalImg;
-            $iNum.removeClass('mark-color')
-                .eq(indexImg - 1)
-                .addClass('mark-color');
-            $iBox.animate({
-                left: -((indexImg - 1)*imgSize) + 'px'
-            }, moveTime);
-        }
-    });
-
-
-    clc = setInterval(moveImg, setTime);
-});
+//     $('.to-left').click(function(){
+//         indexImg--;
+//         if(indexImg != 0){
+//             $iBox.animate({
+//                 left: -((indexImg - 1)*imgSize) + 'px'
+//             }, moveTime);
+//             $iNum.removeClass('mark-color')
+//                 .eq((indexImg - 1))
+//                 .addClass('mark-color');
+//         }
+//         else{
+//             indexImg = totalImg;
+//             $iNum.removeClass('mark-color')
+//                 .eq(indexImg - 1)
+//                 .addClass('mark-color');
+//             $iBox.animate({
+//                 left: -((indexImg - 1)*imgSize) + 'px'
+//             }, moveTime);
+//         }
+//     });
+//
+//
+//     clc = setInterval(moveImg, setTime);
+// });
 
 
 //图片二
@@ -109,7 +109,7 @@ $(document).ready(function(){
         $iNum = $('.imgNum1'),  //缓存优化
         indexImg = 1,          //初始下标
         totalImg = 5,          //图片总数量
-        imgSize = 520,         //图片尺寸 宽度
+        imgSize = 720,         //图片尺寸 宽度
         moveTime = 1200,        //切换动画时间
         setTime = 2800,        //中间暂停时间
         clc = null;

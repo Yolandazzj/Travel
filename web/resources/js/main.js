@@ -41,7 +41,7 @@
     $('.search-box').hover(function(){
         $(this).find('span')
             .addClass('down-icon-circle').css({
-                background: '#f50 url(img/arrow-white.png) no-repeat center'
+                background: '#f50 url(resources/image/arrow-white.png) no-repeat center'
             });
     }, function(){
         $(this).find('span')
@@ -144,11 +144,11 @@
 
 
 //关二维码
-(function(){
-    $('.close-code').click(function(){
-        $('.two-code').fadeOut(200);
-    });
-})();
+// (function(){
+//     $('.close-code').click(function(){
+//         $('.two-code').fadeOut(200);
+//     });
+// })();
 
 //service
 (function(){
