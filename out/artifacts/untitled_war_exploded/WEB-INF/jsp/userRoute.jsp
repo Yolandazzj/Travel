@@ -12,16 +12,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <base href="${pageContext.request.contextPath}/">
+    <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>途牛旅行</title>
+    <title>途牛旅行-跟团游</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
-
 </head>
 <body>
-<!--空div-->
+<!--滚动屏-->
 <div class="scroll-head"></div>
 <!--顶部-->
 <div class="top-wrapper">
@@ -59,20 +58,19 @@
     <div class="search-wrapper">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
-                <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
-                <ul class="search-toggle-box">
-                    <li><a href="#">组团游</a></li>
-                    <li><a href="#">景点</a></li>
-                    <li><a href="#">攻略</a></li>
-                    <li><a href="#">酒店</a></li>
-                </ul>
-                   </li>
+                <li class="drop-down"><a href="#">组团游</a><span class="down-icon"></span>
+                    <ul class="search-toggle-box">
+                        <li><a href="#">所有产品</a></li>
+                        <li><a href="#">景点</a></li>
+                        <li><a href="#">攻略</a></li>
+                        <li><a href="#">酒店</a></li>
+                    </ul>
+                </li>
             </ul>
             <input class="search-in" type="text" placeholder="请输入关键字">
             <input type="button" class="search-but" value="搜索">
 
         </div>
-
     </div>
     <!--two-code-->
     <div class="two-code">
@@ -90,21 +88,26 @@
 
         <!--侧拉菜单-->
 
-        <div class="sidebar-info">
+        <div class="sidebar-info" style="height: 360px;">
             <ul class="side-li">
-                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>自由行（放热门景点）<span class="fa fa-angle-right fa-loc"></span></h3></li>
-                <li class="s_2"><h3>跟团旅游<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
+                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>热门目的地<span
+                        class="fa fa-angle-right fa-loc" style="line-height: 55px;"></span></h3></li>
+                <li class="s_2" style="height: 70px;line-height: 75px;"><h3>海滨<span class="fa fa-angle-right fa-loc"
+                                                                                      style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_3"><h3>酒店<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
+                <li class="s_3" style="height: 70px;line-height: 75px;"><h3>南方<span class="fa fa-angle-right fa-loc"
+                                                                                    style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_4"><h3>攻略<span class="fa fa-angle-right fa-loc" style="line-height: 55px;"></span>
+                <li class="s_4" style="height: 70px;line-height: 75px;"><h3>北方<span class="fa fa-angle-right fa-loc"
+                                                                                    style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_5"><h3>美食<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
+                <li class="s_5" style="height: 70px;line-height: 75px;"><h3>西部<span class="fa fa-angle-right fa-loc"
+                                                                                    style="line-height: 55px;"></span>
                 </h3></li>
 
             </ul>
             <!--hidden-li-box-->
-            <ul class="hiden-box">
+            <ul class="hiden-box" style="height:340px;" >
                 <li data-hidden="li" id="hiden-1" >
                     <div class="sub-nav-right" >
                         <div class="cell-box">
@@ -251,7 +254,150 @@
                 </li>
 
                 <li data-hidden="li" id="hiden-3">
-                    酒店查询表
+                    <div class="sub-nav-right">
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-nav-left">
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li data-hidden="li" id="hiden-5">
+                    <div class="sub-nav-right">
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-nav-left">
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                        <div class="cell-box">
+                            <h1>省份</h1>
+                            <div class="a-box">
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#">城市</a><span>|</span>
+                                <a href="#" class="orange">城市</a>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </li>
                 <li data-hidden="li" id="hiden-4">
                     <div class="sub-nav-right">
@@ -404,25 +550,25 @@
         </div>
     </div>
     <!--right-con-->
-    <div class="right-con">
-        <div class="nav">
+    <div class="right-con" style="height: 400px;">
+        <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);">
 
-            <a href="#">旅行社</a>
-            <a href="#">组团游</a>
-            <a href="user/tours">跟团游</a>
-            <a href="#">攻略</a>
-            <a href="#">美食</a>
-            <a href="#">酒店</a>
-            <a href="#">景点</a>
-            <a href="#">推荐路线</a>
-            <a href="#">留言板</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">旅行社</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">组团游</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">跟团游</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">攻略</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">美食</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">酒店</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">景点</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;" >推荐路线</a>
+            <a href="#" style="font-size: 16px;margin: 0 12px;">留言板</a>
 
 
         </div>
         <!--滚动广告box-->
-        <div class="show-box" >
+        <div class="show-box" style="width: 720px;height: 350px;" >
             <!--广告内容-->
-            <div class="content" >
+            <div class="content" style="width: 720px;height: 350px;">
                 <ul class="imgBox">
                     <li><a href="#"><img src="resources/image/1.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/2.jpg"></a></li>
@@ -440,67 +586,10 @@
             </div>
 
         </div>
-        <!--right-sidbar-->
-        <div class="right-sidebar" style="height: 400px;">
-            <div class="info-box" style="height: 350px;">
-                <ul class="tab-nav">
-                    <li id="li-1" class="li-nav li-nav-hover li-border">热门游记</li>
-                    <li id="li-2" class="li-nav">热门景点</li>
-                    <li id="li-3" class="li-nav">热门留言</li>
-                    <li style="border-right: none" id="li-5" class="li-nav">热门路线</li>
-                </ul>
-                <div id="box-1" style="display: block" class="hiddenBox">
 
-                    <a href="#">热门1</a>
-                    <a href="#"> 2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                </div>
-                <div id="box-2" class="hiddenBox">
-
-                    <a href="#">热门1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                </div>
-                <div id="box-3" class="hiddenBox">
-                    <a href="#">热点1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                </div>
-                <div id="box-4" class="hiddenBox">
-
-                    <a href="#">热点1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                </div>
-                <div id="box-5" class="hiddenBox">
-                    <a href="#">热点1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                </div>
-            </div>
-
-
-        </div>
     </div>
 </div>
-<!--main-->
-<div class="sub-nav">
-    <!--sub-nav-cell-->
-    <div class="sub-nav-cell" style=" width: 550px;">
-        <h3 class="orange">超值酒店</h3>
-        酒店图片和价钱
-    </div>
-    <div class="sub-nav-cell" style=" width: 550px;">
-        <h3 class="green-sp">超值路线</h3>
-        路线图片和价钱
-    </div>
 
-</div>
 
 <!--main-->
 <div class="main" style="height: 1500px;">
@@ -644,10 +733,10 @@
 
 
 
-        </div>
+    </div>
 
 
-<%--畅销排行榜--%>
+    <%--畅销排行榜--%>
 
     <div class="right-sidebar" style="height: 400px;">
         <div class="info-box" style="height: 350px;">
@@ -681,7 +770,7 @@
 
 
     </div>
-<%--第二个板块:热门游记--%>
+    <%--第二个板块:热门游记--%>
 
     <div class="main-left" style="height: 587px;">
         <div class="main-title">
@@ -781,7 +870,7 @@
 
 
     </div>
-    </div>
+</div>
 
 <!--footer-->
 <div class="footer">
@@ -805,9 +894,10 @@
     <div id="backToTop-down" class="down-back"><i class="fa fa-angle-down"></i></div>
 </div>
 
+
 <script src="resources/js/jquery_1.9.js"></script>
 <script src="resources/js/main.js"></script>
-<script src="resources/js/show-image.js"></script>
+<script src="resources/js/img-show.js"></script>
 
 </body>
 </html>

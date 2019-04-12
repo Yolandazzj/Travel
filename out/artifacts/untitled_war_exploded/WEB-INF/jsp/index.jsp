@@ -1,18 +1,27 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 张紫捷
+  Date: 2019/4/12
+  Time: 17:26
+  To change this template use File | Settings | File Templates.
+--%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <base href="<%=request.getContextPath()%>/">
+    <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
     <title>途牛旅行</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
+
 </head>
 <body>
-<!--滚动屏-->
+<!--空div-->
 <div class="scroll-head"></div>
 <!--顶部-->
 <div class="top-wrapper">
@@ -42,29 +51,6 @@
     </div>
 
 
-    <!--scroll-top-->
-    <%--    <div class="scroll-search">--%>
-    <%--        <div class="search-litter">--%>
-    <%--            <img src="resources/img/logo.png" alt="">--%>
-    <%--           <img class="scroll-logo" src="resources/img/logo.png" alt="logo" />--%>
-
-    <%--            <div class="search-wrapper-scroll">--%>
-    <%--               <div class="search-box-scroll">--%>
-    <%--                   <div data-toggle="arrowdown" id="arrow9" class="search-toggle-scroll">--%>
-    <%--                        所有产品<span class="down-icon"></span>&ndash;%&gt;--%>
-    <%--                   </div>&ndash;%&gt;--%>
-    <%--                  <input class="search-in-scroll" type="text" placeholder="请输入关键字搜索" />--%>
-
-    <%--                   <input type="button" class="search-but-scroll" value="搜索">--%>
-    <%--                  <div data-toggle="hidden-box" id="nav-box9" class="search-toggle-box-scroll">店铺</div>--%>
-    <%--&lt;%&ndash;                   <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box-scroll">组团游</div>&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                   <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box-scroll">酒店</div>&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                   <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box-scroll">景点</div>&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                   <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box-scroll">游记</div>&ndash;%&gt;--%>
-    <%--               </div>--%>
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--    </div>--%>
 </div>
 
 <!--top-main-->
@@ -72,18 +58,21 @@
     <img src="resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
-            <div data-toggle="arrowdown" id="arrow8" class="search-toggle">所有产品
-                <%--                <span class="down-icon"></span>--%>
-            </div>
+            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
+                <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
+                <ul class="search-toggle-box">
+                    <li><a href="#">组团游</a></li>
+                    <li><a href="#">景点</a></li>
+                    <li><a href="#">攻略</a></li>
+                    <li><a href="#">酒店</a></li>
+                </ul>
+                   </li>
+            </ul>
             <input class="search-in" type="text" placeholder="请输入关键字">
             <input type="button" class="search-but" value="搜索">
-            <%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">组团游</div>--%>
-            <%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">酒店</div>--%>
-            <%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">景点</div>--%>
-            <%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box">游记</div>--%>
+
         </div>
 
-        <%--            <div data-toggle="hidden-box" id="nav-box8" class="search-toggle-box" style="background-color: red;">店铺</div>--%>
     </div>
     <!--two-code-->
     <div class="two-code">
@@ -101,26 +90,21 @@
 
         <!--侧拉菜单-->
 
-        <div class="sidebar-info" style="height: 360px;">
+        <div class="sidebar-info">
             <ul class="side-li">
-                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>自由行（放热门景点）<span
-                        class="fa fa-angle-right fa-loc" style="line-height: 55px;"></span></h3></li>
-                <li class="s_2" style="height: 70px;line-height: 75px;"><h3>跟团旅游<span class="fa fa-angle-right fa-loc"
-                                                                                      style="line-height: 55px;"></span>
+                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>自由行（放热门景点）<span class="fa fa-angle-right fa-loc"></span></h3></li>
+                <li class="s_2"><h3>跟团旅游<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_3" style="height: 70px;line-height: 75px;"><h3>酒店<span class="fa fa-angle-right fa-loc"
-                                                                                    style="line-height: 55px;"></span>
+                <li class="s_3"><h3>酒店<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_4" style="height: 70px;line-height: 75px;"><h3>攻略<span class="fa fa-angle-right fa-loc"
-                                                                                    style="line-height: 55px;"></span>
+                <li class="s_4"><h3>攻略<span class="fa fa-angle-right fa-loc" style="line-height: 55px;"></span>
                 </h3></li>
-                <li class="s_5" style="height: 70px;line-height: 75px;"><h3>美食<span class="fa fa-angle-right fa-loc"
-                                                                                    style="line-height: 55px;"></span>
+                <li class="s_5"><h3>美食<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
                 </h3></li>
 
             </ul>
             <!--hidden-li-box-->
-            <ul class="hiden-box" style="height:340px;" >
+            <ul class="hiden-box">
                 <li data-hidden="li" id="hiden-1" >
                     <div class="sub-nav-right" >
                         <div class="cell-box">
@@ -420,25 +404,25 @@
         </div>
     </div>
     <!--right-con-->
-    <div class="right-con" style="height: 400px;">
-        <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);">
+    <div class="right-con">
+        <div class="nav">
 
-            <a href="#" style="font-size: 16px;margin: 0 12px;">旅行社</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">组团游</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">跟团游</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">攻略</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">美食</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">酒店</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">景点</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;" >推荐路线</a>
-            <a href="#" style="font-size: 16px;margin: 0 12px;">留言板</a>
+            <a href="#">旅行社</a>
+            <a href="#">组团游</a>
+            <a href="user/tours">跟团游</a>
+            <a href="#">攻略</a>
+            <a href="#">美食</a>
+            <a href="#">酒店</a>
+            <a href="#">景点</a>
+            <a href="#">推荐路线</a>
+            <a href="#">留言板</a>
 
 
         </div>
         <!--滚动广告box-->
-        <div class="show-box" style="width: 720px;height: 350px;" >
+        <div class="show-box" >
             <!--广告内容-->
-            <div class="content" style="width: 720px;height: 350px;">
+            <div class="content" >
                 <ul class="imgBox">
                     <li><a href="#"><img src="resources/image/1.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/2.jpg"></a></li>
@@ -821,10 +805,9 @@
     <div id="backToTop-down" class="down-back"><i class="fa fa-angle-down"></i></div>
 </div>
 
-
 <script src="resources/js/jquery_1.9.js"></script>
 <script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="resources/js/show-image.js"></script>
 
 </body>
 </html>
