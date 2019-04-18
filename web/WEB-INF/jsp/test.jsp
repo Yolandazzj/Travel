@@ -147,7 +147,7 @@
                             <li><a href="#">爱么装</a></li>
                             <li><a href="#">运动户外</a></li>
                             <li><a href="#">家用电器</a></li>
-                            <li><a href="#">狠爱</a></li>
+                            <li><a href="#">啦啦啦</a></li>
                             <li><a href="#">网络游戏</a></li>
                             <li><a href="#">潮流设计</a></li>
                             <li><a href="#">淘宝星愿</a></li>
