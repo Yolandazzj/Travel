@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.qdu.pojo.Hotel" table="hotel" catalog="bishe" optimistic-lock="version">
+        <id name="hotelId" type="java.lang.Integer">
+            <column name="HotelId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
+            <column name="Cityid" not-null="true" />
+        </many-to-one>
+        <property name="hotelName" type="string">
+            <column name="HotelName" length="20" not-null="true" />
+        </property>
+        <property name="hotelPrice" type="float">
+            <column name="HotelPrice" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="hotelLevel" type="string">
+            <column name="HotelLevel" length="20" not-null="true" />
+        </property>
+        <property name="hotelScore" type="int">
+            <column name="HotelScore" not-null="true" />
+        </property>
+        <property name="hotelImage" type="string">
+            <column name="HotelImage" not-null="true" />
+        </property>
+        <set name="layouts" table="layout" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="HotelId" not-null="true" />
+            </key>
+            <one-to-many class="com.qdu.pojo.Layout" />
+        </set>
+        <set name="hotelorderses" table="hotelorders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="HotelId" not-null="true" />
+            </key>
+            <one-to-many class="com.qdu.pojo.Hotelorders" />
+        </set>
+        <set name="hotelcomments" table="hotelcomment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="HotelId" not-null="true" />
+            </key>
+            <one-to-many class="com.qdu.pojo.Hotelcomment" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-4-9 19:55:57 by Hibernate Tools 4.3.1
+// Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,8 +11,8 @@ public class Hotelcomment  implements java.io.Serializable {
 
 
      private Integer hcommentId;
+     private Hotel hotel;
      private Userinfo userinfo;
-     private int hotelId;
      private String hcommentContent;
      private int hcommentScore;
      private Date hcommentTime;
@@ -20,9 +20,9 @@ public class Hotelcomment  implements java.io.Serializable {
     public Hotelcomment() {
     }
 
-    public Hotelcomment(Userinfo userinfo, int hotelId, String hcommentContent, int hcommentScore, Date hcommentTime) {
+    public Hotelcomment(Hotel hotel, Userinfo userinfo, String hcommentContent, int hcommentScore, Date hcommentTime) {
+       this.hotel = hotel;
        this.userinfo = userinfo;
-       this.hotelId = hotelId;
        this.hcommentContent = hcommentContent;
        this.hcommentScore = hcommentScore;
        this.hcommentTime = hcommentTime;
@@ -35,19 +35,19 @@ public class Hotelcomment  implements java.io.Serializable {
     public void setHcommentId(Integer hcommentId) {
         this.hcommentId = hcommentId;
     }
+    public Hotel getHotel() {
+        return this.hotel;
+    }
+    
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
     public Userinfo getUserinfo() {
         return this.userinfo;
     }
     
     public void setUserinfo(Userinfo userinfo) {
         this.userinfo = userinfo;
-    }
-    public int getHotelId() {
-        return this.hotelId;
-    }
-    
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
     }
     public String getHcommentContent() {
         return this.hcommentContent;

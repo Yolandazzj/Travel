@@ -1779,3 +1779,24 @@ padding: 5px 0;
     background: #BDC3C7;
     color: #fff;
 }
+
+/****************add*******************/
+.w3layouts-main{
+    background-image: url('../image/1.jpg');
+    background-repeat: repeat-x;
+    animation: slideleft 20000s infinite linear;
+    -webkit-animation: slideleft 20000s infinite linear;
+    background-size: cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+}
+
+.bg-layer {
+    background: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+}
+
+/**********************************************/

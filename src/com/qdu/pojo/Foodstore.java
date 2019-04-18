@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-4-9 19:55:57 by Hibernate Tools 4.3.1
+// Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,7 +20,7 @@ public class Foodstore  implements java.io.Serializable {
     public Foodstore() {
     }
 
-
+	
     public Foodstore(City city, String dname, String daddress) {
         this.city = city;
         this.dname = dname;
@@ -32,39 +32,39 @@ public class Foodstore  implements java.io.Serializable {
        this.daddress = daddress;
        this.foodinfos = foodinfos;
     }
-
+   
     public Integer getDid() {
         return this.did;
     }
-
+    
     public void setDid(Integer did) {
         this.did = did;
     }
     public City getCity() {
         return this.city;
     }
-
+    
     public void setCity(City city) {
         this.city = city;
     }
     public String getDname() {
         return this.dname;
     }
-
+    
     public void setDname(String dname) {
         this.dname = dname;
     }
     public String getDaddress() {
         return this.daddress;
     }
-
+    
     public void setDaddress(String daddress) {
         this.daddress = daddress;
     }
     public Set getFoodinfos() {
         return this.foodinfos;
     }
-
+    
     public void setFoodinfos(Set foodinfos) {
         this.foodinfos = foodinfos;
     }

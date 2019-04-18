@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-4-9 19:55:57 by Hibernate Tools 4.3.1
+// Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
 
 
 
@@ -10,8 +10,8 @@ public class Hotelorders  implements java.io.Serializable {
 
 
      private Integer hotelOrderId;
+     private Hotel hotel;
      private Userinfo userinfo;
-     private int hotelId;
      private String hotelName;
      private float hotelPrice;
      private int orderDay;
@@ -23,8 +23,8 @@ public class Hotelorders  implements java.io.Serializable {
     }
 
 	
-    public Hotelorders(int hotelId, String hotelName, float hotelPrice, int orderDay, String contact, String orderName, int orderPeople) {
-        this.hotelId = hotelId;
+    public Hotelorders(Hotel hotel, String hotelName, float hotelPrice, int orderDay, String contact, String orderName, int orderPeople) {
+        this.hotel = hotel;
         this.hotelName = hotelName;
         this.hotelPrice = hotelPrice;
         this.orderDay = orderDay;
@@ -32,9 +32,9 @@ public class Hotelorders  implements java.io.Serializable {
         this.orderName = orderName;
         this.orderPeople = orderPeople;
     }
-    public Hotelorders(Userinfo userinfo, int hotelId, String hotelName, float hotelPrice, int orderDay, String contact, String orderName, int orderPeople) {
+    public Hotelorders(Hotel hotel, Userinfo userinfo, String hotelName, float hotelPrice, int orderDay, String contact, String orderName, int orderPeople) {
+       this.hotel = hotel;
        this.userinfo = userinfo;
-       this.hotelId = hotelId;
        this.hotelName = hotelName;
        this.hotelPrice = hotelPrice;
        this.orderDay = orderDay;
@@ -50,19 +50,19 @@ public class Hotelorders  implements java.io.Serializable {
     public void setHotelOrderId(Integer hotelOrderId) {
         this.hotelOrderId = hotelOrderId;
     }
+    public Hotel getHotel() {
+        return this.hotel;
+    }
+    
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
     public Userinfo getUserinfo() {
         return this.userinfo;
     }
     
     public void setUserinfo(Userinfo userinfo) {
         this.userinfo = userinfo;
-    }
-    public int getHotelId() {
-        return this.hotelId;
-    }
-    
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
     }
     public String getHotelName() {
         return this.hotelName;

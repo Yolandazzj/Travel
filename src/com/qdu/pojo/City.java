@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-4-9 19:55:57 by Hibernate Tools 4.3.1
+// Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,6 +19,7 @@ public class City  implements java.io.Serializable {
      private Set routecomments = new HashSet(0);
      private Set groups = new HashSet(0);
      private Set routes = new HashSet(0);
+     private Set hotels = new HashSet(0);
      private Set essays = new HashSet(0);
      private Set scenes = new HashSet(0);
      private Set foodstores = new HashSet(0);
@@ -34,7 +35,7 @@ public class City  implements java.io.Serializable {
         this.cityScore = cityScore;
         this.cityImage = cityImage;
     }
-    public City(int cityId, Province province, String cityName, int cityScore, String cityImage, Set routecomments, Set groups, Set routes, Set essays, Set scenes, Set foodstores) {
+    public City(int cityId, Province province, String cityName, int cityScore, String cityImage, Set routecomments, Set groups, Set routes, Set hotels, Set essays, Set scenes, Set foodstores) {
        this.cityId = cityId;
        this.province = province;
        this.cityName = cityName;
@@ -43,6 +44,7 @@ public class City  implements java.io.Serializable {
        this.routecomments = routecomments;
        this.groups = groups;
        this.routes = routes;
+       this.hotels = hotels;
        this.essays = essays;
        this.scenes = scenes;
        this.foodstores = foodstores;
@@ -103,6 +105,13 @@ public class City  implements java.io.Serializable {
     
     public void setRoutes(Set routes) {
         this.routes = routes;
+    }
+    public Set getHotels() {
+        return this.hotels;
+    }
+    
+    public void setHotels(Set hotels) {
+        this.hotels = hotels;
     }
     public Set getEssays() {
         return this.essays;
