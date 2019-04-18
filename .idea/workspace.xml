@@ -6,56 +6,56 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6655ad27-c2db-46de-86ff-21892608da65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotel.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Layout.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Layout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qdu/pojo/LayoutId.java" afterDir="false" />
+    <list default="true" id="6655ad27-c2db-46de-86ff-21892608da65" name="Default Changelist" comment="重新生成pojo文件  张紫捷">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Admininfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Admininfo.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Admininfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Admininfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Agency.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Agency.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Agency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Agency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Apply.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Apply.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Apply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Apply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Category.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Category.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/City.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/City.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Essay.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Essay.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Essay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Essay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Essaycomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Essaycomment.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Essaycomment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Essaycomment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodcomment.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodcomment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodcomment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodinfo.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodinfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodstore.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodstore.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Foodstore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Foodstore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Group.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Group.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelcomment.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelcomment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelcomment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelorders.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelorders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Hotelorders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Message.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Message.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Province.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Province.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Province.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Report.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Report.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Route.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Route.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Routecomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Routecomment.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Routecomment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Routecomment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Routeorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Routeorders.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Routeorders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Routeorders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Scene.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Scene.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Userinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Userinfo.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qdu/pojo/Userinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qdu/pojo/Userinfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Admininfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Admininfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Agency.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Agency.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Apply.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Apply.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Category.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Category.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/City.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/City.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Essay.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Essay.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Essaycomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Essaycomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodcomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodinfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodstore.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Foodstore.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Group.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Group.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelcomment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelcomment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelcomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelorders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelorders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Hotelorders.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Message.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Message.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Province.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Province.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Report.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Report.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Route.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Route.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Routecomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Routecomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Routeorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Routeorders.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Scene.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Scene.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Userinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/qdu/pojo/Userinfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Admininfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Admininfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Agency.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Agency.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Apply.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Apply.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Category.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Category.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/City.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/City.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Essay.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Essay.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Essaycomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Essaycomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodcomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodinfo.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodstore.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Foodstore.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Group.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Group.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelcomment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelcomment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelcomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelcomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelorders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelorders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Hotelorders.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Message.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Message.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Province.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Province.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Report.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Report.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Route.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Route.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Routecomment.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Routecomment.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Routeorders.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Routeorders.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Scene.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Scene.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Userinfo.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Travel/com/qdu/pojo/Userinfo.hbm.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -152,6 +152,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -326,14 +327,27 @@
               <item name="Travel" type="b2602c69:ProjectViewProjectNode" />
               <item name="Travel" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Travel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Travel" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Travel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Travel" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,7 +538,7 @@
       <workItem from="1554982444992" duration="6904000" />
       <workItem from="1555059585073" duration="5405000" />
       <workItem from="1555066754702" duration="10634000" />
-      <workItem from="1555584492298" duration="7254000" />
+      <workItem from="1555584492298" duration="7964000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1554722700783</created>
@@ -568,27 +582,34 @@
       <option name="project" value="LOCAL" />
       <updated>1555077376415</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="重新生成pojo文件  张紫捷">
+      <created>1555597541699</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555597541700</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89562000" />
+    <option name="totallyTimeSpent" value="90272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7307692" visible="true" weight="0.21136364" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73030305" visible="true" weight="0.21136364" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
-      <window_info id="Persistence" order="7" sideWeight="0.26923078" side_tool="true" visible="true" weight="0.21136364" />
+      <window_info id="Persistence" order="7" sideWeight="0.26969698" side_tool="true" visible="true" weight="0.21136364" />
       <window_info id="Structure" order="8" sideWeight="0.49751243" weight="0.18257576" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35643566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35643566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.6584615" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -600,7 +621,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3276923" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32838285" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.45692307" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" visible="true" weight="0.45544556" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -676,7 +697,8 @@
     <MESSAGE value="第四次 首页样式" />
     <MESSAGE value="第五次 首页样式和功能分配完毕" />
     <MESSAGE value="第六次 首页样式修改引用资源不正确问题、跟团游网页雏形" />
-    <option name="LAST_COMMIT_MESSAGE" value="第六次 首页样式修改引用资源不正确问题、跟团游网页雏形" />
+    <MESSAGE value="重新生成pojo文件  张紫捷" />
+    <option name="LAST_COMMIT_MESSAGE" value="重新生成pojo文件  张紫捷" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
