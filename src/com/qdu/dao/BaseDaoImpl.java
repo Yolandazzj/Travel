@@ -1,4 +1,4 @@
-package com.qdu.dao.impl;
+package com.qdu.dao;
 
 import com.qdu.dao.BaseDao;
 import java.io.Serializable;
