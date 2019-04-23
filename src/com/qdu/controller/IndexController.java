@@ -41,4 +41,10 @@ public class IndexController {
         return "userRoute";
     }
 
+//首页景点
+    @RequestMapping("user/scene")
+    public String scene() {
+    return "userScene";
+}
+
 }

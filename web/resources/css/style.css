@@ -744,7 +744,7 @@
     position: relative;
     float: left;
     width: 720px;
-    height: 500px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -762,7 +762,7 @@
 .imgBox > li,
 .imgBox1 > li{
     float: left;
-    width: 520px;
+    width: 720px;
 }
 .imgBox2 > li{
     float: left;
