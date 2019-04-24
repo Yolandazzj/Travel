@@ -11,7 +11,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <base href="${pageContext.request.contextPath}/">
+    <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <title>景点</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
@@ -442,173 +442,111 @@
     </div>
 </div>
 
-<!--main-->
-<div class="main" style="height: 1500px;">
-    <div class="main-left" style="height: 856px;">
-        <div class="main-title">
-            <h1 style="color: rgba(0,128,0,0.8)">当季热玩<span class="show-title">这里有当下最热门的景点！</span></h1>
-        </div>
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
+<br><br><br><br>
+<!--景点-->
 
-                    </div>
+<div class="gentuan w">
+    <div class="biaoti center">国内景点</div>
+    <div class="routemain center">
+        <div class="routecontent">
+            <div class="remen fl" style="height: 550px;"><a href="">热门旅行的景点</a>
+            </div>
 
+            <div class="remen fl">
+                <div class="luxian"><span>top1</span></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&routeName=${scene1.sceneName}"><img src="${scene1.sceneImage}"></a></div>
+                <div class="miaoshu"><a href="">${scene1.sceneName}</a></div>
+<%--                <div class="jiage">${scene1.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene1.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
 
-                    </div>
-
+            <div class="remen fl">
+                <div class="luxian"><span>top2</span></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}"><img src="./resources/image/peijian3.jpg"></a></div>
+                <div class="miaoshu"><a href="">${scene2.sceneName}</a></div>
+<%--                <div class="jiage">${scene2.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene2.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
-
-                    </div>
-
+            <div class="remen fl">
+                <div class="luxian"><span>top3</span></div>
+                <div class="tu"><a href="user/sceneDetails?routeId=${scene3.sceneId}"><img src="./resources/image/peijian4.jpg"></a></div>
+                <div class="miaoshu"><a href="">${scene3.sceneName}</a></div>
+<%--                <div class="jiage">${scene3.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene3.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
-
-                    </div>
-
+            <div class="remen fl">
+                <div class="luxian"><span>top4</span></div>
+                <div class="tu"><a href="user/sceneDetails?routeId=${scene4.sceneId}"><img src="./resources/image/peijian5.jpg"></a></div>
+                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>
+<%--                <div class="jiage">${scene4.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene4.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
+        <div class="routecontent">
 
-                    </div>
-
+            <div class="remen fl">
+                <div class="luxian"><span>top5</span></div>
+                <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>
+                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>
+<%--                <div class="jiage">${scene4.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene4.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
-        </div>
-
-        <div class="product-box">
-            <div class="inner-info">
-                <div>
-                    <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                    <span class="text-title">景点名字</span>
-                </div>
-                <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
-                    <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
-                </div>
-                <div class="inner-right">
-                    <div>
-                        <a href="#">
-                            <p>这里放景点介绍</p>
-                        </a>
-
-                    </div>
-
+            <div class="remen fl">
+                <div class="luxian"><span>top6</span></div>
+                <div class="tu"><a href="user/sceneDetails?routeId=${scene6.sceneId}"><img src="./resources/image/peijian8.jpg"></a></div>
+                <div class="miaoshu"><a href="">${scene6.sceneName}</a></div>
+<%--                <div class="jiage">${scene6.routePrice}</div>--%>
+                <div class="pingjia">3720人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${scene6.sceneScore}人点赞</span>
+                    </a>
                 </div>
             </div>
+            <div class="remen fl">
+                <div class="luxian"><span>top7</span></div>
+                <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>
+                <div class="miaoshu"><a href="">${route7.sceneName}</a></div>
+<%--                <div class="jiage">${route7.routePrice}</div>--%>
+                <div class="pingjia">7750人评价</div>
+                <div class="piao">
+                    <a href="">
+                        <span>${route7.sceneScore}人点赞</span>
+                    </a>
+                </div>
+            </div>
+            <div class="remenlast fr">
+                <div class="liulangengduo"><a href=""><img src="./resources/image/liulan.png" alt=""></a></div>
+            </div>
+            <div class="clear"></div>
         </div>
     </div>
-
-    <%--畅销排行榜--%>
-
-    <div class="right-sidebar" style="height: 400px;">
-        <div class="info-box" style="height: 350px;">
-            <ul class="tab-nav">
-                <li id="li-4" class="li-nav li-nav-hover li-border" style="color:rgba(0,125,0,0.5);">畅销酒店</li>
-            </ul>
-            <div id="box-6" style="display: block" class="showDetails">
-                畅销酒店信息
-            </div>
-        </div>
-    </div>
-
-    <%--畅销排行榜--%>
-
-    <div class="right-sidebar" style="height: 400px;">
-        <div class="info-box" style="height: 350px;">
-            <ul class="tab-nav">
-                <li id="li-6" class="li-nav li-nav-hover li-border">畅销路线</li>
-            </ul>
-            <div id="box-7" style="display: block" class="showDetails">
-                畅销路线信息
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <!--footer-->
