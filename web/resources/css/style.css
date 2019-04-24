@@ -2037,12 +2037,6 @@ padding: 5px 0;
 
 /*******************userRouteDetails***************/
 
-/*xiangqing*/
-.xiangqing {
-    width: 100%;
-    height: 58px;
-    background: rgba(0, 128, 0,0.5);
-}
 
 
 /*jieshao*/
@@ -2118,7 +2112,7 @@ padding: 5px 0;
 }
 
 .mt20 {
-    margin-top: 20px;
+    margin-top: 100px;
 }
 .left ul li {
     float: left;
@@ -2216,13 +2210,120 @@ left .xuangou_left {
 /*选取详情*/
 .xqxq {
     height: 80px;
-    width: 555px;
-    background: rgb(255, 255, 255);
+    width: 500px;
     padding: 20px;
+    border:1px solid #ff6700;
 }
 .ml20 {
-    margin-left: 20px;
+    margin:0 auto;
+}
+.xiaomi6 {
+    width: 1353px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
 }
 
+/*****************************加减数量框***********************/
+.room-number{
+    margin-bottom: 30px;
+}
+.desc,.bd-box{
+    float: left;
+}
 
+.bd-box{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    background: #fff;
+}
+.addition,.subtraction{
+    width: 17px;
+    padding: 0 6px;
+    color: #727171;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #d3d3d3;
+}
+.addition{
+    border-left: 0px;
+}
+.subtraction{
+    border-right: 0px;
+}
+.number-box{
+    width: 122px;
+    border: 1px solid #d3d3d3;
+}
+/***********下单**********/
+/*是否下单*/
+.xiadan {
+    height: 50px;
+    line-height: 50px;
 
+}
+
+.xiadan .jrgwc {
+    height: 50px;
+    width: 150px;
+    border: none;
+    background: #ff6700;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.xiadan .jrgwc:hover {
+    border: 1px solid #fff;
+}
+
+/*****************产品介绍****/
+.detail{
+    width: 1000px;
+    height:200px;
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+.detail2{
+    width: 800px;
+    height: 100px;
+    /*background-color: pink;*/
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+#image1{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
+#user2{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
+.title{
+    background-color: lightgray;
+    width: 800px;
+    height: 30px;
+    margin-top: 50px;
+    margin-left: 100px;
+
+}
+.spana{
+    color: black;
+    font-size: 15px;
+    margin-left: 100px;
+    width: 1000px;
+}

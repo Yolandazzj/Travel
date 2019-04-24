@@ -1,6 +1,7 @@
 package com.qdu.service;
 
 import com.qdu.dao.RouteDao;
+import com.qdu.pojo.Agency;
 import com.qdu.pojo.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,5 +51,16 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public Route hotRoute7() {
         return routeDao.hotRoute7();
+    }
+
+    @Override
+    public Route routeDetails(int routeId) {
+       return routeDao.routeDeatils(routeId);
+    }
+
+    @Override
+    public List<Agency> agencyDetails(int routeId) {
+
+        return routeDao.agencyDetails(routeId);
     }
 }

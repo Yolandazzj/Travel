@@ -5,8 +5,8 @@
   Time: 17:26
   To change this template use File | Settings | File Templates.
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -96,59 +96,87 @@
 <br><br><br><br><br><br>
 <!-- xiangqing -->
 <form action="post" method="">
-    <div class="xiangqing">
-        <h3>${routeName}</h3>
+    <div class="xiaomi6 fl">
+        ${routeName}
     </div>
-
+<br><br><br><br>
     <div class="jieshao mt20 w">
         <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
-        <div class="right fr">
-            <div class="h3 ml20 mt20">小米6</div>
-            <div class="jianjie mr40 ml20 mt10">变焦双摄，4 轴防抖 / 骁龙835 旗舰处理器，6GB 大内存，最大可选128GB 闪存 / 5.15" 护眼屏 / 四曲面玻璃/陶瓷机身</div>
-            <div class="jiage ml20 mt10">2499.00元</div>
-            <div class="ft20 ml20 mt20">选择版本</div>
-            <div class="xzbb ml20 mt10">
-                <div class="banben fl">
-                    <a>
-                        <span>全网通版 6GB+64GB </span>
-                        <span>2499元</span>
-                    </a>
-                </div>
-                <div class="banben fr">
-                    <a>
-                        <span>全网通版 6GB+128GB</span>
-                        <span>2899元</span>
-                    </a>
-                </div>
-                <div class="clear"></div>
+        <div class="right fr" style="height:562px;padding-left: 20px; ">
+            <br>
+            <div class="jianjie mr40 ml20 mt10">促销价：<div class="jiage ml20 mt10"><br>${routeDetails.routePrice}元</div></div>
+            <br><br>
+            <div class="jianjie mr40 ml20 mt10">出发地点:</div>
+            <br><br>
+            <div class="jianjie mr40 ml20 mt10">
+                <label >出游日期:<span style="color: black;"><fmt:formatDate value="${routeDetails.routeStartDay}" pattern="yyyy-MM-dd HH:mm:ss" /></span></label>
             </div>
-            <div class="ft20 ml20 mt20">选择颜色</div>
-            <div class="xzbb ml20 mt10">
-                <div class="banben">
-                    <a>
-                        <span class="yuandian"></span>
-                        <span class="yanse">亮黑色</span>
-                    </a>
+
+            <div class="jianjie mr40 ml20 mt10">
+                <div class="room-number">
+                    <p class="clearfix">
+                        <span class="desc">出游人数:&nbsp;&nbsp;</span>
+                        <span class="bd-box subtraction min" style="height: 32px;">-</span>
+                        <input class="bd-box number-box" value="1" readonly="readonly"/>
+                        <span class="bd-box addition add" style="height: 32px;">+</span>
+                    </p>
                 </div>
 
             </div>
+            <br><br><br><br>
+            <div class="jianjie mr40 ml20 mt10">出行天数:&nbsp;&nbsp;<span style="color: black;">${routeDetails.routeDay}天</span></div>
+            <br><br><br>
+            <div class="jianjie mr40 ml20 mt10">行程概要：
+                <br><br>
             <div class="xqxq mt20 ml20">
-                <div class="top1 mt10">
-                    <div class="left1 fl">小米6 全网通版 6GB内存 64GB 亮黑色</div>
-                    <div class="right1 fr">2499.00元</div>
-                    <div class="clear"></div>
+                <div class="top1 mt10" style="color: black;">
+                    ${routeDetails.routeContent}
                 </div>
-                <div class="bot mt20 ft20 ftbc">总计：2499元</div>
             </div>
-            <div class="xiadan ml20 mt20">
-                <input class="jrgwc"  type="button" name="jrgwc" value="立即选购" />
-                <input class="jrgwc" type="button" name="jrgwc" value="加入购物车" />
+            </div>
+            <br><br><br>
+            <div class="xiadan ml20 mt20" style="margin-left: 230px;">
+                <input class="jrgwc"  type="button" name="jrgwc" value="立即预定" />
 
             </div>
         </div>
         <div class="clear"></div>
     </div>
 </form>
+
+
+<img src="resources/image/user1.png" id="image1">
+<div class="detail" style="width: 1000px;">
+    <div class="title">
+        <img src="resources/image/copy.png">
+    </div>
+    <br>
+    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
+    <br><br>
+    <c:forEach items="${agencyDetails}" var="a">
+    <span class="spana">旅行社：${a[1]}</span>
+    <br><br>
+    <span class="spana">联系方式：${a[2]}</span>
+    <br><br>
+    <span class="spana">旅行社好评度：已经有${a[3]}人点赞过这个旅行社啦！</span>
+    <br><br>
+    <span class="spana">旅行社介绍：${a[4]}</span>
+    </c:forEach>
+    <br><br>
+
+ </div>
+<img src="resources/image/user2.png" id="user2" >
+<div class="detail2">
+
+    <img src="resources/image/copy2.png"   style="margin-left: 100px;">
+    <br><br>
+    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
+    <br><br>
+    <span class="spana" style="color:black;">优惠价格：${routeDetails.routePrice}元！抓紧预定，此线路保证你${routeDetails.routeDay}天的欢乐时光！</span>
+    <br><br>
+    <span class="spana" style="color:black;">线路介绍：${routeDetails.routeContent}</span>
+</div>
+
 
 
 
@@ -180,6 +208,26 @@
 <script src="resources/js/jquery_1.9.js"></script>
 <script src="resources/js/main.js"></script>
 <script src="resources/js/img-show.js"></script>
+
+<script>
+    $(function(){
+        /*单击加号按钮增加数量*/
+        $(".add").click(function(){
+            var add = $(this).siblings(".number-box");
+            add.val(parseInt(add.val())+1)
+        });
+
+        /*单击减号按钮减少房间*/
+        $(".min").click(function(){
+            var min = $(this).siblings(".number-box");
+            min.val(parseInt(min.val())-1)
+            if(parseInt(min.val())<1){
+                min.val(1);
+            }
+
+        });
+});
+</script>
 
 </body>
 </html>
