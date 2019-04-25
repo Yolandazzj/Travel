@@ -36,14 +36,14 @@
                 <span class="fa fa-eercast"></span>
             </div>
             <div class="header-left-bottom">
-                <form action="/Travel/user/login.action" method="post" id="loginValidate">
+                <form action="user/login" method="post" id="loginValidate">
                     <div class="icon1">
                         <span class="fa fa-user"></span>
-                        <input type="text" placeholder="账户名" required=""/>
+                        <input type="text" placeholder="账户名" required="true" name="uid"/>
                     </div>
                     <div class="icon1">
                         <span class="fa fa-lock"></span>
-                        <input type="password" placeholder="密码" required=""/>
+                        <input type="password" placeholder="密码" required="true" name="upassword"/>
                     </div>
                     <div class="login-check">
                         <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me
@@ -96,8 +96,8 @@
 
 
 <%--    <jsp:include page="footer.jsp"/>--%>
-<script src="../../resources/js/jquery_1.9.js"></script>
-<script src="../../resources/js/main.js"></script>
-<script src="../../resources/js/show-image.js"></script>
+<script src="resources/js/jquery_1.9.js"></script>
+<script src="resources/js/main.js"></script>
+<script src="resources/js/show-image.js"></script>
 </body>
 </html>
