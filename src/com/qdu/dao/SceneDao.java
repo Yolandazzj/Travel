@@ -1,7 +1,10 @@
 package com.qdu.dao;
 
 
+import com.qdu.pojo.City;
 import com.qdu.pojo.Scene;
+
+import java.util.List;
 
 public interface SceneDao {
 
@@ -13,4 +16,5 @@ public interface SceneDao {
     Scene hotScene5();
     Scene hotScene6();
     Scene hotScene7();
+    List<City> cityDetails(int sceneId);//根据景点ID获取所在城市名字；
 }

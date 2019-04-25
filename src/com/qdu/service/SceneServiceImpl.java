@@ -1,11 +1,13 @@
 package com.qdu.service;
 
 import com.qdu.dao.SceneDao;
+import com.qdu.pojo.City;
 import com.qdu.pojo.Scene;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @Service
@@ -48,4 +50,11 @@ public class SceneServiceImpl implements SceneService {
     public Scene hotScene7() {
         return sceneDao.hotScene7();
     }
+
+    @Override
+    public List<City> cityDetails(int sceneId) {
+        return sceneDao.cityDetails(sceneId);
+    }
+
+
 }

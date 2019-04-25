@@ -1,6 +1,9 @@
 package com.qdu.service;
 
+import com.qdu.pojo.City;
 import com.qdu.pojo.Scene;
+
+import java.util.List;
 
 public interface SceneService {
 
@@ -12,4 +15,5 @@ public interface SceneService {
     Scene hotScene5();
     Scene hotScene6();
     Scene hotScene7();
+    List<City> cityDetails(int sceneId);//根据景点ID获取所在城市信息；
 }

@@ -1,11 +1,14 @@
 package com.qdu.dao;
 
 
+import com.qdu.pojo.City;
 import com.qdu.pojo.Scene;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class SceneDaoImpl implements SceneDao {
@@ -68,5 +71,10 @@ public class SceneDaoImpl implements SceneDao {
         query.setFirstResult(6);
         query.setMaxResults(1);
         return (Scene) query.uniqueResult();
+    }
+
+    @Override
+    public List<City> cityDetails(int sceneId) {
+        return null;
     }
 }

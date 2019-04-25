@@ -411,7 +411,7 @@
             <a href="#">攻略</a>
             <a href="#">美食</a>
             <a href="#">酒店</a>
-            <a href="#">景点</a>
+            <a href="user/scene">景点</a>
             <a href="#">推荐路线</a>
             <a href="#">留言板</a>
 
@@ -508,12 +508,12 @@
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
                 <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>
+                <div class="miaoshu"><a href="">${scene5.sceneName}</a></div>
 <%--                <div class="jiage">${scene4.routePrice}</div>--%>
                 <div class="pingjia">3720人评价</div>
                 <div class="piao">
                     <a href="">
-                        <span>${scene4.sceneScore}人点赞</span>
+                        <span>${scene5.sceneScore}人点赞</span>
                     </a>
                 </div>
             </div>
@@ -532,12 +532,12 @@
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
                 <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>
-                <div class="miaoshu"><a href="">${route7.sceneName}</a></div>
+                <div class="miaoshu"><a href="">${scene7.sceneName}</a></div>
 <%--                <div class="jiage">${route7.routePrice}</div>--%>
                 <div class="pingjia">7750人评价</div>
                 <div class="piao">
                     <a href="">
-                        <span>${route7.sceneScore}人点赞</span>
+                        <span>${scene7.sceneScore}人点赞</span>
                     </a>
                 </div>
             </div>
