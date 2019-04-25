@@ -39,11 +39,11 @@
                 <form action="user/login" method="post" id="loginValidate">
                     <div class="icon1">
                         <span class="fa fa-user"></span>
-                        <input type="text" placeholder="账户名" required="true" value="uid"/>
+                        <input type="text" placeholder="账户名" required="true" name="uid"/>
                     </div>
                     <div class="icon1">
                         <span class="fa fa-lock"></span>
-                        <input type="password" placeholder="密码" required="true" value="upassword"/>
+                        <input type="password" placeholder="密码" required="true" name="upassword"/>
                     </div>
                     <div class="login-check">
                         <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me
