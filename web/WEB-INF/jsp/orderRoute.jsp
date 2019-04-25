@@ -95,16 +95,19 @@
 </div>
 <br><br><br><br><br><br>
 <!-- xiangqing -->
-
+<form action="user/toUserOrder" method="post">
     <div class="xiaomi6 fl">
-        ${routeName}
+        ${routeDetails.routeName}
     </div>
-<br><br><br><br>
+    <br><br><br><br>
     <div class="jieshao mt20 w">
-        <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
-        <div class="right fr" style="height:562px;padding-left: 20px; ">
+        <div class="right fr" style="height:562px;padding-left: 20px; margin-left: 50px;float: left;width: 700px;margin-left: 270px;">
             <br>
-            <div class="jianjie mr40 ml20 mt10">促销价：<div class="jiage ml20 mt10"><br>${routeDetails.routePrice}元</div></div>
+            <div class="jianjie mr40 ml20 mt10">单价：<div class="jiage ml20 mt10"><br>${routeDetails.routePrice}元</div></div>
+            <br><br>
+            <c:forEach items="${cityName}" var="c">
+                <div class="jianjie mr40 ml20 mt10">出发地点:&nbsp;<span style="color: black;">${c[0]}</span></div>
+            </c:forEach>
             <br><br>
             <div class="jianjie mr40 ml20 mt10">
                 <label >出游日期:<span style="color: black;"><fmt:formatDate value="${routeDetails.routeStartDay}" pattern="yyyy-MM-dd HH:mm:ss" /></span></label>
@@ -124,86 +127,31 @@
             <br><br><br><br>
             <div class="jianjie mr40 ml20 mt10">出行天数:&nbsp;&nbsp;<span style="color: black;">${routeDetails.routeDay}天</span></div>
             <br><br><br>
-            <div class="jianjie mr40 ml20 mt10">行程概要：
-                <br><br>
-            <div class="xqxq mt20 ml20">
-                <div class="top1 mt10" style="color: black;">
-                    ${routeDetails.routeContent}
-                </div>
-            </div>
-            </div>
-            <br><br><br>
+            <label class="jianjie mr40 ml20 mt10" for="contact">联系方式：</label><input id="contact" type="text" oninput="validateFill(this)" required>
+            <br><br><br><br>
+            <label class="jianjie mr40 ml20 mt10" for="routeOrderName">预定人姓名：</label><input id="routeOrderName" type="text" oninput="validateFill(this)" required>
+            <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
+            <input  type="hidden" name="routeName" value="${routeDetails.routeName}">
+            <input  type="hidden" name="routePrice" value="">
+            <input  type="hidden" name="routeOrderPeople" value="">
+            <br><br><br><br>
             <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-                <form action="user/toOrderRoute" method="post">
-                <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
-                <button class="jrgwc"  type="submit">立即预定</button>
-                </form>
+                <input class="jrgwc"  type="submit" value="立即预定" />
+
             </div>
         </div>
-        <div class="clear"></div>
-    </div>
-
-
-
-<img src="resources/image/user1.png" id="image1">
-<div class="detail" style="width: 1000px;">
-    <div class="title">
-        <img src="resources/image/copy.png">
-    </div>
-    <br>
-    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
-    <br><br>
-    <c:forEach items="${agencyDetails}" var="a">
-    <span class="spana">旅行社：${a[1]}</span>
-    <br><br>
-    <span class="spana">联系方式：${a[2]}</span>
-    <br><br>
-    <span class="spana">旅行社好评度：已经有${a[3]}人点赞过这个旅行社啦！</span>
-    <br><br>
-    <span class="spana">旅行社介绍：${a[4]}</span>
-    </c:forEach>
-    <br><br>
 
  </div>
-<img src="resources/image/user2.png" id="user2" >
-<div class="detail2">
 
-    <img src="resources/image/copy2.png"   style="margin-left: 100px;">
-    <br><br>
-    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
-    <br><br>
-    <span class="spana" style="color:black;">优惠价格：${routeDetails.routePrice}元！抓紧预定，此线路保证你${routeDetails.routeDay}天的欢乐时光！</span>
-    <br><br>
-    <span class="spana" style="color:black;">线路介绍：${routeDetails.routeContent}</span>
-</div>
 
-<img src="resources/image/user3.png" id="image2">
-<div class="detail" style="width: 1000px;">
-    <br>
 
-    <div class="control-group">
-        <div class="controls" style="margin-left: 100px;">
 
-            <br><br><br><br><br><br><br><br>
-            <table id="commentTable">
-                <c:forEach items="${routeCommentList}" var="r">
-                    <tr>
-                        <td>${r[6]}&nbsp;&nbsp;<span style="font-size: 12px;">
-                                                <fmt:formatDate  value="${r[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                            </span>:<br><br><br>${r[3]}</td>
-
-                    </tr>
-                </c:forEach>
-            </table>
-
-        </div>
     </div>
 
 
 
-</div>
 
-
+</form>
 
 
 
@@ -254,8 +202,15 @@
             }
 
         });
-});
+    });
 </script>
-
+<script>
+function validateFill(input) {
+if (input.value == " ") {
+input.setCustomValidity('此项为必填');
+return false;
+}
+}
+</script>
 </body>
 </html>

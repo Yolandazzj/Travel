@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
@@ -35,4 +36,21 @@ public class RoutesController {
        model.addAttribute("cityName",cityName);
         return "userRouteDetails";
     }
+
+
+
+    @RequestMapping("user/toOrderRoute")
+        public String toOrderRoute(HttpServletRequest request,Model model,int routeId){
+        Route routeDetails= routeService.routeDetails(routeId);
+        model.addAttribute("routeDetails",routeDetails);
+
+            return "orderRoute";
+        }
+
+        @RequestMapping("user/toUserOrder")
+    public String toUserOrder(){
+        return "userOrder";
+        }
+
+
 }
