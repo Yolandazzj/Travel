@@ -618,7 +618,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route2.routeId}"><img src="./resources/image/peijian3.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route2.routeId}&routeName=${route2.routeName}"><img src="./resources/image/peijian3.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route2.routeName}</a></div>
                 <div class="jiage">${route2.routePrice}</div>
                 <div class="pingjia">372人评价</div>
@@ -630,7 +630,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route3.routeId}"><img src="./resources/image/peijian4.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route3.routeId}&routeName=${route3.routeName}"><img src="./resources/image/peijian4.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route3.routeName}</a></div>
                 <div class="jiage">${route3.routePrice}</div>
                 <div class="pingjia">372人评价</div>
@@ -642,7 +642,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route4.routeId}"><img src="./resources/image/peijian5.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route4.routeId}&routeName=${route4.routeName}"><img src="./resources/image/peijian5.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route4.routeName}</a></div>
                 <div class="jiage">${route4.routePrice}</div>
                 <div class="pingjia">372人评价</div>
@@ -658,7 +658,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route5.routeId}"><img src="./resources/image/peijian7.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route5.routeId}&routeName=${route5.routeName}"><img src="./resources/image/peijian7.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route5.routeName}</a></div>
                 <div class="jiage">${route5.routePrice}</div>
                 <div class="pingjia">372人评价</div>
@@ -670,7 +670,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route6.routeId}"><img src="./resources/image/peijian8.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route6.routeId}&routeName=${route6.routeName}"><img src="./resources/image/peijian8.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route6.routeName}</a></div>
                 <div class="jiage">${route6.routePrice}</div>
                 <div class="pingjia">372人评价</div>
@@ -682,7 +682,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route7.routeId}"><img src="./resources/image/peijian9.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route7.routeId}&routeName=${route7.routeName}"><img src="./resources/image/peijian9.jpg"></a></div>
                 <div class="miaoshu"><a href="">${route7.routeName}</a></div>
                 <div class="jiage">${route7.routePrice}</div>
                 <div class="pingjia">775人评价</div>

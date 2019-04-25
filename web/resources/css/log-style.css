@@ -28,18 +28,18 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*-- end reset --*/
 body {
-	font-family: 'Hind', sans-serif;
-} 
-/*-- main --*/ 
+    font-family: 'Hind', sans-serif;
+}
+/*-- main --*/
 
 h1 {
-	font-size: 45px;
-	color: #fff;
-	font-weight: 300;
-	text-transform: uppercase;
-	letter-spacing: 4px;
-	text-align: center;
-	padding: 1em 0 0.4em 0;
+    font-size: 45px;
+    color: #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    padding: 1em 0 0.4em 0;
 }
 /*-- slide --*/
 
@@ -67,16 +67,16 @@ h1 {
     animation: slideleft 20000s infinite linear;
     -webkit-animation: slideleft 20000s infinite linear;
     background-size: cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover; 
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
     background-attachment: fixed;
     position: relative;
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 .bg-layer {
     background: rgba(0, 0, 0, 0.7);
-	min-height: 100vh;
+    min-height: 100vh;
 }
 /*-- //slide --*/
 
@@ -85,9 +85,9 @@ h1 {
     padding: 0em 0 0;
 }
 .icon1 {
-	margin: 0 0 1em;
-	padding: .8em 1em;
-	background: rgba(255, 255, 255, 0.94);
+    margin: 0 0 1em;
+    padding: .8em 1em;
+    background: rgba(255, 255, 255, 0.94);
 }
 .icon1 span.fa {
     color: #222;
@@ -112,23 +112,23 @@ a {
     margin: 1em 0 0;
 }
 .header-main {
-	max-width: 310px;
-	margin: 0 auto;
-	position: relative;
-	z-index: 999;
-	padding: 3em 2em;
-	background: rgba(255, 255, 255, 0.04);
-	-webkit-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
-	box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+    max-width: 310px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+    padding: 3em 2em;
+    background: rgba(255, 255, 255, 0.04);
+    -webkit-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
 }
 
 .sign-up {
     margin: 2em 0;
 }
 .header-left {
-  background: #fff;
-  padding: 0px;
+    background: #fff;
+    padding: 0px;
 }
 .sign-up h2 {
     font-size: 22px;
@@ -144,24 +144,24 @@ a {
 ::-webkit-input-placeholder{
     color: #333!important;
 }
-.header-left-bottom input[type="email"] {
+.header-left-bottom input[type="text"] {
     outline: none;
     font-size: 15px;
     color: #222;
-	border:none;
+    border:none;
     width: 90%;
     display: inline-block;
     background: transparent;
     letter-spacing: 1px;
 }
 .header-left-bottom input[type="password"]{
-	outline: none;
-	font-size: 15px;
+    outline: none;
+    font-size: 15px;
     color: #222;
-	border:none;
+    border:none;
     width: 90%;
-	display: inline-block;
-	background: transparent;
+    display: inline-block;
+    background: transparent;
     letter-spacing: 1px;
 }
 .header-left-bottom button.btn {
@@ -179,7 +179,7 @@ a {
     cursor: pointer;
     outline: none;
     border: none;
-	width: 100%;
+    width: 100%;
 }
 
 /*-- agileits --*/
@@ -194,12 +194,12 @@ a {
 }
 
 .header-left-bottom p.right {
-	text-align: right;
+    text-align: right;
 }
 .header-left-bottom p a {
-	font-size: 11px;
-	color: #e2e2e2;
-	text-transform: uppercase;
+    font-size: 11px;
+    color: #e2e2e2;
+    text-transform: uppercase;
 }
 .social {
     margin: 2em 0 0;
@@ -211,11 +211,11 @@ a {
     font-size: 20px;
 }
 .social span.fa {
-	color: #fff;
-	font-size: 12px;
-	line-height: 35px;
-	margin: 0 5px;
-	transition: 0.5s all;
+    color: #fff;
+    font-size: 12px;
+    line-height: 35px;
+    margin: 0 5px;
+    transition: 0.5s all;
 }
 .social ul li {
     display: inline-block;
@@ -238,17 +238,17 @@ a {
     background: #dd4b39;
 }
 .social ul li a {
-	background: rgba(255, 255, 255, 0.22);
-	width: 35px;
-	height: 35px;
-	line-height: 35px;
-	display: block;
-	text-align: center;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-o-border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .login-check {
@@ -283,7 +283,7 @@ a {
     -webkit-transition: opacity 0.1s;
 }
 .checkbox input + i:after {
-    content: url(../images/tick.png);
+    content: url(../image/log-tick.png);
     top: -1px;
     left: 2px;
     width: 15px;
@@ -331,55 +331,55 @@ h3 a {
     line-height: 1.8em;
 }
 .copyright p a{
-    color: #fff; 
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-	transition: 0.5s all;
+    color: #fff;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
 }
 /*-- //copyright --*/
 /*-- //main --*/
 
-/*-- responsive-design --*/ 
+/*-- responsive-design --*/
 
 @media(max-width:667px){
-	
-	h1 {
-		font-size: 40px;
-		letter-spacing: 3px;
-	}
+
+    h1 {
+        font-size: 40px;
+        letter-spacing: 3px;
+    }
 }
 
 @media(max-width:415px){
-	
-	h1 {
-		font-size: 35px;
-		letter-spacing: 3px;
-	}
-	.social {
-		margin: 1em 0 0;
-	}
-	.copyright {
-		padding: 2em 1em;
-	}
+
+    h1 {
+        font-size: 35px;
+        letter-spacing: 3px;
+    }
+    .social {
+        margin: 1em 0 0;
+    }
+    .copyright {
+        padding: 2em 1em;
+    }
 }
 @media(max-width:384px){
-	.main-icon span.fa {
-		margin-bottom: .6em;
-	}
-	.header-main {
-		max-width: 310px;
-		margin: 0 1em;
-	}
-	.header-left-bottom input[type="email"],.header-left-bottom input[type="password"] {
-		width: 88%;
-	}
-	.social ul li {
-		margin: 0 2px;
-	}
-	h1 {
-		font-size: 30px;
-	}
-} 
+    .main-icon span.fa {
+        margin-bottom: .6em;
+    }
+    .header-main {
+        max-width: 310px;
+        margin: 0 1em;
+    }
+    .header-left-bottom input[type="text"],.header-left-bottom input[type="password"] {
+        width: 88%;
+    }
+    .social ul li {
+        margin: 0 2px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+}
 /*-- //responsive-design --*/
