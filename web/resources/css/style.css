@@ -2313,6 +2313,13 @@ left .xuangou_left {
     margin-left: 90px;
 
 }
+#image2{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
 .title{
     background-color: lightgray;
     width: 800px;
@@ -2326,4 +2333,27 @@ left .xuangou_left {
     font-size: 15px;
     margin-left: 100px;
     width: 1000px;
+}
+
+/***************table************/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid lightgrey;
+    margin: 0 auto;
+}
+th{
+    background-color: lightgrey;
+    color:black;
+    padding: 10px;
+
+}
+td{
+    border: 0;
+    border-bottom: 3px solid lightgray;
+    padding: 10px;
+}
+
+tr:hover{
+    background-color: lightgray;
 }

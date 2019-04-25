@@ -106,7 +106,9 @@
             <br>
             <div class="jianjie mr40 ml20 mt10">促销价：<div class="jiage ml20 mt10"><br>${routeDetails.routePrice}元</div></div>
             <br><br>
-            <div class="jianjie mr40 ml20 mt10">出发地点:</div>
+            <c:forEach items="${cityName}" var="c">
+            <div class="jianjie mr40 ml20 mt10">出发地点:&nbsp;<span style="color: black;">${c[0]}</span></div>
+            </c:forEach>
             <br><br>
             <div class="jianjie mr40 ml20 mt10">
                 <label >出游日期:<span style="color: black;"><fmt:formatDate value="${routeDetails.routeStartDay}" pattern="yyyy-MM-dd HH:mm:ss" /></span></label>
@@ -176,6 +178,34 @@
     <br><br>
     <span class="spana" style="color:black;">线路介绍：${routeDetails.routeContent}</span>
 </div>
+
+<img src="resources/image/user3.png" id="image2">
+<div class="detail" style="width: 1000px;">
+    <br>
+
+    <div class="control-group">
+        <div class="controls" style="margin-left: 100px;">
+
+            <br><br><br><br><br><br><br><br>
+            <table id="commentTable">
+                <c:forEach items="${routeCommentList}" var="r">
+                    <tr>
+                        <td>${r[6]}&nbsp;&nbsp;<span style="font-size: 12px;">
+                                                <fmt:formatDate  value="${r[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                            </span>:<br><br><br>${r[3]}</td>
+
+                    </tr>
+                </c:forEach>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
 
 
 

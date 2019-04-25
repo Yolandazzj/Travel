@@ -2,7 +2,9 @@ package com.qdu.dao;
 
 import com.qdu.dao.RouteDao;
 import com.qdu.pojo.Agency;
+import com.qdu.pojo.City;
 import com.qdu.pojo.Route;
+import com.qdu.pojo.Routecomment;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
@@ -96,5 +98,32 @@ public class RouteDaoImpl implements RouteDao {
         query.setParameter(0,routeId);
 
         return  query.list();
+    }
+
+    @Override
+    public List<Routecomment> routeComment(int routeId) {
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select b.* from Route r,Routecomment b where r.routeId=b.routeId and r.routeId=?");
+        query.setParameter(0,routeId);
+        query.addScalar("rcommentId", StandardBasicTypes.INTEGER);
+        query.addScalar("cityId", StandardBasicTypes.INTEGER);
+        query.addScalar("routeId", StandardBasicTypes.INTEGER);
+        query.addScalar("rcommentContent", StandardBasicTypes.STRING);
+        query.addScalar("rcommentScore", StandardBasicTypes.INTEGER);
+        query.addScalar("rcommentTime", StandardBasicTypes.TIMESTAMP);
+        query.addScalar("uid", StandardBasicTypes.STRING);
+        return query.list();
+    }
+
+    @Override
+    public List<City> cityNameById(int cityId) {
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Route r,City c where r.cityId=c.cityId and r.cityId=?");
+        query.setParameter(0,cityId);
+        query.addScalar("cityName", StandardBasicTypes.STRING);
+        query.addScalar("cityId", StandardBasicTypes.INTEGER);
+        query.addScalar("cityScore", StandardBasicTypes.INTEGER);
+        query.addScalar("cityImage", StandardBasicTypes.STRING);
+        query.addScalar("provinceId", StandardBasicTypes.INTEGER);
+
+        return query.list();
     }
 }

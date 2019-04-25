@@ -1,7 +1,9 @@
 package com.qdu.dao;
 
 import com.qdu.pojo.Agency;
+import com.qdu.pojo.City;
 import com.qdu.pojo.Route;
+import com.qdu.pojo.Routecomment;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ public interface RouteDao {
     Route hotRoute7();//获取热门路线7
     Route routeDeatils(int routeId);//根据路线id获取详细信息
     List<Agency> agencyDetails(int routeId);//根据路线id获取旅行社信息
+    List<Routecomment> routeComment(int routeId);//根据id获取路线评论
+    List<City> cityNameById(int cityId);//根据城市id获取城市名字
 }
