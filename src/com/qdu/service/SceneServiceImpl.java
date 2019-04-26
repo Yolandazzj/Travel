@@ -1,7 +1,9 @@
 package com.qdu.service;
 
 import com.qdu.dao.SceneDao;
+import com.qdu.page.page;
 import com.qdu.pojo.City;
+import com.qdu.pojo.Province;
 import com.qdu.pojo.Scene;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,8 +54,47 @@ public class SceneServiceImpl implements SceneService {
     }
 
     @Override
+    public Scene sceneDetails(int sceneId) {
+        return sceneDao.sceneDetails(sceneId);
+    }
+
+    @Override
     public List<City> cityDetails(int sceneId) {
         return sceneDao.cityDetails(sceneId);
+    }
+
+    @Override
+    public List<Province> proNameByCity(int cityId) {
+        return sceneDao.proNameByCity(cityId);
+    }
+
+    /**
+     * 分页查询
+     * @param currentPage 当前页号：现在显示的页数
+     * @param pageSize 每页显示的记录条数
+     * @return 封闭了分页信息(包括记录集list)的Bean
+     * */
+    @SuppressWarnings("unchecked")
+    @Override
+    public page queryForPage(int currentPage, int pageSize, int sceneId) {
+        page page=new page();
+        //总记录数
+        int allRow =sceneDao.getAllRowCount(sceneId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List sceneList = sceneDao.queryForPage(offset, pageSize, sceneId);
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(sceneList);
+        return page;
+    }
+
+    @Override
+    public boolean thumb(int sceneId) {
+        sceneDao.thumb(sceneId);
+        return true;
     }
 
 

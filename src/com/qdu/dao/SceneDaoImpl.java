@@ -2,12 +2,17 @@ package com.qdu.dao;
 
 
 import com.qdu.pojo.City;
+import com.qdu.pojo.Province;
 import com.qdu.pojo.Scene;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
+import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -74,7 +79,81 @@ public class SceneDaoImpl implements SceneDao {
     }
 
     @Override
-    public List<City> cityDetails(int sceneId) {
-        return null;
+    public Scene sceneDetails(int sceneId) {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Scene where sceneId=?");
+        query.setParameter(0,sceneId);
+        return (Scene) query.uniqueResult();
     }
+
+
+    @Override
+    public List cityDetails(int sceneId) {
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Scene s,City c where c.cityId=s.cityId and s.sceneId=?");
+        query.addScalar("cityId", StandardBasicTypes.INTEGER);
+        query.addScalar("cityName", StandardBasicTypes.STRING);
+        query.addScalar("cityScore", StandardBasicTypes.INTEGER);
+        query.addScalar("cityImage", StandardBasicTypes.STRING);
+        query.addScalar("provinceId",StandardBasicTypes.INTEGER);
+        query.setParameter(0,sceneId);
+        return query.list();
+    }
+
+    @Override
+    public List proNameByCity(int cityId) {
+        SQLQuery query=sessionFactory.getCurrentSession().createSQLQuery("select p.* from City c,Province p where c.provinceId=p.provinceId and c.cityId=?");
+        query.setParameter(0,cityId);
+        query.addScalar("provinceId",StandardBasicTypes.INTEGER);
+        query.addScalar("cityName", StandardBasicTypes.STRING);
+        return query.list();
+    }
+
+    /**
+     * 分页查询：根据用户查找用户所有
+     *
+     * @param offset 开始记录
+     * @param length 一次查询几条记录
+     * @return 返回查询记录集合
+     */
+    @Override
+    public List queryForPage(int offset, int length, int sceneId) {
+        List sceneList=null;
+        try{
+            SQLQuery query=sessionFactory.getCurrentSession().createSQLQuery("select * from scene where sceneId=?");
+            query.setParameter(0,sceneId);
+            query.addScalar("cityId", StandardBasicTypes.INTEGER);
+            query.addScalar("sceneId", StandardBasicTypes.INTEGER);
+            query.addScalar("sceneName", StandardBasicTypes.STRING);
+            query.addScalar("sceneImage", StandardBasicTypes.STRING);
+            query.addScalar("sceneScore", StandardBasicTypes.INTEGER);
+            query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            sceneList=query.list();
+        }catch(RuntimeException re){
+            throw re;
+        }
+        return sceneList;
+    }
+
+    //返回结果的条数
+    @Override
+    public int getAllRowCount(int sceneId) {
+        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Essay where sceneId=?")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,sceneId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+        List sceneList = query.list();
+        HashMap map = (HashMap) sceneList.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //点赞景点
+    @Override
+    public void thumb(int sceneId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call dianzan_scene(?)}");
+        query.setInteger(0, sceneId);
+        query.executeUpdate();
+    }
+
 }

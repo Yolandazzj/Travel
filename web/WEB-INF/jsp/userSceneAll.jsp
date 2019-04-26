@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/4/23
-  Time: 14:58
+  Date: 2019/4/26
+  Time: 20:48
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
@@ -13,7 +13,7 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>景点</title>
+    <title>所有景点</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
@@ -383,17 +383,17 @@
 
                             </div>
                         </div>
-<%--                        <div class="cell-box">--%>
-<%--                            <h1>省份</h1>--%>
-<%--                            <div class="a-box">--%>
-<%--                                <a href="#">城市</a><span>|</span>--%>
-<%--                                <a href="#">城市</a><span>|</span>--%>
-<%--                                <a href="#">城市</a><span>|</span>--%>
-<%--                                <a href="#">城市</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">城市</a>--%>
+                        <%--                        <div class="cell-box">--%>
+                        <%--                            <h1>省份</h1>--%>
+                        <%--                            <div class="a-box">--%>
+                        <%--                                <a href="#">城市</a><span>|</span>--%>
+                        <%--                                <a href="#">城市</a><span>|</span>--%>
+                        <%--                                <a href="#">城市</a><span>|</span>--%>
+                        <%--                                <a href="#">城市</a><span>|</span>--%>
+                        <%--                                <a href="#" class="orange">城市</a>--%>
 
-<%--                            </div>--%>
-<%--                        </div>--%>
+                        <%--                            </div>--%>
+                        <%--                        </div>--%>
                     </div>
                 </li>
 
@@ -425,15 +425,15 @@
                     <li><a href="#"><img src="resources/image/bj.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/xh.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/sh.jpg"></a></li>
-<%--                    <li><a href="#"><img src="resources/image/ls.jpg"></a></li>--%>
-<%--                    <li><a href="#"><img src="resources/image/jn.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/ls.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/jn.jpg"></a></li>--%>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
                     <span class="imgNum"></span>
                     <span class="imgNum"></span>
-<%--                    <span class="imgNum"></span>--%>
-<%--                    <span class="imgNum"></span>--%>
+                    <%--                    <span class="imgNum"></span>--%>
+                    <%--                    <span class="imgNum"></span>--%>
                 </div>
             </div>
 
@@ -449,88 +449,99 @@
     <div class="biaoti center">国内景点</div>
     <div class="routemain center">
         <div class="routecontent">
-            <div class="remen fl" style="height: 550px;"><a href="">热门旅行的景点</a>
-            </div>
+            <div class="remen fl" style="height: 550px;"><a href="">热门旅行的景点</a></div>
 
-            <div class="remen fl">
-                <div class="luxian"><span>top1</span></div>
-                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&sceneName=${scene1.sceneName}"><img src="${scene1.sceneImage}"></a></div>
-                <div class="miaoshu"><a href="">${scene1.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene1.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="remen fl">
-                <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}"><img src="./resources/image/peijian3.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene2.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene2.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="remen fl">
-                <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene3.sceneId}"><img src="./resources/image/peijian4.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene3.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene3.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="remen fl">
-                <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene4.sceneId}"><img src="./resources/image/peijian5.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene4.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="clear"></div>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top1</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&sceneName=${scene1.sceneName}"><img src="${scene1.sceneImage}"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene1.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene1.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene1.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top2</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}"><img src="./resources/image/peijian3.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene2.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene2.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene2.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top3</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene3.sceneId}"><img src="./resources/image/peijian4.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene3.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene3.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene3.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top4</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene4.sceneId}"><img src="./resources/image/peijian5.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene4.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene4.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="clear"></div>--%>
         </div>
         <div class="routecontent">
 
-            <div class="remen fl">
-                <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene5.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene5.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="remen fl">
-                <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene6.sceneId}"><img src="./resources/image/peijian8.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene6.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene6.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="remen fl">
-                <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>
-                <div class="miaoshu"><a href="">${scene7.sceneName}</a></div>
-                <div class="piao">
-                    <a href="">
-                        <span>${scene7.sceneScore}人点赞</span>
-                    </a>
-                </div>
-            </div>
-            <div class="remenlast fr">
-                <div class="liulangengduo"><a href=""><img src="./resources/image/liulan.png" alt=""></a></div>
-            </div>
-            <div class="clear"></div>
+
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top5</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene5.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene4.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene5.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top6</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene6.sceneId}"><img src="./resources/image/peijian8.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene6.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${scene6.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">3720人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene6.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="remen fl">--%>
+<%--                <div class="luxian"><span>top7</span></div>--%>
+<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>--%>
+<%--                <div class="miaoshu"><a href="">${scene7.sceneName}</a></div>--%>
+<%--                &lt;%&ndash;                <div class="jiage">${route7.routePrice}</div>&ndash;%&gt;--%>
+<%--                <div class="pingjia">7750人评价</div>--%>
+<%--                <div class="piao">--%>
+<%--                    <a href="">--%>
+<%--                        <span>${scene7.sceneScore}人点赞</span>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--          --%>
+<%--            <div class="clear"></div>--%>
         </div>
     </div>
 </div>

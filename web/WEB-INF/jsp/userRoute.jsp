@@ -573,15 +573,15 @@
                     <li><a href="#"><img src="resources/image/1.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/2.jpg"></a></li>
                     <li><a href="#"><img src="resources/image/3.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>
+<%--                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>--%>
+<%--                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>--%>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
                     <span class="imgNum"></span>
                     <span class="imgNum"></span>
-                    <span class="imgNum"></span>
-                    <span class="imgNum"></span>
+<%--                    <span class="imgNum"></span>--%>
+<%--                    <span class="imgNum"></span>--%>
                 </div>
             </div>
 

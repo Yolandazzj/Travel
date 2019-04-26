@@ -1,11 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/4/24
-  Time: 22:35
+  Date: 2019/4/26
+  Time: 16:38
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
@@ -14,12 +13,10 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>景点详情</title>
+    <title>途牛旅行-景点</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
-    <script src="./resources/js/jquery-2.1.4.min.js"></script>
-
 </head>
 <body>
 
@@ -98,25 +95,28 @@
 
 <!-- 详情 -->
 <div class="xiaomi6 fl">
-    ${sceneName}
+    ${cityName}
 </div>
 <br><br><br><br>
+
 <div class="jieshao mt20 w">
     <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
-        <c:forEach items="${cityDetails}" var="c">
-        <div class="jianjie mr40 ml20 mt10">所在城市：<a href="user/cityDetails?cityId=${c[0]}&cityName=${c[1]}"><div class="jiage ml20 mt10"><br>${c[1]}</div></a></div>
+        <c:forEach items="${proName}" var="p">
+        <div class="jianjie mr40 ml20 mt10">所在省份：<div class="jiage ml20 mt10"><br>${p[1]}</div></div>
         </c:forEach>
         <br><br><br><br><br><br>
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${sceneDetails.sceneScore}</span></div>
+        <c:forEach items="${cityDetail}" var="ci">
+        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;">${ci[2]}</span></div>
         <br><br><br><br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb(${sceneDetails.sceneId})" method="post">
-                <input  type="hidden" name="sceneId" value="${sceneDetails.sceneId}">
+            <form action="javascript:thumb(${ci[0]})" method="post">
+                <input  type="hidden" name="sceneId" value="${ci[0]}">
                 <button class="jrgwc"  type="submit">我要点赞</button>
             </form>
         </div>
+        </c:forEach>
     </div>
     <div class="clear"></div>
 </div>
@@ -146,23 +146,7 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
-<script src="./resources/js/show-image.js"></script>
-<script>
-    function thumb(sceneId) {
-        $.ajax({
-            url: 'user/thumb',
-            type: "POST",
-            data: {"sceneId": sceneId},
-            success: function (data) {
-                var onumber = parseInt($("#thumbNumber").text());
-                $("#thumbNumber").html(onumber + 1);
-    },
-            error: function () {
-                alert("Ajax请求失败");
-            }
-        });
-    }
-</script>
+<script src="./resources/js/img-show.js"></script>
 
 </body>
 </html>
