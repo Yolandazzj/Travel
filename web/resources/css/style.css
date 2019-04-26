@@ -123,6 +123,7 @@
 .center-box,
 .nav-box,
 .search-toggle-box
+.user-toggle-box
 {
     position: absolute;
     z-index: 99999;
@@ -305,6 +306,27 @@
 .drop-down:hover .search-toggle-box{
     display: block;
 }
+
+/*info-toggle-box*/
+.user-toggle-box
+
+{
+    width: 70px;
+    height: 100px;
+    padding-left: 19px;
+    line-height: 39px;
+    text-align: left;
+    cursor: pointer;
+    position: absolute;
+    display: none;
+}
+.user-toggle-box li{
+    float: none;
+}
+.drop-down:hover .user-toggle-box{
+    display: block;
+}
+
 
 /*my-head*/
 .my-head{
@@ -2356,4 +2378,9 @@ td{
 
 tr:hover{
     background-color: lightgray;
+}
+/***************留言板********/
+.control-group{
+    border: 10px solid lightgrey;
+
 }

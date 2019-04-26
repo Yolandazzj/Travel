@@ -2,14 +2,14 @@ package com.qdu.page;
 
 import java.util.List;
 
-public class page implements java.io.Serializable {
+public class page implements  java.io.Serializable {
     private List list;
 
     // 查询记录总数
     private int totalRecords;
 
     // 每页多少条记录
-    private int pageSize=6;
+    private int pageSize=8;
 
     // 第几页
     private int pageNo;
@@ -99,4 +99,5 @@ public class page implements java.io.Serializable {
     public void setPageNo(int pageNo) {
         this.pageNo = pageNo;
     }
+
 }

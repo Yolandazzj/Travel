@@ -1,171 +1,313 @@
 
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ page import="com.ssh.jd.model.car.pojo.Car" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="order by dede58.com"/>
-    <title>小米6立即购买-小米商城</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>购物车</title>
+    <link href="<%=basePath %>css/base.css" rel="stylesheet">
+    <script type="text/javascript" src="<%=basePath %>js/jquery-1.6.4.js"></script>
+    <script type="text/javascript" language="javascript" >
+        function changeBuyQuantity(obj,id) {
+            var byStr = document.getElementById(id);
+            var byNum = parseInt(byStr.value);
+
+            if (byNum <= 1 && obj == 0) {//参数为0并且数量为1则不能再减
+                byStr.value=1;
+            } else {
+                if (obj == 0)
+                    byStr.value = (byNum-1);
+                else
+                    byStr.value = (byNum+1);
+            }
+
+            //请求服务器处理
+            location.href = "<%=basePath%>car/carActionaddOrUpdate.action?goodsCode="+id
+                +"&quantity="+byStr.value+"";
+        }
+
+    </script>
+
 </head>
 <body>
-<!-- start header -->
-<header>
-    <div class="top center">
-        <div class="left fl">
-            <ul>
-                <li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>
-                <li>|</li>
-                <li><a href="">MIUI</a></li>
-                <li>|</li>
-                <li><a href="">米聊</a></li>
-                <li>|</li>
-                <li><a href="">游戏</a></li>
-                <li>|</li>
-                <li><a href="">多看阅读</a></li>
-                <li>|</li>
-                <li><a href="">云服务</a></li>
-                <li>|</li>
-                <li><a href="">金融</a></li>
-                <li>|</li>
-                <li><a href="">小米商城移动版</a></li>
-                <li>|</li>
-                <li><a href="">问题反馈</a></li>
-                <li>|</li>
-                <li><a href="">Select Region</a></li>
-                <div class="clear"></div>
-            </ul>
-        </div>
-        <div class="right fr">
-            <div class="gouwuche fr"><a href="">购物车</a></div>
-            <div class="fr">
-                <ul>
-                    <li><a href="./login.html" target="_blank">登录</a></li>
-                    <li>|</li>
-                    <li><a href="./register.html" target="_blank" >注册</a></li>
-                    <li>|</li>
-                    <li><a href="">消息通知</a></li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</header>
-<!--end header -->
+<div id="shortcut-2014">
+    <div class="w">
+        <ul class="fr">
+            <li class="fore1" id="ttbar-login" clstag="h|keycount|2015|01b">
+                <a href="<%=basePath%>goods/goodsActionloadGoodsTypeList.action" class="link-login  style-red">
+                    <c:if test="${not empty sessionScope.currentUser.name }">
+                        你好，${sessionScope.currentUser.name }&nbsp;&nbsp;
+                        <a href="<%=basePath%>login.jsp"> 退出</a>&nbsp;&nbsp;
+                    </c:if>
+                    <c:if test="${empty sessionScope.currentUser.name }">
+                        <a href="<%=basePath%>login.jsp" style="color: red;">请登录&nbsp;&nbsp;</a>
+                    </c:if>
+                </a>
+            </li>
+            <li class="spacer"></li>
+            <li class="fore2" clstag="h|keycount|2015|01c">
+                <div class="dt">
+                    <a href="<%=basePath%>order/orderActionloadOrder.action">我的订单</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="fore3" clstag="h|keycount|2015|01c">
+                <div class="dt">
+                    <a href="<%=basePath%>order/orderActionloadOrder.action">我的趣淘</a>
+                </div>
+            </li>
 
-<!-- start banner_x -->
-<div class="banner_x center">
-    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-    <a href=""><div class="ad_top fl"></div></a>
-    <div class="nav fl">
-        <ul>
-            <li><a href="">小米手机</a></li>
-            <li><a href="">红米</a></li>
-            <li><a href="">平板·笔记本</a></li>
-            <li><a href="">电视</a></li>
-            <li><a href="">盒子·影音</a></li>
-            <li><a href="">路由器</a></li>
-            <li><a href="">智能硬件</a></li>
-            <li><a href="">服务</a></li>
-            <li><a href="">社区</a></li>
         </ul>
+        <span class="clr"></span>
     </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru"  placeholder="小米6&nbsp;小米MIX现货">
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
+</div>l
+<div class="w header clearfix">
+    <div id="logo">
+        <a href="<%=basePath%>goods/goodsActionloadGoodsTypeList.action" class="link1"><img src="<%=basePath%>img/logo-201305.png" alt="京东商城"></a>
+        <a href="#none" class="link2"><b></b>购物车</a>	</div>
+    <div class="cart-search">
+        <div class="form">
+            <input id="key" type="text" class="itxt" autocomplete="off" accesskey="s" style="color: rgb(153, 153, 153);">
+            <input type="button" class="button" value="搜索" clstag="clickcart|keycount|xincart|cart_search" onclick="javascript:void(0);">
+        </div>
     </div>
 </div>
-<!-- end banner_x -->
 
-
-<!-- xiangqing -->
-<form action="post" method="">
-    <div class="xiangqing">
-        <div class="neirong w">
-            <div class="xiaomi6 fl">小米6</div>
-            <nav class="fr">
-                <li><a href="">概述</a></li>
-                <li>|</li>
-                <li><a href="">变焦双摄</a></li>
-                <li>|</li>
-                <li><a href="">设计</a></li>
-                <li>|</li>
-                <li><a href="">参数</a></li>
-                <li>|</li>
-                <li><a href="">F码通道</a></li>
-                <li>|</li>
-                <li><a href="">用户评价</a></li>
-                <div class="clear"></div>
-            </nav>
-            <div class="clear"></div>
+<div id="container" class="cart">
+    <div class="w">
+        <div id="chunjie" class="mb10"></div>
+        <div class="cart-filter-bar">
+            <ul class="switch-cart">
+                <li class="switch-cart-item curr">
+                    <a href="#none">
+                        <em>全部商品</em>
+                        <span class="number">${fn:length(sessionScope.car) }</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="clr"></div>
+            <div class="w-line">
+                <div class="floater" style="width: 82px; left: 0px;"></div>
+            </div>
+            <div class="tab-con ui-switchable-panel-selected" style="display: block;"></div>
+            <div class="tab-con hide" style="display: none;"></div>
         </div>
     </div>
+    <div class="cart-warp">
+        <div class="w">
+            <div id="jd-cart">
+                <div class="cart-main cart-main-new">
+                    <div class="cart-thead">
+                        <div class="column t-checkbox">
+                            <div class="cart-checkbox">
+                                <input type="checkbox" name="toggle-checkboxes" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_allCheck">
+                                <label for="">勾选全部商品</label>
+                            </div>
+                            全选
+                        </div>
+                        <div class="column t-goods">商品</div>
+                        <!--                         <div class="column t-props"></div>
+                         -->                        <div class="column t-price">单价(元)</div>
+                        <div class="column t-quantity">数量</div>
+                        <div class="column t-sum">小计(元)</div>
+                        <div class="column t-action">操作</div>
+                    </div>
+                    <div id="cart-list">
+                        <div class="cart-item-list" id="cart-item-list-01">
+                            <div class="cart-tbody" id="vender_66621">
+                                <div class="shop">
+                                    <div class="cart-checkbox">
+                                        <!--                                         <input type="checkbox" name="checkShop" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_shop">
+                                         -->                                        <label for="">勾选店铺内全部商品</label>
+                                    </div>
+                                </div>
+                                <div class="item-list" style="z-index: auto;">
+                                    <!--单品-->
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                    <c:forEach items="${sessionScope.car }" var="goods">
+                                        <div class="item-single  item-item item-selected  " id="" >
+                                            <div class="item-form">
+                                                <div class="cart-checkbox">
+                                                    <!--单品-->
 
-    <div class="jieshao mt20 w">
-        <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
-        <div class="right fr">
-            <div class="h3 ml20 mt20">小米6</div>
-            <div class="jianjie mr40 ml20 mt10">变焦双摄，4 轴防抖 / 骁龙835 旗舰处理器，6GB 大内存，最大可选128GB 闪存 / 5.15" 护眼屏 / 四曲面玻璃/陶瓷机身</div>
-            <div class="jiage ml20 mt10">2499.00元</div>
-            <div class="ft20 ml20 mt20">选择版本</div>
-            <div class="xzbb ml20 mt10">
-                <div class="banben fl">
-                    <a>
-                        <span>全网通版 6GB+64GB </span>
-                        <span>2499元</span>
-                    </a>
-                </div>
-                <div class="banben fr">
-                    <a>
-                        <span>全网通版 6GB+128GB</span>
-                        <span>2899元</span>
-                    </a>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="ft20 ml20 mt20">选择颜色</div>
-            <div class="xzbb ml20 mt10">
-                <div class="banben">
-                    <a>
-                        <span class="yuandian"></span>
-                        <span class="yanse">亮黑色</span>
-                    </a>
-                </div>
+                                                    <input p-type="10124632023_1" type="checkbox" name="checkItem" value="10124632023_1" checked="checked" data-bind="cbid" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_sku">
+                                                    <label for="" class="checked">勾选商品</label>
+                                                    <span class="line-circle"></span>
+                                                    <!--                                      <input type="checkbox" name="checkShop" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_shop">
+                                                     -->                                                </div>
+                                                <div class="cell p-goods">
+                                                    <div class="goods-item">
+                                                        <div class="p-img">
+                                                            <a href="<%=basePath%>goods/goodsActionloadGoodsDetails.action?goodsCode=${goods.goodsCode}" target="_blank" class="J_zyyhq_10124632023">
+                                                                <img alt="" src="<%=basePath%>imgs/${goods.img}.jpg" style="width:80px;height:80px"></a>
+                                                        </div>
+                                                        <div class="item-msg">
+                                                            <div class="p-name">
+                                                                <a clstag="clickcart|keycount|xincart|cart_sku_name" href="goodsdetails.html" target="_blank">
+                                                                        ${goods.goodsName }
+                                                                </a>
+                                                            </div>
+                                                            <div class="p-extend">
+							<span class="promise" _giftcard="giftcard_10124632023">
+							</span>
 
-            </div>
-            <div class="xqxq mt20 ml20">
-                <div class="top1 mt10">
-                    <div class="left1 fl">小米6 全网通版 6GB内存 64GB 亮黑色</div>
-                    <div class="right1 fr">2499.00元</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="bot mt20 ft20 ftbc">总计：2499元</div>
-            </div>
-            <div class="xiadan ml20 mt20">
-                <input class="jrgwc"  type="button" name="jrgwc" value="立即选购" />
-                <input class="jrgwc" type="button" name="jrgwc" value="加入购物车" />
+                                                                <span class="promise" _yanbao="yanbao_10124632023_">
+								<i class="jd-service-icon"></i>
+								<a href="#none" class="ftx-03 jd-service" clstag="clickcart|keycount|xincart|cart_fuWu" data-tips="购买京东服务">购买京东服务
+								        ${goods.producer }
+								</a>
+							</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                                <div class="cell p-price">
+                                                    <strong>${goods.price }&nbsp;&nbsp;&nbsp;</strong>
+                                                </div>
+                                                <div class="cell p-quantity">
+                                                    <!--单品-->
+                                                    <div class="quantity-form">
+
+                                                        <a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_down" onclick="changeBuyQuantity(0,'${goods.goodsCode}')" class="decrement" >-</a>
+                                                        <input id="${goods.goodsCode }" autocomplete="off" type="text" class="itxt" value="${goods.quantity }">
+                                                        <a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_up" onclick="changeBuyQuantity(1,'${goods.goodsCode}')"  class="increment" id="increment_66621_10124632023_1_1_0">+</a>
+
+                                                    </div>
+                                                    <div class="ac ftx-03 quantity-txt" _stock="stock_10124632023">有货</div>
+                                                </div>
+                                                <div class="cell p-sum">
+                                                    <strong>${goods.subtotal }</strong>
+                                                </div>
+                                                <div class="cell p-ops">
+                                                    <!--单品-->
+                                                    <a id="remove_66621_10124632023_1" clstag="clickcart|keycount|xincart|cart_sku_del"
+                                                       data-name=""
+                                                       data-more="removed_78.00_1" class="cart-remove"
+                                                       href="<%=basePath%>car/carActionremoveSingleGoods.action?goodsCode=${goods.goodsCode}">删除</a>
+                                                </div>
+                                            </div>
+                                            <div class="item-extra">
+                                            </div>
+                                            <div class="item-line"></div>
+                                        </div>
+                                    </c:forEach>
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                    <!-- 单品-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div id="cart-floatbar" style="position: relative; top:60px;">
+                <div class="ui-ceilinglamp-1" style="width: 990px; height: 52px;"><div class="cart-toolbar" style="width: 988px; height: 50px;">
+                    <div class="toolbar-wrap">
+                        <div class="selected-item-list hide" style="display: none;">
+                        </div>
+                        <div class="options-box">
+                            <div class="select-all">
+                                <div class="cart-checkbox">
+                                    <input type="checkbox" id="toggle-checkboxes_down" name="toggle-checkboxes" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_allCheckDown">
+                                    <label for="">勾选全部商品</label>
+                                </div>
+                                全选
+                            </div>
+                            <div class="operation">
+                                <a href="#none" clstag="clickcart|keycount|xincart|cart_somesku_del" class="remove-batch">删除选中的商品</a>
+                            </div>
+                            <div class="clr"></div>
+                            <div class="toolbar-right">
+                                <div class="normal">
+                                    <div class="comm-right">
+                                        <div class="btn-area">
+                                            <a href="<%=basePath %>jiesuan.jsp" target="_blank" class="submit-btn" data-bind="1">
+                                                去结算
+                                                <b></b>
+                                            </a>
+                                            <!-- <a href="javascript:void(0);" class="submit-btn submit-btn-disabled">
+                                            去结算<b></b></a> -->
+                                        </div>
+                                        <div class="price-sum">
+                                            <div>
+                                                <span class="txt">总价（不含运费）：</span>
+                                                <span class="price sumPrice">
+                                                <em>
+
+                                                <%=((Car)session.getAttribute("car")).getTotal()%>
+
+                                                </em></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div></div>
             </div>
         </div>
-        <div class="clear"></div>
     </div>
-</form>
-<!-- footer -->
-<footer class="mt20 center">
+</div>
+<div class="clr"></div>
+<footer  style="position: relative; top: 90px">
+    <div id="service-2014" clstag="h|keycount|2015|32a">
+        <div class="slogen">
+		<span class="item fore1">
+			<img src="<%=basePath%>img/service_items_1.png" style="margin-left: 40px">
+		</span>
+            <span class="item fore2">
+			<img src="<%=basePath%>img/service_items_2.png" style="margin-left: 80px" >
+		</span>
+            <span class="item fore3">
+			<img src="<%=basePath%>img/service_items_3.png" style="margin-left: 80px">
+		</span>
+            <span class="item fore4">
+			<img src="<%=basePath%>img/service_items_4.png" style="margin-left: 80px">
+		</span>
+        </div>
+    </div>
+    <div id="footer-2014" clstag="h|keycount|2015|33a">
+        <div class="links"><a rel="nofollow" target="_blank" href="#">关于我们</a>|<a rel="nofollow" target="_blank" href="#">联系我们</a>|<a rel="nofollow" target="_blank" href="#">商家入驻</a>|<a rel="nofollow" target="_blank" href="#">营销中心</a>|<a rel="nofollow" target="_blank" href="#">手机趣淘</a>|<a target="_blank" href="#">友情链接</a>|<a target="_blank" href="#">销售联盟</a>|<a href="//club.jd.com/" target="_blank">趣淘社区</a>|<a href="#" target="_blank">趣淘公益</a>|<a href="#" target="_blank">English Site</a>|<a href="#" target="_blank">Contact Us</a></div>
+        <div class="copyright"><a target="_blank" href="<%=basePath%>img/56a0a994Nf1b662dc.png"> 京公网安备 11000002000088号</a>&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证070359号&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="#">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>&nbsp;&nbsp;|&nbsp;&nbsp;新出发京零&nbsp;字第大120007号<br>互联网出版许可证编号新出网证(京)字150号&nbsp;&nbsp;|&nbsp;&nbsp;<a rel="nofollow" href="#" target="_blank">出版物经营许可证</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" target="_blank">网络文化经营许可证京网文[2014]2148-348号</a>&nbsp;&nbsp;|&nbsp;&nbsp;违法和不良信息举报电话：4006561155<br>Copyright&nbsp;?&nbsp;2004&nbsp;-&nbsp;2016&nbsp;&nbsp;趣淘QT.com&nbsp;版权所有&nbsp;&nbsp;|&nbsp;&nbsp;消费者维权热线：4006067733<br>趣淘旗下网站：<a href="#" target="_blank">趣淘钱包</a>
+        </div>
+        <div class="authentication">
+            <a rel="nofollow" target="_blank" href="#">
+                <img width="103" height="32" alt="经营性网站备案中心" src="<%=basePath%>img/54b8871eNa9a7067e.png" class="err-product">
+            </a>
 
-    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
-    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
-    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
-
+            <a rel="nofollow" target="_blank" id="urlknet" tabindex="-1" href="#">
+                <img border="true" width="103" height="32" alt="可信网站" src="<%=basePath%>img/54b8872dNe37a9860.png" class="err-product">
+            </a>
+            <a rel="nofollow" target="_blank" href="#">
+                <img width="103" height="32" alt="网络警察" src="<%=basePath%>img/56a89b8fNfbaade9a.jpg" class="err-product">
+            </a>
+            <a rel="nofollow" target="_blank" href="#">
+                <img width="103" height="32" src="<%=basePath%>img/54b8875fNad1e0c4c.png" class="err-product">
+            </a>
+            <a target="_blank" href="#"><img width="103" height="32" src="<%=basePath%>img/5698dc03N23f2e3b8.jpg"></a>
+            <a target="_blank" href="#"><img width="103" height="32" src="<%=basePath%>img/5698dc16Nb2ab99df.jpg"></a>
+        </div>
+    </div>
 </footer>
-
 </body>
 </html>

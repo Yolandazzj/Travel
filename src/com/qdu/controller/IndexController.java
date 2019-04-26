@@ -1,20 +1,26 @@
 package com.qdu.controller;
 
+import com.qdu.page.page;
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
+import com.qdu.service.MessageService;
 import com.qdu.service.RouteService;
 import com.qdu.service.SceneService;
+import org.aspectj.weaver.patterns.HasMemberTypePatternForPerThisMatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 public class IndexController {
     @Autowired
     private RouteService routeService;
+    @Autowired
+    private MessageService messageService;
 
     @Autowired
     private SceneService sceneService;
@@ -66,5 +72,24 @@ public class IndexController {
         model.addAttribute("scene7",scene7);
         return "userScene";
 }
+
+//获取全部留言，分页
+       @RequestMapping("user/message")
+        public String message(Model model, HttpServletRequest request){
+           try {
+               String pageNo = request.getParameter("pageNo");
+               if (pageNo == null) {
+                   pageNo = "1";
+               }
+               page page = messageService.queryForPage(Integer.valueOf(pageNo), 8);
+               model.addAttribute("page", page);
+               List messageAll = page.getList();
+               model.addAttribute("messageAll", messageAll);
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+            return "userMessage";
+           }
+
 
 }

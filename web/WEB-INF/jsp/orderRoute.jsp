@@ -15,9 +15,9 @@
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <title>途牛旅行-跟团游</title>
-    <link rel="stylesheet" href="resources/css/reset.css"/>
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/css/style.css"/>
+    <link rel="stylesheet" href="./resources/css/reset.css"/>
+    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./resources/css/style.css"/>
 </head>
 <body>
 <!--滚动屏-->
@@ -54,7 +54,7 @@
 
 <!--top-main-->
 <div class="top-main">
-    <img src="resources/image/logo.jpg" alt="logo"/>
+    <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
@@ -118,7 +118,7 @@
                     <p class="clearfix">
                         <span class="desc">出游人数:&nbsp;&nbsp;</span>
                         <span class="bd-box subtraction min" style="height: 32px;">-</span>
-                        <input class="bd-box number-box" value="1" readonly="readonly"/>
+                        <input class="bd-box number-box" name="routeOrderPeople" value="${Routeorders.routeOrderPeople}" readonly="readonly"/>
                         <span class="bd-box addition add" style="height: 32px;">+</span>
                     </p>
                 </div>
@@ -133,7 +133,6 @@
             <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
             <input  type="hidden" name="routeName" value="${routeDetails.routeName}">
             <input  type="hidden" name="routePrice" value="">
-            <input  type="hidden" name="routeOrderPeople" value="">
             <br><br><br><br>
             <div class="xiadan ml20 mt20" style="margin-left: 230px;">
                 <input class="jrgwc"  type="submit" value="立即预定" />
@@ -181,9 +180,9 @@
 </div>
 
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/img-show.js"></script>
 
 <script>
     $(function(){

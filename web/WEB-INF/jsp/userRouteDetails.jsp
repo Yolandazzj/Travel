@@ -145,13 +145,13 @@
 
 
 
-<img src="resources/image/user1.png" id="image1">
+<img src="./resources/image/user1.png" id="image1">
 <div class="detail" style="width: 1000px;">
     <div class="title">
-        <img src="resources/image/copy.png">
+        <img src="./resources/image/copy.png">
     </div>
     <br>
-    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
+    <img src="./resources/image/tupian.png"  style="margin-left: 100px;">
     <br><br>
     <c:forEach items="${agencyDetails}" var="a">
     <span class="spana">旅行社：${a[1]}</span>
@@ -165,19 +165,19 @@
     <br><br>
 
  </div>
-<img src="resources/image/user2.png" id="user2" >
+<img src="./resources/image/user2.png" id="user2" >
 <div class="detail2">
 
-    <img src="resources/image/copy2.png"   style="margin-left: 100px;">
+    <img src="./resources/image/copy2.png"   style="margin-left: 100px;">
     <br><br>
-    <img src="resources/image/tupian.png"  style="margin-left: 100px;">
+    <img src="./resources/image/tupian.png"  style="margin-left: 100px;">
     <br><br>
     <span class="spana" style="color:black;">优惠价格：${routeDetails.routePrice}元！抓紧预定，此线路保证你${routeDetails.routeDay}天的欢乐时光！</span>
     <br><br>
     <span class="spana" style="color:black;">线路介绍：${routeDetails.routeContent}</span>
 </div>
 
-<img src="resources/image/user3.png" id="image2">
+<img src="./resources/image/user3.png" id="image2">
 <div class="detail" style="width: 1000px;">
     <br>
 
@@ -233,9 +233,9 @@
 </div>
 
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/img-show.js"></script>
 
 <script>
     $(function(){
