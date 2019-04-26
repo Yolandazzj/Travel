@@ -15,9 +15,9 @@
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
     <title>途牛旅行</title>
-    <link rel="stylesheet" href="resources/css/reset.css"/>
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/css/style.css"/>
+    <link rel="stylesheet" href="./resources/css/reset.css"/>
+    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./resources/css/style.css"/>
 
 </head>
 <body>
@@ -70,7 +70,7 @@
 
 <!--top-main-->
 <div class="top-main">
-    <img src="resources/image/logo.jpg" alt="logo"/>
+    <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
@@ -439,18 +439,18 @@
             <!--广告内容-->
             <div class="content" >
                 <ul class="imgBox">
-                    <li><a href="#"><img src="resources/image/1.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/2.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/3.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/1.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/2.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/3.jpg"></a></li>
+<%--                    <li><a href="#"><img src="./resources/image/4.jpg"></a></li>--%>
+<%--                    <li><a href="#"><img src="./resources/image/5.jpg"></a></li>--%>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
                     <span class="imgNum"></span>
                     <span class="imgNum"></span>
-                    <span class="imgNum"></span>
-                    <span class="imgNum"></span>
+<%--                    <span class="imgNum"></span>--%>
+<%--                    <span class="imgNum"></span>--%>
                 </div>
             </div>
 
@@ -530,7 +530,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -552,7 +552,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -574,7 +574,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -596,7 +596,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -618,7 +618,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -641,7 +641,7 @@
                     <span class="text-title">景点名字</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
                     <span>景点所属城市</span>
                 </div>
@@ -709,7 +709,7 @@
                     <span class="text-title">攻略题目</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放攻略点赞数</a></h1>
                     <span>攻略所属城市</span>
                 </div>
@@ -731,7 +731,7 @@
                     <span class="text-title">攻略题目</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放攻略点赞数</a></h1>
                     <span>攻略所属城市</span>
                 </div>
@@ -753,7 +753,7 @@
                     <span class="text-title">攻略题目</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景攻略点赞数</a></h1>
                     <span>攻略所属城市</span>
                 </div>
@@ -776,7 +776,7 @@
                     <span class="text-title">攻略题目</span>
                 </div>
                 <div class="inner-left">
-                    <img src="resources/image/show1.png"/>
+                    <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放攻略点赞数</a></h1>
                     <span>攻略所属城市</span>
                 </div>
@@ -820,9 +820,9 @@
     <div id="backToTop-down" class="down-back"><i class="fa fa-angle-down"></i></div>
 </div>
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/show-image.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/show-image.js"></script>
 
 </body>
 </html>

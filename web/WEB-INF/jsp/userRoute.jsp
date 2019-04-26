@@ -570,18 +570,18 @@
             <!--广告内容-->
             <div class="content" style="width: 720px;height: 350px;">
                 <ul class="imgBox">
-                    <li><a href="#"><img src="resources/image/1.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/2.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/3.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/1.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/2.jpg"></a></li>
+                    <li><a href="#"><img src="./resources/image/3.jpg"></a></li>
+<%--                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>--%>
+<%--                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>--%>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
                     <span class="imgNum"></span>
                     <span class="imgNum"></span>
-                    <span class="imgNum"></span>
-                    <span class="imgNum"></span>
+<%--                    <span class="imgNum"></span>--%>
+<%--                    <span class="imgNum"></span>--%>
                 </div>
             </div>
 
@@ -722,9 +722,9 @@
 </div>
 
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/show-image.js"></script>
 
 </body>
 </html>

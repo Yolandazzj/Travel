@@ -15,9 +15,9 @@
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <title>途牛旅行-跟团游</title>
-    <link rel="stylesheet" href="resources/css/reset.css"/>
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/css/style.css"/>
+    <link rel="stylesheet" href="./resources/css/reset.css"/>
+    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./resources/css/style.css"/>
 </head>
 <body>
 <!--滚动屏-->
@@ -54,7 +54,7 @@
 
 <!--top-main-->
 <div class="top-main">
-    <img src="resources/image/logo.jpg" alt="logo"/>
+    <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
@@ -180,9 +180,9 @@
 </div>
 
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/img-show.js"></script>
 
 <script>
     $(function(){

@@ -15,9 +15,10 @@
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <title>途牛旅行-跟团游</title>
-    <link rel="stylesheet" href="resources/css/reset.css"/>
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/css/style.css"/>
+    <link rel="stylesheet" href="./resources/css/reset.css"/>
+    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./resources/css/style.css"/>
+    <script src="./resources/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 <!--滚动屏-->
@@ -26,13 +27,23 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">登录</a>
-            </div>
-            <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-gray"></i>
-                <a href="#">注册</a>
-            </div>
+            <c:if test="${user==null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <a href="user/toLogin">登录</a>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <i class="fa fa-gray"></i>
+                    <a href="#">注册</a>
+                </div>
+            </c:if>
+            <c:if test="${user!=null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <a href="user/loginout">注销</a>
+                </div>
+            </c:if>
         </div>
 
         <!--top-right-->
@@ -54,7 +65,7 @@
 
 <!--top-main-->
 <div class="top-main">
-    <img src="resources/image/logo.jpg" alt="logo"/>
+    <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
@@ -109,14 +120,49 @@
                 </tr>
             </c:forEach>
         </table>
+<br><br><br>
+    <form id="paging" style="text-align:center;">
+        <tr>
+            <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
+                <br> <br>
 
+                <a href="user/message?pageNo=${page.topPageNo}&uid=${user.uid}"><input type="button" name="fristPage" value="首页" /></a>
+
+                <c:choose>
+                    <c:when test="${page.pageNo!=1}">
+
+                        <a href="user/message?pageNo=${page.previousPageNo}&uid=${user.uid}"><input type="button" name="previousPage" value="上一页" /></a>
+
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="previousPage" value="上一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${page.pageNo!= page.totalPages}">
+                        <a href="user/message?pageNo=${page.nextPageNo}&uid=${user.uid}"><input type="button" name="nextPage" value="下一页" /></a>
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="nextPage" value="下一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <a href="user/messagae?pageNo=${page.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
+            </td>
+        </tr>
+    </form>
+
+    <br><br>
     <form id="commentForm">
         <!--隐藏字段-->
 
         <div class="message-group">
             <div class="message-controls">
-                <input  type="hidden" name="uid" value="001">
-                <div class="message-group" style="margin-top: 500px;">
+                <input  type="hidden" name="uid" value="${user.uid}">
+                <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
 
                         <textarea cols="100" rows="10" id="writeComment" name="messageContent" style="resize: none;margin-left: 130px"></textarea>
@@ -130,7 +176,6 @@
 
             </div>
         </div>
-
 
 
 
@@ -166,9 +211,9 @@
 </div>
 
 
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/img-show.js"></script>
+<script src="./resources/js/jquery_1.9.js"></script>
+<script src="./resources/js/main.js"></script>
+<script src="./resources/js/img-show.js"></script>
 <!--留言板-->
 <script>
     $(document).ready(function () {
@@ -180,10 +225,10 @@
                 success: function (message) {
 
                     var str =  "<tr><td>"
-                    +"001"+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    +message.messageTime+"</span><a href=\"#\"><span style=\"margin-left: 850px;\">👍<span id=\"thumbNumber\">"
+                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    +message.messageTime+"</span><br><a href=\"#\"><span style=\"margin-left: 850px;\">👍<span id=\"thumbNumber\">"
                     +message.messageScore+"</span></span></a><br><br><br>"
-                    +message.messaageContent+"</td></tr>"
+                    +message.messageContent+"</td></tr>"
                     $("#commentTable").append(str);
                     $("#writeComment").val("");
 

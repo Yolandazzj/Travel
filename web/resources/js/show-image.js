@@ -2,10 +2,10 @@ $(document).ready(function() {
     var $iBox = $('.imgBox'),
         $iNum = $('.imgNum'),  //缓存优化
         indexImg = 1,          //初始下标
-        totalImg = 5,          //图片总数量
+        totalImg = 3,          //图片总数量
         imgSize = 720,         //图片尺寸 宽度
         moveTime = 1100,        //切换动画时间
-        setTime = 2500,        //中间暂停时间
+        setTime = 1500,        //中间暂停时间
         clc = null;
 
     function moveImg() {
