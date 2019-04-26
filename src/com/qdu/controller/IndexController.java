@@ -2,6 +2,7 @@ package com.qdu.controller;
 
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
+import com.qdu.service.MessageService;
 import com.qdu.service.RouteService;
 import com.qdu.service.SceneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private RouteService routeService;
+    @Autowired
+    private MessageService messageService;
 
     @Autowired
     private SceneService sceneService;
@@ -66,5 +69,13 @@ public class IndexController {
         model.addAttribute("scene7",scene7);
         return "userScene";
 }
+
+       @RequestMapping("user/message")
+        public String message(Model model){
+             List messageAll=messageService.messageAll();
+             model.addAttribute("messageAll",messageAll);
+            return "userMessage";
+           }
+
 
 }

@@ -2357,3 +2357,8 @@ td{
 tr:hover{
     background-color: lightgray;
 }
+/***************留言板********/
+.control-group{
+    border: 10px solid lightgrey;
+
+}

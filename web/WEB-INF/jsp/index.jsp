@@ -415,7 +415,7 @@
             <a href="#">酒店</a>
             <a href="user/scene">景点</a>
             <a href="#">推荐路线</a>
-            <a href="#">留言板</a>
+            <a href="user/message">留言板</a>
 
 
         </div>
