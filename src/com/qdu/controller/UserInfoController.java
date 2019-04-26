@@ -9,9 +9,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -36,24 +39,17 @@ public class UserInfoController {
             return "您已被禁用";
         } else {
             session.setAttribute("user", user);
-            return "<script language='javascript' type='text/javascript'>window.location.href='user/loginSuccess'</script>";
+            return "<script language='javascript' type='text/javascript'>window.location.href='/Travel'</script>";
 
 
         }
 
     }
 
-    @RequestMapping("/loginSuccess")
-    public String loginSuccess(Model model) {
-//           List recommendList=indexRecommendService.getRecommend();
-//        model.addAttribute("recommendList", recommendList);
-//         List recommendList1=indexRecommendService.getRecommend1();
-//        model.addAttribute("recommendList1", recommendList1);
-//         List recommendList2=indexRecommendService.getRecommend2();
-//        model.addAttribute("recommendList2", recommendList2);
-//         List recommendList3=indexRecommendService.getRecommend3();
-//        model.addAttribute("recommendList3", recommendList3);
-        return "user_loginSuccess";
+    @RequestMapping(value="/loginout")
+    public String loginout(HttpSession session, ModelMap map) throws IOException {
+        session.removeAttribute("user");
+        return "redirect:/index";
     }
 
 
