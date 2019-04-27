@@ -29,16 +29,16 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public void add(Userinfo userInfo) {
-
+        userInfoDao.insert(userInfo);
     }
 
     @Override
     public void update(Userinfo userInfo) {
-
+        userInfoDao.update(userInfo);
     }
 
     @Override
     public List getUserInfoList() {
-        return null;
+        return userInfoDao.getUserInfoList();
     }
 }

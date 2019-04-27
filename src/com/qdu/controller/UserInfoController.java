@@ -59,8 +59,8 @@ public class UserInfoController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
-    public String register(Userinfo newUserInfo) {
-        userInfoService.add(newUserInfo);
+    public String register(Userinfo userInfo) {
+        userInfoService.add(userInfo);
         return "user_login";
     }
 

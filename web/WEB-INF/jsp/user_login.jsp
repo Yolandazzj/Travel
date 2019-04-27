@@ -54,7 +54,7 @@
                     </div>
                     <div class="links">
                         <p><a href="#">Forgot Password?</a></p>
-                        <p class="right"><a href="register">New User? Register</a></p>
+                        <p class="right"><a href="user/toRegister">New User? Register</a></p>
                         <div class="clear"></div>
                     </div>
                 </form>
@@ -75,23 +75,23 @@
         </div>
         <!-- //copyright -->
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#submitBtn").click(function () {
-                $.ajax({
-                    url: 'login',
-                    type: 'POST',
-                    data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器
-                    success: function (msg) {
-                        $("#msg").html(msg);
-                    },
-                    error: function (req, status, error) {
-                        alert("Ajax请求失败!" + error);
-                    }
-                });
-            });
-        });
-    </script>
+<%--    <script>--%>
+<%--        $(document).ready(function () {--%>
+<%--            $("#submitBtn").click(function () {--%>
+<%--                $.ajax({--%>
+<%--                    url: 'user/toLogin',--%>
+<%--                    type: 'POST',--%>
+<%--                    data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器--%>
+<%--                    success: function (msg) {--%>
+<%--                        $("#msg").html(msg);--%>
+<%--                    },--%>
+<%--                    error: function (req, status, error) {--%>
+<%--                        alert("Ajax请求失败!" + error);--%>
+<%--                    }--%>
+<%--                });--%>
+<%--            });--%>
+<%--        });--%>
+<%--    </script>--%>
 </div>
 
 
