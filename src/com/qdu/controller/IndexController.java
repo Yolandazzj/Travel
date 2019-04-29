@@ -26,7 +26,10 @@ public class IndexController {
     private SceneService sceneService;
 
     @RequestMapping({"/index", "/"})
-    public String index() {
+    public String index(Model model) {
+
+        List sceneList=sceneService.sceneList();
+        model.addAttribute("sceneList",sceneList);
         return "index";
     }
 
@@ -55,7 +58,6 @@ public class IndexController {
 //首页景点
     @RequestMapping("user/scene")
     public String scene(Model model) {
-
         Scene scene1=sceneService.hotScene1();
         Scene scene2=sceneService.hotScene2();
         Scene scene3=sceneService.hotScene3();
@@ -72,6 +74,7 @@ public class IndexController {
         model.addAttribute("scene7",scene7);
         return "userScene";
 }
+
 
 //获取全部留言，分页
        @RequestMapping("user/message")

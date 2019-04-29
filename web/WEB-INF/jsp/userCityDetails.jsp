@@ -108,11 +108,11 @@
         </c:forEach>
         <br><br><br><br><br><br>
         <c:forEach items="${cityDetail}" var="ci">
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;">${ci[2]}</span></div>
+        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber2">${ci[2]}</span></div>
         <br><br><br><br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb(${ci[0]})" method="post">
-                <input  type="hidden" name="sceneId" value="${ci[0]}">
+            <form action="javascript:thumb_city(${ci[0]})" method="post">
+                <input  type="hidden" name="cityId" value="${ci[0]}">
                 <button class="jrgwc"  type="submit">我要点赞</button>
             </form>
         </div>
@@ -146,7 +146,23 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
-<script src="./resources/js/img-show.js"></script>
+<script src="./resources/js/show-image.js"></script>
 
+<script>
+    function thumb_city(cityId) {
+        $.ajax({
+            url: 'user/thumb_city',
+            type: "POST",
+            data: {"cityId": cityId},
+            success: function (data) {
+                var onumber = parseInt($("#thumbNumber2").text());
+                $("#thumbNumber2").html(onumber + 1);
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -85,6 +85,14 @@ public class SceneDaoImpl implements SceneDao {
         return (Scene) query.uniqueResult();
     }
 
+    @Override
+    public List sceneList() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Scene order by sceneScore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(7);
+        return query.list();
+    }
+
 
     @Override
     public List cityDetails(int sceneId) {
@@ -107,6 +115,7 @@ public class SceneDaoImpl implements SceneDao {
         return query.list();
     }
 
+
     /**
      * 分页查询：根据用户查找用户所有
      *
@@ -115,17 +124,10 @@ public class SceneDaoImpl implements SceneDao {
      * @return 返回查询记录集合
      */
     @Override
-    public List queryForPage(int offset, int length, int sceneId) {
+    public List sceneAll(int offset, int length) {
         List sceneList=null;
         try{
-            SQLQuery query=sessionFactory.getCurrentSession().createSQLQuery("select * from scene where sceneId=?");
-            query.setParameter(0,sceneId);
-            query.addScalar("cityId", StandardBasicTypes.INTEGER);
-            query.addScalar("sceneId", StandardBasicTypes.INTEGER);
-            query.addScalar("sceneName", StandardBasicTypes.STRING);
-            query.addScalar("sceneImage", StandardBasicTypes.STRING);
-            query.addScalar("sceneScore", StandardBasicTypes.INTEGER);
-            query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+            Query query=sessionFactory.getCurrentSession().createQuery("from Scene order by sceneScore desc");
             query.setFirstResult(offset);
             query.setMaxResults(length);
             sceneList=query.list();
@@ -137,10 +139,9 @@ public class SceneDaoImpl implements SceneDao {
 
     //返回结果的条数
     @Override
-    public int getAllRowCount(int sceneId) {
-        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Essay where sceneId=?")
+    public int getAllRowCount() {
+        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Scene")
                 .addScalar("num", StandardBasicTypes.INTEGER)
-                .setParameter(0,sceneId)
                 .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
         List sceneList = query.list();
         HashMap map = (HashMap) sceneList.get(0);
