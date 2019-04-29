@@ -74,4 +74,13 @@ public class MessageDaoImpl implements MessageDao {
             return (Message) query.uniqueResult();
 
     }
+
+    //点赞功能：数据库存储过程
+    @Override
+    public void thumbMessage(int messageId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call dianzan_message(?)}");
+        query.setInteger(0, messageId);
+        query.executeUpdate();
+
+    }
 }

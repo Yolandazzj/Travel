@@ -72,6 +72,7 @@
 <div class="top-main">
     <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
+        <form action="user/searchAll" method="post">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
@@ -83,11 +84,11 @@
                 </ul>
                    </li>
             </ul>
-            <input class="search-in" type="text" placeholder="请输入关键字">
-            <input type="button" class="search-but" value="搜索">
+            <input class="search-in" type="text" placeholder="请输入关键字" name="keyword">
+            <button type="submit" class="search-but" value="搜索"></button>
 
         </div>
-
+        </form>
     </div>
     <!--two-code-->
     <div class="two-code">

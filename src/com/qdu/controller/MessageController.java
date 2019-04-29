@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class MessageController {
@@ -25,6 +27,23 @@ public Message toMessage(String uid, String messageContent, HttpServletRequest r
       messageContent= request.getParameter("messageContent");
       messageService.toMessage(uid,messageContent);
         return messageService.getMessageById();
+    }
+
+    //点赞功能
+    @ResponseBody
+    @RequestMapping(value = "user/thumbMessage", method = RequestMethod.POST)
+  public Map<String, String> thumbMessage(HttpServletRequest request) {
+        Map map = new HashMap<>();
+        int messageId = Integer.parseInt(request.getParameter("messageId"));
+        boolean flag = messageService.thumbMessage(messageId);
+        if (flag) {
+            map.put("msg", "点赞成功");
+            return map;
+        } else {
+            map.put("msg", "点赞失败");
+            return map;
+        }
+
     }
 
 }

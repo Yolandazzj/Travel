@@ -91,5 +91,12 @@ public class IndexController {
             return "userMessage";
            }
 
+           //模糊搜索所有
+           @RequestMapping("user/searchAll")
+    public String searchAll(){
+
+        return "search";
+           }
+
 
 }

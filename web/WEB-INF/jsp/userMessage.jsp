@@ -111,11 +111,11 @@
 
 
         <table id="commentTable">
-            <c:forEach items="${messageAll}" var="m">
-                <tr>
+            <c:forEach items="${messageAll}" var="m" varStatus="x">
+                <tr id="${x.count}">
                     <td>${m.userinfo.uid}&nbsp;&nbsp;<span style="font-size: 12px;">
                                                 <fmt:formatDate  value="${m.messageTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                    </span><a href="#"><span style="margin-left: 850px;">👍<span id="thumbNumber">${m.messageScore}</span></span></a><br><br><br>${m.messageContent}</td>
+                    </span><a href="javascript:thumb(${m.messageId})"><span style="margin-left: 850px;">👍<span id="${m.messageId}">${m.messageScore}</span></span></a><br><br><br>${m.messageContent}</td>
 
                 </tr>
             </c:forEach>
@@ -150,7 +150,7 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a href="user/messagae?pageNo=${page.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
+                <a href="user/message?pageNo=${page.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
@@ -223,13 +223,15 @@
                 type: "POST",
                 data: $("#commentForm").serialize(),
                 success: function (message) {
-
                     var str =  "<tr><td>"
                     +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    +message.messageTime+"</span><br><a href=\"#\"><span style=\"margin-left: 850px;\">👍<span id=\"thumbNumber\">"
+                    +message.messageTime+"</span><br><a href='javascript:thumb("
+                    +message.messageId+")'><span style=\"margin-left: 850px;\">👍<span id="
+                    +message.messageId+">"
                     +message.messageScore+"</span></span></a><br><br><br>"
                     +message.messageContent+"</td></tr>"
                     $("#commentTable").append(str);
+                    $("#8").remove();
                     $("#writeComment").val("");
 
                 },
@@ -240,6 +242,31 @@
         });
     });
 </script>
+
+<!--点赞--->
+<script>
+    function thumb(messageId) {
+        $.ajax({
+            url: 'user/thumbMessage',
+            type: "POST",
+            data: {"messageId": messageId},
+            success: function (data) {
+
+                var onumber = parseInt($("#"+messageId).text());
+                $("#"+messageId).html(onumber + 1);
+
+
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+
+        });
+    }
+
+
+</script>
+
 
 </body>
 </html>

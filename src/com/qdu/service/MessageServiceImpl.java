@@ -51,4 +51,10 @@ public class MessageServiceImpl implements MessageService {
 
         return page;
     }
+
+    @Override
+    public boolean thumbMessage(int messageId) {
+         messageDao.thumbMessage(messageId);
+         return true;
+    }
 }
