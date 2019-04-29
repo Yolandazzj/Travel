@@ -1,5 +1,6 @@
 package com.qdu.controller;
 
+import com.qdu.page.page;
 import com.qdu.pojo.Scene;
 import com.qdu.service.SceneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,9 @@ public class SceneController {
         return "userCityDetails";
     }
 
-    //点赞功能
+
+
+    //点赞功能(景点)
     @RequestMapping(value = "user/thumb", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> thumb(HttpServletRequest request) {
@@ -63,4 +66,23 @@ public class SceneController {
         }
 
     }
+
+    //获取景点列表，分页
+    @RequestMapping("user/sceneAll")
+    public String sceneAll(HttpServletRequest request,Model model){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = sceneService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page",page);
+            List sceneAll = page.getList();
+            model.addAttribute("sceneAll", sceneAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "userSceneAll";
+    }
+
 }

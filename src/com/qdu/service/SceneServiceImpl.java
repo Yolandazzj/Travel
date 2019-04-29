@@ -59,6 +59,11 @@ public class SceneServiceImpl implements SceneService {
     }
 
     @Override
+    public List sceneList() {
+        return sceneDao.sceneList();
+    }
+
+    @Override
     public List<City> cityDetails(int sceneId) {
         return sceneDao.cityDetails(sceneId);
     }
@@ -76,14 +81,15 @@ public class SceneServiceImpl implements SceneService {
      * */
     @SuppressWarnings("unchecked")
     @Override
-    public page queryForPage(int currentPage, int pageSize, int sceneId) {
+    public page queryForPage(int currentPage, int pageSize) {
         page page=new page();
         //总记录数
-        int allRow =sceneDao.getAllRowCount(sceneId);
+        int allRow =sceneDao.getAllRowCount();
         //当前页开始记录为第几条
         int offset = page.countOffset(currentPage,pageSize);
         //分页查询结果集
-        List sceneList = sceneDao.queryForPage(offset, pageSize, sceneId);
+        List sceneList = sceneDao.sceneAll(offset, pageSize);
+
         page.setPageNo(currentPage);
         page.setPageSize(pageSize);
         page.setTotalRecords(allRow);
@@ -91,6 +97,7 @@ public class SceneServiceImpl implements SceneService {
         return page;
     }
 
+    //点赞功能（景点）
     @Override
     public boolean thumb(int sceneId) {
         sceneDao.thumb(sceneId);

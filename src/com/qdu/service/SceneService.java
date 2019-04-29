@@ -18,8 +18,9 @@ public interface SceneService {
     Scene hotScene6();
     Scene hotScene7();
     Scene sceneDetails(int sceneId);//根据景点ID获取景点详细信息；
+    List sceneList();//获取景点列表；
     List<City> cityDetails(int sceneId);//根据景点ID获取所在城市信息；
     List<Province> proNameByCity(int cityId);//根据城市ID获取所在省份；
-    page queryForPage(int currentPage,int pageSize,int sceneId) ;//分页查询
+    page queryForPage(int currentPage,int pageSize) ;//分页查询
     boolean thumb(int sceneId);//点赞景点
 }

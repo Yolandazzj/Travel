@@ -102,7 +102,7 @@
 </div>
 <br><br><br><br>
 <div class="jieshao mt20 w">
-    <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
+    <div class="left fl"><img src="/IMAGE/${sceneDetails.sceneImage}"></div>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
         <c:forEach items="${cityDetails}" var="c">

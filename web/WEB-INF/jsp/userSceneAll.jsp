@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
+    <script src="./resources/js/jquery-2.1.4.min.js"></script>
 
 </head>
 <body>
@@ -77,475 +78,80 @@
     </div>
 </div>
 
-<!--content-top-->
-<div class="content-top" style="height: 400px;">
-    <!--sidebar-->
-    <div class="sidebar" style="height: 400px;">
-        <h3 style="background-color: rgba(0,128,0,0.5);">产品服务</h3>
 
-        <!--侧拉菜单-->
+<div class="right-con" style="height: 100px;">
+    <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);width: 730px;">
 
-        <div class="sidebar-info">
-            <ul class="side-li">
-                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>热门景点<span class="fa fa-angle-right fa-loc"></span></h3></li>
-                <li class="s_2"><h3>海滨<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
-                </h3></li>
-                <li class="s_3"><h3>南方<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
-                </h3></li>
-                <li class="s_4"><h3>北方<span class="fa fa-angle-right fa-loc" style="line-height: 55px;"></span>
-                </h3></li>
-                <li class="s_5"><h3>西部<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
-                </h3></li>
+        <a href="#">旅行社</a>
+        <a href="#">组团游</a>
+        <a href="#" >跟团游</a>
+        <a href="#" >攻略</a>
+        <a href="#" >美食</a>
+        <a href="#">酒店</a>
+        <a href="#" >景点</a>
+        <a href="#" >推荐路线</a>
+        <a href="#" >留言板</a>
 
-            </ul>
-            <!--hidden-li-box-->
-            <ul class="hiden-box">
-                <li data-hidden="li" id="hiden-1" >
-                    <div class="sub-nav-right" >
-                        <div class="cell-box">
-                            <h1>北京</h1>
-                            <div class="a-box">
-                                <a href="#">故宫</a><span>|</span>
-                                <a href="#">颐和园</a><span>|</span>
-                                <a href="#" class="orange">长城</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>上海</h1>
-                            <div class="a-box">
-                                <a href="#">崇明岛</a><span>|</span>
-                                <a href="#" class="orange">迪士尼乐园</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>浙江</h1>
-                            <div class="a-box">
-                                <a href="#">宋城</a><span>|</span>
-                                <a href="#">横店影视城</a><span>|</span>
-                                <a href="#">千岛湖</a><span>|</span>
-                                <a href="#" class="orange">杭州西湖</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-nav-left" >
-                        <div class="cell-box">
-                            <h1>山东</h1>
-                            <div class="a-box">
-                                <a href="#">栈桥</a><span>|</span>
-                                <a href="#">崂山</a><span>|</span>
-                                <a href="#" class="orange">大明湖</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>西藏</h1>
-                            <div class="a-box">
-                                <a href="#">林芝</a><span>|</span>
-                                <a href="#">稻城亚丁</a><span>|</span>
-                                <a href="#">珠峰</a><span>|</span>
-                                <a href="#">雅鲁藏布江</a><span>|</span>
-                                <a href="#" class="orange">布达拉宫</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>重庆</h1>
-                            <div class="a-box">
-                                <a href="#">武隆天坑</a><span>|</span>
-                                <a href="#">解放碑</a><span>|</span>
-                                <a href="#">磁器口</a><span>|</span>
-                                <a href="#" class="orange">洪崖洞</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li data-hidden="li" id="hiden-2">
-                    <div class="sub-nav-right">
-                        <div class="cell-box">
-                            <h1>山东</h1>
-                            <div class="a-box">
-                                <a href="#">崂山</a><span>|</span>
-                                <a href="#" class="orange">栈桥</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>海南</h1>
-                            <div class="a-box">
-                                <a href="#">海口</a><span>|</span>
-                                <a href="#">大龙湾</a><span>|</span>
-                                <a href="#">妈祖庙</a><span>|</span>
-                                <a href="#" class="orange">三亚湾</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>福建</h1>
-                            <div class="a-box">
-                                <a href="#">鼓浪屿</a><span>|</span>
-                                <a href="#">南普陀寺</a><span>|</span>
-                                <a href="#" class="orange">曾厝垵</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-nav-left">
-                        <div class="cell-box">
-                            <h1>香港</h1>
-                            <div class="a-box">
-                                <a href="#">尖沙咀</a><span>|</span>
-                                <a href="#">铜锣湾</a><span>|</span>
-                                <a href="#" class="orange">大屿山</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>台湾</h1>
-                            <div class="a-box">
-                                <a href="#">日月潭</a><span>|</span>
-                                <a href="#">花莲</a><span>|</span>
-                                <a href="#" class="orange">阿里山</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>浙江</h1>
-                            <div class="a-box">
-                                <a href="#">象山影视城</a><span>|</span>
-                                <a href="#">普陀山</a><span>|</span>
-                                <a href="#" class="orange">四明山</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li data-hidden="li" id="hiden-3">
-                    <div class="sub-nav-right">
-                        <div class="cell-box">
-                            <h1>上海</h1>
-                            <div class="a-box">
-                                <a href="#">崇明岛</a><span>|</span>
-                                <a href="#" class="orange">迪士尼乐园</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>浙江</h1>
-                            <div class="a-box">
-                                <a href="#">宋城</a><span>|</span>
-                                <a href="#">千岛湖</a><span>|</span>
-                                <a href="#">横店影视城</a><span>|</span>
-                                <a href="#" class="orange">杭州西湖</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>香港</h1>
-                            <div class="a-box">
-                                <a href="#">铜锣湾</a><span>|</span>
-                                <a href="#">尖沙咀</a><span>|</span>
-                                <a href="#" class="orange">大屿山</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-nav-left">
-                        <div class="cell-box">
-                            <h1>福建</h1>
-                            <div class="a-box">
-                                <a href="#">鼓浪屿</a><span>|</span>
-                                <a href="#">南普陀寺</a><span>|</span>
-                                <a href="#" class="orange">曾厝垵</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>云南</h1>
-                            <div class="a-box">
-                                <a href="#">丽江</a><span>|</span>
-                                <a href="#">大理</a><span>|</span>
-                                <a href="#" class="orange">西双版纳</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>广西</h1>
-                            <div class="a-box">
-                                <a href="#">桂林</a><span>|</span>
-                                <a href="#" class="orange">阳朔</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li data-hidden="li" id="hiden-4">
-                    <div class="sub-nav-right">
-                        <div class="cell-box">
-                            <h1>北京</h1>
-                            <div class="a-box">
-                                <a href="#">故宫</a><span>|</span>
-                                <a href="#" class="orange">长城</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>山东</h1>
-                            <div class="a-box">
-                                <a href="#">栈桥</a><span>|</span>
-                                <a href="#">大明湖</a><span>|</span>
-                                <a href="#" class="orange">崂山</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>内蒙古</h1>
-                            <div class="a-box">
-                                <a href="#">赤峰</a><span>|</span>
-                                <a href="#" class="orange">锡林郭勒大草原</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-nav-left">
-                        <div class="cell-box">
-                            <h1>黑龙江</h1>
-                            <div class="a-box">
-                                <a href="#">牡丹江</a><span>|</span>
-                                <a href="#" class="orange">哈尔滨</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>陕西</h1>
-                            <div class="a-box">
-                                <a href="#">兵马俑</a><span>|</span>
-                                <a href="#">大雁塔</a><span>|</span>
-                                <a href="#" class="orange">华清池</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>辽宁</h1>
-                            <div class="a-box">
-                                <a href="#">棋盘山</a><span>|</span>
-                                <a href="#">白沙湾</a><span>|</span>
-                                <a href="#" class="orange">海棠山</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li data-hidden="li" id="hiden-5">
-                    <div class="sub-nav-right">
-                        <div class="cell-box">
-                            <h1>西藏</h1>
-                            <div class="a-box">
-                                <a href="#">稻城亚丁</a><span>|</span>
-                                <a href="#">纳木错</a><span>|</span>
-                                <a href="#" class="orange">布达拉宫</a>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>重庆</h1>
-                            <div class="a-box">
-                                <a href="#">观音桥</a><span>|</span>
-                                <a href="#">解放碑</a><span>|</span>
-                                <a href="#" class="orange">洪崖洞</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>新疆</h1>
-                            <div class="a-box">
-                                <a href="#">坎儿井</a><span>|</span>
-                                <a href="#">火焰山</a><span>|</span>
-                                <a href="#">天山天池</a><span>|</span>
-                                <a href="#">魔鬼城</a><span>|</span>
-                                <a href="#" class="orange">赛里木湖</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sub-nav-left">
-                        <div class="cell-box">
-                            <h1>青海</h1>
-                            <div class="a-box">
-                                <a href="#">茶卡盐湖</a><span>|</span>
-                                <a href="#" class="orange">青海湖</a>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>甘肃</h1>
-                            <div class="a-box">
-                                <a href="#">莫高窟</a><span>|</span>
-                                <a href="#">鸣沙山</a><span>|</span>
-                                <a href="#" class="orange">月牙泉</a>
-
-                            </div>
-                        </div>
-                        <%--                        <div class="cell-box">--%>
-                        <%--                            <h1>省份</h1>--%>
-                        <%--                            <div class="a-box">--%>
-                        <%--                                <a href="#">城市</a><span>|</span>--%>
-                        <%--                                <a href="#">城市</a><span>|</span>--%>
-                        <%--                                <a href="#">城市</a><span>|</span>--%>
-                        <%--                                <a href="#">城市</a><span>|</span>--%>
-                        <%--                                <a href="#" class="orange">城市</a>--%>
-
-                        <%--                            </div>--%>
-                        <%--                        </div>--%>
-                    </div>
-                </li>
-
-
-            </ul>
-        </div>
-    </div>
-    <!--right-con-->
-    <div class="right-con">
-        <div class="nav">
-
-            <a href="#">旅行社</a>
-            <a href="#">组团游</a>
-            <a href="user/tours">跟团游</a>
-            <a href="#">攻略</a>
-            <a href="#">美食</a>
-            <a href="#">酒店</a>
-            <a href="user/scene">景点</a>
-            <a href="#">推荐路线</a>
-            <a href="#">留言板</a>
-
-
-        </div>
-        <!--滚动广告box-->
-        <div class="show-box" >
-            <!--广告内容-->
-            <div class="content" >
-                <ul class="imgBox">
-                    <li><a href="#"><img src="resources/image/bj.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/xh.jpg"></a></li>
-                    <li><a href="#"><img src="resources/image/sh.jpg"></a></li>
-                    <%--                    <li><a href="#"><img src="resources/image/ls.jpg"></a></li>--%>
-                    <%--                    <li><a href="#"><img src="resources/image/jn.jpg"></a></li>--%>
-                </ul>
-                <div class="currentNum">
-                    <span class="imgNum mark-color"></span>
-                    <span class="imgNum"></span>
-                    <span class="imgNum"></span>
-                    <%--                    <span class="imgNum"></span>--%>
-                    <%--                    <span class="imgNum"></span>--%>
-                </div>
-            </div>
-
-        </div>
 
     </div>
+
+
 </div>
 
-<br><br><br><br>
-<!--景点-->
+<br><br><br><br><br><br><br><br>
 
-<div class="gentuan w">
-    <div class="biaoti center">国内景点</div>
-    <div class="routemain center">
-        <div class="routecontent">
-            <div class="remen fl" style="height: 550px;"><a href="">热门旅行的景点</a></div>
-
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top1</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&sceneName=${scene1.sceneName}"><img src="${scene1.sceneImage}"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene1.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene1.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene1.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top2</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}"><img src="./resources/image/peijian3.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene2.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene2.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene2.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top3</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene3.sceneId}"><img src="./resources/image/peijian4.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene3.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene3.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene3.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top4</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene4.sceneId}"><img src="./resources/image/peijian5.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene4.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene4.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="clear"></div>--%>
-        </div>
-        <div class="routecontent">
+<!--景点列表-->
+<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
 
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top5</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene5.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene4.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene5.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top6</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene6.sceneId}"><img src="./resources/image/peijian8.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene6.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${scene6.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">3720人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene6.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="remen fl">--%>
-<%--                <div class="luxian"><span>top7</span></div>--%>
-<%--                <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>--%>
-<%--                <div class="miaoshu"><a href="">${scene7.sceneName}</a></div>--%>
-<%--                &lt;%&ndash;                <div class="jiage">${route7.routePrice}</div>&ndash;%&gt;--%>
-<%--                <div class="pingjia">7750人评价</div>--%>
-<%--                <div class="piao">--%>
-<%--                    <a href="">--%>
-<%--                        <span>${scene7.sceneScore}人点赞</span>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--          --%>
-<%--            <div class="clear"></div>--%>
-        </div>
-    </div>
+    <table id="commentTable">
+        <c:forEach items="${sceneAll}" var="s">
+            <tr>
+                <td>${s.sceneId}&nbsp;&nbsp;<a href="javascript:thumb(${s.sceneId})" ><span style="margin-left: 850px;">👍<span id="${s.sceneId}">${s.sceneScore}</span></span></a><br><br><br>
+                    <a href="user/sceneDetails?sceneId=${s.sceneId}&sceneName=${s.sceneName}">${s.sceneName}</a></td>
+
+            </tr>
+        </c:forEach>
+    </table>
+    <br><br><br>
+    <form id="paging" style="text-align:center;">
+        <tr>
+            <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
+                <br> <br>
+
+                <a href="user/sceneAll?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
+
+                <c:choose>
+                    <c:when test="${page.pageNo!=1}">
+
+                        <a href="user/sceneAll?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
+
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="previousPage" value="上一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${page.pageNo!= page.totalPages}">
+                        <a href="user/sceneAll?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="nextPage" value="下一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <a href="user/sceneAll?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
+            </td>
+        </tr>
+    </form>
+
+    <br><br>
+
+
 </div>
-
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -571,6 +177,21 @@
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
-
+<script>
+    function thumb(sceneId) {
+        $.ajax({
+            url: 'user/thumb',
+            type: "POST",
+            data: {"sceneId": sceneId},
+            success: function (data) {
+                var onumber = parseInt($("#"+sceneId).text());
+                $("#"+sceneId).html(onumber + 1);
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
 </body>
 </html>
