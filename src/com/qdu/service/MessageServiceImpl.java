@@ -34,6 +34,7 @@ public class MessageServiceImpl implements MessageService {
         return messageDao.getMessageById();
     }
 
+    //分页
     @Override
     public page queryForPage(int currentPage, int pageSize) {
         page page = new page();

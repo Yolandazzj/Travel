@@ -3,14 +3,14 @@ package com.qdu.controller;
 import com.qdu.page.page;
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
-import com.qdu.service.MessageService;
-import com.qdu.service.RouteService;
-import com.qdu.service.SceneService;
+import com.qdu.service.*;
 import org.aspectj.weaver.patterns.HasMemberTypePatternForPerThisMatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -24,6 +24,8 @@ public class IndexController {
 
     @Autowired
     private SceneService sceneService;
+    @Autowired
+    private SearchService searchService;
 
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
@@ -96,9 +98,23 @@ public class IndexController {
 
            //模糊搜索所有
            @RequestMapping("user/searchAll")
-    public String searchAll(){
-
-        return "search";
+    public String searchAll(Model model,HttpServletRequest request,String keyword){
+               model.addAttribute("keyword", keyword);
+               model.addAttribute("searchListByEssay",searchService.searchEssay(keyword));
+               try {
+                   String pageNo = request.getParameter("pageNo");
+                   if (pageNo == null) {
+                       pageNo = "1";
+                   }
+                   page page = searchService.queryForPage(Integer.valueOf(pageNo), 8,keyword);
+                   model.addAttribute("page", page);
+                   List searchListByRoute = page.getList();
+               model.addAttribute("searchListByRoute",searchListByRoute);
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+               model.addAttribute("searchListByHotel",searchService.searchHotel(keyword));
+        return "userSearch";
            }
 
 
