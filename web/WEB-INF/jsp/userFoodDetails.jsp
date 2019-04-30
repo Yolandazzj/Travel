@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/4/24
-  Time: 22:35
+  Date: 2019/4/30
+  Time: 15:26
   To change this template use File | Settings | File Templates.
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -14,18 +14,14 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>景点详情</title>
-    <link rel="stylesheet" href="./resources/css/reset.css"/>
-    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="./resources/css/style.css"/>
-    <script src="./resources/js/jquery-2.1.4.min.js"></script>
-
-</head>
+    <title>美食详情</title>
+    <link rel="stylesheet" href="resources/css/reset.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
 <body>
 
 <!--滚动屏-->
 <div class="scroll-head"></div>
-
 <!--顶部-->
 <div class="top-wrapper">
     <div class="top-info">
@@ -52,6 +48,7 @@
             </div>
         </div>
     </div>
+
 
 </div>
 
@@ -93,33 +90,80 @@
 
     </div>
 </div>
-
 <br><br><br><br><br><br>
 
 <!-- 详情 -->
 <div class="xiaomi6 fl">
-    ${sceneName}
+    ${fname}
 </div>
 <br><br><br><br>
 <div class="jieshao mt20 w">
-    <div class="left fl"><img src="/IMAGE/${sceneDetails.sceneImage}"></div>
+    <div class="left fl"><img src="/IMAGE/${foodDetails.fimage}"></div>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
-        <c:forEach items="${cityDetails}" var="c">
-        <div class="jianjie mr40 ml20 mt10">所在城市：<a href="user/cityDetails?cityId=${c[0]}&cityName=${c[1]}"><div class="jiage ml20 mt10"><br>${c[1]}</div></a></div>
+        <div class="jianjie mr40 ml20 mt10">价格：<div class="jiage ml20 mt10"><br>${foodDetails.fprice}元</div></div>
+        <br><br><br>
+        <c:forEach items="${cateName}" var="c">
+        <div class="jianjie mr40 ml20 mt10">类别:&nbsp;&nbsp;<span style="color: black;">${c[1]}</span></div>
         </c:forEach>
-        <br><br><br><br><br><br>
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${sceneDetails.sceneScore}</span></div>
-        <br><br><br><br><br><br>
+        <br><br><br>
+        <c:forEach items="${storeDetails}" var="s">
+            <div class="jianjie mr40 ml20 mt10">店名:&nbsp;&nbsp;<a href="user/storeFoodList?did=${s[0]}&dname=${s[1]}"><span style="color: red;text-decoration: underline">${s[1]}</span></a></div>
+        <br><br><br>
+        <div class="jianjie mr40 ml20 mt10">地址:&nbsp;&nbsp;<span style="color: black;">${s[2]}</span></div>
+        </c:forEach>
+        <br><br><br>
+        <c:forEach items="${cityInfo}" var="ci">
+        <div class="jianjie mr40 ml20 mt10">所在城市:&nbsp;&nbsp;<span style="color: black;">${ci[1]}</span></div>
+        </c:forEach>
+        <br><br><br>
+        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${foodDetails.fscore}</span></div>
+        <br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb(${sceneDetails.sceneId})" method="post">
-                <input  type="hidden" name="sceneId" value="${sceneDetails.sceneId}">
+            <form action="javascript:thumb_food(${foodDetails.fid})" method="post">
+                <input  type="hidden" name="sceneId" value="${foodDetails.fid}">
                 <button class="jrgwc"  type="submit">我要点赞</button>
             </form>
         </div>
     </div>
     <div class="clear"></div>
 </div>
+
+<img src="./resources/image/user3.png" id="image2">
+<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
+
+    <table id="commentTable">
+        <c:forEach items="${foodCommentList}" var="f">
+            <tr>
+                <td>${f[2]}&nbsp;&nbsp;<span style="font-size: 12px;">
+                                                <fmt:formatDate  value="${f[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                            </span>:
+                    <a href="javascript:thumb_comment(${f[0]})"><span style="margin-left: 850px;">👍<span id="${f[0]}">${f[4]}</span></span></a>
+                    <br><br><br>${f[3]}</td>
+            </tr>
+        </c:forEach>
+    </table>
+
+    <br><br><br>
+
+
+    <br><br>
+    <form id="commentForm">
+        <div class="message-group">
+            <div class="message-controls">
+                <input  type="hidden" name="uid" value="${user.uid}">
+                <div class="message-group" style="margin-bottom: 100px;position: relative;">
+                    <div class="controls">
+                        <textarea cols="100" rows="10" id="writeComment" name="messageContent" style="resize: none;margin-left: 130px"></textarea>
+                        <br> <br>
+                        <input type="button" value="发表评论" id="submitBtn" style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
 
 <!--footer-->
 <div class="footer">
@@ -137,32 +181,44 @@
 </div>
 
 <!--回到顶部和底部-->
-
 <div class="backtoTop" id="backToTop1">
     <div id="backToTop-up" class="up-back"><i class="fa fa-angle-up"></i></div>
     <div id="backToTop-down" class="down-back"><i class="fa fa-angle-down"></i></div>
 </div>
 
-
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
 <script>
-    function thumb(sceneId) {
+    function thumb_food(fid) {
         $.ajax({
-            url: 'user/thumb',
+            url: 'user/thumb_food',
             type: "POST",
-            data: {"sceneId": sceneId},
+            data: {"fid": fid},
             success: function (data) {
                 var onumber = parseInt($("#thumbNumber").text());
                 $("#thumbNumber").html(onumber + 1);
-    },
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+
+    function thumb_comment(fcommentId) {
+        $.ajax({
+            url: 'user/thumb_comment',
+            type: "POST",
+            data: {"fcommentId": fcommentId},
+            success: function (data) {
+                var onumber = parseInt($("#"+fcommentId).text());
+                $("#"+fcommentId).html(onumber + 1);
+            },
             error: function () {
                 alert("Ajax请求失败");
             }
         });
     }
 </script>
-
 </body>
 </html>
