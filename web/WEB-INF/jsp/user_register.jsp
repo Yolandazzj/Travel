@@ -12,7 +12,7 @@
 <head>
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
-    <title>用户登录</title>
+    <title>用户注册</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <%--    <link rel="stylesheet" href="resources/css/style.css"/>--%>
@@ -24,41 +24,41 @@
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
     <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
     <script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript">
-        function checkName() {
-            var userName = document.getElementById("uid").valueOf();
-            $.ajax({
-                type: "POST",
-                url: "user/checkName？uid="+userName,
-                dataType: "text",
-                success: function (msg) {
-                    $("#msg").html(msg);
-                },
-                error: function (req, status, error) {
-                    alert("Ajax请求失败!" + error);
-                }
 
-            })
-        }
 
-    </script>
-    <script type="text/javascript">
-        function validate() {
-            var pwd1 = document.getElementById("upassword").value;
-            var pwd2 = document.getElementById("upassword2").value;
-
-            if(pwd1 == pwd2)
-            {
-                document.getElementById("tishi").innerHTML="<span>两次密码相同</span>";
-
-            }
-            else {
-                document.getElementById("tishi").innerHTML="<span>两次密码不相同</span>";
-            }
-        }
-    </script>
 </head>
 <body>
+<script type="text/javascript">
+    function checkName() {
+        var userName = document.getElementById("uid").valueOf();
+        $.ajax({
+            type: "POST",
+            url: "user/checkName？uid=" + userName,
+            dataType: "text",
+            success: function (msg) {
+                $("#msg").html(msg);
+            },
+            error: function (req, status, error) {
+                alert("Ajax请求失败!" + error);
+            }
+
+        })
+    }
+
+</script>
+<script type="text/javascript">
+    function validate() {
+        var pwd1 = document.getElementById("upassword").value;
+        var pwd2 = document.getElementById("upassword2").value;
+
+        if (pwd1 == pwd2) {
+            document.getElementById("tishi").innerHTML = "<span>两次密码相同</span>";
+
+        } else {
+            document.getElementById("tishi").innerHTML = "<span>两次密码不相同</span>";
+        }
+    }
+</script>
 <div data-vide-bg="videos/typing">
     <div class="w3-agile-signup-top">
         <h1>途牛旅行</h1>
@@ -103,10 +103,12 @@
                     <input type="text" name="ucity" class="name" placeholder="城市" required="">
                     <input type="text" name="ucontact" class="name" placeholder="联系电话" required="">
                     <input type="text" name="uemail" class="email" placeholder="邮箱" required="">
-                    <input type="password" name="upassword" class="password" placeholder="密码" required="">
-                    <input type="password" name="upassword2" class="password" placeholder="确认密码" required="" onkeyup="validate()">
-                    <span id="tishi"></span>
-                    <input type="submit" value="SIGN UP">
+                    <input type="password" id="upassword" name="upassword" class="password" placeholder="密码"
+                           required="">
+                    <input type="password" id="upassword2" class="password" placeholder="确认密码" required=""
+                           onkeyup="validate()">
+                    <span id="tishi" style="color: red;"></span>
+                    <input type="button" value="SIGN UP">
                 </form>
                 <div class="w3-bottom-text">
                     <h3><a href="#">Already Have an account<span>?</span></a></h3>

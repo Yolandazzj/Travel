@@ -13,6 +13,9 @@
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
     <title>用户登录</title>
+    <script src="./resources/js/jquery_1.9.js"></script>
+    <script src="./resources/js/main.js"></script>
+    <script src="./resources/js/show-image.js"></script>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <%--    <link rel="stylesheet" href="resources/css/style.css"/>--%>
@@ -37,6 +40,7 @@
             </div>
             <div class="header-left-bottom">
                 <form action="user/login" method="post" id="loginValidate">
+                    <div style="color: red;" id="msg"></div>
                     <div class="icon1">
                         <span class="fa fa-user"></span>
                         <input type="text" placeholder="账户名" required="true" name="uid"/>
@@ -50,7 +54,7 @@
                             logged in</label>
                     </div>
                     <div class="bottom">
-                        <button id="submitBtn" class="btn">登 录</button>
+                        <button id="submitBtn" type="button" class="btn">登 录</button>
                     </div>
                     <div class="links">
                         <p><a href="#">Forgot Password?</a></p>
@@ -75,29 +79,29 @@
         </div>
         <!-- //copyright -->
     </div>
-<%--    <script>--%>
-<%--        $(document).ready(function () {--%>
-<%--            $("#submitBtn").click(function () {--%>
-<%--                $.ajax({--%>
-<%--                    url: 'user/toLogin',--%>
-<%--                    type: 'POST',--%>
-<%--                    data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器--%>
-<%--                    success: function (msg) {--%>
-<%--                        $("#msg").html(msg);--%>
-<%--                    },--%>
-<%--                    error: function (req, status, error) {--%>
-<%--                        alert("Ajax请求失败!" + error);--%>
-<%--                    }--%>
-<%--                });--%>
-<%--            });--%>
-<%--        });--%>
-<%--    </script>--%>
+    <script>
+        $(document).ready(function () {
+            $("#submitBtn").click(function () {
+                $.ajax({
+                    url: 'user/login',
+                    type: 'POST',
+                    data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器
+                    success: function (msg) {
+                        $("#msg").html(msg);
+                    },
+                    error: function (req, status, error) {
+                        alert("Ajax请求失败!" + error);
+                    }
+                });
+            });
+        });
+    </script>
 </div>
 
 
 <%--    <jsp:include page="footer.jsp"/>--%>
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/show-image.js"></script>
+
+
+
 </body>
 </html>

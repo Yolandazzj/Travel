@@ -51,8 +51,10 @@
             <div data-toggle="arrowdown" id="arrow3" class="user-name">
                 <li class="drop-down"><a href="#">我的账户</a><span class="down-icon"></span>
                     <ul class="user-toggle-box">
-                        <li><a href="#">个人中心</a></li>
-                        <li><a href="#">修改信息</a></li>
+                        <c:if test="${user!=null}">
+                            <li><a href="user/toCenter">个人中心</a></li>
+                            <li><a href="#">修改信息</a></li>
+                        </c:if>
                     </ul>
                 </li>
 

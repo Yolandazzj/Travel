@@ -21,7 +21,7 @@ import java.io.IOException;
 public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
-    
+
     @RequestMapping("/toLogin")
     public String toLogin() {
         return "user_login";
@@ -30,23 +30,32 @@ public class UserInfoController {
     @RequestMapping(value = "/login", produces = "text/html;charset=utf-8")
     @ResponseBody
     public String login(String uid, String upassword, HttpSession session) {
-        Userinfo user = userInfoService.validateUser(uid, upassword);
+        // 这里先查下用户名是否存在
+        //存在就返回了
+        Userinfo user = userInfoService.getUserById(uid);
         if (null == user) {
-            return "用户名或者密码错误，请重新登录";
-        }
-        String isBan = user.getIsBan();
-        if (null != isBan && user.getIsBan().equals("1")) {
-            return "您已被禁用";
+            return "{\"msg\":\"用户名不存在，请检查\"}";
         } else {
-            session.setAttribute("user", user);
-            return "<script language='javascript' type='text/javascript'>window.location.href='/Travel'</script>";
 
 
+            user = userInfoService.validateUser(uid, upassword);
+            if (null == user) {
+                return "{\"msg\":\"用户名或者密码错误，请重新登录\"}";
+            }
+            String isBan = user.getIsBan();
+            if (null != isBan && user.getIsBan().equals("1")) {
+                return "您已被禁用";
+            } else {
+                session.setAttribute("user", user);
+                return "<script language='javascript' type='text/javascript'>window.location.href='/Travel'</script>";
+
+
+            }
         }
 
     }
 
-    @RequestMapping(value="/loginout")
+    @RequestMapping(value = "/loginout")
     public String loginout(HttpSession session, ModelMap map) throws IOException {
         session.removeAttribute("user");
         return "redirect:/index";
@@ -62,6 +71,11 @@ public class UserInfoController {
     public String register(Userinfo userInfo) {
         userInfoService.add(userInfo);
         return "user_login";
+    }
+
+    @RequestMapping("/toCenter")
+    public String toCenter() {
+        return "userCenter";
     }
 
     @RequestMapping("/editInfo")
