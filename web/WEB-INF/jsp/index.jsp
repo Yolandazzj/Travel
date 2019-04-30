@@ -74,6 +74,7 @@
 <div class="top-main">
     <img src="./resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
+        <form action="user/searchAll" method="post">
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
@@ -85,11 +86,11 @@
                 </ul>
                    </li>
             </ul>
-            <input class="search-in" type="text" placeholder="请输入关键字">
-            <input type="button" class="search-but" value="搜索">
+            <input class="search-in" type="text" placeholder="请输入关键字" name="keyword">
+            <button type="submit" class="search-but" value="搜索"></button>
 
         </div>
-
+        </form>
     </div>
     <!--two-code-->
     <div class="two-code">
@@ -109,7 +110,7 @@
 
         <div class="sidebar-info">
             <ul class="side-li">
-                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>自由行（放热门景点）<span class="fa fa-angle-right fa-loc"></span></h3></li>
+                <li class="s_1" style="height: 70px;line-height: 75px;"><h3>自由行<span class="fa fa-angle-right fa-loc"></span></h3></li>
                 <li class="s_2"><h3>跟团旅游<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
                 </h3></li>
                 <li class="s_3"><h3>酒店<span class="fa fa-angle-right fa-loc"style="line-height: 55px;"></span>
@@ -474,16 +475,14 @@
                 <div id="box-1" style="display: block" class="hiddenBox">
 
                     <a href="#">热门1</a>
-                    <a href="#"> 2</a>
+                    <a href="#">2</a>
                     <a href="#">3</a>
                     <a href="#">4</a>
                 </div>
                 <div id="box-2" class="hiddenBox">
-
-                    <a href="#">热门1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
+                    <c:forEach items="${sceneList}" var="sl">
+                    <a style="display: block;font-size: 13px;text-decoration: underline" href="user/sceneDetails?sceneId=${sl.sceneId}&sceneName=${sl.sceneName}">${sl.sceneName}</a>
+                    </c:forEach>
                 </div>
                 <div id="box-3" class="hiddenBox">
                     <a href="#">热点1</a>
@@ -539,7 +538,9 @@
                 <div class="inner-left">
                     <img src="./resources/image/show1.png"/>
                     <h1><a href="#">图片换成数据库图片，这放景点点赞数</a></h1>
-                    <span>景点所属城市</span>
+                    <c:forEach items="${cityDetails}" var="c">
+                    <span>${c[1]}</span>
+                    </c:forEach>
                 </div>
                 <div class="inner-right">
                     <div>

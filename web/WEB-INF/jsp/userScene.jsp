@@ -454,7 +454,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top1</span></div>
-                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&sceneName=${scene1.sceneName}"><img src="${scene1.sceneImage}"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene1.sceneId}&sceneName=${scene1.sceneName}"><img src="/IMAGE/${scene1.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene1.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -465,7 +465,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}"><img src="./resources/image/peijian3.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene2.sceneId}&sceneName=${scene2.sceneName}"><img src="/IMAGE/${scene2.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene2.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -475,7 +475,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene3.sceneId}"><img src="./resources/image/peijian4.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene3.sceneId}&sceneName=${scene3.sceneName}"><img src="/IMAGE/${scene3.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene3.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -485,7 +485,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene4.sceneId}"><img src="./resources/image/peijian5.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene4.sceneId}&sceneName=${scene4.sceneName}"><img src="/IMAGE/${scene4.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene4.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -499,7 +499,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene5.sceneId}"><img src="./resources/image/peijian7.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene5.sceneId}&sceneName=${scene5.sceneName}"><img src="/IMAGE/${scene5.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene5.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -509,7 +509,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene6.sceneId}"><img src="./resources/image/peijian8.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene6.sceneId}&sceneName=${scene6.sceneName}"><img src="/IMAGE/${scene6.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene6.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -519,7 +519,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/sceneDetails?routeId=${scene7.sceneId}"><img src="./resources/image/peijian9.jpg"></a></div>
+                <div class="tu"><a href="user/sceneDetails?sceneId=${scene7.sceneId}&sceneName=${scene7.sceneName}"><img src="/IMAGE/${scene7.sceneImage}"></a></div>
                 <div class="miaoshu"><a href="">${scene7.sceneName}</a></div>
                 <div class="piao">
                     <a href="">
@@ -528,7 +528,7 @@
                 </div>
             </div>
             <div class="remenlast fr">
-                <div class="liulangengduo"><a href=""><img src="./resources/image/liulan.png" alt=""></a></div>
+                <div class="liulangengduo"><a href="user/sceneAll"><img src="./resources/image/liulan.png" alt=""></a></div>
             </div>
             <div class="clear"></div>
         </div>
