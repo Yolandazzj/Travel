@@ -1,8 +1,10 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
+import com.qdu.pojo.Foodinfo;
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
+import com.qdu.service.FoodService;
 import com.qdu.service.MessageService;
 import com.qdu.service.RouteService;
 import com.qdu.service.SceneService;
@@ -24,6 +26,9 @@ public class IndexController {
 
     @Autowired
     private SceneService sceneService;
+
+    @Autowired
+    private FoodService foodService;
 
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
@@ -75,6 +80,26 @@ public class IndexController {
         return "userScene";
 }
 
+//首页美食
+    @RequestMapping("user/food")
+    public String food(Model model,HttpServletRequest request){
+        Foodinfo food1=foodService.hotFood1();
+        Foodinfo food2=foodService.hotFood2();
+        Foodinfo food3=foodService.hotFood3();
+        Foodinfo food4=foodService.hotFood4();
+        Foodinfo food5=foodService.hotFood5();
+        Foodinfo food6=foodService.hotFood6();
+        Foodinfo food7=foodService.hotFood7();
+        model.addAttribute("food1",food1);
+        model.addAttribute("food2",food2);
+        model.addAttribute("food3",food3);
+        model.addAttribute("food4",food4);
+        model.addAttribute("food5",food5);
+        model.addAttribute("food6",food6);
+        model.addAttribute("food7",food7);
+
+        return "userFood";
+    }
 
 //获取全部留言，分页
        @RequestMapping("user/message")

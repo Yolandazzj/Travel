@@ -409,11 +409,11 @@
             <a href="#">组团游</a>
             <a href="user/tours">跟团游</a>
             <a href="#">攻略</a>
-            <a href="#">美食</a>
+            <a href="user/food">美食</a>
             <a href="#">酒店</a>
             <a href="user/scene">景点</a>
             <a href="#">推荐路线</a>
-            <a href="#">留言板</a>
+            <a href="user/message">留言板</a>
 
 
         </div>

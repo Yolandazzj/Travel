@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/4/24
-  Time: 22:35
+  Date: 2019/4/30
+  Time: 18:52
   To change this template use File | Settings | File Templates.
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -14,18 +14,14 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>景点详情</title>
-    <link rel="stylesheet" href="./resources/css/reset.css"/>
-    <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="./resources/css/style.css"/>
-    <script src="./resources/js/jquery-2.1.4.min.js"></script>
-
+    <title>本店美食</title>
+    <link rel="stylesheet" href="resources/css/reset.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
 </head>
 <body>
-
 <!--滚动屏-->
 <div class="scroll-head"></div>
-
 <!--顶部-->
 <div class="top-wrapper">
     <div class="top-info">
@@ -52,6 +48,7 @@
             </div>
         </div>
     </div>
+
 
 </div>
 
@@ -93,34 +90,24 @@
 
     </div>
 </div>
-
 <br><br><br><br><br><br>
+<!--美食列表-->
+<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
-<!-- 详情 -->
-<div class="xiaomi6 fl">
-    ${sceneName}
-</div>
-<br><br><br><br>
-<div class="jieshao mt20 w">
-    <div class="left fl"><img src="/IMAGE/${sceneDetails.sceneImage}"></div>
-    <div class="right fr" style="height:562px;padding-left: 20px; ">
-        <br>
-        <c:forEach items="${cityDetails}" var="c">
-        <div class="jianjie mr40 ml20 mt10">所在城市：<a href="user/cityDetails?cityId=${c[0]}&cityName=${c[1]}"><div class="jiage ml20 mt10"><br>${c[1]}</div></a></div>
+    <table id="commentTable">
+        <c:forEach items="${storeFoodList}" var="sf">
+            <tr>
+                <td>${sf[0]}&nbsp;&nbsp;<a href="javascript:thumb_food(${sf[0]})" ><span style="margin-left: 850px;">👍<span id="${sf[0]}">${sf[2]}</span></span></a><br><br><br>
+                    <a href="user/foodDetails?fid=${sf[0]}&fname=${sf[1]}">${sf[1]}</a></td>
+
+            </tr>
         </c:forEach>
-        <br><br><br><br><br><br>
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${sceneDetails.sceneScore}</span></div>
-        <br><br><br><br><br><br>
-        <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb(${sceneDetails.sceneId})" method="post">
-                <input  type="hidden" name="sceneId" value="${sceneDetails.sceneId}">
-                <button class="jrgwc"  type="submit">我要点赞</button>
-            </form>
-        </div>
-    </div>
-    <div class="clear"></div>
-</div>
+    </table>
+    <br><br><br>
 
+    <br><br>
+
+</div>
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -137,32 +124,29 @@
 </div>
 
 <!--回到顶部和底部-->
-
 <div class="backtoTop" id="backToTop1">
     <div id="backToTop-up" class="up-back"><i class="fa fa-angle-up"></i></div>
     <div id="backToTop-down" class="down-back"><i class="fa fa-angle-down"></i></div>
 </div>
 
-
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
 <script>
-    function thumb(sceneId) {
+    function thumb_food(fid) {
         $.ajax({
-            url: 'user/thumb',
+            url: 'user/thumb_food',
             type: "POST",
-            data: {"sceneId": sceneId},
+            data: {"fid": fid},
             success: function (data) {
-                var onumber = parseInt($("#thumbNumber").text());
-                $("#thumbNumber").html(onumber + 1);
-    },
+                var onumber = parseInt($("#"+fid).text());
+                $("#"+fid).html(onumber + 1);
+            },
             error: function () {
                 alert("Ajax请求失败");
             }
         });
     }
 </script>
-
 </body>
 </html>

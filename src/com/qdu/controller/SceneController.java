@@ -48,7 +48,6 @@ public class SceneController {
     }
 
 
-
     //点赞功能(景点)
     @RequestMapping(value = "user/thumb", method = RequestMethod.POST)
     @ResponseBody
