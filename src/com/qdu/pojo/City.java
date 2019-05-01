@@ -2,6 +2,8 @@ package com.qdu.pojo;
 // Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class City  implements java.io.Serializable {
 
 
      private int cityId;
+    @JsonIgnore
      private Province province;
      private String cityName;
      private int cityScore;

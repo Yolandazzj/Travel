@@ -8,15 +8,15 @@
             <column name="RCommentId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
-            <column name="CityId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="route" class="com.qdu.pojo.Route" fetch="select">
-            <column name="RouteId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
-            <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">-->
+<!--            <column name="CityId" not-null="true" />-->
+<!--        </many-to-one>-->
+<!--        <many-to-one name="route" class="com.qdu.pojo.Route" fetch="select">-->
+<!--            <column name="RouteId" not-null="true" />-->
+<!--        </many-to-one>-->
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">-->
+<!--            <column name="UId" length="50" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="rcommentContent" type="string">
             <column name="RCommentContent" length="100" not-null="true" />
         </property>

@@ -232,12 +232,12 @@
             <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
                 <br> <br>
 
-                <a href="user/searchAll?pageNo=${page.topPageNo}&keyword=${keyword}"><input type="button" name="fristPage" value="首页" /></a>
+                <a id="firstPage" href="user/searchAll?pageNo=${page.topPageNo}&keyword=${keyword}"><input type="button" name="fristPage" value="首页" /></a>
 
                 <c:choose>
                     <c:when test="${page.pageNo!=1}">
 
-                        <a href="user/searchAll?pageNo=${page.previousPageNo}&keyword=${keyword}"><input type="button" name="previousPage" value="上一页" /></a>
+                        <a id="previousPage" href="user/searchAll?pageNo=${page.previousPageNo}&keyword=${keyword}"><input type="button" name="previousPage" value="上一页" /></a>
 
                     </c:when>
                     <c:otherwise>
@@ -248,7 +248,7 @@
                 </c:choose>
                 <c:choose>
                     <c:when test="${page.pageNo!= page.totalPages}">
-                        <a href="user/searchAll?pageNo=${page.nextPageNo}&keyword=${keyword}"><input type="button" name="nextPage" value="下一页" /></a>
+                        <a id="nextPage" href="user/searchAll?pageNo=${page.nextPageNo}&keyword=${keyword}"><input type="button" name="nextPage" value="下一页" /></a>
                     </c:when>
                     <c:otherwise>
 
@@ -256,83 +256,72 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a href="user/searchAll?pageNo=${page.bottomPageNo }&keyword=${keyword}"><input type="button" name="lastPage" value="尾页" /></a>
+                <a  id="lastPage" href="user/searchAll?pageNo=${page.bottomPageNo }&keyword=${keyword}"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
+
+    <br> <br> <br>
+    <table class="main-left" style="height: 250px;" id="essayHidden">
+        <tr class="main-title">
+            <th style="color: rgba(0,128,0,0.8);background-color: white">${keyword}攻略<span class="show-title"></span></th>
+        </tr>
+        <c:forEach items="${searchListByEssay}" var="se">
+            <tr class="product-box" style="width:788px;height: 200px;">
+                <td class="inner-info" style="width: 790px;height: 202px;">
+
+                    <div class="inner-left" style="height: 200px;margin-top: 0;">
+                        <a href="#"><img src="./resources/image/show1.png"/></a>
+                        <h1><a href="#"><${se[1]}></a></h1>
+                        <p>已有${se[2]}人点赞过啦！</p>
+                    </div>
+                    <div class="inner-right" style="width: 600px;height: 150px;">
+                        <div>
+                            <a href="#">
+                                <a href="#">${se[5]}</a>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </c:forEach>
+
+    </table>
+
+    <div class="clear"></div>
+
+    <br> <br> <br> <br> <br> <br>
+    <table class="main-left" style="height: 250px;" id="hotelHidden">
+        <tr class="main-title">
+            <th style="color: rgba(0,128,0,0.8);background-color: white;">${keyword}酒店<span class="show-title"></span></th>
+        </tr>
+        <c:forEach items="${searchListByHotel}" var="sh">
+            <tr class="product-box" style="width:788px;height: 200px;">
+                <td class="inner-info" style="width: 790px;height: 202px;">
+
+                    <div class="inner-left" style="height: 200px;margin-top: 0">
+                        <a href="#"><img src="./resources/image/show1.png"/></a>
+                        <h1><a href="#"><${sh[1]}></a></h1>
+                        <p>已有${sh[5]}人点赞过啦！</p>
+                    </div>
+                    <div class="inner-right" style="width: 600px;height: 150px;">
+                        <div>
+                            <a href="#">
+                                <a href="#">${sh[3]}起，${sh[4]}星级酒店！</a>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </c:forEach>
+
+    </table>
+
 </div>
-<%--    <div class="main-left" style="height: 250px;" id="essayHidden">--%>
-<%--        <div class="main-title">--%>
-<%--            <c:choose>--%>
-<%--            <c:when test="${searchListByEssay!=null}">--%>
-<%--            <h1 style="color: rgba(0,128,0,0.8)">${keyword}攻略<span class="show-title"></span></h1>--%>
-<%--        </div>--%>
-<%--        <c:forEach items="${searchListByEssay}" var="se">--%>
-<%--            <div class="product-box" style="width:788px;height: 200px;">--%>
-<%--                <div class="inner-info" style="width: 790px;height: 202px;">--%>
-
-<%--                    <div class="inner-left">--%>
-<%--                        <a href="#"><img src="./resources/image/show1.png"/></a>--%>
-<%--                        <h1><a href="#"><${se[1]}></a></h1>--%>
-<%--                        <p>已有${se[2]}人点赞过啦！</p>--%>
-<%--                    </div>--%>
-<%--                    <div class="inner-right" style="width: 600px;height: 150px;">--%>
-<%--                        <div>--%>
-<%--                            <a href="#">--%>
-<%--                                <a href="#">${se[5]}</a>--%>
-<%--                            </a>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </c:forEach>--%>
-<%--        </c:when>--%>
-<%--        <c:otherwise>--%>
-<%--        </c:otherwise>--%>
-
-<%--        </c:choose>--%>
-
-<%--    </div>--%>
-
-
-<%--    <div class="main-left" style="height: 250px;" id="hotelHidden">--%>
-<%--        <div class="main-title">--%>
-<%--            <c:choose>--%>
-<%--            <c:when test="${searchListByHotel!=null}">--%>
-<%--            <h1 style="color: rgba(0,128,0,0.8)">${keyword}酒店<span class="show-title"></span></h1>--%>
-<%--        </div>--%>
-<%--        <c:forEach items="${searchListByHotel}" var="sh">--%>
-<%--            <div class="product-box" style="width:788px;height: 200px;">--%>
-<%--                <div class="inner-info" style="width: 790px;height: 202px;">--%>
-
-<%--                    <div class="inner-left">--%>
-<%--                        <a href="#"><img src="./resources/image/show1.png"/></a>--%>
-<%--                        <h1><a href="#"><${sh[1]}></a></h1>--%>
-<%--                        <p>已有${sh[5]}人点赞过啦！</p>--%>
-<%--                    </div>--%>
-<%--                    <div class="inner-right" style="width: 600px;height: 150px;">--%>
-<%--                        <div>--%>
-<%--                            <a href="#">--%>
-<%--                                <a href="#">${sh[3]}起，${sh[4]}星级酒店！</a>--%>
-<%--                            </a>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </c:forEach>--%>
-<%--        </c:when>--%>
-<%--        <c:otherwise>--%>
-<%--        </c:otherwise>--%>
-
-<%--        </c:choose>--%>
-
-<%--    </div>--%>
-
-
 
 
 <!--footer-->
@@ -385,17 +374,17 @@
 
 <%--            });--%>
 <%--        </script>--%>
-        <script type="text/javascript">
-            $(document).ready(function(e) {
-                $("#selectList").find(".more").toggle(function(){
-                    $(this).addClass("more_bg");
-                    $(".more-none").show()
-                },function(){
-                    $(this).removeClass("more_bg");
-                    $(".more-none").hide()
-                });
-            });
-        </script>
+<%--        <script type="text/javascript">--%>
+<%--            $(document).ready(function(e) {--%>
+<%--                $("#selectList").find(".more").toggle(function(){--%>
+<%--                    $(this).addClass("more_bg");--%>
+<%--                    $(".more-none").show()--%>
+<%--                },function(){--%>
+<%--                    $(this).removeClass("more_bg");--%>
+<%--                    $(".more-none").hide()--%>
+<%--                });--%>
+<%--            });--%>
+<%--        </script>--%>
         <script type="text/javascript">
             $(document).ready(function(){
                 var taboy_box=$(".lefttable-list");
@@ -421,25 +410,25 @@
             data:{"keyword":keyword},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#essayHidden").empty();
-                $("#hotelHidden").empty();
-                $("#routeHidden").append("<div class=\"main-title\"><h1 style=\"color: rgba(0,128,0,0.8)\">"
-                    +keyword+"路线推荐<span class=\"show-title\"></span></h1></div>");
-                $.each(list, function (index, route) {
-                    var str = "<div class=\"product-box\" style=\"width:788px;height: 200px;\"><div class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"margin-top:-20px;\"><a href='user/routesDetails?routeId="
-                    +routeId+"&routeName="
-                    +routeName+"&cityId="
-                    +cityId+"'><img src=\"./resources/image/show1.png\"/></a><h1><a href='user/routesDetails?routeId="
-                    +routeId+"&routeName="
-                    +routeName+"&cityId="
-                    +cityId+"'><"
-                    +routeName+"></a></h1><p>已有"
-                    +routeScore+"人点赞过啦</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href='user/routesDetails?routeId="
-                    +sr.routeId+"&routeName="
-                    +sr.routeName+"&cityId="
-                    +cityId+"'>"
-                    +routeContent+"</a></a></div></div></div></div>";
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
+                   +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $.each(list, function (index, route,page) {
+                    var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"&cityId="
+                        +route.cityId+"><img src=\"./resources/image/show1.png\"/></a><h1><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"&cityId="
+                        +route.cityId+"><"
+                        +route.routeName+"></a></h1><p>已有"
+                        +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"&cityId="
+                        +route.cityId+">"
+                        +route.routeContent+"</a></a></div></div></td></tr>";
                     $("#routeHidden").append(str);
+
+
                 });
 
 

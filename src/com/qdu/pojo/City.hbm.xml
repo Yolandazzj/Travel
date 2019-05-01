@@ -8,9 +8,9 @@
             <column name="CityId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="province" class="com.qdu.pojo.Province" fetch="select">
-            <column name="ProvinceId" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="province" class="com.qdu.pojo.Province" fetch="select">-->
+<!--            <column name="ProvinceId" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="cityName" type="string">
             <column name="CityName" length="20" not-null="true" />
         </property>

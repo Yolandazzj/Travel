@@ -63,6 +63,7 @@ public class SearchDaoImpl implements SearchDao {
         return num;
     }
 
+    //根据关键字模糊搜索出酒店
     @Override
     public List searchHotel(String keyword) {
         SQLQuery query=sessionFactory.openSession().createSQLQuery("select h.* from Hotel h,City c where h.cityId=c.cityId and c.cityName like :keyword");
@@ -77,5 +78,53 @@ public class SearchDaoImpl implements SearchDao {
         return query.list();
     }
 
+    //模糊搜索根据好评分类路线
+    @Override
+    public List searchRouteByScore(String keyword,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where routeName like :keyWord order by routeScore desc");
+            query.setParameter("keyWord", "%"+keyword+"%");
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+
+    //模糊搜索根据好评路线结果集条数
+
+    @Override
+    public int getAllRowCountByScore(String keyword) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where routeName like :keyword order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter("keyword","%"+keyword+"%")
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //模糊搜索根据销量分类路线
+    @Override
+    public List searchRouteByNumber(String keyword,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("select count(*) as num,r.* from routeorders r group by r.routeId");
+            query.setParameter("keyWord", "%"+keyword+"%");
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
 
 }

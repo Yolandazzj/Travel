@@ -25,7 +25,7 @@ public class SearchServiceImpl implements SearchService {
         return searchDao.searchHotel(keyword);
     }
 
-    //分页
+    //根据关键字分页查询路线
     @Override
     public page queryForPage(int currentPage, int pageSize,String keyword) {
         page page = new page();
@@ -35,6 +35,26 @@ public class SearchServiceImpl implements SearchService {
         int offset = page.countOffset(currentPage,pageSize);
         //分页查询结果集
         List list = searchDao.searchRoute(keyword,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+
+    //根据关键字和好评度分页查询路线
+    @Override
+    public page queryForPageByScore(int currentPage, int pageSize,String keyword) {
+        page page = new page();
+        //总记录数
+        int allRow =searchDao.getAllRowCountByScore(keyword);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = searchDao.searchRouteByScore(keyword,offset,pageSize);
 
         page.setPageNo(currentPage);
         page.setPageSize(pageSize);

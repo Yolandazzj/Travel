@@ -4,6 +4,10 @@ import com.qdu.page.page;
 import com.qdu.pojo.Foodinfo;
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
+import com.qdu.service.FoodService;
+import com.qdu.service.MessageService;
+import com.qdu.service.RouteService;
+import com.qdu.service.SceneService;
 import com.qdu.service.*;
 import com.qdu.service.FoodService;
 import com.qdu.service.MessageService;
@@ -124,7 +128,7 @@ public class IndexController {
             return "userMessage";
            }
 
-           //模糊搜索所有
+           //模糊搜索所有:路线 酒店 攻略
            @RequestMapping("user/searchAll")
     public String searchAll(Model model,HttpServletRequest request,String keyword){
                model.addAttribute("keyword", keyword);
@@ -145,5 +149,25 @@ public class IndexController {
         return "userSearch";
            }
 
+//根据关键词和好评度搜索路线
+    @RequestMapping(value="user/keywordByScore",method = RequestMethod.POST)
+    @ResponseBody
+    public List searchRouteByScore(Model model,HttpServletRequest request,String keyword){
+        List searchListByRouteScore=null;
+        model.addAttribute("keyword", keyword);
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = searchService.queryForPageByScore(Integer.valueOf(pageNo), 8,keyword);
+            model.addAttribute("page", page);
+             searchListByRouteScore = page.getList();
+            model.addAttribute("searchListByRouteScore",searchListByRouteScore);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        return searchListByRouteScore;
+    }
 }
