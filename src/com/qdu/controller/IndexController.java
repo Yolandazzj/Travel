@@ -39,6 +39,9 @@ public class IndexController {
     @Autowired
     private FoodService foodService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
 
@@ -106,6 +109,9 @@ public class IndexController {
         model.addAttribute("food5",food5);
         model.addAttribute("food6",food6);
         model.addAttribute("food7",food7);
+
+        List cateList=categoryService.categoryList();
+        model.addAttribute("cateList",cateList);
 
         return "userFood";
     }

@@ -175,4 +175,22 @@ public class FoodDaoImpl implements  FoodDao {
         query.setInteger(0, fcommentId);
         query.executeUpdate();
     }
+
+    //发表美食评论
+    @Override
+    public void toFoodComment(int fid,String uid, String fcommentContent) {
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into Foodcomment (FId, UId, FCommentContent) values(?,?,?) ");
+        query.setParameter(0,fid);
+        query.setParameter(1, uid);
+        query.setParameter(2, fcommentContent);
+        query.executeUpdate();
+    }
+
+    //获取最新的美食评论，ajax追加
+    @Override
+    public Foodcomment getFoodCommentById() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Foodcomment order by fcommentId desc");
+        query.setMaxResults(1);
+        return (Foodcomment) query.uniqueResult();
+    }
 }

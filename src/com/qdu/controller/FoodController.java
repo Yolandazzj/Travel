@@ -1,6 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
+import com.qdu.pojo.Foodcomment;
 import com.qdu.pojo.Foodinfo;
 import com.qdu.service.FStoreService;
 import com.qdu.service.FoodService;
@@ -107,6 +108,17 @@ public class FoodController {
         model.addAttribute("storeFoodList",storeFoodList);
 
         return "userFStoreDetails";
+    }
+
+    //发表美食评论
+    @ResponseBody
+    @RequestMapping(value="user/toFoodComment", method = RequestMethod.POST)
+    public Foodcomment toFoodComment(int fid,String uid, String fcommentContent, HttpServletRequest request){
+        fid=Integer.parseInt(request.getParameter("fid"));
+        uid= request.getParameter("uid");
+        fcommentContent= request.getParameter("fcommentContent");
+        foodService.toFoodComment(fid, uid, fcommentContent);
+        return foodService.getFoodCommentById();
     }
 
 }

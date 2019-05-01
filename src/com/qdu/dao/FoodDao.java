@@ -24,4 +24,6 @@ public interface FoodDao {
     int getAllRowCount();//获取总行数
     void thumb_food(int fid);//点赞功能（美食)
     void thumb_comment(int fcommentId);//点赞功能（美食评论)
+    void toFoodComment(int fid,String uid,String fcommentContent);//美食评论
+    Foodcomment getFoodCommentById();//根据fcommentId获取最新评论
 }

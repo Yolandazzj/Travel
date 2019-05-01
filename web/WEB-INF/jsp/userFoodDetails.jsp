@@ -26,13 +26,23 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">登录</a>
-            </div>
-            <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-gray"></i>
-                <a href="#">注册</a>
-            </div>
+            <c:if test="${user==null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <a href="user/toLogin">登录</a>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <i class="fa fa-gray"></i>
+                    <a href="#">注册</a>
+                </div>
+            </c:if>
+            <c:if test="${user!=null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <a href="user/loginout">注销</a>
+                </div>
+            </c:if>
         </div>
 
         <!--top-right-->
@@ -148,13 +158,14 @@
 
 
     <br><br>
-    <form id="commentForm">
+    <form id="commentForm" method="post">
         <div class="message-group">
             <div class="message-controls">
                 <input  type="hidden" name="uid" value="${user.uid}">
+                <input  type="hidden" name="fid" value="${foodDetails.fid}">
                 <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
-                        <textarea cols="100" rows="10" id="writeComment" name="messageContent" style="resize: none;margin-left: 130px"></textarea>
+                        <textarea cols="100" rows="10" id="writeComment" name="fcommentContent" style="resize: none;margin-left: 130px"></textarea>
                         <br> <br>
                         <input type="button" value="发表评论" id="submitBtn" style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
                     </div>
@@ -163,7 +174,6 @@
         </div>
     </form>
 </div>
-
 
 <!--footer-->
 <div class="footer">
@@ -190,6 +200,7 @@
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
 <script>
+    //美食点赞
     function thumb_food(fid) {
         $.ajax({
             url: 'user/thumb_food',
@@ -205,6 +216,7 @@
         });
     }
 
+    //美食评论点赞
     function thumb_comment(fcommentId) {
         $.ajax({
             url: 'user/thumb_comment',
@@ -219,6 +231,35 @@
             }
         });
     }
+</script>
+
+<script>
+    //发表评论
+    $(document).ready(function () {
+        $("#submitBtn").click(function (foodComment) {
+            $.ajax({
+                url: 'user/toFoodComment',
+                type: "POST",
+                data: $("#commentForm").serialize(),
+                success: function (foodComment) {
+                    var str =  "<tr><td>"
+                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    +foodComment.fcommentTime+"</span><br><a href='javascript:thumb_comment("
+                    +foodComment.fcommentId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
+                    +foodComment.fcommentId+">"
+                    +foodComment.fcommentScore+"</span></span></a><br><br><br>"
+                    +foodComment.fcommentContent+"</td></tr>"
+                    $("#commentTable").append(str);
+                    $("#8").remove();
+                    $("#writeComment").val("");
+
+                },
+                error: function (request, status, error) {
+                    alert("Ajax请求失败!" + error);
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>

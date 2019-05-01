@@ -96,12 +96,12 @@ public class FoodServiceImpl implements FoodService{
         //当前页开始记录为第几条
         int offset = page.countOffset(currentPage,pageSize);
         //分页查询结果集
-        List sceneList = foodDao.foodAll(offset, pageSize);
+        List foodList = foodDao.foodAll(offset, pageSize);
 
         page.setPageNo(currentPage);
         page.setPageSize(pageSize);
         page.setTotalRecords(allRow);
-        page.setList(sceneList);
+        page.setList(foodList);
         return page;
     }
 
@@ -116,5 +116,15 @@ public class FoodServiceImpl implements FoodService{
     public boolean thumb_comment(int fcommentId) {
         foodDao.thumb_comment(fcommentId);
         return true;
+    }
+
+    @Override
+    public void toFoodComment(int fid, String uid, String fcommentContent) {
+        foodDao.toFoodComment(fid,uid,fcommentContent);
+    }
+
+    @Override
+    public Foodcomment getFoodCommentById() {
+        return foodDao.getFoodCommentById();
     }
 }

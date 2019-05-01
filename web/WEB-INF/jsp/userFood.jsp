@@ -27,13 +27,23 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">登录</a>
-            </div>
-            <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-gray"></i>
-                <a href="#">注册</a>
-            </div>
+            <c:if test="${user==null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <a href="user/toLogin">登录</a>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <i class="fa fa-gray"></i>
+                    <a href="#">注册</a>
+                </div>
+            </c:if>
+            <c:if test="${user!=null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <a href="user/loginout">注销</a>
+                </div>
+            </c:if>
         </div>
 
         <!--top-right-->
@@ -100,65 +110,16 @@
             </ul>
             <!--hidden-li-box-->
             <ul class="hiden-box">
-                <li data-hidden="li" id="hiden-1" >
-                    <div class="sub-nav-right" >
-                        <div class="cell-box">
-                            <h1>火锅</h1>
-                            <div class="a-box">
-<%--                                <a href="#">故宫</a><span>|</span>--%>
-<%--                                <a href="#">颐和园</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">长城</a>--%>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>烧烤</h1>
-                            <div class="a-box">
-<%--                                <a href="#">崇明岛</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">迪士尼乐园</a>--%>
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>饮品</h1>
-                            <div class="a-box">
-<%--                                <a href="#">宋城</a><span>|</span>--%>
-<%--                                <a href="#">横店影视城</a><span>|</span>--%>
-<%--                                <a href="#">千岛湖</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">杭州西湖</a>--%>
-                            </div>
-                        </div>
+                <li data-hidden="li" id="hiden-1">
+                    <div>
+
+                            <c:forEach items="${cateList}" var="ca">
+                                <a href="user/category?fcategoryId=${ca[0]}&fcategoryName=${ca[1]}" style="font-size: 16px"><h1>${ca[1]}</h1></a>
+                                <br>
+                            </c:forEach>
+
                     </div>
-                    <div class="sub-nav-left" >
-                        <div class="cell-box">
-                            <h1>日本料理</h1>
-                            <div class="a-box">
-<%--                                <a href="#">栈桥</a><span>|</span>--%>
-<%--                                <a href="#">崂山</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">大明湖</a>--%>
 
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>家常菜</h1>
-                            <div class="a-box">
-<%--                                <a href="#">林芝</a><span>|</span>--%>
-<%--                                <a href="#">稻城亚丁</a><span>|</span>--%>
-<%--                                <a href="#">珠峰</a><span>|</span>--%>
-<%--                                <a href="#">雅鲁藏布江</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">布达拉宫</a>--%>
-
-                            </div>
-                        </div>
-                        <div class="cell-box">
-                            <h1>小吃</h1>
-                            <div class="a-box">
-<%--                                <a href="#">武隆天坑</a><span>|</span>--%>
-<%--                                <a href="#">解放碑</a><span>|</span>--%>
-<%--                                <a href="#">磁器口</a><span>|</span>--%>
-<%--                                <a href="#" class="orange">洪崖洞</a>--%>
-
-                            </div>
-                        </div>
-                    </div>
                 </li>
                 <li data-hidden="li" id="hiden-2">
                     <div class="sub-nav-right">
