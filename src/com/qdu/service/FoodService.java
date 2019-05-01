@@ -24,4 +24,6 @@ public interface FoodService {
     page queryForPage(int currentPage, int pageSize) ;//分页查询
     boolean thumb_food(int fid);//点赞美食
     boolean thumb_comment(int fcommentId);//点赞美食评论
+    void toFoodComment(int fid,String uid,String fcommentContent);//美食评论
+    Foodcomment getFoodCommentById();//根据fcommentId获取最新评论
 }

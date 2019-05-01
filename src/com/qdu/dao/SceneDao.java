@@ -19,7 +19,7 @@ public interface SceneDao {
     Scene hotScene7();
     Scene sceneDetails(int sceneId);//根据景点ID获取景点详细信息；
     List sceneList();//获取景点列表
-    List<City> cityDetails(int sceneId);//根据景点ID获取所在城市名字；
+    List<City> cityDetails(int sceneId);//根据景点ID获取所在城市信息；
     List<Province> proNameByCity(int cityId);//根据城市ID获取所在省份；
     List sceneAll(int offset, int length);//分页查询,获取景点列表
     int getAllRowCount();//获取总行数
