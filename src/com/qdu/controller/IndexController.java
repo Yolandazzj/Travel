@@ -1,5 +1,6 @@
 package com.qdu.controller;
 
+import com.qdu.dao.CityDao;
 import com.qdu.page.page;
 import com.qdu.pojo.Foodinfo;
 import com.qdu.pojo.Route;
@@ -13,9 +14,12 @@ import com.qdu.service.FoodService;
 import com.qdu.service.MessageService;
 import com.qdu.service.RouteService;
 import com.qdu.service.SceneService;
+import com.qdu.utils.Json;
+import net.sf.json.JSON;
 import org.aspectj.weaver.patterns.HasMemberTypePatternForPerThisMatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +45,9 @@ public class IndexController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private CityService cityService;
 
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
@@ -114,6 +121,30 @@ public class IndexController {
         model.addAttribute("cateList",cateList);
 
         return "userFood";
+    }
+
+    //首页组团游
+    @RequestMapping("user/group")
+    public String group(Model model,HttpServletRequest request){
+        List proList=cityService.proList();
+        model.addAttribute("proList",proList);
+        return "userGroup";
+    }
+
+    //根据省份id获取城市数据后直接使用@ResponseBody装成json数据
+    @RequestMapping(value = "user/getCityByPro/{provinceId}")
+    @ResponseBody
+    public Json getCityByPro(@PathVariable("provinceId") int provinceId){
+        List cityList=cityService.getCityByPro(provinceId);
+
+        if(cityList!=null){
+            for (Object c:cityList) {
+                System.out.println(c);
+            }
+            return new Json(true,"success",cityList);
+        }else{
+            return new Json(false,"fail",null);
+        }
     }
 
 //获取全部留言，分页

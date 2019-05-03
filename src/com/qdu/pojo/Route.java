@@ -17,6 +17,7 @@ public class Route  implements java.io.Serializable {
 
      private Integer routeId;
      private Agency agency;
+     @JsonIgnore
      private City city;
      private String routeName;
      private String routeContent;

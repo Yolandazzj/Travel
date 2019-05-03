@@ -424,7 +424,7 @@
         <div class="nav">
 
             <a href="#">旅行社</a>
-            <a href="#">组团游</a>
+            <a href="user/group">组团游</a>
             <a href="user/tours">跟团游</a>
             <a href="#">攻略</a>
             <a href="user/food">美食</a>

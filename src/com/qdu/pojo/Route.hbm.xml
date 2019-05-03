@@ -11,9 +11,9 @@
 <!--        <many-to-one name="agency" class="com.qdu.pojo.Agency" fetch="select">-->
 <!--            <column name="AgencyId" not-null="true" />-->
 <!--        </many-to-one>-->
-<!--        <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">-->
-<!--            <column name="CityId" not-null="true" />-->
-<!--        </many-to-one>-->
+        <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
+            <column name="CityId" not-null="true" />
+        </many-to-one>
         <property name="routeName" type="string">
             <column name="RouteName" length="20" not-null="true" />
         </property>

@@ -69,7 +69,7 @@
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
-                        <li><a href="#">组团游</a></li>
+                        <li><a href="user/group">组团游</a></li>
                         <li><a href="user/scene">景点</a></li>
                         <li><a href="#">攻略</a></li>
                         <li><a href="#">酒店</a></li>
@@ -354,7 +354,7 @@
         <div class="nav">
 
             <a href="#">旅行社</a>
-            <a href="#">组团游</a>
+            <a href="user/group">组团游</a>
             <a href="user/tours">跟团游</a>
             <a href="#">攻略</a>
             <a href="#">美食</a>
