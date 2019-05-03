@@ -1,0 +1,240 @@
+@charset "utf-8";
+body{
+    margin: 0;
+    padding: 0;
+    background: url(images/main-bg.jpg);
+    font-family: 微软雅黑;
+}
+.main{
+    background-color:rgba(100, 200, 400, 0.8);
+    width: 1000px;
+    height: 1000px;
+    margin: 200px auto;
+    position: relative;
+    border-radius: 5px;
+    border: 10px solid lightskyblue;
+
+}
+.container{
+    width: 700px;
+    height: 200px;
+    font-weight:900;
+    font-size: 79px;
+    position: absolute;
+    left: 0px;
+    top: -150px;
+    color: white;
+
+}
+.Pic{
+    width: 400px;
+    height: 400px;
+    /*background-color: pink;*/
+    position: relative;
+    top: 50px;
+    float: left;
+
+
+}
+.description{
+    display: inline-block;
+    width: 500px;
+    height: 400px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    /*background-color: pink;*/
+
+
+
+}
+.description p{
+    color:darkorange;
+    font-size: 20px;
+    font-weight: 700;
+}
+.span1{
+    font-size: 17px;
+    color: grey;
+    font-weight: 500;
+}
+#time{
+    /*background-color: blue;*/
+    /*width: 50px;
+    height: 50px;*/
+    position: relative;
+    bottom: 400px;
+    left: 700px;
+    color:mediumpurple;
+}
+summary{
+    color: grey;
+}
+input[type="text"]{
+    width: 260px;
+    height: 25px;
+    border-radius: 5px;
+    border: solid lightblue 1px;
+    outline: none; /*去掉轮廓*/
+    padding: 3px 8px;
+}
+
+input[type="text"]:hover{
+    border: solid yellowgreen 1px;
+    box-shadow: 0 0 10px lightblue;
+}
+input[type="text"]::-webkit-input-placeholder{
+    font-style: italic;
+}
+input[type="submit"]{
+    width: 260px;
+    height: 50px;
+    background-color:mediumpurple;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    position: relative;
+    left: 55px;
+    bottom: 50px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: purple;
+
+}
+.detail{
+    width: 800px;
+    height:200px;
+    /*background-color: pink;*/
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+#image1{
+
+    position: relative;
+    left: 20px;
+}
+.title{
+    background-color: lightgray;
+    width: 800px;
+    height: 30px;
+}
+.detail2{
+    width: 800px;
+    height: 100px;
+    /*background-color: pink;*/
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+.spana{
+    color: grey;
+    font-size: 15px;
+}
+#form2 {
+    float: right;
+    width: 250px;
+    height: 70px;
+    margin-top: 50px;
+    margin-right: 85px;
+    padding-right: 50px;
+    position: relative;
+    right: 100px;
+    bottom: 200px;
+}
+
+#body {
+    margin: 10px auto;
+    width: 1050px;
+    height: 1300px;
+    /*background-color: white;*/
+    padding-top: 10px;
+}
+
+#form2>ul a {
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#form2>ul a li:hover {
+    background: url(images/menu-li-bg.png);
+}
+
+.header{
+    position: fixed;
+}
+
+
+
+body {
+    font-family: 微软雅黑;
+}
+
+.nav {
+    width: 120px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+/*里面的ul设计样式*/
+
+.nav ul{
+    background-color: lightskyblue;
+    text-align: center;
+    line-height: 20px;
+    display: none;
+}
+
+/*给.nav的子元素li添加边框*/
+.nav>li{ /*直接子元素*/
+    border: solid 1px black;
+}
+
+/*设置.nav的子元素li的直接子元素a的样式*/
+.nav>li>a{
+    background-color: royalblue;
+    text-decoration: none;
+    color: white;
+    display: block; /*将元素改成块元素*/
+    width: 100%;
+    text-align: center;
+}
+
+/*设置里面的ul里面的a元素的样式*/
+.nav ul a{
+    text-decoration: none;
+    font-size: 15px;
+    color:black;
+
+}
+#footer{
+    width: 1000px;
+    height: 20px;
+    position: absolute;
+    margin-top: 5px;
+    color: snow;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+    margin-right: 60px;
+}
+#copyRight{
+    width: 1000px;
+    height: 20px;
+    position: absolute;
+    margin-top: 32px;
+    color: blue;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+    margin-right: 60px;
+
+}
