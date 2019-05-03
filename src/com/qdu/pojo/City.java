@@ -3,6 +3,8 @@ package com.qdu.pojo;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ public class City  implements java.io.Serializable {
 
 
      private int cityId;
+    @JsonIgnore
      private Province province;
      private String cityName;
      private int cityScore;

@@ -8,9 +8,9 @@
             <column name="MessageId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
-            <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">-->
+<!--            <column name="UId" length="50" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="messageContent" type="string">
             <column name="MessageContent" length="100" not-null="true" />
         </property>

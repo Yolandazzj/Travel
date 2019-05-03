@@ -1503,7 +1503,7 @@
     width: 0;
     height: 0;
     border: 8px solid #fff;
-    /*border-color: transparent;*/
+    border-color: transparent #fff transparent transparent;
 }
 /*circle-big*/
 .circle-new,
