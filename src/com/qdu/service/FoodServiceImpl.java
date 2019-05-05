@@ -76,6 +76,7 @@ public class FoodServiceImpl implements FoodService{
         return foodDao.cityInfo(fid);
     }
 
+    //获取该美食的评论
     @Override
     public List<Foodcomment> foodComment(int fid) {
         return foodDao.foodComment(fid);
@@ -112,17 +113,20 @@ public class FoodServiceImpl implements FoodService{
         return true;
     }
 
+    //点赞功能（美食评论）
     @Override
     public boolean thumb_comment(int fcommentId) {
         foodDao.thumb_comment(fcommentId);
         return true;
     }
 
+    //发表美食评论
     @Override
     public void toFoodComment(int fid, String uid, String fcommentContent) {
         foodDao.toFoodComment(fid,uid,fcommentContent);
     }
 
+    //获取最新美食评论
     @Override
     public Foodcomment getFoodCommentById() {
         return foodDao.getFoodCommentById();

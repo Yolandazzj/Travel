@@ -44,6 +44,9 @@ public class IndexController {
     private FoodService foodService;
 
     @Autowired
+    private GroupService groupService;
+
+    @Autowired
     private CategoryService categoryService;
 
     @Autowired
@@ -123,13 +126,26 @@ public class IndexController {
         return "userFood";
     }
 
-    //首页组团游
-    @RequestMapping("user/group")
-    public String group(Model model,HttpServletRequest request){
-        List proList=cityService.proList();
-        model.addAttribute("proList",proList);
-        return "userGroup";
+    //首页组团游,获取全部组团游列表，分页
+    @RequestMapping("user/groupAll")
+    public String groupAll(Model model,HttpServletRequest request){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = groupService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page",page);
+            List groupAll = page.getList();
+            model.addAttribute("groupAll", groupAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "userGroupAll";
     }
+
+
+
 
     //根据省份id获取城市数据后直接使用@ResponseBody装成json数据
     @RequestMapping(value = "user/getCityByPro/{provinceId}")
