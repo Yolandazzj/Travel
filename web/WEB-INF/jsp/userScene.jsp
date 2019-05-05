@@ -26,13 +26,23 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">登录</a>
-            </div>
-            <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-gray"></i>
-                <a href="#">注册</a>
-            </div>
+            <c:if test="${user==null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <a href="user/toLogin">登录</a>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <i class="fa fa-gray"></i>
+                    <a href="#">注册</a>
+                </div>
+            </c:if>
+            <c:if test="${user!=null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <a href="user/loginout">注销</a>
+                </div>
+            </c:if>
         </div>
 
         <!--top-right-->
@@ -409,11 +419,11 @@
             <a href="#">组团游</a>
             <a href="user/tours">跟团游</a>
             <a href="#">攻略</a>
-            <a href="#">美食</a>
+            <a href="user/food">美食</a>
             <a href="#">酒店</a>
             <a href="user/scene">景点</a>
             <a href="#">推荐路线</a>
-            <a href="#">留言板</a>
+            <a href="user/message">留言板</a>
 
 
         </div>

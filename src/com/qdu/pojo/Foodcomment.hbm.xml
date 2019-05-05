@@ -8,12 +8,12 @@
             <column name="FCommentId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="foodinfo" class="com.qdu.pojo.Foodinfo" fetch="select">
-            <column name="FId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
-            <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="foodinfo" class="com.qdu.pojo.Foodinfo" fetch="select">-->
+<!--            <column name="FId" not-null="true" />-->
+<!--        </many-to-one>-->
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">-->
+<!--            <column name="UId" length="50" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="fcommentContent" type="string">
             <column name="FCommentContent" length="100" not-null="true" />
         </property>

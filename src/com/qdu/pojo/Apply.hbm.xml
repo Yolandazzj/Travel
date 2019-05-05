@@ -6,7 +6,7 @@
     <class name="com.qdu.pojo.Apply" table="apply" catalog="bishe" optimistic-lock="version">
         <id name="applyId" type="int">
             <column name="ApplyId" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="group" class="com.qdu.pojo.Group" fetch="select">
             <column name="GId" not-null="true" />

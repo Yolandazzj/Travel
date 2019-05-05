@@ -74,7 +74,7 @@ public class SceneServiceImpl implements SceneService {
     }
 
     /**
-     * 分页查询
+     * 分页查询路线
      * @param currentPage 当前页号：现在显示的页数
      * @param pageSize 每页显示的记录条数
      * @return 封闭了分页信息(包括记录集list)的Bean

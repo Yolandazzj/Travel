@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
+
+    <link rel="stylesheet" href="./resources/css/table.css"/>
+
+
     <script src="./resources/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
@@ -115,7 +119,7 @@
                 <tr id="${x.count}">
                     <td>${m.userinfo.uid}&nbsp;&nbsp;<span style="font-size: 12px;">
                                                 <fmt:formatDate  value="${m.messageTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                    </span><a href="javascript:thumb(${m.messageId})"><span style="margin-left: 850px;">👍<span id="${m.messageId}">${m.messageScore}</span></span></a><br><br><br>${m.messageContent}</td>
+                    </span><a href="javascript:thumb(${m.messageId})"><span style="margin-left: 850px;">👍<span id="m${m.messageId}">${m.messageScore}</span></span></a><br><br><br>${m.messageContent}</td>
 
                 </tr>
             </c:forEach>
@@ -226,7 +230,7 @@
                     var str =  "<tr><td>"
                     +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
                     +message.messageTime+"</span><br><a href='javascript:thumb("
-                    +message.messageId+")'><span style=\"margin-left: 850px;\">👍<span id="
+                    +message.messageId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
                     +message.messageId+">"
                     +message.messageScore+"</span></span></a><br><br><br>"
                     +message.messageContent+"</td></tr>"
@@ -252,8 +256,8 @@
             data: {"messageId": messageId},
             success: function (data) {
 
-                var onumber = parseInt($("#"+messageId).text());
-                $("#"+messageId).html(onumber + 1);
+                var onumber = parseInt($("#m"+messageId).text());
+                $("#m"+messageId).html(onumber + 1);
 
 
             },

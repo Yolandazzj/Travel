@@ -93,7 +93,7 @@ public class SceneDaoImpl implements SceneDao {
         return query.list();
     }
 
-
+    //根据景点ID获取所在城市信息；
     @Override
     public List cityDetails(int sceneId) {
         SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Scene s,City c where c.cityId=s.cityId and s.sceneId=?");

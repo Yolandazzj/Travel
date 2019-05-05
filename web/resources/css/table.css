@@ -1,0 +1,28 @@
+
+/***************table************/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid lightgrey;
+    margin: 0 auto;
+}
+th{
+    background-color: lightgrey;
+    color:black;
+    padding: 10px;
+
+}
+td{
+    border: 0;
+    border-bottom: 3px solid lightgray;
+    padding: 10px;
+}
+
+tr:hover{
+    background-color: lightgray;
+}
+/***************留言板********/
+.control-group{
+    border: 10px solid lightgrey;
+
+}

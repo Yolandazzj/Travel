@@ -71,12 +71,10 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: url(../img/arrow.png) no-repeat center center;
 }
 /*down-icon-circle*/
 .down-icon-circle{
     border-radius: 12px;
-    background: #f40 url(../img/arrow.png) no-repeat center;
 }
 .run-up{
     transition-duration: .5s;
@@ -122,7 +120,7 @@
 .get-box,
 .center-box,
 .nav-box,
-.search-toggle-box
+.search-toggle-box,
 .user-toggle-box
 {
     position: absolute;
@@ -463,8 +461,8 @@
     padding-left: 10px;
     border: none;
     outline: none;
-    background: url(../img/search.png) no-repeat 98% center,
-    url(../img/s.png) no-repeat 2% center;
+    background: url(../image/search.png) no-repeat 98% center,
+    url(../image/s.png) no-repeat 2% center;
 }
 .search-in-scroll{
     height: 27px;
@@ -716,7 +714,6 @@
 .nav > a{
     padding: 5px 5px;
     height: 32px;
-    margin: 0 8px;
     color: #202020;
     font-size: 16px;
     margin: 0 12px;
@@ -739,7 +736,7 @@
 .nav img{
     vertical-align: middle;
     border: none;
-    margin: 0 0px 0 40px;
+    margin: 0 0 0 40px;
 }
 .keep-a{
     font-size: 11px;
@@ -954,7 +951,7 @@
     width: 298px;
     height: 138px;
     border: 1px solid #ddd;
-    background: url(../img/user-bg.png) no-repeat right top;
+    background: url(../image/user-bg.png) no-repeat right top;
 }
 .gold-top{
     margin: 10px auto 0 auto;
@@ -993,7 +990,7 @@
     margin: 4px 5px 0 5px;
     width: 18px;
     height: 18px;
-    background: url(../img/tao.png) no-repeat center;
+    background: url(../image/tao.png) no-repeat center;
 }
 .vip-home:hover,
 .get-gold:hover{
@@ -1129,7 +1126,7 @@
 }
 .tell-num{
     width: 145px;
-    background: url(../img/user-num.png) no-repeat 95% center;
+    background: url(../image/user-num.png) no-repeat 95% center;
 }
 /*service-head*/
 .service-head{
@@ -1191,7 +1188,7 @@
     border-radius: 3px;
     color: #fff;
     outline: none;
-    background: #f40 url(../img/down.png) no-repeat 90% center;
+    background: #f40 url(../image/down.png) no-repeat 90% center;
     cursor: pointer;
 }
 /*sub-nav-cell*/
@@ -1872,6 +1869,8 @@ padding: 5px 0;
 
 .gentuan .routemain .routecontent .remen .tu a img {
     margin: 10px 42px 20px 42px;
+    height: 150px;
+    width: 150px;
 }
 
 .gentuan .routemain .routecontent .remen .miaoshu {
@@ -2220,7 +2219,6 @@ left .xuangou_left {
 }
 .right .gouwuche {
     margin: 0 20px;
-    background: #424242;
     width: 120px;
     text-align: center;
     font-size: 12px;
@@ -2275,10 +2273,10 @@ left .xuangou_left {
     border: 1px solid #d3d3d3;
 }
 .addition{
-    border-left: 0px;
+    border-left: 0;
 }
 .subtraction{
-    border-right: 0px;
+    border-right: 0;
 }
 .number-box{
     width: 122px;
