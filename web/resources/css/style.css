@@ -2386,3 +2386,17 @@ tr:hover{
     border: 10px solid lightgrey;
 
 }
+/*********toCenter*********/
+.login-top input[type="text"], .login-top input[type="password"] {
+    outline: none;
+    font-size:0.9em;
+    color: #999;
+    padding: 12px 12px 12px 40px;
+    margin: 0;
+    width: 89%;
+    border:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    -webkit-appearance: none;
+    margin-bottom: 28px;
+    font-family: 'Rationale', sans-serif;
+}
