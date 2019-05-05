@@ -13,6 +13,9 @@
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
     <title>用户登录</title>
+    <script src="./resources/js/jquery_1.9.js"></script>
+    <script src="./resources/js/main.js"></script>
+    <script src="./resources/js/show-image.js"></script>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <%--    <link rel="stylesheet" href="resources/css/style.css"/>--%>
@@ -21,7 +24,7 @@
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
 
 
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+<%--    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">--%>
 </head>
 <body>
 <%--    <jsp:include page="header.jsp"/>--%>
@@ -37,6 +40,7 @@
             </div>
             <div class="header-left-bottom">
                 <form action="user/login" method="post" id="loginValidate">
+                    <div style="color: red;" id="msg"></div>
                     <div class="icon1">
                         <span class="fa fa-user"></span>
                         <input type="text" placeholder="账户名" required="true" name="uid"/>
@@ -50,11 +54,11 @@
                             logged in</label>
                     </div>
                     <div class="bottom">
-                        <button id="submitBtn" class="btn">登 录</button>
+                        <button id="submitBtn" type="button" class="btn">登 录</button>
                     </div>
                     <div class="links">
                         <p><a href="#">Forgot Password?</a></p>
-                        <p class="right"><a href="register">New User? Register</a></p>
+                        <p class="right"><a href="user/toRegister">New User? Register</a></p>
                         <div class="clear"></div>
                     </div>
                 </form>
@@ -79,7 +83,7 @@
         $(document).ready(function () {
             $("#submitBtn").click(function () {
                 $.ajax({
-                    url: 'login',
+                    url: 'user/login',
                     type: 'POST',
                     data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (msg) {
@@ -96,8 +100,8 @@
 
 
 <%--    <jsp:include page="footer.jsp"/>--%>
-<script src="resources/js/jquery_1.9.js"></script>
-<script src="resources/js/main.js"></script>
-<script src="resources/js/show-image.js"></script>
+
+
+
 </body>
 </html>

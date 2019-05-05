@@ -63,4 +63,61 @@ public class SearchServiceImpl implements SearchService {
 
         return page;
     }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByPrice1(int currentPage, int pageSize,String keyword) {
+        page page = new page();
+        //总记录数
+        int allRow =searchDao.getAllRowCountByPrice1(keyword);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = searchDao.searchRouteByPrice1(keyword,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByPrice2(int currentPage, int pageSize,String keyword) {
+        page page = new page();
+        //总记录数
+        int allRow =searchDao.getAllRowCountByPrice2(keyword);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = searchDao.searchRouteByPrice2(keyword,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByPrice3(int currentPage, int pageSize,String keyword) {
+        page page = new page();
+        //总记录数
+        int allRow =searchDao.getAllRowCountByPrice3(keyword);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = searchDao.searchRouteByPrice3(keyword,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
 }

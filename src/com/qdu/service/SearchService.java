@@ -9,4 +9,7 @@ public interface SearchService {
     List searchHotel(String keyword);
     page queryForPage(int currentPage, int pageSize, String keyword);//分页查询模糊搜索路线
     page queryForPageByScore(int currentPage, int pageSize,String keyword);
+    page queryForPageByPrice1(int currentPage, int pageSize,String keyword);
+    page queryForPageByPrice2(int currentPage, int pageSize,String keyword);
+    page queryForPageByPrice3(int currentPage, int pageSize,String keyword);
 }
