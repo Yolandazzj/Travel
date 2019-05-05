@@ -9,6 +9,12 @@ public interface SearchDao {
     int getAllRowCount(String keyword);
     List searchRouteByScore(String keyword,int offset, int length);
     int getAllRowCountByScore(String keyword);
-    List searchRouteByNumber(String keyword,int offset, int length);
+//    List searchRouteByNumber(String keyword,int offset, int length);
+    List searchRouteByPrice1(String keyword,int offset, int length);
+    int getAllRowCountByPrice1(String keyword);
+    List searchRouteByPrice2(String keyword,int offset, int length);
+    int getAllRowCountByPrice2(String keyword);
+    List searchRouteByPrice3(String keyword,int offset, int length);
+    int getAllRowCountByPrice3(String keyword);
 //    List searchScene(String keyword);
 }

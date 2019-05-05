@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-4-18 21:40:29 by Hibernate Tools 4.3.1
+// Generated 2019-5-4 22:17:52 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -22,7 +22,6 @@ public class Userinfo  implements java.io.Serializable {
      private Set foodcomments = new HashSet(0);
      private Set essaycomments = new HashSet(0);
      private Set routeorderses = new HashSet(0);
-     private Set applies = new HashSet(0);
      private Set routecomments = new HashSet(0);
      private Set hotelorderses = new HashSet(0);
      private Set messages = new HashSet(0);
@@ -43,7 +42,7 @@ public class Userinfo  implements java.io.Serializable {
         this.upassword = upassword;
         this.urank = urank;
     }
-    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, String isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routeorderses, Set applies, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
+    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, String isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routeorderses, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
        this.uid = uid;
        this.ugender = ugender;
        this.ucity = ucity;
@@ -55,7 +54,6 @@ public class Userinfo  implements java.io.Serializable {
        this.foodcomments = foodcomments;
        this.essaycomments = essaycomments;
        this.routeorderses = routeorderses;
-       this.applies = applies;
        this.routecomments = routecomments;
        this.hotelorderses = hotelorderses;
        this.messages = messages;
@@ -140,13 +138,6 @@ public class Userinfo  implements java.io.Serializable {
     
     public void setRouteorderses(Set routeorderses) {
         this.routeorderses = routeorderses;
-    }
-    public Set getApplies() {
-        return this.applies;
-    }
-    
-    public void setApplies(Set applies) {
-        this.applies = applies;
     }
     public Set getRoutecomments() {
         return this.routecomments;

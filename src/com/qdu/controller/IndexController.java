@@ -207,4 +207,93 @@ public class IndexController {
 
         return searchListByRouteScore;
     }
+
+
+    //根据关键词和价格搜索路线
+    @RequestMapping(value="user/keywordByPrice1",method = RequestMethod.POST)
+    @ResponseBody
+    public List searchRouteByPirce1(Model model,HttpServletRequest request,String keyword){
+        List searchListByRoutePrice1=null;
+        model.addAttribute("keyword", keyword);
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = searchService.queryForPageByPrice1(Integer.valueOf(pageNo), 8,keyword);
+            model.addAttribute("page", page);
+            searchListByRoutePrice1 = page.getList();
+            model.addAttribute("searchListByRoutePrice1",searchListByRoutePrice1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return searchListByRoutePrice1;
+    }
+
+
+    //根据关键词和价格搜索路线
+    @RequestMapping(value="user/keywordByPrice2",method = RequestMethod.POST)
+    @ResponseBody
+    public List searchRouteByPirce2(Model model,HttpServletRequest request,String keyword){
+        List searchListByRoutePrice2=null;
+        model.addAttribute("keyword", keyword);
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page1 = searchService.queryForPageByPrice2(Integer.valueOf(pageNo), 8,keyword);
+            model.addAttribute("page1", page1);
+            searchListByRoutePrice2 = page1.getList();
+            model.addAttribute("searchListByRoutePrice2",searchListByRoutePrice2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return searchListByRoutePrice2;
+    }
+
+    //根据关键词和价格搜索路线
+    @RequestMapping(value="user/keywordByPrice3",method = RequestMethod.POST)
+    @ResponseBody
+    public List searchRouteByPirce3(Model model,HttpServletRequest request,String keyword){
+        List searchRouteByPirce3=null;
+        model.addAttribute("keyword", keyword);
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page2 = searchService.queryForPageByPrice3(Integer.valueOf(pageNo), 8,keyword);
+            model.addAttribute("page2", page2);
+            searchRouteByPirce3 = page2.getList();
+            model.addAttribute("searchRouteByPirce3",searchRouteByPirce3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return searchRouteByPirce3;
+    }
+    //根据关键词和价格搜索路线
+    @RequestMapping(value="user/searchByNo",method = RequestMethod.POST)
+    @ResponseBody
+    public List searchByNo(Model model,HttpServletRequest request,String keyword){
+        List searchRouteByNo=null;
+        model.addAttribute("keyword", keyword);
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page3 = searchService.queryForPage(Integer.valueOf(pageNo), 8,keyword);
+            model.addAttribute("page3", page3);
+            searchRouteByNo = page3.getList();
+            model.addAttribute("searchRouteByNo",searchRouteByNo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return searchRouteByNo;
+    }
 }

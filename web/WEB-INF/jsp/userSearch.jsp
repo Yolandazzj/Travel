@@ -130,7 +130,7 @@
                     <div class="ui-tab-container">
                         <ul class="clearfix ui-tab-list">
                             <li><a href="javascript:ajaxbyScore('${keyword}')">按好评</a></li>
-                            <li><a href="javascript:ajaxbyNumber('${keyword}')">按销量</a></li>
+<%--                            <li><a href="javascript:ajaxbyNumber('${keyword}')">按销量</a></li>--%>
                         </ul>
 
             </div>
@@ -139,39 +139,43 @@
                 <div class="selectNumberScreen">
                     <div id="selectList" class="screenBox screenBackground">
 
-                        <dl class=" listIndex" attr="terminal_os_s">
-                            <dt>路线天数</dt>
-                            <dd>
-                                <label><a href="javascript:;" >不限</a> </label>
-                                <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;" > 1</a> </label>
-                                <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;">2</a></label>
-                                <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;">3</a></label>
-                            </dd>
-                        </dl>
-                        <dl class="listIndex" attr="terminal_brand_s">
+                        <dl class="listIndex" attr="价格范围">
                             <dt>路线价格</dt>
-                            <dd data-more=true>
-                                <label><a href="javascript:;" values2="" values1="" attrval="不限">不限</a></label>
+                            <dd>
+                                <label><a href="javascript:ajaxByNo('${keyword}');">不限</a></label>
                                 <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;" >100以下</a></label>
+                                    <input name="routePrice" type="radio" value="100" />
+                                    <a href="javascript:ajaxByPrice1('${keyword}')">1000元以下</a></label>
                                 <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;" >100-300</a> </label>
+                                    <input name="routePrice" type="radio" value="300" />
+                                    <a href="javascript:ajaxByPrice2('${keyword}')"> 1000-2000元 </a></label>
                                 <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;">300-500</a> </label>
-                                <label>
-                                    <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-                                    <a href="javascript:;">500以上</a></label>
+                                    <input name="routePrice" type="radio" value="601" />
+                                    <a href="javascript:ajaxByPrice3('${keyword}')">2000元以上</a></label>
+
                             </dd>
                         </dl>
+
+<%--                        <dl class=" listIndex" attr="terminal_os_s">--%>
+<%--                            <dt>出行天数</dt>--%>
+<%--                            <dd>--%>
+<%--                                <label>--%>
+<%--                                    <input type="hidden" name="routeDay"/>--%>
+<%--                                    <a href="javascript:;">不限</a>--%>
+<%--                                </label>--%>
+<%--                                <label>--%>
+<%--                                    <input name="routeDay" type="checkbox" value="1" autocomplete="off"/>--%>
+<%--                                    <a href="javascript:;" >1</a> </label>--%>
+<%--                                <label>--%>
+<%--                                    <input name="routeDay" type="checkbox" value="2" autocomplete="off"/>--%>
+<%--                                    <a href="javascript:;" >2</a></label>--%>
+<%--                                <label>--%>
+<%--                                    <input name="routeDay" type="checkbox" value="3" autocomplete="off"/>--%>
+<%--                                    <a href="javascript:;">3</a></label>--%>
+
+<%--                            </dd>--%>
+<%--                        </dl>--%>
+
 
 
                     </div>
@@ -182,11 +186,11 @@
 
         <div class="hasBeenSelected clearfix">
             <div style="float:right;" class="eliminateCriteria">【清空全部】 </div>
-            <dl>
-                <dt>已选条件：</dt>
-                <dd style="DISPLAY: none" class=clearDd>
-                    <div class=clearList></div>
-            </dl>
+<%--            <dl>--%>
+<%--                <dt>已选条件：</dt>--%>
+<%--                <dd style="DISPLAY: none" class=clearDd>--%>
+<%--                    <div class=clearList></div>--%>
+<%--            </dl>--%>
         </div>
         <script type="text/javascript" src="./resources/js/shaixuan.js"></script>
     </div>
@@ -206,8 +210,8 @@
             <td class="inner-info" style="width: 790px;height: 202px;">
 
                 <div class="inner-left" style="height: 200px;margin-top: 0">
-                    <a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}&cityId=${sr.city.cityId}"><img src="./resources/image/show1.png"/></a>
-                    <h1><a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}&cityId=${sr.city.cityId}"><${sr.routeName}></a></h1>
+                    <a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}"><img src="/IMAGE/${sr.routeImage}"  style="width: 150px;height: 140px;"/></a>
+                    <h1><a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}"><${sr.routeName}></a></h1>
                     <p>已有${sr.routeScore}人点赞过啦！</p>
                 </div>
                 <div class="inner-right" style="width: 600px;height: 150px;">
@@ -271,7 +275,7 @@
                 <td class="inner-info" style="width: 790px;height: 202px;">
 
                     <div class="inner-left" style="height: 200px;margin-top: 0;">
-                        <a href="#"><img src="./resources/image/show1.png"/></a>
+                        <a href="#"><img src="/IMAGE/scene/3.jpg" style="width: 168px;height: 200px;"/></a>
                         <h1><a href="#"><${se[1]}></a></h1>
                         <p>已有${se[2]}人点赞过啦！</p>
                     </div>
@@ -302,7 +306,7 @@
                 <td class="inner-info" style="width: 790px;height: 202px;">
 
                     <div class="inner-left" style="height: 200px;margin-top: 0">
-                        <a href="#"><img src="./resources/image/show1.png"/></a>
+                        <a href="#"><img src="/IMAGE/${sh[6]}" style="width: 150px;height: 140px;"/></a>
                         <h1><a href="#"><${sh[1]}></a></h1>
                         <p>已有${sh[5]}人点赞过啦！</p>
                     </div>
@@ -415,16 +419,14 @@
                 $.each(list, function (index, route,page) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
-                        +route.routeName+"&cityId="
-                        +route.cityId+"><img src=\"./resources/image/show1.png\"/></a><h1><a href=user/routesDetails?routeId="
+                        +route.routeName+"><img src='/IMAGE/"
+                        +route.routeImage+"' style=\"width: 150px;height: 140px;\"/></a><h1><a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
-                        +route.routeName+"&cityId="
-                        +route.cityId+"><"
+                        +route.routeName+"><"
                         +route.routeName+"></a></h1><p>已有"
                         +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
-                        +route.routeName+"&cityId="
-                        +route.cityId+">"
+                        +route.routeName+">"
                         +route.routeContent+"</a></a></div></div></td></tr>";
                     $("#routeHidden").append(str);
 
@@ -440,5 +442,149 @@
     }
 </script>
 
+
+<script>
+    function ajaxByPrice1(keyword) {
+        $.ajax({
+            url: 'user/keywordByPrice1',
+            type:"POST",
+            data:{"keyword":keyword},
+            success: function (list) {
+                $("#routeHidden").empty();
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
+                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $.each(list, function (index, route) {
+                    var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><img src='/IMAGE/"
+                        +route.routeImage+"' style=\"width: 150px;height: 140px;\"/></a><h1><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><"
+                        +route.routeName+"></a></h1><p>已有"
+                        +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+">"
+                        +route.routeContent+"</a></a></div></div></td></tr>";
+                    $("#routeHidden").append(str);
+
+
+                });
+
+
+            },
+            error: function (request, status, error) {
+                alert("Ajax请求失败!!!" + error);
+            }
+        });
+    }
+</script>
+
+<script>
+    function ajaxByPrice2(keyword) {
+        $.ajax({
+            url: 'user/keywordByPrice2',
+            type:"POST",
+            data:{"keyword":keyword},
+            success: function (list) {
+                $("#routeHidden").empty();
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
+                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $.each(list, function (index, route) {
+                    var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><img src='/IMAGE/"
+                        +route.routeImage+"' style=\"width: 150px;height: 140px;\"/><h1><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><"
+                        +route.routeName+"></a></h1><p>已有"
+                        +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+">"
+                        +route.routeContent+"</a></a></div></div></td></tr>";
+                    $("#routeHidden").append(str);
+
+
+                });
+
+
+            },
+            error: function (request, status, error) {
+                alert("Ajax请求失败!!!" + error);
+            }
+        });
+    }
+</script>
+
+<script>
+    function ajaxByPrice3(keyword) {
+        $.ajax({
+            url: 'user/keywordByPrice3',
+            type:"POST",
+            data:{"keyword":keyword},
+            success: function (list) {
+                $("#routeHidden").empty();
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
+                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $.each(list, function (index, route) {
+                    var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><img src='/IMAGE/"
+                        +route.routeImage+"' style=\"width: 150px;height: 140px;\"/><h1><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><"
+                        +route.routeName+"></a></h1><p>已有"
+                        +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+">"
+                        +route.routeContent+"</a></a></div></div></td></tr>";
+                    $("#routeHidden").append(str);
+
+
+                });
+
+
+            },
+            error: function (request, status, error) {
+                alert("Ajax请求失败!!!" + error);
+            }
+        });
+    }
+</script>
+
+<script>
+    function ajaxByNo(keyword) {
+        $.ajax({
+            url: 'user/searchByNo',
+            type:"POST",
+            data:{"keyword":keyword},
+            success: function (list) {
+                $("#routeHidden").empty();
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
+                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $.each(list, function (index, route) {
+                    var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><img src='/IMAGE/"
+                        +route.routeImage+"' style=\"width: 150px;height: 140px;\"/><h1><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+"><"
+                        +route.routeName+"></a></h1><p>已有"
+                        +route.routeScore+"人点赞过啦！</p></div><div class=\"inner-right\" style=\"width: 600px;height: 150px;\"><div><a href=\"#\"><a href=user/routesDetails?routeId="
+                        +route.routeId+"&routeName="
+                        +route.routeName+">"
+                        +route.routeContent+"</a></a></div></div></td></tr>";
+                    $("#routeHidden").append(str);
+
+
+                });
+
+
+            },
+            error: function (request, status, error) {
+                alert("Ajax请求失败!!!" + error);
+            }
+        });
+    }
+</script>
     </body>
 </html>

@@ -111,11 +111,29 @@ public class SearchDaoImpl implements SearchDao {
     }
 
     //模糊搜索根据销量分类路线
+//    @Override
+//    public List searchRouteByNumber(String keyword,int offset, int length) {
+//        List entitylist = null;
+//        try {
+//            Query query=sessionFactory.openSession().createQuery("select count(*) as num,r.* from routeorders r group by r.routeId");
+//            query.setParameter("keyWord", "%"+keyword+"%");
+//            query.setFirstResult(offset);
+//            query.setMaxResults(length);
+//            entitylist = query.list();
+//        } catch (RuntimeException re) {
+//            throw re;
+//        }
+//
+//        return entitylist;
+//    }
+
+
+    //模糊搜索根据价格分类路线
     @Override
-    public List searchRouteByNumber(String keyword,int offset, int length) {
+    public List searchRouteByPrice1(String keyword,int offset, int length) {
         List entitylist = null;
         try {
-            Query query=sessionFactory.openSession().createQuery("select count(*) as num,r.* from routeorders r group by r.routeId");
+            Query query=sessionFactory.openSession().createQuery("from Route where routeName like :keyWord and routePrice<1000 order by routeScore desc");
             query.setParameter("keyWord", "%"+keyword+"%");
             query.setFirstResult(offset);
             query.setMaxResults(length);
@@ -125,6 +143,82 @@ public class SearchDaoImpl implements SearchDao {
         }
 
         return entitylist;
+    }
+    //模糊搜索根据好评路线结果集条数
+
+    @Override
+    public int getAllRowCountByPrice1(String keyword) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where routeName like :keyword and routePrice<1000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter("keyword","%"+keyword+"%")
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //模糊搜索根据价格分类路线
+    @Override
+    public List searchRouteByPrice2(String keyword,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where routeName like :keyWord and routePrice>=1000 and routePrice<=2000 order by routeScore desc");
+            query.setParameter("keyWord", "%"+keyword+"%");
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //模糊搜索根据好评路线结果集条数
+
+    @Override
+    public int getAllRowCountByPrice2(String keyword) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where routeName like :keyword and routePrice>=1000 and routePrice<=2000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter("keyword","%"+keyword+"%")
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //模糊搜索根据价格分类路线
+    @Override
+    public List searchRouteByPrice3(String keyword,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where routeName like :keyWord and routePrice>2000 order by routeScore desc");
+            query.setParameter("keyWord", "%"+keyword+"%");
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //模糊搜索根据好评路线结果集条数
+
+    @Override
+    public int getAllRowCountByPrice3(String keyword) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where routeName like :keyword and routePrice>2000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter("keyword","%"+keyword+"%")
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
     }
 
 }
