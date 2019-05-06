@@ -38,4 +38,11 @@ public class GroupServiceImpl implements GroupService {
         page.setList(groupList);
         return page;
     }
+
+    //管理员批准组团游
+    @Override
+    public boolean approve_group(int gid) {
+        groupDao.approve_group(gid);
+        return true;
+    }
 }

@@ -42,8 +42,8 @@ public class UserInfoController {
             if (null == user) {
                 return "{\"msg\":\"用户名或者密码错误，请重新登录\"}";
             }
-            String isBan = user.getIsBan();
-            if (null != isBan && user.getIsBan().equals("1")) {
+            int isBan = user.getIsBan();
+            if (user.getIsBan().equals(1)) {
                 return "您已被禁用";
             } else {
                 session.setAttribute("user", user);

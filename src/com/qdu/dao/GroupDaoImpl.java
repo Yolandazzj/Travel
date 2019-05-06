@@ -7,6 +7,8 @@ import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,12 +47,12 @@ public class GroupDaoImpl implements GroupDao {
         query.executeUpdate();
     }
 
-    //获取全部组团游列表，分页
+    //获取全部未批准组团游列表，分页
     @Override
     public List groupAll(int offset, int length) {
         List groupList=null;
         try{
-            Query query=sessionFactory.getCurrentSession().createQuery("from Group");
+            Query query=sessionFactory.getCurrentSession().createQuery("from Group where GState=0");
             query.setFirstResult(offset);
             query.setMaxResults(length);
             groupList=query.list();
@@ -64,13 +66,22 @@ public class GroupDaoImpl implements GroupDao {
     //返回结果的条数
     @Override
     public int getAllRowCount() {
-        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `group`")
+        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `group` where GState=0")
                 .addScalar("num", StandardBasicTypes.INTEGER)
                 .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
         List groupList = query.list();
         HashMap map = (HashMap) groupList.get(0);
         int num = (int) map.get("num");
         return num;
+    }
+
+
+    //管理员批准组团游
+    @Override
+    public void approve_group(int gid) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call approve_group(?)}");
+        query.setInteger(0, gid);
+        query.executeUpdate();
     }
 
 

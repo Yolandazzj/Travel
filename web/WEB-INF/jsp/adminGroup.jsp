@@ -26,21 +26,21 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <c:if test="${user==null}">
+            <c:if test="${admin==null}">
                 <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                    <a href="user/toLogin">登录</a>
+                    <a href="admin/toLogin">登录</a>
                 </div>
-                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                    <i class="fa fa-gray"></i>
-                    <a href="#">注册</a>
-                </div>
+<%--                <div data-toggle="arrowdown" id="arrow2" class="msg-info">--%>
+<%--                    <i class="fa fa-gray"></i>--%>
+<%--                    <a href="#">注册</a>--%>
+<%--                </div>--%>
             </c:if>
-            <c:if test="${user!=null}">
+            <c:if test="${admin!=null}">
                 <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                    <p>登录成功，欢迎：${admin.adminId} &nbsp; &nbsp;</p>
                 </div>
                 <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                    <a href="user/loginout">注销</a>
+                    <a href="#">注销</a>
                 </div>
             </c:if>
         </div>
@@ -115,8 +115,8 @@
     <table id="commentTable">
         <c:forEach items="${groupAll}" var="g">
             <tr>
-                <td>${g.gid}&nbsp;&nbsp;<br><span>发起用户：${g.uid}<br><span>介绍：${g.gcontent}</span>
-                    &nbsp;&nbsp;<span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
+                <td>${g.gid}&nbsp;&nbsp;<a href="javascript:approve_group(${g.gid})"><button>批准</button></a><a><button>不批准</button></a><br><span>发起用户：${g.uid}<br>
+                    &nbsp;&nbsp;<span>介绍：${g.gcontent}</span><span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
 
             </tr>
         </c:forEach>
@@ -183,6 +183,21 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
-
+<script>
+    //管理员批准组团游申请
+    function approve_group(gid) {
+        $.ajax({
+            url: 'admin/approveGroup',
+            type: "POST",
+            data: {"gid": gid},
+            success: function (data) {
+                $("#"+gid).remove();
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
 </body>
 </html>

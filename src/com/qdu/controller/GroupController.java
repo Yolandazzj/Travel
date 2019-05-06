@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.qdu.utils.DateUtils;
 
@@ -50,6 +52,23 @@ public class GroupController {
         List proList=cityService.proList();
         model.addAttribute("proList",proList);
         return "userGroup";
+    }
+
+    //管理员批准组团游
+    @RequestMapping(value = "admin/approveGroup",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> approveGroup(HttpServletRequest request){
+        Map map = new HashMap<>();
+        int gid = Integer.parseInt(request.getParameter("gid"));
+        System.out.println(gid);
+        boolean flag = groupService.approve_group(gid);
+        if (flag) {
+            map.put("msg", "批准成功");
+            return map;
+        } else {
+            map.put("msg", "批准失败");
+            return map;
+        }
     }
 
 

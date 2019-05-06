@@ -25,7 +25,7 @@ public class Group  implements java.io.Serializable {
      private String gcontent;
      private String uid;
      private String contact;
-     private String gstate;
+     private Integer gstate;
 
     public Group() {
     }
@@ -41,7 +41,7 @@ public class Group  implements java.io.Serializable {
         this.uid = uid;
         this.contact = contact;
     }
-    public Group(City city, Date gtime, float gprice, int gquatity, Date gendTime, String gcontent, String uid, String contact, String gstate) {
+    public Group(City city, Date gtime, float gprice, int gquatity, Date gendTime, String gcontent, String uid, String contact, Integer gstate) {
        this.city = city;
        this.gtime = gtime;
        this.gprice = gprice;
@@ -116,11 +116,11 @@ public class Group  implements java.io.Serializable {
     public void setContact(String contact) {
         this.contact = contact;
     }
-    public String getGstate() {
+    public Integer getGstate() {
         return this.gstate;
     }
 
-    public void setGstate(String gstate) {
+    public void setGstate(Integer gstate) {
         this.gstate = gstate;
     }
 

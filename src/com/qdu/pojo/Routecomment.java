@@ -34,53 +34,53 @@ public class Routecomment  implements java.io.Serializable {
        this.rcommentScore = rcommentScore;
        this.rcommentTime = rcommentTime;
     }
-   
+
     public Integer getRcommentId() {
         return this.rcommentId;
     }
-    
+
     public void setRcommentId(Integer rcommentId) {
         this.rcommentId = rcommentId;
     }
     public City getCity() {
         return this.city;
     }
-    
+
     public void setCity(City city) {
         this.city = city;
     }
     public Route getRoute() {
         return this.route;
     }
-    
+
     public void setRoute(Route route) {
         this.route = route;
     }
     public Userinfo getUserinfo() {
         return this.userinfo;
     }
-    
+
     public void setUserinfo(Userinfo userinfo) {
         this.userinfo = userinfo;
     }
     public String getRcommentContent() {
         return this.rcommentContent;
     }
-    
+
     public void setRcommentContent(String rcommentContent) {
         this.rcommentContent = rcommentContent;
     }
     public int getRcommentScore() {
         return this.rcommentScore;
     }
-    
+
     public void setRcommentScore(int rcommentScore) {
         this.rcommentScore = rcommentScore;
     }
     public Date getRcommentTime() {
         return this.rcommentTime;
     }
-    
+
     public void setRcommentTime(Date rcommentTime) {
         this.rcommentTime = rcommentTime;
     }

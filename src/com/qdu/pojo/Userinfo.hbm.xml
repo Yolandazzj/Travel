@@ -20,8 +20,8 @@
         <property name="uemail" type="string">
             <column name="UEmail" length="100" not-null="true" />
         </property>
-        <property name="isBan" type="string">
-            <column name="IsBan" length="4" />
+        <property name="isBan" type="int">
+            <column name="IsBan"  />
         </property>
         <property name="upassword" type="string">
             <column name="UPassword" length="20" not-null="true" />

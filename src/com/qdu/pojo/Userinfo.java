@@ -16,7 +16,7 @@ public class Userinfo  implements java.io.Serializable {
      private String ucity;
      private String ucontact;
      private String uemail;
-     private String isBan;
+     private Integer isBan;
      private String upassword;
      private int urank;
      private Set foodcomments = new HashSet(0);
@@ -42,7 +42,7 @@ public class Userinfo  implements java.io.Serializable {
         this.upassword = upassword;
         this.urank = urank;
     }
-    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, String isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routeorderses, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
+    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, Integer isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routeorderses, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
        this.uid = uid;
        this.ugender = ugender;
        this.ucity = ucity;
@@ -97,11 +97,11 @@ public class Userinfo  implements java.io.Serializable {
     public void setUemail(String uemail) {
         this.uemail = uemail;
     }
-    public String getIsBan() {
+    public Integer getIsBan() {
         return this.isBan;
     }
     
-    public void setIsBan(String isBan) {
+    public void setIsBan(Integer isBan) {
         this.isBan = isBan;
     }
     public String getUpassword() {

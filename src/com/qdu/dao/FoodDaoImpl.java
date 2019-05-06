@@ -18,6 +18,7 @@ public class FoodDaoImpl implements  FoodDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    //获取热门美食1-7
     @Override
     public Foodinfo hotFood1() {
         Query query = sessionFactory.getCurrentSession().createQuery("from Foodinfo order by fscore desc");
@@ -81,6 +82,7 @@ public class FoodDaoImpl implements  FoodDao {
         return (Foodinfo) query.uniqueResult();
     }
 
+    //根据美食ID获取美食类别
     @Override
     public List<Category> cateName(int fid) {
         SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Foodinfo f,Category c where c.FCategoryId=f.FCategoryId and f.FId=?");
@@ -90,6 +92,7 @@ public class FoodDaoImpl implements  FoodDao {
         return query.list();
     }
 
+    //根据美食ID获取店的详细信息；(fid -> Did ->Dname，DAddress);
     @Override
     public List<Foodstore> storeDetails(int fid) {
         SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select fs.* from Foodinfo f,Foodstore fs where fs.DId=f.DId and f.FId=?");
@@ -100,6 +103,7 @@ public class FoodDaoImpl implements  FoodDao {
         return query.list();
     }
 
+    //根据美食ID获取所在城市的名字；（fid -> Did -> cityId -> cityName）;
     @Override
     public List<City> cityInfo(int fid) {
         SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Foodinfo f,Foodstore fs,City c where fs.DId=f.DId and fs.CityId=c.CityId and f.FId=?");
@@ -109,6 +113,7 @@ public class FoodDaoImpl implements  FoodDao {
         return query.list();
     }
 
+    //根据美食ID获取评论；
     @Override
     public List<Foodcomment> foodComment(int fid) {
         SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Foodinfo f,Foodcomment c where f.fId=c.fId and f.fId=?");

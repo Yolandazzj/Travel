@@ -32,8 +32,8 @@
         <property name="contact" type="string">
             <column name="Contact" length="20" not-null="true" />
         </property>
-        <property name="gstate" type="string">
-            <column name="GState" length="20" />
+        <property name="gstate" type="int">
+            <column name="GState"/>
         </property>
     </class>
 </hibernate-mapping>
