@@ -94,7 +94,7 @@
 </div>
 
 <div class="form_content">
-    <form id="test" action="#" method="get">
+    <form id="groupApply" method="post">
         <fieldset>
             <legend>PERSONAL INFORMATION</legend>
             <div class="form-row">
@@ -144,7 +144,7 @@
             <div class="form-row">
                 <div class="field-label"><label for="cityId">旅游城市</label>:</div>
                 <!--省份选择-->
-                <select id="provinceId" name="provinceId">
+                <select id="provinceId">
                     <option>=请选择省份=</option>
                       <c:if test="${!empty proList}">
                         <c:forEach items="${proList}" var="pro">
@@ -169,9 +169,11 @@
             </div>
 
         </fieldset>
-        <input type="submit" class="submit" value="Submit" /> <input class="reset" type="button" value="Reset" onclick="valid.reset(); return false" />
+        <button type="submit" class="submit" onclick="submitApply()">申请</button>
+<%--        <input class="reset" type="button" value="Reset" onclick="valid.reset(); return false" />--%>
     </form>
 </div>
+
 
 <!--footer-->
 <div class="footer">
@@ -217,6 +219,22 @@
     });
 </script>
 
+<%--提交申请--%>
+<script type="text/javascript">
+
+        function submitApply() {
+            $.ajax({
+                url:'user/submitGroup',
+                type: "POST",
+                data:$("#groupApply").serialize(),
+                success:alert("已提交申请"),
+                error: function (request, status, error) {
+                    alert("Ajax请求失败!" + error);
+                }
+            });
+        }
+
+</script>
 
 </body>
 </html>

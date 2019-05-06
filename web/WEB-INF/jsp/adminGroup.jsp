@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/4/30
-  Time: 17:25
+  Date: 2019/5/5
+  Time: 20:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
@@ -13,7 +13,7 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>所有美食</title>
+    <title>管理员组团游列表</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
@@ -109,14 +109,14 @@
 
 <br><br><br><br><br><br><br><br>
 
-<!--美食列表-->
+<!--组团游列表-->
 <div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
     <table id="commentTable">
-        <c:forEach items="${foodAll}" var="f">
+        <c:forEach items="${groupAll}" var="g">
             <tr>
-                <td>${f.fid}&nbsp;&nbsp;<a href="javascript:thumb_food(${f.fid})" ><span style="margin-left: 850px;">👍<span id="${f.fid}">${f.fscore}</span></span></a><br><br><br>
-                    <a href="user/foodDetails?fid=${f.fid}&fname=${f.fname}">${f.fname}</a></td>
+                <td>${g.gid}&nbsp;&nbsp;<br><span>发起用户：${g.uid}<br><span>介绍：${g.gcontent}</span>
+                    &nbsp;&nbsp;<span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
 
             </tr>
         </c:forEach>
@@ -127,12 +127,12 @@
             <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
                 <br> <br>
 
-                <a href="user/foodAll?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
+                <a href="user/groupAll?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
 
                 <c:choose>
                     <c:when test="${page.pageNo!=1}">
 
-                        <a href="user/foodAll?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
+                        <a href="user/groupAll?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
 
                     </c:when>
                     <c:otherwise>
@@ -143,7 +143,7 @@
                 </c:choose>
                 <c:choose>
                     <c:when test="${page.pageNo!= page.totalPages}">
-                        <a href="user/foodAll?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
+                        <a href="user/groupAll?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
                     </c:when>
                     <c:otherwise>
 
@@ -151,7 +151,7 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a href="user/foodAll?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
+                <a href="user/groupAll?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
@@ -159,6 +159,7 @@
     <br><br>
 
 </div>
+
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -182,22 +183,6 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
-<script>
-    //点赞美食
-    function thumb_food(fid) {
-        $.ajax({
-            url: 'user/thumb_food',
-            type: "POST",
-            data: {"fid": fid},
-            success: function (data) {
-                var onumber = parseInt($("#"+fid).text());
-                $("#"+fid).html(onumber + 1);
-            },
-            error: function () {
-                alert("Ajax请求失败");
-            }
-        });
-    }
-</script>
+
 </body>
 </html>

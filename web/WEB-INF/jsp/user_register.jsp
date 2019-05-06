@@ -22,7 +22,7 @@
     <script src="resources/js/main.js"></script>
     <script src="resources/js/show-image.js"></script>
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+<%--    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">--%>
     <script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
 
 

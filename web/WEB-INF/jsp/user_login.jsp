@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
 
 
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+<%--    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">--%>
 </head>
 <body>
 <%--    <jsp:include page="header.jsp"/>--%>

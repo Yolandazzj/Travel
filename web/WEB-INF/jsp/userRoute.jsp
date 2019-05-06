@@ -605,11 +605,11 @@
 
                 <div class="remen fl">
                     <div class="luxian"><span>top1</span></div>
-                    <div class="tu"><a href="user/routesDetails?routeId=${route1.routeId}&routeName=${route1.routeName}&cityId=${route1.city.cityId}"><img src="${route1.routeImage}"></a></div>
+                    <div class="tu"><a href="user/routesDetails?routeId=${route1.routeId}&routeName=${route1.routeName}"><img src="/IMAGE/${route1.routeImage}"></a></div>
                     <div class="miaoshu"><a href="">${route1.routeName}</a></div>
                     <div class="jiage">${route1.routePrice}</div>
-                    <div class="pingjia">372人评价</div>
-                    <div class="piao">
+<%--                    <div class="pingjia">372人评价</div>--%>
+                    <div class="piao" style="margin-bottom:30px;position: relative;">
                         <a href="">
                             <span>${route1.routeScore}人点赞</span>
                         </a>
@@ -618,10 +618,10 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route2.routeId}&routeName=${route2.routeName}&cityId=${route2.city.cityId}"><img src="./resources/image/peijian3.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route2.routeId}&routeName=${route2.routeName}"><img src="/IMAGE/${route2.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route2.routeName}</a></div>
                 <div class="jiage">${route2.routePrice}</div>
-                <div class="pingjia">372人评价</div>
+<%--                <div class="pingjia">372人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route2.routeScore}人点赞</span>
@@ -630,10 +630,10 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route3.routeId}&routeName=${route3.routeName}&cityId=${route3.city.cityId}"><img src="./resources/image/peijian4.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route3.routeId}&routeName=${route3.routeName}"><img src="/IMAGE/${route3.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route3.routeName}</a></div>
                 <div class="jiage">${route3.routePrice}</div>
-                <div class="pingjia">372人评价</div>
+<%--                <div class="pingjia">372人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route3.routeScore}人点赞</span>
@@ -642,10 +642,10 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route4.routeId}&routeName=${route4.routeName}&cityId=${route4.city.cityId}"><img src="./resources/image/peijian5.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route4.routeId}&routeName=${route4.routeName}"><img src="/IMAGE/${route4.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route4.routeName}</a></div>
                 <div class="jiage">${route4.routePrice}</div>
-                <div class="pingjia">372人评价</div>
+<%--                <div class="pingjia">372人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route4.routeScore}人点赞</span>
@@ -658,10 +658,10 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route5.routeId}&routeName=${route5.routeName}&cityId=${route5.city.cityId}"><img src="./resources/image/peijian7.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route5.routeId}&routeName=${route5.routeName}"><img src="/IMAGE/${route5.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route5.routeName}</a></div>
                 <div class="jiage">${route5.routePrice}</div>
-                <div class="pingjia">372人评价</div>
+<%--                <div class="pingjia">372人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route5.routeScore}人点赞</span>
@@ -670,10 +670,10 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route6.routeId}&routeName=${route6.routeName}&cityId=${route6.city.cityId}"><img src="./resources/image/peijian8.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route6.routeId}&routeName=${route6.routeName}"><img src="/IMAGE/${route6.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route6.routeName}</a></div>
                 <div class="jiage">${route6.routePrice}</div>
-                <div class="pingjia">372人评价</div>
+<%--                <div class="pingjia">372人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route6.routeScore}人点赞</span>
@@ -682,10 +682,10 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/routesDetails?routeId=${route7.routeId}&routeName=${route7.routeName}&cityId=${route7.city.cityId}"><img src="./resources/image/peijian9.jpg"></a></div>
+                <div class="tu"><a href="user/routesDetails?routeId=${route7.routeId}&routeName=${route7.routeName}"><img src="/IMAGE/${route7.routeImage}"></a></div>
                 <div class="miaoshu"><a href="">${route7.routeName}</a></div>
                 <div class="jiage">${route7.routePrice}</div>
-                <div class="pingjia">775人评价</div>
+<%--                <div class="pingjia">775人评价</div>--%>
                 <div class="piao">
                     <a href="">
                         <span>${route7.routeScore}人点赞</span>
