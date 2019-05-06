@@ -12,23 +12,16 @@
 <head>
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
-    <title>用户登录</title>
+    <title>管理员登录</title>
     <script src="./resources/js/jquery_1.9.js"></script>
     <script src="./resources/js/main.js"></script>
     <script src="./resources/js/show-image.js"></script>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <%--    <link rel="stylesheet" href="resources/css/style.css"/>--%>
     <link rel="stylesheet" href="resources/css/log-style.css"/>
-
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
-
-
-<%--    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">--%>
 </head>
 <body>
-<%--    <jsp:include page="header.jsp"/>--%>
-
 
 <!-- main -->
 <div class="w3layouts-main">
@@ -36,18 +29,18 @@
         <h1>途牛旅行</h1>
         <div class="header-main">
             <div class="main-icon">
-                <span class="fa fa-eercast">用户登录</span>
+                <span class="fa fa-eercast">管理员登录</span>
             </div>
             <div class="header-left-bottom">
-                <form action="user/login" method="post" id="loginValidate">
+                <form action="admin/login" method="post" id="loginValidate">
                     <div style="color: red;" id="msg"></div>
                     <div class="icon1">
                         <span class="fa fa-user"></span>
-                        <input type="text" placeholder="账户名" required="true" name="uid"/>
+                        <input type="text" placeholder="账户名" required="true" name="adminId"/>
                     </div>
                     <div class="icon1">
                         <span class="fa fa-lock"></span>
-                        <input type="password" placeholder="密码" required="true" name="upassword"/>
+                        <input type="password" placeholder="密码" required="true" name="adminPassword"/>
                     </div>
                     <div class="login-check">
                         <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me
@@ -57,7 +50,7 @@
                         <button id="submitBtn" type="button" class="btn">登 录</button>
                     </div>
                     <div class="links">
-                        <p><a href="admin/toLogin">Administer Login</a></p>
+                        <p><a href="/user/toLogin">USER Login</a></p>
                         <p class="right"><a href="user/toRegister">New User? Register</a></p>
                         <div class="clear"></div>
                     </div>
@@ -83,7 +76,7 @@
         $(document).ready(function () {
             $("#submitBtn").click(function () {
                 $.ajax({
-                    url: 'user/login',
+                    url: 'admin/login',
                     type: 'POST',
                     data: $("#loginValidate").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (msg) {

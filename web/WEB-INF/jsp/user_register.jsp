@@ -106,11 +106,11 @@
                     <input type="password" id="upassword" name="upassword" class="password" placeholder="密码"
                            required="">
                     <input type="password" id="upassword2" class="password" placeholder="确认密码" required=""
-                           onkeyup="validate()"><br/>
+                           onkeyup="validate()">
+                    <br/>
                     <span id="tishi" style="color: red;"></span>
                     <br/>
                     <input type="submit" value="SIGN UP">
-
                 </form>
                 <div class="w3-bottom-text">
                     <h3><a href="#">Already Have an account<span>?</span></a></h3>
