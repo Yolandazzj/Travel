@@ -107,8 +107,10 @@
                            required="">
                     <input type="password" id="upassword2" class="password" placeholder="确认密码" required=""
                            onkeyup="validate()">
+                    <br/>
                     <span id="tishi" style="color: red;"></span>
-                    <input type="button" value="SIGN UP">
+                    <br/>
+                    <input type="submit" value="SIGN UP">
                 </form>
                 <div class="w3-bottom-text">
                     <h3><a href="#">Already Have an account<span>?</span></a></h3>
