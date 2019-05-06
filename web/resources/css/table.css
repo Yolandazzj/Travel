@@ -26,3 +26,7 @@ tr:hover{
     border: 10px solid lightgrey;
 
 }
+.sub-nav-cell:hover
+{
+    border: 1px solid rgba(0,125,0,0.5);
+}

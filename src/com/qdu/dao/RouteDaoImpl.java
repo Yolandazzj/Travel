@@ -8,10 +8,12 @@ import com.qdu.pojo.Routecomment;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -126,4 +128,191 @@ public class RouteDaoImpl implements RouteDao {
 
         return query.list();
     }
+
+    //查询热门城市
+    @Override
+    public List<City> hotCity() {
+        Query query=  sessionFactory.getCurrentSession().createQuery("from City order by cityScore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(5);
+
+        return query.list();
+    }
+
+    //分页查询城市下面的路线
+    @Override
+    public List cityForRoute(int cityId,int offset, int length) {
+
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where cityId=?");
+            query.setParameter(0,cityId);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+
+
+    //模糊搜索根据城市查找路线结果集条数
+
+    @Override
+    public int getAllRowCountByCity(int cityId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where cityId=?")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,cityId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //城市下面的路线按照分数排序
+    @Override
+    public List searchRouteCityScore(int cityId, int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where cityId=? order by routeScore desc");
+            query.setParameter(0, cityId);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //城市下面的路线按照分数排序结果集条数
+    @Override
+    public int getAllRowCountByCityScore(int  cityId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where cityId=? order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,cityId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+
+    //根据价格分类路线
+    @Override
+    public List searchCityRouteByPrice1(int cityId,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where cityId=? and routePrice<1000 order by routeScore desc");
+            query.setParameter(0, cityId);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //根据价格路线结果集条数
+
+    @Override
+    public int getAllRowCountByCityPrice1(int cityId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where cityId=? and routePrice<1000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,cityId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //根据价格分类路线
+    @Override
+    public List searchCityRouteByPrice2(int cityId,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where cityId=? and routePrice>=1000 and routePrice<=2000 order by routeScore desc");
+            query.setParameter(0, cityId);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //模糊搜索根据价格路线结果集条数
+
+    @Override
+    public int getAllRowCountByCityPrice2(int cityId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where cityId=? and routePrice>=1000 and routePrice<=2000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,cityId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //模糊搜索根据价格分类路线
+    @Override
+    public List searchRouteByCityPrice3(int cityId,int offset, int length) {
+        List entitylist = null;
+        try {
+            Query query=sessionFactory.openSession().createQuery("from Route where cityId=? and routePrice>2000 order by routeScore desc");
+            query.setParameter(0, cityId);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            entitylist = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+
+        return entitylist;
+    }
+    //模糊搜索根据价格路线结果集条数
+
+    @Override
+    public int getAllRowCountByPrice3(int cityId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Route where cityId=? and routePrice>2000 order by routeScore desc")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setParameter(0,cityId)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        List list = query.list();
+        HashMap map = (HashMap) list.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    //首页热门路线
+    @Override
+    public List indexHotRoute() {
+        Query query= sessionFactory.getCurrentSession().createQuery("from Route order by routeScore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(8);
+        return query.list();
+    }
+
+    //超值路线
+    @Override
+    public List lowerRoute() {
+        Query query= sessionFactory.getCurrentSession().createQuery("from Route order by routePrice asc");
+        query.setFirstResult(0);
+        query.setMaxResults(1);
+        return query.list();
+    }
+
 }

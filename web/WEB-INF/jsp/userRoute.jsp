@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -553,28 +553,32 @@
     <div class="right-con" style="height: 400px;">
         <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);">
 
-            <a href="#">旅行社</a>
-            <a href="#">组团游</a>
-            <a href="#" >跟团游</a>
-            <a href="#" >攻略</a>
-            <a href="#" >美食</a>
+            <a href="#">首页</a>
+            <a href="user/groupAll">组团游</a>
+            <a href="user/tours">跟团游</a>
+            <a href="#">攻略</a>
+            <a href="user/food">美食</a>
             <a href="#">酒店</a>
-            <a href="#" >景点</a>
-            <a href="#" >推荐路线</a>
-            <a href="#" >留言板</a>
+            <a href="user/scene">景点</a>
+            <a href="user/message">留言板</a>
 
 
         </div>
         <!--滚动广告box-->
         <div class="show-box" style="width: 720px;height: 350px;" >
             <!--广告内容-->
-            <div class="content" style="width: 720px;height: 350px;">
+            <div class="content" >
                 <ul class="imgBox">
-                    <li><a href="#"><img src="./resources/image/1.jpg"></a></li>
-                    <li><a href="#"><img src="./resources/image/2.jpg"></a></li>
-                    <li><a href="#"><img src="./resources/image/3.jpg"></a></li>
-<%--                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>--%>
-<%--                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>--%>
+                    <li><a href="user/routeForCity?cityId=2"><img src="./resources/image/tian.jpg"></a></li>
+                    <li><a href="user/routeForCity?cityId=3"><img src="./resources/image/mei.jpg"></a></li>
+                    <li><a href="user/routeForCity?cityId=1"><img src="./resources/image/ye.jpg"></a></li>
+                    <%--                    <li><a href="#"><img src="./resources/image/4.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="./resources/image/5.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/1.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/2.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/3.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/4.jpg"></a></li>--%>
+                    <%--                    <li><a href="#"><img src="resources/image/5.jpg"></a></li>--%>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
@@ -600,7 +604,13 @@
     <div class="biaoti center">境内跟团游</div>
     <div class="routemain center">
         <div class="routecontent">
-            <div class="remen fl" style="height: 550px;"><a href="">热门跟团游览的地点</a>
+            <div class="remen fl" style="height: 490px;width: 203px;background: url(./resources/image/left.png); ">
+                <c:forEach items="${hotCity}" var="h">
+                    <div style="margin-top: 33px;margin-left: 60px;"><a href="user/routeForCity?cityId=${h.cityId}&cityName=${h.cityName}">${h.cityName}&nbsp;❤${h.cityScore}</a></div>
+
+                </c:forEach>
+
+
             </div>
 
                 <div class="remen fl">
@@ -693,7 +703,7 @@
                 </div>
             </div>
             <div class="remenlast fr">
-                <div class="liulangengduo"><a href=""><img src="./resources/image/liulan.png" alt=""></a></div>
+                <div class="liulangengduo"><a href="user/searchAll?keyword="><img src="./resources/image/liulan.png" alt=""></a></div>
             </div>
             <div class="clear"></div>
         </div>

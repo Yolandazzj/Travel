@@ -1170,7 +1170,7 @@
     position: relative;
     margin: 25px auto;
     width: 1190px;
-    height: 88px;
+    height: 150px;
     overflow: hidden;
 }
 /*top-sub-nav*/
@@ -1252,7 +1252,6 @@
 .main{
     width: 1190px;
     margin: auto;
-    height: 4088px;
 }
 
 /*main-left*/
@@ -1941,8 +1940,14 @@ padding: 5px 0;
     font-weight: bold;
     margin-top: 20px;
 }
-
-
+/*.remen .fl{*/
+/*    background: url(../image/left.png) no-repeat;*/
+/*    background-color: red;*/
+/*}*/
+.sub-nav-cell:hover
+{
+    border: 5px solid rgba(0,125,0,0.5);
+}
 .center {
     margin: 0 auto;
 }

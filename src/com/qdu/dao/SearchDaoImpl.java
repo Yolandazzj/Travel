@@ -144,7 +144,7 @@ public class SearchDaoImpl implements SearchDao {
 
         return entitylist;
     }
-    //模糊搜索根据好评路线结果集条数
+    //模糊搜索根据价格路线结果集条数
 
     @Override
     public int getAllRowCountByPrice1(String keyword) {
@@ -175,7 +175,7 @@ public class SearchDaoImpl implements SearchDao {
 
         return entitylist;
     }
-    //模糊搜索根据好评路线结果集条数
+    //模糊搜索根据价格路线结果集条数
 
     @Override
     public int getAllRowCountByPrice2(String keyword) {
@@ -206,7 +206,7 @@ public class SearchDaoImpl implements SearchDao {
 
         return entitylist;
     }
-    //模糊搜索根据好评路线结果集条数
+    //模糊搜索根据价格路线结果集条数
 
     @Override
     public int getAllRowCountByPrice3(String keyword) {

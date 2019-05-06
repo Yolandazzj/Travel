@@ -1,6 +1,7 @@
 package com.qdu.service;
 
 import com.qdu.dao.RouteDao;
+import com.qdu.page.page;
 import com.qdu.pojo.Agency;
 import com.qdu.pojo.City;
 import com.qdu.pojo.Route;
@@ -78,4 +79,117 @@ public class RouteServiceImpl implements RouteService {
 
         return routeDao.cityNameById(cityId);
     }
+
+    @Override
+    public List<City> hotCity() {
+     return   routeDao.hotCity();
+    }
+
+    //根据城市分页查询路线
+    @Override
+    public page queryForPageCity(int currentPage, int pageSize, int cityId) {
+        page page = new page();
+        //总记录数
+        int allRow =routeDao.getAllRowCountByCity(cityId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = routeDao.cityForRoute(cityId,offset,pageSize);
+
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+    //根据城市id和好评度分页查询路线
+    @Override
+    public page queryForPageByCityScore(int currentPage, int pageSize,int cityId) {
+        page page = new page();
+        //总记录数
+        int allRow =routeDao.getAllRowCountByCityScore(cityId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = routeDao.searchRouteCityScore(cityId,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByCityPrice1(int currentPage, int pageSize,int cityId) {
+        page page = new page();
+        //总记录数
+        int allRow =routeDao.getAllRowCountByCityPrice1(cityId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = routeDao.searchCityRouteByPrice1(cityId,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByCityPrice2(int currentPage, int pageSize,int cityId) {
+        page page = new page();
+        //总记录数
+        int allRow =routeDao.getAllRowCountByCityPrice2(cityId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = routeDao.searchCityRouteByPrice2(cityId,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+
+    //根据关键字和价格分页查询路线
+    @Override
+    public page queryForPageByCityPrice3(int currentPage, int pageSize,int cityId) {
+        page page = new page();
+        //总记录数
+        int allRow =routeDao.getAllRowCountByPrice3(cityId);
+        //当前页开始记录为第几条
+        int offset = page.countOffset(currentPage,pageSize);
+        //分页查询结果集
+        List list = routeDao.searchRouteByCityPrice3(cityId,offset,pageSize);
+
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(list);
+
+        return page;
+    }
+//首页热门路线
+    @Override
+    public List indexHotRoute() {
+        return routeDao.indexHotRoute();
+    }
+
+    //超值路线
+    @Override
+    public List lowerPriceRoute() {
+
+        return routeDao.lowerRoute();
+    }
+
 }

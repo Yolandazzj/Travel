@@ -128,72 +128,72 @@
                     <div class="jiud-name">类型</div>
                     <div class="ui-tab-container">
                         <ul class="clearfix ui-tab-list">
-                            <li><a href="javascript:ajaxbyScore('${keyword}')">按好评</a></li>
-<%--                            <li><a href="javascript:ajaxbyNumber('${keyword}')">按销量</a></li>--%>
+                            <li><a href="javascript:ajaxbyScore('${cityId}')">按好评</a></li>
+                            <%--                            <li><a href="javascript:ajaxbyNumber('${keyword}')">按销量</a></li>--%>
                         </ul>
-
-            </div>
-        </div>
-            <div class="screen-term">
-                <div class="selectNumberScreen">
-                    <div id="selectList" class="screenBox screenBackground">
-
-                        <dl class="listIndex" attr="价格范围">
-                            <dt>路线价格</dt>
-                            <dd>
-                                <label><a href="javascript:ajaxByNo('${keyword}');">不限</a></label>
-                                <label>
-                                    <input name="routePrice" type="radio" value="100" />
-                                    <a href="javascript:ajaxByPrice1('${keyword}')">1000元以下</a></label>
-                                <label>
-                                    <input name="routePrice" type="radio" value="300" />
-                                    <a href="javascript:ajaxByPrice2('${keyword}')"> 1000-2000元 </a></label>
-                                <label>
-                                    <input name="routePrice" type="radio" value="601" />
-                                    <a href="javascript:ajaxByPrice3('${keyword}')">2000元以上</a></label>
-
-                            </dd>
-                        </dl>
-
-<%--                        <dl class=" listIndex" attr="terminal_os_s">--%>
-<%--                            <dt>出行天数</dt>--%>
-<%--                            <dd>--%>
-<%--                                <label>--%>
-<%--                                    <input type="hidden" name="routeDay"/>--%>
-<%--                                    <a href="javascript:;">不限</a>--%>
-<%--                                </label>--%>
-<%--                                <label>--%>
-<%--                                    <input name="routeDay" type="checkbox" value="1" autocomplete="off"/>--%>
-<%--                                    <a href="javascript:;" >1</a> </label>--%>
-<%--                                <label>--%>
-<%--                                    <input name="routeDay" type="checkbox" value="2" autocomplete="off"/>--%>
-<%--                                    <a href="javascript:;" >2</a></label>--%>
-<%--                                <label>--%>
-<%--                                    <input name="routeDay" type="checkbox" value="3" autocomplete="off"/>--%>
-<%--                                    <a href="javascript:;">3</a></label>--%>
-
-<%--                            </dd>--%>
-<%--                        </dl>--%>
-
-
 
                     </div>
                 </div>
+                <div class="screen-term">
+                    <div class="selectNumberScreen">
+                        <div id="selectList" class="screenBox screenBackground">
+
+                            <dl class="listIndex" attr="价格范围">
+                                <dt>路线价格</dt>
+                                <dd>
+                                    <label><a href="javascript:ajaxByNo('${cityId}');">不限</a></label>
+                                    <label>
+                                        <input name="routePrice" type="radio" value="100" />
+                                        <a href="javascript:ajaxByPrice1('${cityId}')">1000元以下</a></label>
+                                    <label>
+                                        <input name="routePrice" type="radio" value="300" />
+                                        <a href="javascript:ajaxByPrice2('${cityId}')"> 1000-2000元 </a></label>
+                                    <label>
+                                        <input name="routePrice" type="radio" value="601" />
+                                        <a href="javascript:ajaxByPrice3('${cityId}')">2000元以上</a></label>
+
+                                </dd>
+                            </dl>
+
+                            <%--                        <dl class=" listIndex" attr="terminal_os_s">--%>
+                            <%--                            <dt>出行天数</dt>--%>
+                            <%--                            <dd>--%>
+                            <%--                                <label>--%>
+                            <%--                                    <input type="hidden" name="routeDay"/>--%>
+                            <%--                                    <a href="javascript:;">不限</a>--%>
+                            <%--                                </label>--%>
+                            <%--                                <label>--%>
+                            <%--                                    <input name="routeDay" type="checkbox" value="1" autocomplete="off"/>--%>
+                            <%--                                    <a href="javascript:;" >1</a> </label>--%>
+                            <%--                                <label>--%>
+                            <%--                                    <input name="routeDay" type="checkbox" value="2" autocomplete="off"/>--%>
+                            <%--                                    <a href="javascript:;" >2</a></label>--%>
+                            <%--                                <label>--%>
+                            <%--                                    <input name="routeDay" type="checkbox" value="3" autocomplete="off"/>--%>
+                            <%--                                    <a href="javascript:;">3</a></label>--%>
+
+                            <%--                            </dd>--%>
+                            <%--                        </dl>--%>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
+            <div class="hasBeenSelected clearfix">
+                <div style="float:right;" class="eliminateCriteria">【清空全部】 </div>
+                <%--            <dl>--%>
+                <%--                <dt>已选条件：</dt>--%>
+                <%--                <dd style="DISPLAY: none" class=clearDd>--%>
+                <%--                    <div class=clearList></div>--%>
+                <%--            </dl>--%>
+            </div>
+            <script type="text/javascript" src="./resources/js/shaixuan.js"></script>
         </div>
-
-        <div class="hasBeenSelected clearfix">
-            <div style="float:right;" class="eliminateCriteria">【清空全部】 </div>
-<%--            <dl>--%>
-<%--                <dt>已选条件：</dt>--%>
-<%--                <dd style="DISPLAY: none" class=clearDd>--%>
-<%--                    <div class=clearList></div>--%>
-<%--            </dl>--%>
         </div>
-        <script type="text/javascript" src="./resources/js/shaixuan.js"></script>
-    </div>
-</div>
     </div>
 </div>
 
@@ -202,32 +202,32 @@
 <div class="main" style="height: 3000px;">
     <table class="main-left" style="height: 250px;" id="routeHidden">
         <tr class="main-title">
-                    <th style="color: rgba(0,128,0,0.8);background-color: white">${keyword}<span class="show-title"></span></th>
+            <th style="color: rgba(0,128,0,0.8);background-color: white">${cityName}<span class="show-title"></span></th>
         </tr>
-        <c:forEach items="${searchListByRoute}" var="sr">
-        <tr class="product-box" style="width:788px;height: 200px;">
-            <td class="inner-info" style="width: 790px;height: 202px;">
+        <c:forEach items="${cityForRouteAll}" var="cr">
+            <tr class="product-box" style="width:788px;height: 200px;">
+                <td class="inner-info" style="width: 790px;height: 202px;">
 
-                <div class="inner-left" style="height: 200px;margin-top: 0">
-                    <a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}"><img src="/IMAGE/${sr.routeImage}"  style="width: 150px;height: 140px;"/></a>
-                    <h1><a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}"><${sr.routeName}></a></h1>
-                    <p>已有${sr.routeScore}人点赞过啦！</p>
-                </div>
-                <div class="inner-right" style="width: 600px;height: 150px;">
-                    <div>
-                        <a href="#">
-                            <a href="user/routesDetails?routeId=${sr.routeId}&routeName=${sr.routeName}">${sr.routeContent}</a>
-                        </a>
+                    <div class="inner-left" style="height: 200px;margin-top: 0">
+                        <a href="user/routesDetails?routeId=${cr.routeId}&routeName=${cr.routeName}"><img src="/IMAGE/${cr.routeImage}"  style="width: 150px;height: 140px;"/></a>
+                        <h1><a href="user/routesDetails?routeId=${cr.routeId}&routeName=${cr.routeName}"><${cr.routeName}></a></h1>
+                        <p>已有${cr.routeScore}人点赞过啦！</p>
+                    </div>
+                    <div class="inner-right" style="width: 600px;height: 150px;">
+                        <div>
+                            <a href="#">
+                                <a href="user/routesDetails?routeId=${cr.routeId}&routeName=${cr.routeName}">${cr.routeContent}</a>
+                            </a>
+
+                        </div>
 
                     </div>
-
-                </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
         </c:forEach>
 
     </table>
-<div class="clear"></div>
+    <div class="clear"></div>
     <br><br><br>
 
     <form id="paging" style="width: 791px;height:50px; text-align: center" method="post">
@@ -235,12 +235,12 @@
             <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
                 <br> <br>
 
-                <a id="firstPage" href="user/searchAll?pageNo=${page.topPageNo}&keyword=${keyword}"><input type="button" name="fristPage" value="首页" /></a>
+                <a id="firstPage" href="user/routeForCity?pageNo=${page.topPageNo}&cityId=${cityId}"><input type="button" name="fristPage" value="首页" /></a>
 
                 <c:choose>
                     <c:when test="${page.pageNo!=1}">
 
-                        <a id="previousPage" href="user/searchAll?pageNo=${page.previousPageNo}&keyword=${keyword}"><input type="button" name="previousPage" value="上一页" /></a>
+                        <a id="previousPage" href="user/routeForCity?pageNo=${page.previousPageNo}&cityId=${cityId}"><input type="button" name="previousPage" value="上一页" /></a>
 
                     </c:when>
                     <c:otherwise>
@@ -251,7 +251,7 @@
                 </c:choose>
                 <c:choose>
                     <c:when test="${page.pageNo!= page.totalPages}">
-                        <a id="nextPage" href="user/searchAll?pageNo=${page.nextPageNo}&keyword=${keyword}"><input type="button" name="nextPage" value="下一页" /></a>
+                        <a id="nextPage" href="user/routeForCity?pageNo=${page.nextPageNo}&cityId=${cityId}"><input type="button" name="nextPage" value="下一页" /></a>
                     </c:when>
                     <c:otherwise>
 
@@ -259,70 +259,12 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a  id="lastPage" href="user/searchAll?pageNo=${page.bottomPageNo }&keyword=${keyword}"><input type="button" name="lastPage" value="尾页" /></a>
+                <a  id="lastPage" href="user/routeForCity?pageNo=${page.bottomPageNo }&cityId=${cityId}"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
 
-    <br> <br> <br>
-    <table class="main-left" style="height: 250px;" id="essayHidden">
-        <tr class="main-title">
-            <th style="color: rgba(0,128,0,0.8);background-color: white">${keyword}攻略<span class="show-title"></span></th>
-        </tr>
-        <c:forEach items="${searchListByEssay}" var="se">
-            <tr class="product-box" style="width:788px;height: 200px;">
-                <td class="inner-info" style="width: 790px;height: 202px;">
 
-                    <div class="inner-left" style="height: 200px;margin-top: 0;">
-                        <a href="#"><img src="/IMAGE/scene/3.jpg" style="width: 168px;height: 200px;"/></a>
-                        <h1><a href="#"><${se[1]}></a></h1>
-                        <p>已有${se[2]}人点赞过啦！</p>
-                    </div>
-                    <div class="inner-right" style="width: 600px;height: 150px;">
-                        <div>
-                            <a href="#">
-                                <a href="#">${se[5]}</a>
-                            </a>
-
-                        </div>
-
-                    </div>
-                </td>
-            </tr>
-        </c:forEach>
-
-    </table>
-
-    <div class="clear"></div>
-
-    <br> <br> <br> <br> <br> <br>
-    <table class="main-left" style="height: 250px;" id="hotelHidden">
-        <tr class="main-title">
-            <th style="color: rgba(0,128,0,0.8);background-color: white;">${keyword}酒店<span class="show-title"></span></th>
-        </tr>
-        <c:forEach items="${searchListByHotel}" var="sh">
-            <tr class="product-box" style="width:788px;height: 200px;">
-                <td class="inner-info" style="width: 790px;height: 202px;">
-
-                    <div class="inner-left" style="height: 200px;margin-top: 0">
-                        <a href="#"><img src="/IMAGE/${sh[6]}" style="width: 150px;height: 140px;"/></a>
-                        <h1><a href="#"><${sh[1]}></a></h1>
-                        <p>已有${sh[5]}人点赞过啦！</p>
-                    </div>
-                    <div class="inner-right" style="width: 600px;height: 150px;">
-                        <div>
-                            <a href="#">
-                                <a href="#">${sh[3]}起，${sh[4]}星级酒店！</a>
-                            </a>
-
-                        </div>
-
-                    </div>
-                </td>
-            </tr>
-        </c:forEach>
-
-    </table>
 
 </div>
 
@@ -351,18 +293,18 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                var tab = new $.fn.tab({
-                    tabList:"#demo1 .ui-tab-container .ui-tab-list li",
-                    contentList:"#demo1 .ui-tab-container .ui-tab-content"
-                });
-                var tab = new $.fn.tab({
-                    tabList:"#demo1 .ui-tab-container .ui-tab-list2 li",
-                    contentList:"#demo1 .ui-tab-container .ui-tab-content2"
-                });
-            });
-        </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var tab = new $.fn.tab({
+            tabList:"#demo1 .ui-tab-container .ui-tab-list li",
+            contentList:"#demo1 .ui-tab-container .ui-tab-content"
+        });
+        var tab = new $.fn.tab({
+            tabList:"#demo1 .ui-tab-container .ui-tab-list2 li",
+            contentList:"#demo1 .ui-tab-container .ui-tab-content2"
+        });
+    });
+</script>
 <%--        <script type="text/javascript">--%>
 <%--            $(function (){--%>
 <%--                $("input.mh_date").datejs({--%>
@@ -388,33 +330,32 @@
 <%--                });--%>
 <%--            });--%>
 <%--        </script>--%>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                var taboy_box=$(".lefttable-list");
-                taboy_box.children("tbody").find("tr:gt(2)").hide();
-                $(".leftbox-morea").toggle(function(){
-                        $(this).parent().prev().find("tr").show();
-                        $(this).addClass("more-i")
-                    },function(){
-                        $(this).removeClass("more-i");
-                        $(this).parent().prev().children("tbody").find("tr:gt(2)").hide();
-                    }
-                );
-            });
-        </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var taboy_box=$(".lefttable-list");
+        taboy_box.children("tbody").find("tr:gt(2)").hide();
+        $(".leftbox-morea").toggle(function(){
+                $(this).parent().prev().find("tr").show();
+                $(this).addClass("more-i")
+            },function(){
+                $(this).removeClass("more-i");
+                $(this).parent().prev().children("tbody").find("tr:gt(2)").hide();
+            }
+        );
+    });
+</script>
 
 
 <!-------好评分类---------->
 <script>
-    function ajaxbyScore(keyword) {
+    function ajaxbyScore(cityId) {
         $.ajax({
-            url: 'user/keywordByScore',
+            url: 'user/cityIdByScore',
             type:"POST",
-            data:{"keyword":keyword},
+            data:{"cityId":cityId},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
-                   +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\"><span class=\"show-title\"></span></th></tr>");
                 $.each(list, function (index, route,page) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
@@ -443,15 +384,14 @@
 
 
 <script>
-    function ajaxByPrice1(keyword) {
+    function ajaxByPrice1(cityId) {
         $.ajax({
-            url: 'user/keywordByPrice1',
+            url: 'user/cityIdByPrice1',
             type:"POST",
-            data:{"keyword":keyword},
+            data:{"cityId":cityId},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
-                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\"><span class=\"show-title\"></span></th></tr>");
                 $.each(list, function (index, route) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
@@ -479,15 +419,14 @@
 </script>
 
 <script>
-    function ajaxByPrice2(keyword) {
+    function ajaxByPrice2(cityId) {
         $.ajax({
-            url: 'user/keywordByPrice2',
+            url: 'user/cityIdByPrice2',
             type:"POST",
-            data:{"keyword":keyword},
+            data:{"cityId":cityId},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
-                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\"><span class=\"show-title\"></span></th></tr>");
                 $.each(list, function (index, route) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
@@ -515,15 +454,14 @@
 </script>
 
 <script>
-    function ajaxByPrice3(keyword) {
+    function ajaxByPrice3(cityId) {
         $.ajax({
-            url: 'user/keywordByPrice3',
+            url: 'user/cityIdByPrice3',
             type:"POST",
-            data:{"keyword":keyword},
+            data:{"cityId":cityId},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
-                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\"><span class=\"show-title\"></span></th></tr>");
                 $.each(list, function (index, route) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
@@ -551,15 +489,14 @@
 </script>
 
 <script>
-    function ajaxByNo(keyword) {
+    function ajaxByNo(cityId) {
         $.ajax({
-            url: 'user/searchByNo',
+            url: 'user/searchByCityNo',
             type:"POST",
-            data:{"keyword":keyword},
+            data:{"cityId":cityId},
             success: function (list) {
                 $("#routeHidden").empty();
-                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\">"
-                    +keyword+"<span class=\"show-title\"></span></th></tr>");
+                $("#routeHidden").append("<tr class=\"main-title\"><th style=\"color: rgba(0,128,0,0.8);background-color: white\"><span class=\"show-title\"></span></th></tr>");
                 $.each(list, function (index, route) {
                     var str ="<tr class=\"product-box\" style=\"width:788px;height: 200px;\"><td class=\"inner-info\" style=\"width: 790px;height: 202px;\"><div class=\"inner-left\" style=\"height: 200px;margin-top: 0\"> <a href=user/routesDetails?routeId="
                         +route.routeId+"&routeName="
@@ -585,5 +522,5 @@
         });
     }
 </script>
-    </body>
+</body>
 </html>

@@ -57,6 +57,12 @@ public class IndexController {
 
         List sceneList=sceneService.sceneList();
         model.addAttribute("sceneList",sceneList);
+       List hotMessageList= messageService.messageByScore();
+       model.addAttribute("hotMessageList",hotMessageList);
+       List hotRouteList=  routeService.indexHotRoute();
+       model.addAttribute("hotRouteList",hotRouteList);
+      List lowerPriceRoute= routeService.lowerPriceRoute();
+      model.addAttribute("lowerPriceRoute",lowerPriceRoute);
         return "index";
     }
 
@@ -78,6 +84,8 @@ public class IndexController {
         model.addAttribute("route5",route5);
         model.addAttribute("route6",route6);
         model.addAttribute("route7",route7);
+       List hotCity= routeService.hotCity();
+       model.addAttribute("hotCity",hotCity);
 
         return "userRoute";
     }

@@ -11,4 +11,5 @@ public interface MessageDao {
     Message getMessageById();//根据messageid获取最新一条留言
     int getAllRowCount();//计算分页
     void thumbMessage(int messageId);//点赞留言
+    List messageByScore();//根据评分排序留言
 }

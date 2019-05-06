@@ -1,5 +1,6 @@
 package com.qdu.service;
 
+import com.qdu.page.page;
 import com.qdu.pojo.Agency;
 import com.qdu.pojo.City;
 import com.qdu.pojo.Route;
@@ -19,4 +20,12 @@ public interface RouteService {
     List<Agency> agencyDetails(int routeId);//根据routeid获取旅行社信息;
     List<Routecomment> routeComment(int routeId);//根据routeId获取评论
     List<City> cityNameById(int cityId);//根据城市id获取城市名字
+    List<City> hotCity();//查询热门城市
+    page queryForPageCity(int currentPage, int pageSize, int cityId);//分页查询城市下面的路线
+    page queryForPageByCityScore(int currentPage, int pageSize,int cityId);//分页并且按照评分排序城市下面的路线
+    page queryForPageByCityPrice1(int currentPage, int pageSize,int cityId);
+    page queryForPageByCityPrice2(int currentPage, int pageSize,int cityId);
+    page queryForPageByCityPrice3(int currentPage, int pageSize,int cityId);
+    List indexHotRoute();//首页热门路线
+    List lowerPriceRoute();//超值路线
 }

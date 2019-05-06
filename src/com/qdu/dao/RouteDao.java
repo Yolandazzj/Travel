@@ -19,4 +19,17 @@ public interface RouteDao {
     List<Agency> agencyDetails(int routeId);//根据路线id获取旅行社信息
     List<Routecomment> routeComment(int routeId);//根据id获取路线评论
     List<City> cityNameById(int cityId);//根据城市id获取城市名字
+    List<City> hotCity();//查看热门城市
+    List cityForRoute(int cityId,int offset, int length);//查看城市下面的路线
+    int getAllRowCountByCity(int cityId);//城市下面的路线结果集条数
+    List searchRouteCityScore(int cityId,int offset, int length);//根据评分排序城市下面的路线
+    int getAllRowCountByCityScore(int cityId);//根据评分排序城市下面的路线结果集条数
+    List searchCityRouteByPrice1(int cityId,int offset, int length);//根据价格分类城市下面的路线
+    int getAllRowCountByCityPrice1(int cityId);//根据价格分类城市下面的路线结果集
+    List searchCityRouteByPrice2(int cityId,int offset, int length);
+    int getAllRowCountByCityPrice2(int cityId);
+    List searchRouteByCityPrice3(int cityId,int offset, int length);
+    int getAllRowCountByPrice3(int cityId);
+    List indexHotRoute();//首页热门路线
+    List lowerRoute();//超值路线
 }

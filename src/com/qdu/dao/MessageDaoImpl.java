@@ -83,4 +83,13 @@ public class MessageDaoImpl implements MessageDao {
         query.executeUpdate();
 
     }
+
+    //根据评分排序留言
+    @Override
+    public List messageByScore() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Message order by messageScore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(8);
+        return query.list();
+    }
 }

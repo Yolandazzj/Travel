@@ -58,4 +58,9 @@ public class MessageServiceImpl implements MessageService {
          messageDao.thumbMessage(messageId);
          return true;
     }
+
+    @Override
+    public List messageByScore() {
+        return messageDao.messageByScore() ;
+    }
 }

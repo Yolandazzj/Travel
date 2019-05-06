@@ -11,4 +11,5 @@ public interface MessageService {
     Message getMessageById();//获取最新留言
     page queryForPage(int currentPage, int pageSize);//分页
     boolean thumbMessage(int messageId);
+    List messageByScore();//根据评分排序留言
 }
