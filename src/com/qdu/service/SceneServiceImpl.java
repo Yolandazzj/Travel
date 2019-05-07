@@ -105,4 +105,11 @@ public class SceneServiceImpl implements SceneService {
     }
 
 
+    //管理员删除景点
+    @Override
+    public void deleteScene(int sceneId) {
+        sceneDao.deleteScene(sceneId);
+    }
+
+
 }

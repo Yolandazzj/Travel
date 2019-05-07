@@ -84,4 +84,11 @@ public class SceneController {
         return "userSceneAll";
     }
 
+    //管理员删除景点
+    @RequestMapping(value = "admin/deleteScene",method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteScene(int sceneId){
+        sceneService.deleteScene(sceneId);
+    }
+
 }

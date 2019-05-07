@@ -134,7 +134,7 @@ public class IndexController {
         return "userFood";
     }
 
-    //首页组团游,获取全部组团游列表，分页
+    //首页组团游,获取全部组团游列表，分页（需改成获取全部已批准组团游列表）
     @RequestMapping("user/groupAll")
     public String groupAll(Model model,HttpServletRequest request){
         try {
@@ -142,16 +142,15 @@ public class IndexController {
             if (pageNo == null) {
                 pageNo = "1";
             }
-            page page = groupService.queryForPage(Integer.valueOf(pageNo),8);
-            model.addAttribute("page",page);
-            List groupAll = page.getList();
+            page page2 = groupService.queryForPage2(Integer.valueOf(pageNo),8);
+            model.addAttribute("page2",page2);
+            List groupAll = page2.getList();
             model.addAttribute("groupAll", groupAll);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "userGroupAll";
     }
-
 
 
 

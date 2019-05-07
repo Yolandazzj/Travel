@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 34703
-  Date: 2019/5/5
-  Time: 20:20
+  Date: 2019/5/7
+  Time: 20:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
@@ -13,11 +13,12 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>组团游列表</title>
+    <title>所有景点</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
     <script src="./resources/js/jquery-2.1.4.min.js"></script>
+
 </head>
 <body>
 <!--空div-->
@@ -26,21 +27,21 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <c:if test="${user==null}">
+            <c:if test="${admin==null}">
                 <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                    <a href="user/toLogin">登录</a>
+                    <a href="admin/toLogin">登录</a>
                 </div>
-                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                    <i class="fa fa-gray"></i>
-                    <a href="#">注册</a>
-                </div>
+                <%--                <div data-toggle="arrowdown" id="arrow2" class="msg-info">--%>
+                <%--                    <i class="fa fa-gray"></i>--%>
+                <%--                    <a href="#">注册</a>--%>
+                <%--                </div>--%>
             </c:if>
-            <c:if test="${user!=null}">
+            <c:if test="${admin!=null}">
                 <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                    <p>登录成功，欢迎：${admin.adminId} &nbsp; &nbsp;</p>
                 </div>
                 <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                    <a href="user/loginout">注销</a>
+                    <a href="#">注销</a>
                 </div>
             </c:if>
         </div>
@@ -68,8 +69,8 @@
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
-                        <li><a href="user/groupAll">组团游</a></li>
-                        <li><a href="user/scene">景点</a></li>
+                        <li><a href="admin/group">组团游</a></li>
+                        <li><a href="admin/scene">景点</a></li>
                         <li><a href="#">攻略</a></li>
                         <li><a href="#">酒店</a></li>
                     </ul>
@@ -92,12 +93,12 @@
     <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);width: 730px;">
 
         <a href="#">旅行社</a>
-        <a href="user/groupAll">组团游</a>
+        <a href="admin/group">组团游</a>
         <a href="user/tours" >跟团游</a>
         <a href="#" >攻略</a>
-        <a href="user/food" >美食</a>
+        <a href="admin/food" >美食</a>
         <a href="#">酒店</a>
-        <a href="user/scene" >景点</a>
+        <a href="admin/scene" >景点</a>
         <a href="#" >推荐路线</a>
         <a href="user/message" >留言板</a>
 
@@ -109,18 +110,15 @@
 
 <br><br><br><br><br><br><br><br>
 
-<div class="xiaomi6 fl">
-    <a href="user/group" style="text-align: center"><button>我要发起组团游</button></a>
-</div>
-
-<!--组团游列表-->
+<!--景点列表-->
 <div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
+
     <table id="commentTable">
-        <c:forEach items="${groupAll}" var="g">
-            <tr>
-                <td>${g.gid}&nbsp;&nbsp;<br><span>发起用户：${g.uid}<br><span>介绍：${g.gcontent}</span>
-                    &nbsp;&nbsp;<span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
+        <c:forEach items="${sceneAdminAll}" var="s">
+            <tr id="${s.sceneId}">
+                <td>${s.sceneId}&nbsp;&nbsp;<a href="javascript:deleteScene(${s.sceneId})" ><span style="margin-left: 850px;"><button>删除</button></span></a><br><br><br>
+                    <a href="user/sceneDetails?sceneId=${s.sceneId}&sceneName=${s.sceneName}">${s.sceneName}</a></td>
 
             </tr>
         </c:forEach>
@@ -128,15 +126,15 @@
     <br><br><br>
     <form id="paging" style="text-align:center;">
         <tr>
-            <td colspan="8" align="center" >共${page2.totalRecords}条记录 共${page2.totalPages}页 当前第${page2.pageNo}页
+            <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
                 <br> <br>
 
-                <a href="user/groupAll?pageNo=${page2.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
+                <a href="admin/scene?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
 
                 <c:choose>
-                    <c:when test="${page2.pageNo!=1}">
+                    <c:when test="${page.pageNo!=1}">
 
-                        <a href="user/groupAll?pageNo=${page2.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
+                        <a href="admin/scene?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
 
                     </c:when>
                     <c:otherwise>
@@ -146,8 +144,8 @@
                     </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test="${page2.pageNo!= page2.totalPages}">
-                        <a href="user/groupAll?pageNo=${page2.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
+                    <c:when test="${page.pageNo!= page.totalPages}">
+                        <a href="admin/scene?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
                     </c:when>
                     <c:otherwise>
 
@@ -155,15 +153,15 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a href="user/groupAll?pageNo=${page2.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
+                <a href="admin/scene?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
 
     <br><br>
 
-</div>
 
+</div>
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -187,6 +185,22 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
+<script>
+    function deleteScene(sceneId) {
+        $.ajax({
+            url: 'admin/deleteScene',
+            type: "POST",
+            data: {"sceneId": sceneId},
+            success: function () {
+                $("#"+sceneId).remove();
+            },
+            error: function () {
+                alert("Ajax请求失败!");
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
+

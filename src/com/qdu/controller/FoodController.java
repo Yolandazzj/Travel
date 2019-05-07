@@ -121,4 +121,11 @@ public class FoodController {
         return foodService.getFoodCommentById();
     }
 
+    //管理员删除美食
+    @RequestMapping(value = "admin/deleteFood",method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteFood(int fid){
+        foodService.deleteFood(fid);
+    }
+
 }

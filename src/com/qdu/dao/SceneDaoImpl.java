@@ -157,4 +157,12 @@ public class SceneDaoImpl implements SceneDao {
         query.executeUpdate();
     }
 
+    //管理员删除景点
+    @Override
+    public void deleteScene(int sceneId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("DELETE from Scene where SceneId=?");
+        query.setInteger(0, sceneId);
+        query.executeUpdate();
+    }
+
 }
