@@ -111,17 +111,16 @@
                        style="width: 80%;height:25px;"
                        value="${user.upassword}">
                 <br>
-                <%--            <label for="ugender">性别：</label>--%>
+                <label for="ugender">性别：</label>
 
                 <input type="radio" name="ugender" value="男">&nbsp;男&nbsp;
                 <input type="radio" name="ugender" value="女">&nbsp;女
                 <br><br>
                 <label for="ucity">城市：</label>
-                <input type="text" class="form-control" id="ucity" name="ucity" style="width: 80%; height:25px;"
-                       placeholder="请输入手机号" value="${user.ucontact}">
+                <input type="text" class="form-control" id="ucity" name="ucity" style="width: 80%; height:25px;" value="${user.ucity}">
 
                 <br>
-                <label for="ucontact">联系方式：</label>
+                <label for="ucontact">电话：</label>
                 <input type="text" class="form-control" id="ucontact" name="ucontact" style="width: 80%; height:25px;"
                        placeholder="请输入手机号" value="${user.ucontact}">
 
