@@ -2,6 +2,7 @@ package com.qdu.service;
 
 import com.qdu.dao.AdminInfoDao;
 import com.qdu.pojo.Admininfo;
+import com.qdu.pojo.Userinfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,15 +43,14 @@ public class AdminInfoServiceImpl implements AdminInfoService{
         adminInfoDao.delete(essayId);
     }
 
-    //获取被举报用户的列表
     @Override
-    public List getReportUserList() {
+    public List<Userinfo> getReportUserList() {
         return adminInfoDao.getReportUserList();
     }
 
-    //禁用用户功能
+    //禁用用户
     @Override
-    public boolean reportUser(int uid) {
+    public boolean reportUser(String uid) {
         adminInfoDao.banUser(uid);
         return true;
     }

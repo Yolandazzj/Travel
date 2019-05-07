@@ -63,27 +63,28 @@ public class AdminInfoController {
     }
 
 
-    //审核完成后，删除帖子
+    //删除
     @RequestMapping(value = "/deleteEssay", method = RequestMethod.POST)
     @ResponseBody
     public void deleteEssay(int essayId) {
         adminInfoService.delete(essayId);
     }
 
-    //管理员查看列表来决定是否禁用用户
+    //被举报用户
     @RequestMapping(value = "/manageUser")
     public String manageUser(Model model) {
+        System.out.println(adminInfoService.getReportUserList().get(0).getUid());
         List reportUserList = adminInfoService.getReportUserList();
         model.addAttribute("reportUserList", reportUserList);
-        return "reportUserList";
+        return "adminManageUser";
 
     }
 
     //禁用用户
-    @RequestMapping(value = "/banUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/banUser")
     @ResponseBody
     public void reportUser(HttpServletRequest request) {
-        int uid =Integer.parseInt(request.getParameter("uid"));
+        String uid =request.getParameter("uid");
         System.out.println(uid);
         adminInfoService.reportUser(uid);
 

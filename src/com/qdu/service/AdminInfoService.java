@@ -1,6 +1,7 @@
 package com.qdu.service;
 
 import com.qdu.pojo.Admininfo;
+import com.qdu.pojo.Userinfo;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface AdminInfoService {
 
     void delete(int essayId);//删除举报的游记
 
-    List getReportUserList();//获取被举报用户的列表
+    List<Userinfo> getReportUserList();//获取被举报用户的列表
 
-    boolean reportUser(int uid);//禁用用户
+    boolean reportUser(String uid);//禁用用户
 }

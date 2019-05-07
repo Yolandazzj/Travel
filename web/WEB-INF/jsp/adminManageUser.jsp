@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: zyr
-  Date: 2019/5/6
-  Time: 20:20
+  Date: 2019/5/7
+  Time: 15:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
@@ -13,11 +13,38 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>管理员中心</title>
+    <title>管理用户</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
     <script src="./resources/js/jquery-2.1.4.min.js"></script>
+
+    <style type="text/css">
+        table.altrowstable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #a9c6c9;
+            border-collapse: collapse;
+            width: 1000px;
+        }
+        table.altrowstable th {
+            background-color: #a9c6c9;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        table.altrowstable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
 <!--空div-->
@@ -82,38 +109,47 @@
         <h3>定位板块</h3>
     </div>
 </div>
-
-
-<div class="right-con" style="height: 100px;">
-    <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);width: 730px;">
-
-        <a href="#">旅行社</a>
-        <a href="user/groupAll">组团游</a>
-        <a href="user/tours">跟团游</a>
-        <a href="#">攻略</a>
-        <a href="user/food">美食</a>
-        <a href="#">酒店</a>
-        <a href="user/scene">景点</a>
-        <a href="#">推荐路线</a>
-        <a href="user/message">留言板</a>
-
-
-    </div>
-    <br/> <br/> <br/> <br/> <br/>
-</div>
 <!--main-->
 <div class="sub-nav">
-    <!--sub-nav-cell-->
-    <div class="sub-nav-cell" style="width: 500px;height:550px;margin-left: 300px;font-size: 20px;line-height: 30px;">
-        <a href="admin/manageUser">管理用户</a> <br/>
-        <a href="#">管理违规游记</a> <br/>
-        <a href="#">组团游</a><br/>
-        <a href="#">。。。</a><br/>
-        <a href="#">。。。</a><br/>
+<div class="container">
+    <div class="row">
+
+        <section class="col-sm-12 maincontent">
+            <table class="altrowstable" id="alternatecolor" style="width: 1000px">
+                <tr>
+                    <th>用户id</th>
+                    <th>用户状态</th>
+                    <th>操作</th>
+                </tr>
+                <c:forEach items="${reportUserList}" var="u">
+                    <tr>
+                        <td>${u.uid}</td>
+                        <td>
+                            <c:if test="${u.isBan==0}">
+                                等待禁用
+                            </c:if>
+                            <c:if test="${u.isBan==1}">
+                                已禁用
+                            </c:if>
+                        </td>
+                        <td>
+                            <a href="#">查看详情</a>&nbsp;
+                            <a href="#">编辑</a>&nbsp;
+                            <a href="javascript:banUser('${u.uid}')">禁用</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+
+
+        </section>
     </div>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="resources/js/custom.js"></script>
+</div>
 </div>
 <br/><br/><br/><br/><br/><br/>
-
+</div>
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -137,5 +173,22 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
+<script>
+    function banUser(uid) {
+        $.ajax({
+            url: 'admin/banUser',
+            type: "POST",
+            data: {"uid": uid},
+            success: function (data) {
+
+
+                alert("禁用成功！")
+            },
+            error: function () {
+                alert("Ajax请求失败!");
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -45,17 +45,17 @@ public class AdminInfoDaoImpl extends BaseDaoImpl<Userinfo> implements AdminInfo
     }
 
     @Override
-    public List getReportUserList() {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select uid,isBan from Userinfo where isBan=1");
-        query.addScalar("uid", StandardBasicTypes.INTEGER);
-        query.addScalar("isBan", StandardBasicTypes.INTEGER);
-        return  query.list();
+    public List<Userinfo> getReportUserList() {
+        Session session = sessionFactory.openSession();
+        Query query=session.createQuery("from Userinfo where isBan in(0,1)");
+        return query.list();
+
     }
 
     @Override
-    public void banUser(int uid) {
-        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call banUser(?)}");
-        query.setInteger(0, uid);
+    public void banUser(String uid) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("update  userinfo set isBan=1 where uid=?");
+        query.setString(0, uid);
         query.executeUpdate();
     }
 }
