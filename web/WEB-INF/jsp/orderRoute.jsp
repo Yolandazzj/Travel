@@ -26,13 +26,23 @@
 <div class="top-wrapper">
     <div class="top-info">
         <div class="top-left">
-            <div data-toggle="arrowdown" id="arrow1" class="user-name">
-                <a href="#">登录</a>
-            </div>
-            <div data-toggle="arrowdown" id="arrow2" class="msg-info">
-                <i class="fa fa-gray"></i>
-                <a href="#">注册</a>
-            </div>
+            <c:if test="${user==null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <a href="user/toLogin">登录</a>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <i class="fa fa-gray"></i>
+                    <a href="#">注册</a>
+                </div>
+            </c:if>
+            <c:if test="${user!=null}">
+                <div data-toggle="arrowdown" id="arrow1" class="user-name">
+                    <p>登录成功，欢迎：${user.uid} &nbsp; &nbsp;</p>
+                </div>
+                <div data-toggle="arrowdown" id="arrow2" class="msg-info">
+                    <a href="user/loginout">注销</a>
+                </div>
+            </c:if>
         </div>
 
         <!--top-right-->
@@ -43,7 +53,7 @@
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="#">我的订单</a>
+                <a href="user/myOrder?uid=${user.uid}">我的订单</a>
 
             </div>
         </div>
@@ -94,7 +104,7 @@
 </div>
 <br><br><br><br><br><br>
 <!-- xiangqing -->
-<form action="user/toUserOrder" method="post">
+
     <div class="xiaomi6 fl">
         ${routeDetails.routeName}
     </div>
@@ -115,10 +125,13 @@
             <div class="jianjie mr40 ml20 mt10">
                 <div class="room-number">
                     <p class="clearfix">
-                        <span class="desc">出游人数:&nbsp;&nbsp;</span>
-                        <span class="bd-box subtraction min" style="height: 32px;">-</span>
-                        <input class="bd-box number-box" name="routeOrderPeople" value="${Routeorders.routeOrderPeople}" readonly="readonly"/>
-                        <span class="bd-box addition add" style="height: 32px;">+</span>
+                        <a class="bd-box subtraction min" style="height: 32px;" onclick="changerBuyQuantity(0)" href="javascript:;">-</a>
+
+                        <input class="bd-box number-box" value="${quantity}" readonly="readonly" id="number"  onkeyup="setAmount.modify('#number');"name="routeOrderPeople"/>
+                        <input  type="hidden" name="routeId" value="${routeId}" id="routeId">
+                        <input type="hidden" name="routeName" value="${routeDetails.routeName}" id="routeName">
+                        <input type="hidden" name="routePrice" value="${routeDetails.routePrice}" id="routePrice">
+                        <a class="bd-box addition add" style="height: 32px;" onclick="changerBuyQuantity(1)" href="javascript:;">+</a>
                     </p>
                 </div>
 
@@ -126,15 +139,13 @@
             <br><br><br><br>
             <div class="jianjie mr40 ml20 mt10">出行天数:&nbsp;&nbsp;<span style="color: black;">${routeDetails.routeDay}天</span></div>
             <br><br><br>
-            <label class="jianjie mr40 ml20 mt10" for="contact">联系方式：</label><input id="contact" type="text" oninput="validateFill(this)" required>
+            <label class="jianjie mr40 ml20 mt10" for="contact">联系方式：</label><input id="contact" type="text" oninput="validateFill(this)" required name="contact">
             <br><br><br><br>
-            <label class="jianjie mr40 ml20 mt10" for="routeOrderName">预定人姓名：</label><input id="routeOrderName" type="text" oninput="validateFill(this)" required>
-            <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
-            <input  type="hidden" name="routeName" value="${routeDetails.routeName}">
-            <input  type="hidden" name="routePrice" value="">
+            <label class="jianjie mr40 ml20 mt10" for="routeOrderName">预定人姓名：</label><input id="routeOrderName" type="text" oninput="validateFill(this)" required name="routeOrderName">
+            <input  type="hidden" name="uid" value="${user.uid}" id="uid">
             <br><br><br><br>
             <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-                <input class="jrgwc"  type="submit" value="立即预定" />
+                <input class="jrgwc"  type="button" value="立即预定" onclick="javascript:toOrder();"/>
 
             </div>
         </div>
@@ -149,7 +160,7 @@
 
 
 
-</form>
+
 
 
 
@@ -183,25 +194,25 @@
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/img-show.js"></script>
 
-<script>
-    $(function(){
-        /*单击加号按钮增加数量*/
-        $(".add").click(function(){
-            var add = $(this).siblings(".number-box");
-            add.val(parseInt(add.val())+1)
-        });
+<%--<script>--%>
+<%--    $(function(){--%>
+<%--        /*单击加号按钮增加数量*/--%>
+<%--        $(".add").click(function(){--%>
+<%--            var add = $(this).siblings(".number-box");--%>
+<%--            add.val(parseInt(add.val())+1)--%>
+<%--        });--%>
 
-        /*单击减号按钮减少房间*/
-        $(".min").click(function(){
-            var min = $(this).siblings(".number-box");
-            min.val(parseInt(min.val())-1)
-            if(parseInt(min.val())<1){
-                min.val(1);
-            }
+<%--        /*单击减号按钮减少房间*/--%>
+<%--        $(".min").click(function(){--%>
+<%--            var min = $(this).siblings(".number-box");--%>
+<%--            min.val(parseInt(min.val())-1)--%>
+<%--            if(parseInt(min.val())<1){--%>
+<%--                min.val(1);--%>
+<%--            }--%>
 
-        });
-    });
-</script>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 <script>
 function validateFill(input) {
 if (input.value == " ") {
@@ -209,6 +220,38 @@ input.setCustomValidity('此项为必填');
 return false;
 }
 }
+</script>
+
+<script>
+
+    function changerBuyQuantity(obj) {
+        if (obj === 1) {
+            $("#number").val(parseInt($("#number").val()) + 1);
+        } else {
+            if ($("#number").val() <= 1)
+                $("#number").val(1);
+            else
+                $("#number").val($("#number").val() - 1);
+        }
+    }
+
+</script>
+
+<script>
+
+    function toOrder(){
+        var routeId = $("#routeId").val();//路线id
+        var number = $("#number").val();//人数
+        var routeName=$("#routeName").val();//路线名
+        var uid=$("#uid").val();
+        var price=(parseFloat($("#routePrice").val())*number);
+        var routeOrderName=$("#routeOrderName").val();
+        var contact=$("#contact").val();
+
+
+        location.href = "<%=request.getContextPath()%>/user/toUserOrder?routeId="+routeId
+            +"&routeOrderPeople="+number+"&routeName="+routeName+"&uid="+uid+"&routeOrderName="+routeOrderName+"&routePrice="+price+"&contact="+contact+"";
+    }
 </script>
 </body>
 </html>

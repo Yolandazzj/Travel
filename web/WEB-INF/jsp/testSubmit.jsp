@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 34703
-  Date: 2019/5/4
-  Time: 23:20
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>submit</title>
-</head>
-<body>
+function addGoodsToCar(){
+var goodsCode = $("#goodsCode").val();//获取商品编号
+var buyNum = $("#buy-num").val();//获取购买数量
 
-</body>
-</html>
+location.href = "<%=basePath%>car/carActionaddOrUpdate.action?goodsCode="+goodsCode
++"&quantity="+buyNum+"";
+}
+<a onclick="javascript:addGoodsToCar()" id="InitCartUrl"
+   class="btn-special1 btn-lg" href="#"  >加入购物车</a>

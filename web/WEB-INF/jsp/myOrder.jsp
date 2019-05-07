@@ -117,30 +117,74 @@
             <div class="ddzx">订单中心</div>
             <div class="subddzx">
                 <ul>
-                    <li><a href="" style="color:#ff6700;font-weight:bold;">我的订单</a></li>
+                    <li><a href="user/myOrder?uid=${user.uid}" style="color:#ff6700;font-weight:bold;">我的订单</a></li>
                 </ul>
             </div>
-
+            <div class="ddzx">个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./self_info.html">我的个人中心</a></li>
+                    <li><a href="">消息通知</a></li>
+                </ul>
+            </div>
         </div>
+
         <div class="rtcont fr">
             <div class="ddzxbt">交易订单</div>
+            <c:forEach items="${myOrderList}" var="mo">
             <div class="ddxq">
                 <div class="ddspt fl"><img src="" alt=""></div>
-                <div class="ddbh fl"><${routeName}></div>
+
+                <div class="ddbh fl"><${mo.routeName}></div>
                 <div class="ztxx fr">
                     <ul>
                         <li>预定成功</li>
-                        <li>总价：${routePrice}</li>
-                        <li>预定人：${routeOrderName}</li>
-                        <li><a href="user/routesDetails?routeName=${routeName}&routeId=${routeId}">查看详情></a></li>
+                        <li>总价：${mo.routePrice}</li>
+                        <li>预定人：${mo.routeOrderName}</li>
+                        <li><a href="user/routesDetails?routeName=${mo.routeName}&routeId=${mo.routeId}">查看详情></a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>
+
                 <div class="clear"></div>
             </div>
+            </c:forEach>
 
         </div>
         <div class="clear"></div>
+        <form id="paging" style="text-align:center;">
+            <tr>
+                <td colspan="8" align="center" >共${orderPage.totalRecords}条记录 共${orderPage.totalPages}页 当前第${orderPage.pageNo}页
+                    <br> <br>
+
+                    <a href="user/myOrder?pageNo=${orderPage.topPageNo}&uid=${user.uid}"><input type="button" name="fristPage" value="首页" /></a>
+
+                    <c:choose>
+                        <c:when test="${orderPage.pageNo!=1}">
+
+                            <a href="user/myOrder?pageNo=${orderPage.previousPageNo}&uid=${user.uid}"><input type="button" name="previousPage" value="上一页" /></a>
+
+                        </c:when>
+                        <c:otherwise>
+
+                            <input type="button" disabled="disabled" name="previousPage" value="上一页" />
+
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${orderPage.pageNo!= orderPage.totalPages}">
+                            <a href="user/myOrder?pageNo=${orderPage.nextPageNo}&uid=${user.uid}"><input type="button" name="nextPage" value="下一页" /></a>
+                        </c:when>
+                        <c:otherwise>
+
+                            <input type="button" disabled="disabled" name="nextPage" value="下一页" />
+
+                        </c:otherwise>
+                    </c:choose>
+                    <a href="user/myOrder?pageNo=${orderPage.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
+                </td>
+            </tr>
+        </form>
     </div>
 </div>
 

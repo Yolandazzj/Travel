@@ -43,7 +43,7 @@
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="#">我的订单</a>
+                <a href="user/myOrder?uid=${user.uid}">我的订单</a>
 
             </div>
         </div>
@@ -96,11 +96,11 @@
 <!-- xiangqing -->
 
     <div class="xiaomi6 fl">
-        ${routeName}
+        ${routeDetails.routeName}
     </div>
 <br><br><br><br>
     <div class="jieshao mt20 w">
-        <div class="left fl"><img src="./image/liebiao_xiaomi6.jpg"></div>
+        <div class="left fl"><img src="/IMAGE/${routeDetails.routeImage}"></div>
         <div class="right fr" style="height:562px;padding-left: 20px; ">
             <br>
             <div class="jianjie mr40 ml20 mt10">促销价：<div class="jiage ml20 mt10"><br>${routeDetails.routePrice}元</div></div>
@@ -112,10 +112,14 @@
             <div class="jianjie mr40 ml20 mt10">
                 <div class="room-number">
                     <p class="clearfix">
+
                         <span class="desc">出游人数:&nbsp;&nbsp;</span>
-                        <span class="bd-box subtraction min" style="height: 32px;">-</span>
-                        <input class="bd-box number-box" value="1" readonly="readonly"/>
-                        <span class="bd-box addition add" style="height: 32px;">+</span>
+                        <a class="bd-box subtraction min" style="height: 32px;" onclick="changerBuyQuantity(0)" href="javascript:;">-</a>
+
+                        <input class="bd-box number-box" value="1" readonly="readonly" id="number"  onkeyup="setAmount.modify('#number');"/>
+                         <input  type="hidden" name="routeId" value="${routeDetails.routeId}" id="routeId">
+                        <input  type="hidden" name="routeName" value="${routeDetails.routeName}" id="routeName">
+                        <a class="bd-box addition add" style="height: 32px;" onclick="changerBuyQuantity(1)" href="javascript:;">+</a>
                     </p>
                 </div>
 
@@ -133,10 +137,10 @@
             </div>
             <br><br><br>
             <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-                <form action="user/toOrderRoute" method="post">
-                <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
-                <button class="jrgwc"  type="submit">立即预定</button>
-                </form>
+
+
+                <button class="jrgwc"  type="button" onclick="javascript:addGoodsToCar()" >立即预定</button>
+
             </div>
         </div>
         <div class="clear"></div>
@@ -236,24 +240,52 @@
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/img-show.js"></script>
 
+<%--<script>--%>
+<%--    $(function(){--%>
+<%--        /*单击加号按钮增加数量*/--%>
+<%--        $(".add").click(function(){--%>
+<%--            var add = $(this).siblings(".number-box");--%>
+<%--            add.val(parseInt(add.val())+1)--%>
+<%--        });--%>
+
+<%--        /*单击减号按钮减少房间*/--%>
+<%--        $(".min").click(function(){--%>
+<%--            var min = $(this).siblings(".number-box");--%>
+<%--            min.val(parseInt(min.val())-1)--%>
+<%--            if(parseInt(min.val())<1){--%>
+<%--                min.val(1);--%>
+<%--            }--%>
+
+<%--        });--%>
+<%--});--%>
+<%--</script>--%>
+
+
 <script>
-    $(function(){
-        /*单击加号按钮增加数量*/
-        $(".add").click(function(){
-            var add = $(this).siblings(".number-box");
-            add.val(parseInt(add.val())+1)
-        });
 
-        /*单击减号按钮减少房间*/
-        $(".min").click(function(){
-            var min = $(this).siblings(".number-box");
-            min.val(parseInt(min.val())-1)
-            if(parseInt(min.val())<1){
-                min.val(1);
-            }
+    function changerBuyQuantity(obj) {
+        if (obj === 1) {
+            $("#number").val(parseInt($("#number").val()) + 1);
+        } else {
+            if ($("#number").val() <= 1)
+                $("#number").val(1);
+            else
+                $("#number").val($("#number").val() - 1);
+        }
+    }
 
-        });
-});
+</script>
+
+<script>
+
+    function addGoodsToCar(){
+        var routeId = $("#routeId").val();//路线id
+        var number = $("#number").val();//人数
+        var routeName=$("#routeName").val();//路线名
+
+        location.href = "<%=request.getContextPath()%>/user/toOrderRoute?routeId="+routeId
+            +"&quantity="+number+"&routeName="+routeName+"";
+    }
 </script>
 
 </body>

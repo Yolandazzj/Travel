@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-5-4 22:17:54 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Report" table="report" catalog="bishe" optimistic-lock="version">
         <id name="reportId" type="java.lang.Integer">

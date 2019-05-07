@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-5-4 22:17:52 by Hibernate Tools 4.3.1
+// Generated 2019-5-7 15:45:56 by Hibernate Tools 4.3.1
 
 
 

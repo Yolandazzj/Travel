@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-5-4 22:17:52 by Hibernate Tools 4.3.1
+// Generated 2019-5-7 15:45:56 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -21,7 +21,6 @@ public class Userinfo  implements java.io.Serializable {
      private int urank;
      private Set foodcomments = new HashSet(0);
      private Set essaycomments = new HashSet(0);
-     private Set routeorderses = new HashSet(0);
      private Set routecomments = new HashSet(0);
      private Set hotelorderses = new HashSet(0);
      private Set messages = new HashSet(0);
@@ -42,7 +41,7 @@ public class Userinfo  implements java.io.Serializable {
         this.upassword = upassword;
         this.urank = urank;
     }
-    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, Integer isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routeorderses, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
+    public Userinfo(String uid, String ugender, String ucity, String ucontact, String uemail, Integer isBan, String upassword, int urank, Set foodcomments, Set essaycomments, Set routecomments, Set hotelorderses, Set messages, Set essays, Set reports, Set hotelcomments) {
        this.uid = uid;
        this.ugender = ugender;
        this.ucity = ucity;
@@ -53,7 +52,6 @@ public class Userinfo  implements java.io.Serializable {
        this.urank = urank;
        this.foodcomments = foodcomments;
        this.essaycomments = essaycomments;
-       this.routeorderses = routeorderses;
        this.routecomments = routecomments;
        this.hotelorderses = hotelorderses;
        this.messages = messages;
@@ -131,13 +129,6 @@ public class Userinfo  implements java.io.Serializable {
     
     public void setEssaycomments(Set essaycomments) {
         this.essaycomments = essaycomments;
-    }
-    public Set getRouteorderses() {
-        return this.routeorderses;
-    }
-    
-    public void setRouteorderses(Set routeorderses) {
-        this.routeorderses = routeorderses;
     }
     public Set getRoutecomments() {
         return this.routecomments;

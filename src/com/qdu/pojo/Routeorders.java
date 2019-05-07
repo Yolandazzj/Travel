@@ -1,5 +1,5 @@
 package com.qdu.pojo;
-// Generated 2019-5-4 22:17:52 by Hibernate Tools 4.3.1
+// Generated 2019-5-7 15:45:56 by Hibernate Tools 4.3.1
 
 
 
@@ -10,9 +10,9 @@ public class Routeorders  implements java.io.Serializable {
 
 
      private Integer routeOrderId;
-     private Route routeByRouteId;
-     private Route routeByRouteName;
-     private Userinfo userinfo;
+     private String uid;
+     private int routeId;
+     private String routeName;
      private float routePrice;
      private String contact;
      private String routeOrderName;
@@ -21,10 +21,10 @@ public class Routeorders  implements java.io.Serializable {
     public Routeorders() {
     }
 
-    public Routeorders(Route routeByRouteId, Route routeByRouteName, Userinfo userinfo, float routePrice, String contact, String routeOrderName, int routeOrderPeople) {
-       this.routeByRouteId = routeByRouteId;
-       this.routeByRouteName = routeByRouteName;
-       this.userinfo = userinfo;
+    public Routeorders(String uid, int routeId, String routeName, float routePrice, String contact, String routeOrderName, int routeOrderPeople) {
+       this.uid = uid;
+       this.routeId = routeId;
+       this.routeName = routeName;
        this.routePrice = routePrice;
        this.contact = contact;
        this.routeOrderName = routeOrderName;
@@ -38,26 +38,26 @@ public class Routeorders  implements java.io.Serializable {
     public void setRouteOrderId(Integer routeOrderId) {
         this.routeOrderId = routeOrderId;
     }
-    public Route getRouteByRouteId() {
-        return this.routeByRouteId;
+    public String getUid() {
+        return this.uid;
     }
     
-    public void setRouteByRouteId(Route routeByRouteId) {
-        this.routeByRouteId = routeByRouteId;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
-    public Route getRouteByRouteName() {
-        return this.routeByRouteName;
-    }
-    
-    public void setRouteByRouteName(Route routeByRouteName) {
-        this.routeByRouteName = routeByRouteName;
-    }
-    public Userinfo getUserinfo() {
-        return this.userinfo;
+    public int getRouteId() {
+        return this.routeId;
     }
     
-    public void setUserinfo(Userinfo userinfo) {
-        this.userinfo = userinfo;
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
+    public String getRouteName() {
+        return this.routeName;
+    }
+    
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
     }
     public float getRoutePrice() {
         return this.routePrice;

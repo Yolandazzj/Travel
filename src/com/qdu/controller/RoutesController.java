@@ -4,6 +4,7 @@ package com.qdu.controller;
 import com.qdu.page.page;
 import com.qdu.pojo.Agency;
 import com.qdu.pojo.Route;
+import com.qdu.service.OrderService;
 import com.qdu.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class RoutesController {
 
     @Autowired
     private RouteService routeService;
+    @Autowired
+    private OrderService orderService;
 
 
     @RequestMapping("user/routesDetails")
@@ -41,17 +44,28 @@ public class RoutesController {
     }
 
 
-
+//点击立即预定
     @RequestMapping("user/toOrderRoute")
-        public String toOrderRoute(HttpServletRequest request,Model model,int routeId){
+        public String toOrderRoute(HttpServletRequest request,Model model,int routeId,int quantity){
         Route routeDetails= routeService.routeDetails(routeId);
         model.addAttribute("routeDetails",routeDetails);
+        model.addAttribute("quantity",quantity);
+        model.addAttribute("routeId",routeId);
 
             return "orderRoute";
         }
 
+        //到预定页面
         @RequestMapping("user/toUserOrder")
-    public String toUserOrder(){
+    public String toUserOrder(int routeId,int routeOrderPeople,String routeName,String uid,String routeOrderName,float routePrice,String contact,Model model){
+              orderService.toOrder(routeId,routeOrderPeople,routeName,uid,routeOrderName,routePrice,contact);
+              model.addAttribute("routeName",routeName);
+            model.addAttribute("routeOrderName",routeOrderName);
+            model.addAttribute("routePrice",routePrice);
+            model.addAttribute("contact",contact);
+            model.addAttribute("routeId",routeId);
+
+
         return "userOrder";
         }
 

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-5-4 22:17:54 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Route" table="route" catalog="bishe" optimistic-lock="version">
         <id name="routeId" type="java.lang.Integer">
             <column name="RouteId" />
             <generator class="identity" />
         </id>
-<!--        <many-to-one name="agency" class="com.qdu.pojo.Agency" fetch="select">-->
-<!--            <column name="AgencyId" not-null="true" />-->
-<!--        </many-to-one>-->
+<!--        <many-to-one name="agency" class="com.qdu.pojo.Agency" fetch="select">
+            <column name="AgencyId" not-null="true" />
+        </many-to-one>-->
         <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
             <column name="CityId" not-null="true" />
         </many-to-one>
@@ -35,23 +35,11 @@
         <property name="routeStartDay" type="timestamp">
             <column name="RouteStartDay" length="19" not-null="true" />
         </property>
-        <set name="routeordersesForRouteId" table="routeorders" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="RouteId" not-null="true" />
-            </key>
-            <one-to-many class="com.qdu.pojo.Routeorders" />
-        </set>
         <set name="routecomments" table="routecomment" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="RouteId" not-null="true" />
             </key>
             <one-to-many class="com.qdu.pojo.Routecomment" />
-        </set>
-        <set name="routeordersesForRouteName" table="routeorders" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="RouteName" not-null="true" />
-            </key>
-            <one-to-many class="com.qdu.pojo.Routeorders" />
         </set>
     </class>
 </hibernate-mapping>

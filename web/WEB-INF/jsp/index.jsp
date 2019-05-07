@@ -61,7 +61,7 @@
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="#">我的订单</a>
+                <a href="user/myOrder?uid=${user.uid}">我的订单</a>
 
             </div>
         </div>
@@ -495,8 +495,8 @@
         <h3 class="green-sp">超值路线</h3>
         <c:forEach items="${lowerPriceRoute}" var="l">
             <a href="user/routesDetails?routeName=${l.routeName}&routeId=${l.routeId}"><img src="/IMAGE/${l.routeImage}" style="width: 150px;height: 100px;"></a>
-            <span style="float: left;margin-top: 20px;"><a href="user/routesDetails?routeName=${l.routeName}&routeId=${l.routeId}"><${l.routeName}></a></span>
-            <span style="float: left;margin-top: 20px;"><a href="user/routesDetails?routeName=${l.routeName}&routeId=${l.routeId}">${l.routePrice}元！</a></span>
+            <span style="float: left;"><a href="user/routesDetails?routeName=${l.routeName}&routeId=${l.routeId}"><${l.routeName}></a></span>
+            <span style="float: left;"><a href="user/routesDetails?routeName=${l.routeName}&routeId=${l.routeId}">${l.routePrice}元！</a></span>
         </c:forEach>
     </div>
 
