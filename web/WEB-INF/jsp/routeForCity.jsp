@@ -67,7 +67,7 @@
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="#">我的订单</a>
+                <a href="user/myOrder?uid=${user.uid}">我的订单</a>
 
             </div>
         </div>

@@ -24,4 +24,5 @@ public interface SceneDao {
     List sceneAll(int offset, int length);//分页查询,获取景点列表
     int getAllRowCount();//获取总行数
     void thumb(int sceneId);//点赞功能（景点）
+    void deleteScene(int sceneId);//管理员删除景点
 }

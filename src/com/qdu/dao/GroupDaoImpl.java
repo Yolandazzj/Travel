@@ -75,11 +75,47 @@ public class GroupDaoImpl implements GroupDao {
         return num;
     }
 
+    //获取全部已批准组团游列表，分页
+    @Override
+    public List groupApproved(int offset, int length) {
+        List groupApprovedList=null;
+        try{
+            Query query=sessionFactory.getCurrentSession().createQuery("from Group where GState=1");
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            groupApprovedList=query.list();
+        }catch(RuntimeException re){
+            throw re;
+        }
+        return groupApprovedList;
+    }
+
+    //获取已批准组团游总行数
+    @Override
+    public int getApprovedRowCount() {
+        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num1 from `group` where GState=1")
+                .addScalar("num1", StandardBasicTypes.INTEGER)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+        List groupApprovedList = query.list();
+        HashMap map = (HashMap) groupApprovedList.get(0);
+        int num1 = (int) map.get("num1");
+        return num1;
+    }
+
 
     //管理员批准组团游
     @Override
     public void approve_group(int gid) {
         Query query = sessionFactory.getCurrentSession().createSQLQuery("{call approve_group(?)}");
+        query.setInteger(0, gid);
+        query.executeUpdate();
+    }
+
+
+    //管理员不批准组团游
+    @Override
+    public void disapprove_group(int gid) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call disapprove_group(?)}");
         query.setInteger(0, gid);
         query.executeUpdate();
     }

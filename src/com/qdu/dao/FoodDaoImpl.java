@@ -198,4 +198,13 @@ public class FoodDaoImpl implements  FoodDao {
         query.setMaxResults(1);
         return (Foodcomment) query.uniqueResult();
     }
+
+
+    //管理员删除美食
+    @Override
+    public void deleteFood(int fid) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("DELETE from Foodinfo where FId=?");
+        query.setInteger(0, fid);
+        query.executeUpdate();
+    }
 }

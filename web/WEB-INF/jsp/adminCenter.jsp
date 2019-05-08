@@ -64,8 +64,8 @@
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle">
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
-                        <li><a href="user/groupAll">组团游</a></li>
-                        <li><a href="user/scene">景点</a></li>
+                        <li><a href="admin/group">组团游</a></li>
+                        <li><a href="admin/scene">景点</a></li>
                         <li><a href="#">攻略</a></li>
                         <li><a href="#">酒店</a></li>
                     </ul>
@@ -88,14 +88,14 @@
     <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);width: 730px;">
 
         <a href="#">旅行社</a>
-        <a href="user/groupAll">组团游</a>
-        <a href="user/tours">跟团游</a>
-        <a href="#">攻略</a>
-        <a href="user/food">美食</a>
+        <a href="admin/group">组团游</a>
+        <a href="user/tours" >跟团游</a>
+        <a href="#" >攻略</a>
+        <a href="admin/food" >美食</a>
         <a href="#">酒店</a>
-        <a href="user/scene">景点</a>
-        <a href="#">推荐路线</a>
-        <a href="user/message">留言板</a>
+        <a href="admin/scene" >景点</a>
+        <a href="#" >推荐路线</a>
+        <a href="user/message" >留言板</a>
 
 
     </div>
@@ -137,5 +137,21 @@
 
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
+<script>
+    //管理员批准组团游申请
+    function approve_group(gid) {
+        $.ajax({
+            url: 'admin/approveGroup',
+            type: "POST",
+            data: {"gid": gid},
+            success: function (data) {
+                $("#"+gid).remove();
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
 </body>
 </html>

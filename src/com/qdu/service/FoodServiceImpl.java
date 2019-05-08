@@ -131,4 +131,11 @@ public class FoodServiceImpl implements FoodService{
     public Foodcomment getFoodCommentById() {
         return foodDao.getFoodCommentById();
     }
+
+
+    //管理员删除美食
+    @Override
+    public void deleteFood(int fid) {
+        foodDao.deleteFood(fid);
+    }
 }

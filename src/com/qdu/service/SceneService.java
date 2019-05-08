@@ -23,4 +23,5 @@ public interface SceneService {
     List<Province> proNameByCity(int cityId);//根据城市ID获取所在省份；
     page queryForPage(int currentPage,int pageSize) ;//分页查询
     boolean thumb(int sceneId);//点赞景点
+    void deleteScene(int sceneId);//管理员删除景点
 }

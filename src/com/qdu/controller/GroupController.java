@@ -71,6 +71,21 @@ public class GroupController {
         }
     }
 
-
+    //管理员不批准组团游
+    @RequestMapping(value = "admin/disapproveGroup",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> disapproveGroup(HttpServletRequest request){
+        Map map = new HashMap<>();
+        int gid = Integer.parseInt(request.getParameter("gid"));
+        System.out.println(gid);
+        boolean flag = groupService.disapprove_group(gid);
+            if (flag) {
+            map.put("msg", "不批准成功");
+            return map;
+        } else {
+            map.put("msg", "不批准失败");
+            return map;
+        }
+    }
 
 }

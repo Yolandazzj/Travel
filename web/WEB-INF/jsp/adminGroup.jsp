@@ -68,8 +68,8 @@
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
-                        <li><a href="user/groupAll">组团游</a></li>
-                        <li><a href="user/scene">景点</a></li>
+                        <li><a href="admin/group">组团游</a></li>
+                        <li><a href="admin/scene">景点</a></li>
                         <li><a href="#">攻略</a></li>
                         <li><a href="#">酒店</a></li>
                     </ul>
@@ -92,12 +92,12 @@
     <div class="nav" style="border-bottom: 2px solid rgba(0,128,0,0.5);width: 730px;">
 
         <a href="#">旅行社</a>
-        <a href="user/groupAll">组团游</a>
+        <a href="admin/group">组团游</a>
         <a href="user/tours" >跟团游</a>
         <a href="#" >攻略</a>
-        <a href="user/food" >美食</a>
+        <a href="admin/food" >美食</a>
         <a href="#">酒店</a>
-        <a href="user/scene" >景点</a>
+        <a href="admin/scene" >景点</a>
         <a href="#" >推荐路线</a>
         <a href="user/message" >留言板</a>
 
@@ -113,10 +113,11 @@
 <div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
     <table id="commentTable">
-        <c:forEach items="${groupAll}" var="g">
-            <tr>
-                <td>${g.gid}&nbsp;&nbsp;<a href="javascript:approve_group(${g.gid})"><button>批准</button></a><a><button>不批准</button></a><br><span>发起用户：${g.uid}<br>
-                    &nbsp;&nbsp;<span>介绍：${g.gcontent}</span><span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
+        <c:forEach items="${groupAdminAll}" var="g">
+            <tr id="${g.gid}">
+                <td>${g.gid}&nbsp;&nbsp;<a href="javascript:approve_group(${g.gid})"><button style="margin-left: 850px;">批准</button></a><a href="javascript:disapprove_group(${g.gid})"><button>不批准</button></a><br>
+                    <span>发起用户：${g.uid}<br>
+                    <span>介绍：${g.gcontent}</span><span>项目价格：${g.gprice}</span>&nbsp;&nbsp;<span>联系方式：${g.contact}</span></td>
 
             </tr>
         </c:forEach>
@@ -127,12 +128,12 @@
             <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
                 <br> <br>
 
-                <a href="user/groupAll?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
+                <a href="admin/group?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
 
                 <c:choose>
                     <c:when test="${page.pageNo!=1}">
 
-                        <a href="user/groupAll?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
+                        <a href="admin/group?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
 
                     </c:when>
                     <c:otherwise>
@@ -143,7 +144,7 @@
                 </c:choose>
                 <c:choose>
                     <c:when test="${page.pageNo!= page.totalPages}">
-                        <a href="user/groupAll?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
+                        <a href="admin/group?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
                     </c:when>
                     <c:otherwise>
 
@@ -151,7 +152,7 @@
 
                     </c:otherwise>
                 </c:choose>
-                <a href="user/groupAll?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
+                <a href="admin/group?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
             </td>
         </tr>
     </form>
@@ -191,7 +192,23 @@
             type: "POST",
             data: {"gid": gid},
             success: function (data) {
-                $("#"+gid).remove();
+                $("#"+gid).css("background-color","#73da73");
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
+<script>
+    //管理员不批准组团游申请
+    function disapprove_group(gid) {
+        $.ajax({
+            url: 'admin/disapproveGroup',
+            type: "POST",
+            data: {"gid": gid},
+            success: function (data) {
+                $("#"+gid).css("background-color","#f54f4f");
             },
             error: function () {
                 alert("Ajax请求失败");
