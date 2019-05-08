@@ -221,13 +221,13 @@
 <script>
     $(document).ready(function () {
         $("#submitBtn").click(function (message) {
+
             $.ajax({
                 url: 'user/toMessage',
                 type: "POST",
                 data: $("#commentForm").serialize(),
                 success: function (message) {
-                    var str =  "<tr><td>"
-                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    var str =  "<tr><td>&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
                     +message.messageTime+"</span><br><a href='javascript:thumb("
                     +message.messageId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
                     +message.messageId+">"

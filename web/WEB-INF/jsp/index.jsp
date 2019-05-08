@@ -87,7 +87,7 @@
                    </li>
             </ul>
             <input class="search-in" type="text" placeholder="请输入关键字" name="keyword">
-            <button type="submit" class="search-but" value="搜索"></button>
+            <button type="submit" class="search-but" value="搜索">搜索</button>
 
         </div>
         </form>

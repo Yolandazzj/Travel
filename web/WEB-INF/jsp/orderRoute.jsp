@@ -104,7 +104,6 @@
 </div>
 <br><br><br><br><br><br>
 <!-- xiangqing -->
-
     <div class="xiaomi6 fl">
         ${routeDetails.routeName}
     </div>
@@ -139,13 +138,13 @@
             <br><br><br><br>
             <div class="jianjie mr40 ml20 mt10">出行天数:&nbsp;&nbsp;<span style="color: black;">${routeDetails.routeDay}天</span></div>
             <br><br><br>
-            <label class="jianjie mr40 ml20 mt10" for="contact">联系方式：</label><input id="contact" type="text" oninput="validateFill(this)" required name="contact">
+            <label class="jianjie mr40 ml20 mt10" for="contact">联系方式：</label><input id="contact" type="text" required name="contact"><span id="sj"></span>
             <br><br><br><br>
-            <label class="jianjie mr40 ml20 mt10" for="routeOrderName">预定人姓名：</label><input id="routeOrderName" type="text" oninput="validateFill(this)" required name="routeOrderName">
+            <label class="jianjie mr40 ml20 mt10" for="routeOrderName">预定人姓名：</label><input id="routeOrderName" type="text"  required name="routeOrderName"><span id="ro"></span>
             <input  type="hidden" name="uid" value="${user.uid}" id="uid">
             <br><br><br><br>
             <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-                <input class="jrgwc"  type="button" value="立即预定" onclick="javascript:toOrder();"/>
+                <input class="jrgwc"  type="button" value="立即预定" onclick="javascript:toOrder();" id="sub" />
 
             </div>
         </div>
@@ -213,14 +212,15 @@
 <%--        });--%>
 <%--    });--%>
 <%--</script>--%>
-<script>
-function validateFill(input) {
-if (input.value == " ") {
-input.setCustomValidity('此项为必填');
-return false;
-}
-}
-</script>
+
+<%--<script>--%>
+<%--function validateFill(input) {--%>
+<%--if (input.value === " ") {--%>
+<%--input.setCustomValidity('此项为必填');--%>
+<%--return false;--%>
+<%--}--%>
+<%--}--%>
+<%--</script>--%>
 
 <script>
 
@@ -252,6 +252,44 @@ return false;
         location.href = "<%=request.getContextPath()%>/user/toUserOrder?routeId="+routeId
             +"&routeOrderPeople="+number+"&routeName="+routeName+"&uid="+uid+"&routeOrderName="+routeOrderName+"&routePrice="+price+"&contact="+contact+"";
     }
+</script>
+<script  type="text/javascript">
+    function checkMobile(str) {
+
+        var  re = /^1\d{10}$/ //验证是不是11位数字
+        if (re.test(str)) {
+            $("#sj").html("手机号码格式正确");
+            $("#sj").css("color","green");
+        }
+        else {
+            $("#sj").html("手机号码格式错误");
+            $("#sj").css("color","red");
+            $("#sub").prop("disabled",true);
+        }
+    }
+
+
+</script>
+<script  type="text/javascript">
+    $("#contact").blur(function(){
+        var str = $(this).val();
+        checkMobile(str);
+    })
+</script>
+
+<script type="text/javascript">
+    $("#routeOrderName").blur(function()
+    {
+        var routeOrderName = $(this).val();
+        if(routeOrderName ===""){
+            $("#ro").html("姓名不能为空！");
+            $("#ro").css("color","red");
+            $("#sub").prop("disabled",true);
+        }else{
+            $("#sub").prop("disabled",false);
+            $("#ro").html("");
+        }
+    })
 </script>
 </body>
 </html>

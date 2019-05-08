@@ -1,6 +1,7 @@
 package com.qdu.pojo;
 // Generated 2019-5-7 15:45:56 by Hibernate Tools 4.3.1
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
@@ -16,7 +17,7 @@ public class Message  implements java.io.Serializable {
      private Userinfo userinfo;
      private String messageContent;
      private int messageScore;
-         @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
      private Date messageTime;
 
     public Message() {

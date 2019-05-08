@@ -17,7 +17,7 @@
         <property name="messageScore" type="int">
             <column name="MessageScore" not-null="true" />
         </property>
-        <property name="messageTime" type="timestamp">
+        <property name="messageTime" type="java.util.Date">
             <column name="MessageTime" length="19" not-null="true" />
         </property>
     </class>
