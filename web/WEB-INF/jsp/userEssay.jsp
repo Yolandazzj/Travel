@@ -95,13 +95,19 @@
 </div>
 
 <div class="form_content">
-    <form id="groupApply" method="post">
+    <form id="essayApply" method="post">
         <fieldset>
             <legend class="optional">游记主题</legend>
             <div class="form-row">
-                <div class="field-label"><label for="gprice">游记标题</label>:</div>
+                <div class="field-label"><label for="eTitle">游记标题</label>:</div>
                 <div class="field-widget">
-                    <input id="gprice" name="gprice" class="optional">
+                    <input id="eTitle" name="eTitle" class="optional">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="field-label"><label for="uid">游记作者</label>:</div>
+                <div class="field-widget">
+                    <input type="text" readonly="readonly" id="uid" name="uid"  value= "${user.uid}" class="optional">
                 </div>
             </div>
             <%--            选择城市--%>
@@ -128,8 +134,8 @@
             <legend>游记信息</legend>
 
             <div class="form-row">
-                <div class="field-label"><label for="gcontent">旅游内容</label>:</div>
-                <div class="field-widget"><textarea id="gcontent" name="gcontent" class="required"></textarea></div>
+                <div class="field-label"><label for="eContent">旅游内容</label>:</div>
+                <div class="field-widget"><textarea id="eContent" name="eContent" class="required"></textarea></div>
             </div>
 
         </fieldset>
@@ -188,7 +194,7 @@
         $.ajax({
             url:'user/addEssay',
             type: "POST",
-            data:$("#groupApply").serialize(),
+            data:$("#essayApply").serialize(),
             success:alert("已提交游记"),
             error: function (request, status, error) {
                 alert("Ajax请求失败!" + error);

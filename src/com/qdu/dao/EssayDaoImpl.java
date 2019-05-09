@@ -8,6 +8,7 @@ import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,10 +18,15 @@ public class EssayDaoImpl implements EssayDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    //数据插入到essay表中
     @Override
-    public void insert(Essay essay) {
-        sessionFactory.openSession();
-        sessionFactory.getCurrentSession().save(essay);
+    public void toEssay(String eTitle,String uid, String eContent,int cityId ) {
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into `bishe`.`essay` (`eTitle`, `uid`, `eContent`, `CityId`) values(?,?,?,?)");
+        query.setParameter(0,eTitle);
+        query.setParameter(1,uid);
+        query.setParameter(2,eContent);
+        query.setParameter(3,cityId);
+        query.executeUpdate();
     }
 
     @Override
@@ -101,7 +107,7 @@ public class EssayDaoImpl implements EssayDao {
     //返回结果的条数
     @Override
     public int getAllRowCount() {
-        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `essay` where GState=0")
+        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `essay`")
                 .addScalar("num", StandardBasicTypes.INTEGER)
                 .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);//需要关联一张表，未改
         List essayList = query.list();

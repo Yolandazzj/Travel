@@ -119,7 +119,7 @@
     <table id="commentTable">
         <c:forEach items="${essayAll}" var="e">
             <tr>
-                <td>${e.essayId}&nbsp;&nbsp;<br><span>发起用户：${e.uid}<br><span>内容：${e.econtent}</span>
+                <td>${e.essayId}&nbsp;&nbsp;<br><span>发起用户：${e.uid}<br><span>内容：${e.eContent}</span>
                     &nbsp;&nbsp;<span>点赞数量：${e.eScore}</span>&nbsp;&nbsp;<span>状态：${""}</span></td>
 
             </tr>

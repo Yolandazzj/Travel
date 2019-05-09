@@ -26,11 +26,6 @@ public class EssayServiceImpl implements EssayService {
     }
 
     @Override
-    public void add(Essay newEssay) {
-        essayDao.insert(newEssay);
-    }
-
-    @Override
     public boolean reportUser(String uid) {
         essayDao.reportUser(uid);
         return true;
@@ -63,5 +58,10 @@ public class EssayServiceImpl implements EssayService {
         page.setTotalRecords(allRow);
         page.setList(essayList);
         return page;
+    }
+
+    @Override
+    public void toEssay(String eTitle, String uid, String eContent, int cityId) {
+        essayDao.toEssay(eTitle,uid,eContent,cityId);
     }
 }

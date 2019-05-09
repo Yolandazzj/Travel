@@ -1,6 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
+import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
 import com.qdu.service.CityService;
 import com.qdu.service.EssayService;
@@ -8,9 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -35,25 +40,14 @@ public class EssayController {
         return "userEssayAll";
     }
 
-    //添加游记
-
-    @RequestMapping("/addEssay")
-    public String addEssay(Essay newEssay) {
-        essayService.add(newEssay);
-//        try {
-//            String pageNo = request.getParameter("pageNo");
-//            if (pageNo == null) {
-//                pageNo = "1";
-//            }
-//            uid = request.getParameter("uid") ;
-//            page page = essayService.queryForPage(Integer.valueOf(pageNo), 6,uid);
-//            model.addAttribute("page", page);
-//            List essay = page.getList();
-//            model.addAttribute("myEssayList", essay);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
+    @ResponseBody
+    @RequestMapping(value="addEssay", method = RequestMethod.POST)
+    public String toGroup(String eTitle,String uid, String eContent,int cityId, HttpServletRequest request){
+        cityId=Integer.parseInt(request.getParameter("cityId"));
+        eTitle=request.getParameter("eTitle");
+        uid=request.getParameter("uid");
+        eContent=request.getParameter("eContent");
+        essayService.toEssay(eTitle,uid,eContent,cityId );
         return "userEssayAll";
     }
 
