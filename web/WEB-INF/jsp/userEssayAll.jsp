@@ -119,7 +119,7 @@
     <table id="commentTable">
         <c:forEach items="${essayAll}" var="e">
             <tr>
-                <td>${e.essayId}&nbsp; &nbsp;<br><span>发起用户：${e.userinfo.uid}<br><span>内容：${e.econtent}</span>
+                <td onclick="location.href='/Travel/user/toEssayDetails?essayId=${e.essayId}'">${e.essayId}&nbsp; &nbsp;<br><span>发起用户：${e.userinfo.uid}<br><span>内容：${e.econtent}</span>
                     &nbsp;&nbsp;<span>点赞数量：${e.escore}</span>&nbsp;&nbsp;<span>状态：${""}</span></td>
 
             </tr>

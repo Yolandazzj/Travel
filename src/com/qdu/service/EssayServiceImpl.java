@@ -83,5 +83,27 @@ public class EssayServiceImpl implements EssayService {
         return essayDao.essayComment(essayId);
     }
 
+    @Override
+    public boolean thumb_essay(int essayId) {
+        essayDao.thumb_essay(essayId);
+        return true;
+    }
+
+    @Override
+    public boolean thumb_comment(int eCommentId) {
+        essayDao.thumb_comment(eCommentId);
+        return true;
+    }
+
+    @Override
+    public void toEssayComment(int essayId, String uid, String eCommentContent) {
+        essayDao.toEssayComment(essayId,uid,eCommentContent);
+    }
+
+    @Override
+    public Essaycomment getEssayCommentById() {
+        return essayDao.getEssayCommentById();
+    }
+
 
 }

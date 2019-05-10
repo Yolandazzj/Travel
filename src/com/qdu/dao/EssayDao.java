@@ -18,4 +18,8 @@ public interface EssayDao  {
     Essay essayDetails(int essayId);//根据游记ID获取游记详细信息；
     List<City> cityInfo(int essayId);//根据游记ID获取所在城市的名字；
     List<Essaycomment> essayComment(int essayId);//根据游记ID获取评论；
+    void thumb_essay(int essayId);//点赞功能（游记)
+    void thumb_comment(int eCommentId);//点赞功能（游记评论)
+    void toEssayComment(int essayId,String uid,String eCommentContent);//发表游记评论
+    Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
 }

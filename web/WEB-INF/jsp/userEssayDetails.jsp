@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -67,7 +67,7 @@
     <img src="resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
-            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
+            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle">
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
                         <li><a href="#">跟团游</a></li>
@@ -90,13 +90,13 @@
 
         <a href="#">旅行社</a>
         <a href="#">组团游</a>
-        <a href="user/tours" >跟团游</a>
-        <a href="user/essayAll" >攻略</a>
-        <a href="/user/food" >美食</a>
+        <a href="user/tours">跟团游</a>
+        <a href="user/essayAll">攻略</a>
+        <a href="/user/food">美食</a>
         <a href="#">酒店</a>
-        <a href="user/scene" >景点</a>
-        <a href="#" >推荐路线</a>
-        <a href="/user/message" >留言板</a>
+        <a href="user/scene">景点</a>
+        <a href="#">推荐路线</a>
+        <a href="/user/message">留言板</a>
 
     </div>
 </div>
@@ -104,27 +104,38 @@
 
 <!-- 详情 -->
 <div class="xiaomi6 fl">
-    ${essayDetails.etitle}
+    游记标题： ${essayDetails.etitle}
 </div>
 <br><br><br><br>
 <div class="jieshao mt20 w">
-    <div class="left fl"><img src="/IMAGE/${essayDetails.eimage}"></div>
+    <c:forEach items="${cityInfo}" var="ci">
+        <div class="left fl"><img src="/IMAGE/${ci[1]}"></div>
+    </c:forEach>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
-        <div class="jianjie mr40 ml20 mt10">游记城市：<div class="jiage ml20 mt10"><br>${essay.cityId}</div></div>
+        <div class="jianjie mr40 ml20 mt10">游记城市：
+            <div class="jiage ml20 mt10"><br>
+                <c:forEach items="${cityInfo}" var="ci">
+                    <div class="jianjie mr40 ml20 mt10">&nbsp;&nbsp;<span style="color: #FF6700;">${ci[1]}</span></div>
+                </c:forEach></div>
+        </div>
         <br><br><br>
-        <div class="jianjie mr40 ml20 mt10">游记作者：<div class="jiage ml20 mt10"><br>${essay.userinfo.uid}</div></div>
+        <div class="jianjie mr40 ml20 mt10">游记作者：
+            <div class="jiage ml20 mt10"><br>&nbsp;&nbsp;${essayDetails.userinfo.uid}</div>
+        </div>
         <br><br><br>
-        <c:forEach items="${cityInfo}" var="ci">
-            <div class="jianjie mr40 ml20 mt10">所在城市:&nbsp;&nbsp;<span style="color: black;">${ci[1]}</span></div>
-        </c:forEach>
+        <div class="jianjie mr40 ml20 mt10">游记内容：
+            <span style="color: black;"><br>&nbsp;&nbsp;${essayDetails.econtent}</span>
+        </div>
         <br><br><br>
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${essayDetails.escore}</span></div>
+        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;
+            <span style="color: black;" id="thumbNumber">${essayDetails.escore}</span>
+        </div>
         <br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
             <form action="javascript:thumb_food(${essayDetails.essayId})" method="post">
-                <input  type="hidden" name="sceneId" value="${essayDetails.essayId}">
-                <button class="jrgwc"  type="submit">我要点赞</button>
+                <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
+                <button class="jrgwc" type="submit">我要点赞</button>
             </form>
         </div>
     </div>
@@ -132,15 +143,17 @@
 </div>
 
 <img src="./resources/image/user3.png" id="image2">
-<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
+<div class="control-group"
+     style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
     <table id="commentTable">
         <c:forEach items="${essayCommentList}" var="e">
             <tr>
-                <td>${e[2]}&nbsp;&nbsp;<span style="font-size: 12px;">
-                                                <fmt:formatDate  value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                            </span>:
-                    <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span id="${e[0]}">${e[4]}</span></span></a>
+                <td>${e[1]} &nbsp;&nbsp: ${e[2]}&nbsp;&nbsp;<span style="font-size: 12px;">
+                                                <fmt:formatDate value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                            </span>
+                    <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span
+                            id="${e[0]}">${e[4]}</span></span></a>
                     <br><br><br>${e[3]}</td>
             </tr>
         </c:forEach>
@@ -153,13 +166,15 @@
     <form id="commentForm" method="post">
         <div class="message-group">
             <div class="message-controls">
-                <input  type="hidden" name="uid" value="${user.uid}">
-                <input  type="hidden" name="fid" value="${essayDetails.essayId}">
+                <input type="hidden" name="uid" value="${user.uid}">
+                <input type="hidden" name="essayId" value="${essayDetails.essayId}">
                 <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
-                        <textarea cols="100" rows="10" id="writeComment" name="fcommentContent" style="resize: none;margin-left: 130px"></textarea>
+                        <textarea cols="100" rows="10" id="writeComment" name="eCommentContent"
+                                  style="resize: none;margin-left: 130px"></textarea>
                         <br> <br>
-                        <input type="button" value="发表评论" id="submitBtn" style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
+                        <input type="button" value="发表评论" id="submitBtn"
+                               style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
                     </div>
                 </div>
             </div>
@@ -193,7 +208,7 @@
 <script src="./resources/js/show-image.js"></script>
 <script>
     //游记点赞
-    function thumb_food(fid) {
+    function thumb_food(essayId) {
         $.ajax({
             url: 'user/thumb_food',
             type: "POST",
@@ -208,15 +223,15 @@
         });
     }
 
-    //美食评论点赞
-    function thumb_comment(fcommentId) {
+    //游记评论点赞
+    function thumb_comment(eCommentId) {
         $.ajax({
             url: 'user/thumb_comment',
             type: "POST",
-            data: {"fcommentId": fcommentId},
+            data: {"eCommentId": eCommentId},
             success: function (data) {
-                var onumber = parseInt($("#"+fcommentId).text());
-                $("#"+fcommentId).html(onumber + 1);
+                var onumber = parseInt($("#" + eCommentId).text());
+                $("#" + eCommentId).html(onumber + 1);
             },
             error: function () {
                 alert("Ajax请求失败");
@@ -230,17 +245,17 @@
     $(document).ready(function () {
         $("#submitBtn").click(function (foodComment) {
             $.ajax({
-                url: 'user/toFoodComment',
+                url: 'user/toEssayComment',
                 type: "POST",
                 data: $("#commentForm").serialize(),
-                success: function (foodComment) {
-                    var str =  "<tr><td>"
+                success: function (essayComment) {
+                    var str = "<tr><td>"
                     +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    +foodComment.fcommentTime+"</span><br><a href='javascript:thumb_comment("
-                    +foodComment.fcommentId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
-                    +foodComment.fcommentId+">"
-                    +foodComment.fcommentScore+"</span></span></a><br><br><br>"
-                    +foodComment.fcommentContent+"</td></tr>"
+                    + essayComment.ecommentTime + "</span><br><a href='javascript:thumb_comment("
+                    + essayComment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
+                    + essayComment.ecommentId + ">"
+                    + essayComment.ecommentScore + "</span></span></a><br><br><br>"
+                    + foodComment.ecommentContent + "</td></tr>"
                     $("#commentTable").append(str);
                     $("#8").remove();
                     $("#writeComment").val("");

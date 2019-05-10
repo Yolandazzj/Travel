@@ -150,15 +150,45 @@ public class EssayDaoImpl implements EssayDao {
     //根据游记ID获取评论；
     @Override
     public List<Essaycomment> essayComment(int essayId) {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Essay e,Essaycomment c where e.essayId=c.fId and f.fId=?");
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Essay e,Essaycomment c where e.essayId=c.essayId and e.essayId=?");
         query.setParameter(0,essayId);
-        query.addScalar("fcommentId", StandardBasicTypes.INTEGER);
-        query.addScalar("fid", StandardBasicTypes.INTEGER);
+        query.addScalar("eCommentId", StandardBasicTypes.INTEGER);
         query.addScalar("uid", StandardBasicTypes.STRING);
-        query.addScalar("fcommentContent", StandardBasicTypes.STRING);
-        query.addScalar("fcommentScore", StandardBasicTypes.INTEGER);
-        query.addScalar("fcommentTime", StandardBasicTypes.TIMESTAMP);
+        query.addScalar("eCommentContent", StandardBasicTypes.STRING);
+        query.addScalar("eCommentScore", StandardBasicTypes.INTEGER);
+        query.addScalar("eCommentTime", StandardBasicTypes.TIMESTAMP);
         return query.list();
+    }
+
+    @Override
+    public void thumb_essay(int essayId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("update  essay set escore=escore+1 where essayId=?");
+        query.setInteger(0, essayId);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void thumb_comment(int eCommentId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("update  essayComment set eCommentScore=eCommentScore+1 where eCommentId=?");
+        query.setInteger(0, eCommentId);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void toEssayComment(int essayId, String uid, String eCommentContent) {
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into Essaycomment (essayId, UId, eCommentContent) values(?,?,?) ");
+        query.setParameter(0,essayId);
+        query.setParameter(1, uid);
+        query.setParameter(2, eCommentContent);
+        query.executeUpdate();
+    }
+
+    //获取最新的游记评论，ajax追加
+    @Override
+    public Essaycomment getEssayCommentById() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Essaycomment order by eCommentId desc");
+        query.setMaxResults(1);
+        return (Essaycomment) query.uniqueResult();
     }
 
 }

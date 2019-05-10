@@ -1,9 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
-import com.qdu.pojo.City;
-import com.qdu.pojo.Essay;
-import com.qdu.pojo.Foodinfo;
+import com.qdu.pojo.*;
 import com.qdu.service.CityService;
 import com.qdu.service.EssayService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +39,10 @@ public class EssayController {
         return "userEssayAll";
     }
 
-    @RequestMapping("/toEssayDetails")
-    public String toEssayDetails() {
-        return "userEssayDetails";
-    }
+//    @RequestMapping("/toEssayDetails")
+//    public String toEssayDetails() {
+//        return "userEssayDetails";
+//    }
 
     @ResponseBody
     @RequestMapping(value="addEssay", method = RequestMethod.POST)
@@ -58,9 +56,10 @@ public class EssayController {
     }
 
     //游记详细信息
-    @RequestMapping("/essayDetails")
-    public String essayDetails(Model model, HttpServletRequest request, int essayId) {
-        essayId = Integer.parseInt(request.getParameter("essayId"));
+    @RequestMapping("/toEssayDetails")
+    public String essayDetails(Model model, HttpServletRequest request) {
+       // int essayId =(int)( request.getAttribute("essayId"));
+        int essayId = 1;
         Essay essayDetails = essayService.essayDetails(essayId);
         model.addAttribute("essayDetails", essayDetails);
 
@@ -70,6 +69,17 @@ public class EssayController {
         List essayCommentList=essayService.essayComment(essayId);
         model.addAttribute("essayCommentList",essayCommentList);
         return "userEssayDetails";
+    }
+
+    //发表游记评论
+    @ResponseBody
+    @RequestMapping(value="toEssayComment", method = RequestMethod.POST)
+    public Essaycomment toEssayComment(int essayId, String uid, String eCommentContent, HttpServletRequest request){
+        essayId =Integer.parseInt(request.getParameter("essayId"));
+        uid= request.getParameter("uid");
+        eCommentContent= request.getParameter("eCommentContent");
+        essayService.toEssayComment(essayId, uid, eCommentContent);
+        return essayService.getEssayCommentById();
     }
 
 }
