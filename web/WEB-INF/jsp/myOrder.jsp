@@ -141,7 +141,7 @@
                         <li>预定成功</li>
                         <li>总价：${mo.routePrice}</li>
                         <li>预定人：${mo.routeOrderName}</li>
-                        <li><a href="user/routesDetails?routeName=${mo.routeName}&routeId=${mo.routeId}">查看详情></a></li>
+                        <li><a href="user/routeComment?routeName=${mo.routeName}&routeId=${mo.routeId}">查看详情></a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>

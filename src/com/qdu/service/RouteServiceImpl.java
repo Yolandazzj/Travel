@@ -192,4 +192,14 @@ public class RouteServiceImpl implements RouteService {
         return routeDao.lowerRoute();
     }
 
+    @Override
+    public void toComment(String uid, String routecomments,int routeId) {
+        routeDao.toComment(uid,routecomments,routeId);
+    }
+
+    @Override
+    public Routecomment getCommentById() {
+        return routeDao.getCommentById();
+    }
+
 }

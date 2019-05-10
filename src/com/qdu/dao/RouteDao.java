@@ -1,9 +1,6 @@
 package com.qdu.dao;
 
-import com.qdu.pojo.Agency;
-import com.qdu.pojo.City;
-import com.qdu.pojo.Route;
-import com.qdu.pojo.Routecomment;
+import com.qdu.pojo.*;
 
 import java.util.List;
 
@@ -32,4 +29,6 @@ public interface RouteDao {
     int getAllRowCountByPrice3(int cityId);
     List indexHotRoute();//首页热门路线
     List lowerRoute();//超值路线
+    void toComment(String uid,String routecomments,int routeId);//写评论
+    Routecomment getCommentById();//根据id获取最新一条评论
 }
