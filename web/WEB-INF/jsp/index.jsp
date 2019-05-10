@@ -81,7 +81,7 @@
                 <ul class="search-toggle-box">
                     <li><a href="user/groupAll">组团游</a></li>
                     <li><a href="#">景点</a></li>
-                    <li><a href="#">攻略</a></li>
+                    <li><a href="user/essayAll">攻略</a></li>
                     <li><a href="#">酒店</a></li>
                 </ul>
                    </li>
@@ -411,7 +411,7 @@
             <a href="#">首页</a>
             <a href="user/groupAll">组团游</a>
             <a href="user/tours">跟团游</a>
-            <a href="user/toEssay">攻略</a>
+            <a href="user/essayAll">攻略</a>
             <a href="user/food">美食</a>
             <a href="#">酒店</a>
             <a href="user/scene">景点</a>

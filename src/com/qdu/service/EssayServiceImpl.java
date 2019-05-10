@@ -2,7 +2,9 @@ package com.qdu.service;
 
 import com.qdu.dao.EssayDao;
 import com.qdu.page.page;
+import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
+import com.qdu.pojo.Essaycomment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,4 +66,22 @@ public class EssayServiceImpl implements EssayService {
     public void toEssay(String eTitle, String uid, String eContent, int cityId) {
         essayDao.toEssay(eTitle,uid,eContent,cityId);
     }
+
+    //获取游记详细信息
+    @Override
+    public Essay essayDetails(int essayId) {
+        return essayDao.essayDetails(essayId);
+    }
+
+    @Override
+    public List<City> cityInfo(int essayId) {
+        return essayDao.cityInfo(essayId);
+    }
+
+    @Override
+    public List<Essaycomment> essayComment(int essayId) {
+        return essayDao.essayComment(essayId);
+    }
+
+
 }

@@ -3,6 +3,7 @@ package com.qdu.controller;
 import com.qdu.page.page;
 import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
+import com.qdu.pojo.Foodinfo;
 import com.qdu.service.CityService;
 import com.qdu.service.EssayService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,13 @@ public class EssayController {
     }
 
     @RequestMapping("/toEssay")
-    public String toLogin() {
+    public String toEssay() {
         return "userEssayAll";
+    }
+
+    @RequestMapping("/toEssayDetails")
+    public String toEssayDetails() {
+        return "userEssayDetails";
     }
 
     @ResponseBody
@@ -49,6 +55,21 @@ public class EssayController {
         eContent=request.getParameter("eContent");
         essayService.toEssay(eTitle,uid,eContent,cityId );
         return "userEssayAll";
+    }
+
+    //游记详细信息
+    @RequestMapping("/essayDetails")
+    public String essayDetails(Model model, HttpServletRequest request, int essayId) {
+        essayId = Integer.parseInt(request.getParameter("essayId"));
+        Essay essayDetails = essayService.essayDetails(essayId);
+        model.addAttribute("essayDetails", essayDetails);
+
+        List cityInfo=essayService.cityInfo(essayId);
+        model.addAttribute("cityInfo",cityInfo);
+
+        List essayCommentList=essayService.essayComment(essayId);
+        model.addAttribute("essayCommentList",essayCommentList);
+        return "userEssayDetails";
     }
 
 }

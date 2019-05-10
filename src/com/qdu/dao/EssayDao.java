@@ -1,6 +1,8 @@
 package com.qdu.dao;
 
+import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
+import com.qdu.pojo.Essaycomment;
 
 import java.util.List;
 
@@ -13,4 +15,7 @@ public interface EssayDao  {
     int getAllRowCount();//获取总行数
     List essayAll(int offset, int length);//所有游记
     void toEssay(String eTitle,String uid, String eContent,int cityId );
+    Essay essayDetails(int essayId);//根据游记ID获取游记详细信息；
+    List<City> cityInfo(int essayId);//根据游记ID获取所在城市的名字；
+    List<Essaycomment> essayComment(int essayId);//根据游记ID获取评论；
 }
