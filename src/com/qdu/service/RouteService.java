@@ -1,10 +1,7 @@
 package com.qdu.service;
 
 import com.qdu.page.page;
-import com.qdu.pojo.Agency;
-import com.qdu.pojo.City;
-import com.qdu.pojo.Route;
-import com.qdu.pojo.Routecomment;
+import com.qdu.pojo.*;
 
 import java.util.List;
 
@@ -28,4 +25,6 @@ public interface RouteService {
     page queryForPageByCityPrice3(int currentPage, int pageSize,int cityId);
     List indexHotRoute();//首页热门路线
     List lowerPriceRoute();//超值路线
+    void toComment(String uid,String routecomments,int routeId);//留言
+    Routecomment getCommentById();//获取最新留言
 }

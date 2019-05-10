@@ -1,10 +1,7 @@
 package com.qdu.dao;
 
 import com.qdu.dao.RouteDao;
-import com.qdu.pojo.Agency;
-import com.qdu.pojo.City;
-import com.qdu.pojo.Route;
-import com.qdu.pojo.Routecomment;
+import com.qdu.pojo.*;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
@@ -313,6 +310,28 @@ public class RouteDaoImpl implements RouteDao {
         query.setFirstResult(0);
         query.setMaxResults(1);
         return query.list();
+    }
+
+    //写评论
+    @Override
+    public void toComment(String uid, String routecomments,int routeId) {
+
+            SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into Routecomment ( UId, RCommentContent,RouteId) values(?,?,?) ");
+            query.setParameter(0, uid);
+            query.setParameter(1, routecomments);
+        query.setParameter(2, routeId);
+            query.executeUpdate();
+
+
+    }
+//追加评论
+    @Override
+    public Routecomment getCommentById() {
+            Query query=sessionFactory.getCurrentSession().createQuery("from Routecomment order by rcommentId desc");
+            query.setMaxResults(1);
+            return (Routecomment) query.uniqueResult();
+
+
     }
 
 }

@@ -4,6 +4,7 @@ package com.qdu.controller;
 import com.qdu.page.page;
 import com.qdu.pojo.Agency;
 import com.qdu.pojo.Route;
+import com.qdu.pojo.Routecomment;
 import com.qdu.service.OrderService;
 import com.qdu.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -195,4 +196,31 @@ public class RoutesController {
         return searchRouteByCityNo;
     }
 
+
+    //通过查看详情写评论
+    @RequestMapping("user/routeComment")
+    public String routeComment(HttpServletRequest request, String routeName, Model model,int routeId){
+        routeName=request.getParameter("routeName");
+        model.addAttribute("routeName",routeName);
+        routeId=Integer.parseInt(request.getParameter("routeId"));
+        Route routeDetails= routeService.routeDetails(routeId);
+        model.addAttribute("routeDetails",routeDetails);
+        List agencyDetails= routeService.agencyDetails(routeId);
+        model.addAttribute("agencyDetails",agencyDetails);
+        List routeCommentList=routeService.routeComment(routeId);
+        model.addAttribute("routeCommentList",routeCommentList);
+
+        return "userRouteComment";
+    }
+
+
+    @ResponseBody
+@RequestMapping(value = "user/toComment",method = RequestMethod.POST)
+    public Routecomment toComment(String uid, String routecomments, int routeId,HttpServletRequest request){
+        uid= request.getParameter("uid");
+       routeId=Integer.parseInt( request.getParameter("routeId"));
+        routecomments= request.getParameter("routecomments");
+        routeService.toComment(uid,routecomments,routeId);
+        return routeService.getCommentById();
+    }
 }
