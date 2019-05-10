@@ -52,6 +52,9 @@ public class IndexController {
     @Autowired
     private CityService cityService;
 
+    @Autowired
+    private EssayService essayService;
+
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
 
@@ -318,5 +321,23 @@ public class IndexController {
         }
 
         return searchRouteByNo;
+    }
+
+    //首页游记列表，分页（应改未被举报列表）
+    @RequestMapping("user/essayAll")
+    public String essayAll(Model model,HttpServletRequest request){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page2 = essayService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page2",page2);
+            List essayAll = page2.getList();
+            model.addAttribute("essayAll", essayAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "userEssayAll";
     }
 }
