@@ -3,7 +3,6 @@ package com.qdu.dao;
 import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
 import com.qdu.pojo.Essaycomment;
-import com.qdu.pojo.Foodinfo;
 
 import java.util.List;
 
@@ -31,4 +30,6 @@ public interface EssayDao  {
     void thumb_comment(int eCommentId);//点赞功能（游记评论)
     void toEssayComment(int essayId,String uid,String eCommentContent);//发表游记评论
     Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
+    List<Essay> getEssayMineList(String uid); //获取我的游记列表
+    boolean deleteEssay(int essayId);
 }

@@ -31,4 +31,9 @@ public class CityServiceImpl implements CityService {
     public List<City> getCityByPro(int provinceId) {
         return cityDao.getCityByPro(provinceId);
     }
+
+    @Override
+    public City getCityByCityId(int cityId) {
+        return cityDao.getCityByCityId(cityId);
+    }
 }

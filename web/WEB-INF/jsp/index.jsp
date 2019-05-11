@@ -53,7 +53,7 @@
                     <ul class="user-toggle-box">
                         <c:if test="${user!=null}">
                             <li><a href="user/toCenter">个人中心</a></li>
-                            <li><a href="user/toEssay">我的游记</a></li>
+                            <li><a href="user/essayMine?uid=${user.uid}">我的游记</a></li>
                         </c:if>
                     </ul>
                 </li>

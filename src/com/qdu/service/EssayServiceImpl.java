@@ -140,5 +140,15 @@ public class EssayServiceImpl implements EssayService {
         return essayDao.getEssayCommentById();
     }
 
+    @Override
+    public List<Essay> getEssayMineList(String uid) {
+        return essayDao.getEssayMineList(uid);
+    }
+
+    @Override
+    public boolean deleteEssayById(int essayId) {
+       return essayDao.deleteEssay(essayId);
+    }
+
 
 }

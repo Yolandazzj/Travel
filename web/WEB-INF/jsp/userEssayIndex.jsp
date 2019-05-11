@@ -400,7 +400,7 @@
             <div class="remen fl" style="height: 550px;"><a href="">点赞量高的游记：</a></div>
             <div class="remen fl">
                 <div class="luxian"><span>top1</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay1.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay1.essayId}"><img src="/IMAGE/${cityImage1}"></a></div>
                 <div class="miaoshu"><a href="">${essay1.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -411,7 +411,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay2.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay2.essayId}"><img src="/IMAGE/${cityImage2}"></a></div>
                 <div class="miaoshu"><a href="">${essay2.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -421,7 +421,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay3.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay3.essayId}"><img src="/IMAGE/${cityImage3}"></a></div>
                 <div class="miaoshu"><a href="">${essay3.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -431,7 +431,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${cityImage4}"></a></div>
                 <div class="miaoshu"><a href="">${essay4.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -445,7 +445,7 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${cityImage5}"></a></div>
                 <div class="miaoshu"><a href="">${essay5.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -455,7 +455,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay6.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay6.essayId}"><img src="/IMAGE/${cityImage6}"></a></div>
                 <div class="miaoshu"><a href="">${essay6.etitle}</a></div>
                 <div class="piao">
                     <a href="">
@@ -465,7 +465,7 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/essayDetails?essayId=${essay7.essayId}"><img src="/IMAGE/${essayDetails.cityInfo.cityImage}"></a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay7.essayId}"><img src="/IMAGE/${cityImage7}"></a></div>
                 <div class="miaoshu"><a href="">${essay7.etitle}</a></div>
                 <div class="piao">
                     <a href="">

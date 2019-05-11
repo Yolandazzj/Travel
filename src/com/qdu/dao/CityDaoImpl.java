@@ -3,6 +3,7 @@ package com.qdu.dao;
 import com.qdu.pojo.City;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,14 @@ public class CityDaoImpl implements CityDao{
         query.addScalar("cityScore", StandardBasicTypes.INTEGER);
         query.addScalar("cityImage", StandardBasicTypes.STRING);
         return query.list();
+    }
+
+    //通过cityId获取城市信息
+    @Override
+    public City getCityByCityId(int cityId) {
+        Session session = sessionFactory.openSession();
+        City city = (City) session.get(City.class, cityId);
+        session.close();
+        return city;
     }
 }

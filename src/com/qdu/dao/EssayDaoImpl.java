@@ -3,6 +3,7 @@ package com.qdu.dao;
 import com.qdu.pojo.*;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
@@ -247,5 +248,37 @@ public class EssayDaoImpl implements EssayDao {
         query.setMaxResults(1);
         return (Essaycomment) query.uniqueResult();
     }
+
+    @Override
+    public List<Essay> getEssayMineList(String uid) {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Essay where uid=?");
+        query.setParameter(0,uid);
+        return query.list();
+
+    }
+
+    @Override
+    public boolean deleteEssay(int essayId) {
+//        Query query=sessionFactory.getCurrentSession().createQuery("delete table from essay where essayId=?");
+//        query.setParameter(0,essayId);
+//        query.executeUpdate();
+//        System.out.println("wwwwwwwwwww");
+        boolean flag = false;
+        Session session = sessionFactory.openSession();
+        try {
+            String hql = "delete from essay where essayId=?";
+            Query query=session.createQuery(hql);
+            query.setInteger(0, essayId);
+            query.executeUpdate();
+            flag = true;
+            session.flush();
+        }catch(Exception e){
+            e.printStackTrace();
+            flag=false;
+        }
+        System.out.println("flag====="+flag);
+        return flag;
+     }
+
 
 }
