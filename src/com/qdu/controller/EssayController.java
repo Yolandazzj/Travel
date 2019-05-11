@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/user")
@@ -57,16 +55,13 @@ public class EssayController {
 
     //游记详细信息
     @RequestMapping("/toEssayDetails")
-    public String essayDetails(Model model, HttpServletRequest request) {
-       // int essayId =(int)( request.getAttribute("essayId"));
-        int essayId = 1;
+    public String essayDetails(Model model, HttpServletRequest request,Integer essayId) {
+        essayId = Integer.parseInt(request.getParameter("essayId"));
         Essay essayDetails = essayService.essayDetails(essayId);
         model.addAttribute("essayDetails", essayDetails);
-
-        List cityInfo=essayService.cityInfo(essayId);
+        List<City> cityInfo=essayService.cityInfo(essayId);
         model.addAttribute("cityInfo",cityInfo);
-
-        List essayCommentList=essayService.essayComment(essayId);
+        List<Essaycomment> essayCommentList=essayService.essayComment(essayId);
         model.addAttribute("essayCommentList",essayCommentList);
         return "userEssayDetails";
     }
@@ -81,5 +76,40 @@ public class EssayController {
         essayService.toEssayComment(essayId, uid, eCommentContent);
         return essayService.getEssayCommentById();
     }
+
+    //点赞功能(游记)
+    @RequestMapping(value = "thumb_essay", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> thumb_essay(HttpServletRequest request) {
+        Map map = new HashMap<>();
+        int essayId = Integer.parseInt(request.getParameter("essayId"));
+        System.out.println(essayId);
+        boolean flag = essayService.thumb_essay(essayId);
+        if (flag) {
+            map.put("msg", "点赞成功");
+            return map;
+        } else {
+            map.put("msg", "点赞失败");
+            return map;
+        }
+    }
+
+    //点赞功能(游记评论)
+    @RequestMapping(value = "thumb_Essaycomment", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> thumb_Essaycomment(HttpServletRequest request) {
+        Map map = new HashMap<>();
+        int ecommentId = Integer.parseInt(request.getParameter("ecommentId"));
+        System.out.println(ecommentId);
+        boolean flag = essayService.thumb_comment(ecommentId);
+        if (flag) {
+            map.put("msg", "点赞成功");
+            return map;
+        } else {
+            map.put("msg", "点赞失败");
+            return map;
+        }
+    }
+
 
 }

@@ -140,9 +140,10 @@ public class EssayDaoImpl implements EssayDao {
     //根据游记ID获取所在城市的名字；（essayId  -> cityId -> cityName）;
     @Override
     public List<City> cityInfo(int essayId) {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Essay e,City c where  e.CityId=c.CityId and e.essayId=?");
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.cityId,c.cityImage,c.cityName from essay e,city c where  e.CityId=c.CityId and e.essayId=?");
         query.addScalar("cityId", StandardBasicTypes.INTEGER);
         query.addScalar("cityName", StandardBasicTypes.STRING);
+        query.addScalar("cityImage", StandardBasicTypes.STRING);
         query.setParameter(0,essayId);
         return query.list();
     }
@@ -150,7 +151,7 @@ public class EssayDaoImpl implements EssayDao {
     //根据游记ID获取评论；
     @Override
     public List<Essaycomment> essayComment(int essayId) {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.* from Essay e,Essaycomment c where e.essayId=c.essayId and e.essayId=?");
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.eCommentId,c.uid,c.eCommentContent,c.eCommentScore,c.eCommentTime from Essay e,Essaycomment c where e.essayId=c.essayId and e.essayId=?");
         query.setParameter(0,essayId);
         query.addScalar("eCommentId", StandardBasicTypes.INTEGER);
         query.addScalar("uid", StandardBasicTypes.STRING);

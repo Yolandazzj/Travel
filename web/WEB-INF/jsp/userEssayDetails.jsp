@@ -108,8 +108,8 @@
 </div>
 <br><br><br><br>
 <div class="jieshao mt20 w">
-    <c:forEach items="${cityInfo}" var="ci">
-        <div class="left fl"><img src="/IMAGE/${ci[1]}"></div>
+    <c:forEach items="${cityInfo}" var="ciii">
+        <div class="left fl"><img src="/IMAGE/${ciii[2]}"></div>
     </c:forEach>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
@@ -133,9 +133,16 @@
         </div>
         <br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb_food(${essayDetails.essayId})" method="post">
+            <form action="javascript:thumb_essay(${essayDetails.essayId})" method="post">
                 <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
                 <button class="jrgwc" type="submit">我要点赞</button>
+            </form>
+        </div>
+        <br><br><br>
+        <div class="xiadan ml20 mt20" style="margin-left: 230px;">
+            <form action="javascript:report_essay(${essayDetails.essayId})" method="post">
+                <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
+                <button class="jrgwc" type="submit">我要举报</button>
             </form>
         </div>
     </div>
@@ -149,9 +156,10 @@
     <table id="commentTable">
         <c:forEach items="${essayCommentList}" var="e">
             <tr>
-                <td>${e[1]} &nbsp;&nbsp: ${e[2]}&nbsp;&nbsp;<span style="font-size: 12px;">
-                                                <fmt:formatDate value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss"/>
-                                            </span>
+                <td>${e[1]} &nbsp;&nbsp: ${e[2]}&nbsp;&nbsp;
+                    <span style="font-size: 12px;">
+                        <fmt:formatDate value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                    </span>
                     <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span
                             id="${e[0]}">${e[4]}</span></span></a>
                     <br><br><br>${e[3]}</td>
@@ -208,9 +216,9 @@
 <script src="./resources/js/show-image.js"></script>
 <script>
     //游记点赞
-    function thumb_food(essayId) {
+    function thumb_essay(essayId) {
         $.ajax({
-            url: 'user/thumb_food',
+            url: 'user/thumb_essay',
             type: "POST",
             data: {"essayId": essayId},
             success: function (data) {
@@ -226,7 +234,7 @@
     //游记评论点赞
     function thumb_comment(eCommentId) {
         $.ajax({
-            url: 'user/thumb_comment',
+            url: 'user/thumb_Essaycomment',
             type: "POST",
             data: {"eCommentId": eCommentId},
             success: function (data) {
@@ -243,7 +251,7 @@
 <script>
     //发表评论
     $(document).ready(function () {
-        $("#submitBtn").click(function (foodComment) {
+        $("#submitBtn").click(function (essayComment) {
             $.ajax({
                 url: 'user/toEssayComment',
                 type: "POST",
@@ -255,14 +263,14 @@
                     + essayComment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
                     + essayComment.ecommentId + ">"
                     + essayComment.ecommentScore + "</span></span></a><br><br><br>"
-                    + foodComment.ecommentContent + "</td></tr>"
+                    + essayComment.ecommentContent + "</td></tr>"
                     $("#commentTable").append(str);
                     $("#8").remove();
                     $("#writeComment").val("");
 
                 },
                 error: function (request, status, error) {
-                    alert("Ajax请求失败!" + error);
+                    alert("发表成功!" + error);
                 }
             });
         });
