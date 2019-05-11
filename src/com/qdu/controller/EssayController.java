@@ -26,9 +26,9 @@ public class EssayController {
 
     //去发表游记
     @RequestMapping(value = "/toWriteEssay")
-    public String toWriteEssay(Model model){
-        List proList=cityService.proList();
-        model.addAttribute("proList",proList);
+    public String toWriteEssay(Model model) {
+        List proList = cityService.proList();
+        model.addAttribute("proList", proList);
         return "userEssay";
     }
 
@@ -43,36 +43,36 @@ public class EssayController {
 //    }
 
     @ResponseBody
-    @RequestMapping(value="addEssay", method = RequestMethod.POST)
-    public String toGroup(String eTitle,String uid, String eContent,int cityId, HttpServletRequest request){
-        cityId=Integer.parseInt(request.getParameter("cityId"));
-        eTitle=request.getParameter("eTitle");
-        uid=request.getParameter("uid");
-        eContent=request.getParameter("eContent");
-        essayService.toEssay(eTitle,uid,eContent,cityId );
+    @RequestMapping(value = "addEssay", method = RequestMethod.POST)
+    public String toGroup(String eTitle, String uid, String eContent, int cityId, HttpServletRequest request) {
+        cityId = Integer.parseInt(request.getParameter("cityId"));
+        eTitle = request.getParameter("eTitle");
+        uid = request.getParameter("uid");
+        eContent = request.getParameter("eContent");
+        essayService.toEssay(eTitle, uid, eContent, cityId);
         return "userEssayAll";
     }
 
     //游记详细信息
     @RequestMapping("/toEssayDetails")
-    public String essayDetails(Model model, HttpServletRequest request,Integer essayId) {
+    public String essayDetails(Model model, HttpServletRequest request, Integer essayId) {
         essayId = Integer.parseInt(request.getParameter("essayId"));
         Essay essayDetails = essayService.essayDetails(essayId);
         model.addAttribute("essayDetails", essayDetails);
-        List<City> cityInfo=essayService.cityInfo(essayId);
-        model.addAttribute("cityInfo",cityInfo);
-        List<Essaycomment> essayCommentList=essayService.essayComment(essayId);
-        model.addAttribute("essayCommentList",essayCommentList);
+        List<City> cityInfo = essayService.cityInfo(essayId);
+        model.addAttribute("cityInfo", cityInfo);
+        List<Essaycomment> essayCommentList = essayService.essayComment(essayId);
+        model.addAttribute("essayCommentList", essayCommentList);
         return "userEssayDetails";
     }
 
     //发表游记评论
     @ResponseBody
-    @RequestMapping(value="toEssayComment", method = RequestMethod.POST)
-    public Essaycomment toEssayComment(int essayId, String uid, String eCommentContent, HttpServletRequest request){
-        essayId =Integer.parseInt(request.getParameter("essayId"));
-        uid= request.getParameter("uid");
-        eCommentContent= request.getParameter("eCommentContent");
+    @RequestMapping(value = "toEssayComment", method = RequestMethod.POST)
+    public Essaycomment toEssayComment(int essayId, String uid, String eCommentContent, HttpServletRequest request) {
+        essayId = Integer.parseInt(request.getParameter("essayId"));
+        uid = request.getParameter("uid");
+        eCommentContent = request.getParameter("eCommentContent");
         essayService.toEssayComment(essayId, uid, eCommentContent);
         return essayService.getEssayCommentById();
     }
@@ -115,9 +115,31 @@ public class EssayController {
     @RequestMapping(value = "/reportUser")
     @ResponseBody
     public void reportUser(HttpServletRequest request) {
-        String uid =request.getParameter("uid");
-        System.out.println("uid........."+uid);
+        String uid = request.getParameter("uid");
+        System.out.println("uid........." + uid);
         essayService.reportUser(uid);
+    }
+
+    //我的游记
+    @RequestMapping("/essayMine")
+    public String essayMine(String uid,Model model,HttpServletRequest request) {
+        System.out.println("uid..."+uid);
+        List<Essay> essayMineList = essayService.getEssayMineList(uid);
+        model.addAttribute("essayMineList", essayMineList);
+        return "userEssayMine";
+    }
+
+    //删除游记
+    @RequestMapping(value = "/deleteEssay")
+    public String deleteEssay(int essayId,HttpServletRequest request) {
+        boolean flag = essayService.deleteEssayById(essayId);
+        if(flag==true){
+            System.out.println("success");
+            return "删除成功";
+        }else {
+            System.out.println("essayId........." + essayId+"删除失败");
+            return "删除失败";
+        }
 
 
     }

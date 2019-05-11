@@ -1,8 +1,10 @@
 package com.qdu.controller;
 
+import com.qdu.pojo.City;
 import com.qdu.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,6 +35,14 @@ public class CityController {
             return map;
         }
 
+    }
+
+    @RequestMapping(value ="user/cityInfo",method = RequestMethod.POST)
+    public City getCityInfo(Model model,int cityId, HttpServletRequest request){
+        cityId = Integer.parseInt(request.getParameter("cityId"));
+        City city = cityService.getCityByCityId(cityId);
+        model.addAttribute("city",city);
+        return city;
     }
 
 
