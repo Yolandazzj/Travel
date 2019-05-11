@@ -9,6 +9,14 @@ import com.qdu.pojo.Foodcomment;
 import java.util.List;
 
 public interface EssayService {
+    //获取热门攻略1-7
+    Essay hotEssay1();
+    Essay hotEssay2();
+    Essay hotEssay3();
+    Essay hotEssay4();
+    Essay hotEssay5();
+    Essay hotEssay6();
+    Essay hotEssay7();
     List essayByScore(int cityId);//根据点赞数排序
     List essayByTime(int cityId);//根据时间排序
     boolean reportUser(String uid);//举报用户功能

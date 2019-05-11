@@ -29,6 +29,63 @@ public class EssayDaoImpl implements EssayDao {
         query.executeUpdate();
     }
 
+    //获取热门攻略1--7
+    @Override
+    public Essay hotEssay1() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay2() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(1);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay3() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(2);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay4() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(3);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay5() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(4);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay6() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(5);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
+    @Override
+    public Essay hotEssay7() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(6);
+        query.setMaxResults(1);
+        return (Essay) query.uniqueResult();
+    }
+
     @Override
     public List essayByScore(int cityId) {
         Query query = sessionFactory.getCurrentSession().createSQLQuery("select * from Essay where categoryId=? order by escore desc")

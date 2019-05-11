@@ -2,6 +2,7 @@ package com.qdu.controller;
 
 import com.qdu.dao.CityDao;
 import com.qdu.page.page;
+import com.qdu.pojo.Essay;
 import com.qdu.pojo.Foodinfo;
 import com.qdu.pojo.Route;
 import com.qdu.pojo.Scene;
@@ -339,5 +340,29 @@ public class IndexController {
             e.printStackTrace();
         }
         return "userEssayAll";
+    }
+
+    //首页攻略
+    @RequestMapping("user/essay")
+    public String essay(Model model,HttpServletRequest request){
+        Essay essay1=essayService.hotEssay1();
+        Essay essay2=essayService.hotEssay2();
+        Essay essay3=essayService.hotEssay3();
+        Essay essay4=essayService.hotEssay4();
+        Essay essay5=essayService.hotEssay5();
+        Essay essay6=essayService.hotEssay6();
+        Essay essay7=essayService.hotEssay7();
+        model.addAttribute("essay1",essay1);
+        model.addAttribute("essay2",essay2);
+        model.addAttribute("essay3",essay3);
+        model.addAttribute("essay4",essay4);
+        model.addAttribute("essay5",essay5);
+        model.addAttribute("essay6",essay6);
+        model.addAttribute("essay7",essay7);
+
+        List cateList=categoryService.categoryList();
+        model.addAttribute("cateList",cateList);
+
+        return "userEssayIndex";
     }
 }

@@ -3,10 +3,19 @@ package com.qdu.dao;
 import com.qdu.pojo.City;
 import com.qdu.pojo.Essay;
 import com.qdu.pojo.Essaycomment;
+import com.qdu.pojo.Foodinfo;
 
 import java.util.List;
 
 public interface EssayDao  {
+    //获取热门攻略1-7
+    Essay hotEssay1();
+    Essay hotEssay2();
+    Essay hotEssay3();
+    Essay hotEssay4();
+    Essay hotEssay5();
+    Essay hotEssay6();
+    Essay hotEssay7();
     List essayByScore(int cityId);//根据点赞数排序
     List essayByTime(int cityId);//根据时间排序
     void reportUser(String uid);//用户举报功能

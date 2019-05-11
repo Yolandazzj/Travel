@@ -18,6 +18,41 @@ public class EssayServiceImpl implements EssayService {
     private EssayDao essayDao;
 
     @Override
+    public Essay hotEssay1() {
+        return essayDao.hotEssay1();
+    }
+
+    @Override
+    public Essay hotEssay2() {
+        return essayDao.hotEssay2();
+    }
+
+    @Override
+    public Essay hotEssay3() {
+        return essayDao.hotEssay3();
+    }
+
+    @Override
+    public Essay hotEssay4() {
+        return essayDao.hotEssay4();
+    }
+
+    @Override
+    public Essay hotEssay5() {
+        return essayDao.hotEssay5();
+    }
+
+    @Override
+    public Essay hotEssay6() {
+        return essayDao.hotEssay6();
+    }
+
+    @Override
+    public Essay hotEssay7() {
+        return essayDao.hotEssay7();
+    }
+
+    @Override
     public List essayByScore(int cityId) {
         return essayDao.essayByScore(cityId);
     }
