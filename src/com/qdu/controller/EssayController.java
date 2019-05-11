@@ -111,5 +111,16 @@ public class EssayController {
         }
     }
 
+    //举报用户
+    @RequestMapping(value = "/reportUser")
+    @ResponseBody
+    public void reportUser(HttpServletRequest request) {
+        String uid =request.getParameter("uid");
+        System.out.println("uid........."+uid);
+        essayService.reportUser(uid);
+
+
+    }
+
 
 }

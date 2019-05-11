@@ -61,8 +61,7 @@ public class EssayDaoImpl implements EssayDao {
 
     @Override
     public void reportUser(String uid) {
-        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call checkUser(?)}");
-        System.out.println("------------");
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("update  userinfo set isBan=0 where uid=?");
         query.setString(0, uid);
         query.executeUpdate();
     }

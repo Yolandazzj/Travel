@@ -140,9 +140,9 @@
         </div>
         <br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:report_essay(${essayDetails.essayId})" method="post">
+            <form action="javascript:reportUser('${essayDetails.userinfo.uid}')" method="post">
                 <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
-                <button class="jrgwc" type="submit">我要举报</button>
+                <button class="jrgwc" type="submit">举报作者</button>
             </form>
         </div>
     </div>
@@ -275,6 +275,23 @@
             });
         });
     });
+</script>
+<script>
+    function reportUser(uid) {
+        $.ajax({
+            url: 'user/reportUser',
+            type: "POST",
+            data: {"uid": uid},
+            success: function (data) {
+
+
+                alert("举报成功！")
+            },
+            error: function () {
+                alert("Ajax请求失败!");
+            }
+        });
+    }
 </script>
 </body>
 </html>
