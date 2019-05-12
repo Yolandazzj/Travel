@@ -202,4 +202,11 @@ public class RouteServiceImpl implements RouteService {
         return routeDao.getCommentById();
     }
 
+    //点赞功能（路线）
+    @Override
+    public boolean thumb_route(int routeId) {
+        routeDao.thumb_route(routeId);
+        return true;
+    }
+
 }

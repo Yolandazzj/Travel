@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Userinfo" table="userinfo" catalog="bishe" optimistic-lock="version">
         <id name="uid" type="string">
@@ -20,8 +20,8 @@
         <property name="uemail" type="string">
             <column name="UEmail" length="100" not-null="true" />
         </property>
-        <property name="isBan" type="string">
-            <column name="IsBan" length="4" />
+        <property name="isBan" type="java.lang.Integer">
+            <column name="IsBan" />
         </property>
         <property name="upassword" type="string">
             <column name="UPassword" length="20" not-null="true" />
@@ -40,18 +40,6 @@
                 <column name="UId" length="50" not-null="true" />
             </key>
             <one-to-many class="com.qdu.pojo.Essaycomment" />
-        </set>
-        <set name="routeorderses" table="routeorders" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="UId" length="50" not-null="true" />
-            </key>
-            <one-to-many class="com.qdu.pojo.Routeorders" />
-        </set>
-        <set name="applies" table="apply" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="UId" length="50" not-null="true" />
-            </key>
-            <one-to-many class="com.qdu.pojo.Apply" />
         </set>
         <set name="routecomments" table="routecomment" inverse="true" lazy="true" fetch="select">
             <key>

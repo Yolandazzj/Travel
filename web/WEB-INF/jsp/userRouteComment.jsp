@@ -150,7 +150,10 @@
 
 
             <button class="jrgwc"  type="button" onclick="javascript:addGoodsToCar()" >立即预定</button>
-
+            <form action="javascript:thumb_route(${routeDetails.routeId})" method="post">
+                <input  type="hidden" name="routeId" value="${routeDetails.routeId}">
+                <button class="jrgwc"  type="submit">我要点赞(<span id="thumbNumber">${routeDetails.routeScore}</span>)</button>
+            </form>
         </div>
     </div>
     <div class="clear"></div>
@@ -348,5 +351,22 @@
     });
 </script>
 
+<script>
+    //美食点赞
+    function thumb_route(routeId) {
+        $.ajax({
+            url: 'user/thumb_route',
+            type: "POST",
+            data: {"routeId": routeId},
+            success: function (data) {
+                var onumber = parseInt($("#thumbNumber").text());
+                $("#thumbNumber").html(onumber + 1);
+            },
+            error: function () {
+                alert("Ajax请求失败");
+            }
+        });
+    }
+</script>
 </body>
 </html>

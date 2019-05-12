@@ -12,17 +12,53 @@
 <head>
     <base href="${pageContext.request.contextPath}/">
     <meta charset="UTF-8">
-    <title>用户登录</title>
+    <title>用户注册</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/css/style.css"/>
+    <%--    <link rel="stylesheet" href="resources/css/style.css"/>--%>
     <link rel="stylesheet" href="resources/css/reg-style.css"/>
-
+    <script src="../../resources/js/jquery.vide.min.js"></script>
+    <script src="resources/js/jquery_1.9.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/show-image.js"></script>
     <link rel="stylesheet" href="resources/css/font1-awesome.min.css"/>
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+<%--    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">--%>
     <script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
+
+
 </head>
 <body>
+<script type="text/javascript">
+    function checkName() {
+        var userName = document.getElementById("uid").valueOf();
+        $.ajax({
+            type: "POST",
+            url: "user/checkName？uid=" + userName,
+            dataType: "text",
+            success: function (msg) {
+                $("#msg").html(msg);
+            },
+            error: function (req, status, error) {
+                alert("Ajax请求失败!" + error);
+            }
+
+        })
+    }
+
+</script>
+<script type="text/javascript">
+    function validate() {
+        var pwd1 = document.getElementById("upassword").value;
+        var pwd2 = document.getElementById("upassword2").value;
+
+        if (pwd1 == pwd2) {
+            document.getElementById("tishi").innerHTML = "<span>两次密码相同</span>";
+
+        } else {
+            document.getElementById("tishi").innerHTML = "<span>两次密码不相同</span>";
+        }
+    }
+</script>
 <div data-vide-bg="videos/typing">
     <div class="w3-agile-signup-top">
         <h1>途牛旅行</h1>
@@ -36,7 +72,7 @@
                     <div class="slide-social w3l">
                         <a href="#">
 
-                            <div class="facebook icon"> <i class="facebook"></i> </div>
+                            <div class="facebook icon"><i class="facebook"></i></div>
                             <div class="facebook slide">
                                 <p>Facebook</p>
                             </div>
@@ -46,7 +82,7 @@
                     <!-- Twitter -->
                     <div class="slide-social w3l">
                         <a href="#">
-                            <div class="twitter icon"> <i class="twitter"></i></div>
+                            <div class="twitter icon"><i class="twitter"></i></div>
                             <div class="twitter slide">
                                 <p>Twitter</p>
                             </div>
@@ -58,16 +94,22 @@
                     </div>
 
                 </div>
-                <form action="#" method="post">
-                    <input type="text" name="name" class="name" placeholder="用户账号" required="">
-                    <input style="margin: 0px 20px 20px 20px;padding-bottom: 12px;" type="radio" name="gender" checked="checked">女
-                    <input style="margin: 0px 10px 20px 28px;padding: 12px 30px 12px 40px; " type="radio" name="gender" >男
-                    <input type="text" name="city" class="name" placeholder="城市" required="">
-                    <input type="text" name="phone" class="name" placeholder="联系电话" required="">
-                    <input type="text" name="email" class="email" placeholder="邮箱" required="">
-                    <input type="password" name="password" class="password" placeholder="密码" required="">
-                    <input type="password" name="password" class="password" placeholder="确认密码" required="">
-
+                <form action="user/register" method="post">
+                    <input type="text" name="uid" class="name" placeholder="用户账号" required="" onblur="checkName()">
+                    <input style="margin: 0px 20px 20px 20px;padding-bottom: 12px;" type="radio" name="ugender"
+                           checked="checked" value="女">女
+                    <input style="margin: 0px 10px 20px 28px;padding: 12px 30px 12px 40px; " type="radio"
+                           name="ugender" value="男">男
+                    <input type="text" name="ucity" class="name" placeholder="城市" required="">
+                    <input type="text" name="ucontact" class="name" placeholder="联系电话" required="">
+                    <input type="text" name="uemail" class="email" placeholder="邮箱" required="">
+                    <input type="password" id="upassword" name="upassword" class="password" placeholder="密码"
+                           required="">
+                    <input type="password" id="upassword2" class="password" placeholder="确认密码" required=""
+                           onkeyup="validate()">
+                    <br/>
+                    <span id="tishi" style="color: red;"></span>
+                    <br/>
                     <input type="submit" value="SIGN UP">
                 </form>
                 <div class="w3-bottom-text">
@@ -87,6 +129,6 @@
     </div>
 </div>
 
-<script src="../../resources/js/jquery.vide.min.js"></script>
+
 </body>
 </html>

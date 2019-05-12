@@ -334,4 +334,13 @@ public class RouteDaoImpl implements RouteDao {
 
     }
 
+    //点赞路线
+    @Override
+    public void thumb_route(int routeId) {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("{call dianzan_route(?)}");
+        query.setInteger(0, routeId);
+        query.executeUpdate();
+    }
+
+
 }

@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Message" table="message" catalog="bishe" optimistic-lock="version">
         <id name="messageId" type="java.lang.Integer">
             <column name="MessageId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
             <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+        </many-to-one>-->
         <property name="messageContent" type="string">
             <column name="MessageContent" length="100" not-null="true" />
         </property>
         <property name="messageScore" type="int">
             <column name="MessageScore" not-null="true" />
         </property>
-        <property name="messageTime" type="timestamp">
+        <property name="messageTime" type="java.util.Date">
             <column name="MessageTime" length="19" not-null="true" />
         </property>
     </class>

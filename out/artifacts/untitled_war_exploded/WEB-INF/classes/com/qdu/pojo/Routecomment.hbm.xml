@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Routecomment" table="routecomment" catalog="bishe" optimistic-lock="version">
         <id name="rcommentId" type="java.lang.Integer">
@@ -11,12 +11,12 @@
         <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
             <column name="CityId" not-null="true" />
         </many-to-one>
-        <many-to-one name="route" class="com.qdu.pojo.Route" fetch="select">
+<!--        <many-to-one name="route" class="com.qdu.pojo.Route" fetch="select">
             <column name="RouteId" not-null="true" />
         </many-to-one>
         <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
             <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+        </many-to-one>-->
         <property name="rcommentContent" type="string">
             <column name="RCommentContent" length="100" not-null="true" />
         </property>

@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Foodcomment" table="foodcomment" catalog="bishe" optimistic-lock="version">
         <id name="fcommentId" type="java.lang.Integer">
             <column name="FCommentId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="foodinfo" class="com.qdu.pojo.Foodinfo" fetch="select">
+<!--        <many-to-one name="foodinfo" class="com.qdu.pojo.Foodinfo" fetch="select">
             <column name="FId" not-null="true" />
         </many-to-one>
         <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
             <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+        </many-to-one>-->
         <property name="fcommentContent" type="string">
             <column name="FCommentContent" length="100" not-null="true" />
         </property>

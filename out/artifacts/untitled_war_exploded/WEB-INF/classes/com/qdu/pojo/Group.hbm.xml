@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-4-18 21:40:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2019-5-7 15:45:59 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.qdu.pojo.Group" table="group" catalog="bishe" optimistic-lock="version">
         <id name="gid" type="java.lang.Integer">
@@ -11,8 +11,8 @@
         <many-to-one name="city" class="com.qdu.pojo.City" fetch="select">
             <column name="CityId" not-null="true" />
         </many-to-one>
-        <property name="gtime" type="timestamp">
-            <column name="GTime" length="19" not-null="true" />
+        <property name="gtime" type="date">
+            <column name="GTime" length="10" not-null="true" />
         </property>
         <property name="gprice" type="float">
             <column name="GPrice" precision="12" scale="0" not-null="true" />
@@ -20,17 +20,20 @@
         <property name="gquatity" type="int">
             <column name="GQuatity" not-null="true" />
         </property>
-        <property name="gendTime" type="timestamp">
-            <column name="GEndTime" length="19" not-null="true" />
+        <property name="gendTime" type="date">
+            <column name="GEndTime" length="10" not-null="true" />
         </property>
         <property name="gcontent" type="string">
             <column name="GContent" length="300" not-null="true" />
         </property>
-        <set name="applies" table="apply" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="GId" not-null="true" />
-            </key>
-            <one-to-many class="com.qdu.pojo.Apply" />
-        </set>
+        <property name="uid" type="string">
+            <column name="UId" length="50" not-null="true" />
+        </property>
+        <property name="contact" type="string">
+            <column name="Contact" length="20" not-null="true" />
+        </property>
+        <property name="gstate" type="java.lang.Integer">
+            <column name="GState" />
+        </property>
     </class>
 </hibernate-mapping>

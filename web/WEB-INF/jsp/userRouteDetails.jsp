@@ -222,20 +222,6 @@
 
 
 
-<!--footer-->
-<div class="footer">
-    <div class="footer-right">
-        <div class="footer-nav" style="border-bottom: 1px solid rgba(0,125,0,0.5);">
-
-        </div>
-        <div class="about-tao">
-            <a href="#">关于途牛</a>
-            <a href="#">联系我们</a>
-            <a href="#">法律声明</a>
-            <span class="gary-text">&copy; 2019tuniu.com 版权所有</span>
-        </div>
-    </div>
-</div>
 
 <!--回到顶部和底部-->
 

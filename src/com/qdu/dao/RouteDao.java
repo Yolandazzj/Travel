@@ -31,4 +31,5 @@ public interface RouteDao {
     List lowerRoute();//超值路线
     void toComment(String uid,String routecomments,int routeId);//写评论
     Routecomment getCommentById();//根据id获取最新一条评论
+    void thumb_route(int routeId);//点赞路线
 }

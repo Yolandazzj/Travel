@@ -71,12 +71,10 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: url(../img/arrow.png) no-repeat center center;
 }
 /*down-icon-circle*/
 .down-icon-circle{
     border-radius: 12px;
-    background: #f40 url(../img/arrow.png) no-repeat center;
 }
 .run-up{
     transition-duration: .5s;
@@ -122,7 +120,8 @@
 .get-box,
 .center-box,
 .nav-box,
-.search-toggle-box
+.search-toggle-box,
+.user-toggle-box
 {
     position: absolute;
     z-index: 99999;
@@ -306,6 +305,27 @@
     display: block;
 }
 
+/*info-toggle-box*/
+.user-toggle-box
+
+{
+    width: 70px;
+    height: 100px;
+    padding-left: 19px;
+    line-height: 39px;
+    text-align: left;
+    cursor: pointer;
+    position: absolute;
+    display: none;
+}
+.user-toggle-box li{
+    float: none;
+}
+.drop-down:hover .user-toggle-box{
+    display: block;
+}
+
+
 /*my-head*/
 .my-head{
     float: left;
@@ -441,8 +461,8 @@
     padding-left: 10px;
     border: none;
     outline: none;
-    background: url(../img/search.png) no-repeat 98% center,
-    url(../img/s.png) no-repeat 2% center;
+    background: url(../image/search.png) no-repeat 98% center,
+    url(../image/s.png) no-repeat 2% center;
 }
 .search-in-scroll{
     height: 27px;
@@ -694,7 +714,6 @@
 .nav > a{
     padding: 5px 5px;
     height: 32px;
-    margin: 0 8px;
     color: #202020;
     font-size: 16px;
     margin: 0 12px;
@@ -717,7 +736,7 @@
 .nav img{
     vertical-align: middle;
     border: none;
-    margin: 0 0px 0 40px;
+    margin: 0 0 0 40px;
 }
 .keep-a{
     font-size: 11px;
@@ -744,7 +763,7 @@
     position: relative;
     float: left;
     width: 720px;
-    height: 500px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -762,7 +781,7 @@
 .imgBox > li,
 .imgBox1 > li{
     float: left;
-    width: 520px;
+    width: 720px;
 }
 .imgBox2 > li{
     float: left;
@@ -932,7 +951,7 @@
     width: 298px;
     height: 138px;
     border: 1px solid #ddd;
-    background: url(../img/user-bg.png) no-repeat right top;
+    background: url(../image/user-bg.png) no-repeat right top;
 }
 .gold-top{
     margin: 10px auto 0 auto;
@@ -971,7 +990,7 @@
     margin: 4px 5px 0 5px;
     width: 18px;
     height: 18px;
-    background: url(../img/tao.png) no-repeat center;
+    background: url(../image/tao.png) no-repeat center;
 }
 .vip-home:hover,
 .get-gold:hover{
@@ -1107,7 +1126,7 @@
 }
 .tell-num{
     width: 145px;
-    background: url(../img/user-num.png) no-repeat 95% center;
+    background: url(../image/user-num.png) no-repeat 95% center;
 }
 /*service-head*/
 .service-head{
@@ -1151,7 +1170,7 @@
     position: relative;
     margin: 25px auto;
     width: 1190px;
-    height: 88px;
+    height: 150px;
     overflow: hidden;
 }
 /*top-sub-nav*/
@@ -1169,7 +1188,7 @@
     border-radius: 3px;
     color: #fff;
     outline: none;
-    background: #f40 url(../img/down.png) no-repeat 90% center;
+    background: #f40 url(../image/down.png) no-repeat 90% center;
     cursor: pointer;
 }
 /*sub-nav-cell*/
@@ -1233,7 +1252,6 @@
 .main{
     width: 1190px;
     margin: auto;
-    height: 4088px;
 }
 
 /*main-left*/
@@ -1306,6 +1324,7 @@
     text-align: center;
     background: #f6f6f6;
 }
+
 .inner-left > h1{
     margin: 14px 0 10px 0;
 }
@@ -1799,4 +1818,590 @@ padding: 5px 0;
     min-height: 100vh;
 }
 
-/**********************************************/
+/***************userRoute.jsp*******************************/
+
+/*gentuan*/
+.gentuan {
+    background: white;
+}
+
+.gentuan .routemain {
+    height: 614px;
+}
+
+.gentuan .routemain .routecontent {
+    width: 1226px;
+    height: 300px;
+}
+
+.gentuan .routemain .routecontent:nth-of-type(2) {
+    margin-top: 14px;
+}
+
+.gentuan .routemain .routecontent .remen {
+    width: 234px;
+    height: 250px;
+    margin-right: 14px;
+    position: relative;
+    background: #fff;
+}
+
+.gentuan .routemain .routecontent .remen:hover {
+    margin-top: -2px;
+    box-shadow: 0px 0px 30px #ff6709;
+}
+
+.gentuan .routemain .routecontent .remen:nth-of-type(5) {
+    margin: 0;
+}
+
+.gentuan .routemain .routecontent .remen .luxian span {
+    display: block;
+    margin: 0 auto;
+    font-size: 10px;
+    line-height: 20px;
+    height: 20px;
+    color: #fff;
+    width: 65px;
+    background: #83c44e;
+    text-align: center;
+}
+
+.gentuan .routemain .routecontent .remen .tu a img {
+    margin: 10px 42px 20px 42px;
+    height: 150px;
+    width: 150px;
+}
+
+.gentuan .routemain .routecontent .remen .miaoshu {
+    width: 234px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.gentuan .routemain .routecontent .remen .miaoshu a {
+    color: #000;
+    font-size: 14px;
+}
+
+.gentuan .routemain .routecontent .remen .jiage {
+    color: #ff6700;
+    font-size: 14px;
+    text-align: center;
+    width: 234px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.gentuan .routemain .routecontent .remen .pingjia {
+    width: 234px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+}
+
+.gentuan .routemain .routecontent .remen .piao {
+    width: 204px;
+    height: 30px;
+    font-size: 12px;
+    padding: 10px 0px 0px 30px;
+    background: rgba(0,125,0,0.5);
+    position: absolute;
+    display: none;
+}
+
+.gentuan .routemain .routecontent .remen .piao a {
+    color: #fff;
+}
+
+.gentuan .routemain .routecontent .remen .piao span {
+    display: block;
+    margin-top: 5px;
+}
+
+.gentuan .routemain .routecontent .remen:hover .piao {
+    display: block;
+    margin-top: -40px;
+}
+
+.gentuan .routemain .routecontent .remenlast {
+    width: 234px;
+    height: 300px;
+}
+.biaoti {
+    width: 1226px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/*.remen .fl{*/
+/*    background: url(../image/left.png) no-repeat;*/
+/*    background-color: red;*/
+/*}*/
+.sub-nav-cell:hover
+{
+    border: 5px solid rgba(0,125,0,0.5);
+}
+.center {
+    margin: 0 auto;
+}
+.w {
+    width: 1226px;
+    margin: 0 auto;
+}
+
+
+ .routemain {
+    width: 1226px;
+    height: 340px;
+}
+
+ .routemain .mingxing {
+    width: 234px;
+    height: 339px;
+    background: rgb(250, 250, 250);
+}
+
+ .routemain .mingxing:nth-of-type(1) {
+    border-top: 1px solid orange;
+    margin-right: 14px;
+}
+
+ .routemain .mingxing:nth-of-type(2) {
+    border-top: 1px solid green;
+    margin-right: 14px;
+}
+
+ .routemain .mingxing:nth-of-type(3) {
+    border-top: 1px solid blue;
+    margin-right: 14px;
+}
+
+ .routemain .mingxing:nth-of-type(4) {
+    border-top: 1px solid red;
+    margin-right: 14px;
+}
+
+ .routemain .mingxing:nth-of-type(5) {
+    border-top: 1px solid teal;
+}
+
+ .routemain .mingxing .sub_mingxing {
+    padding: 37px;
+}
+
+ .routemain .mingxing .sub_mingxing a img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    opacity: 0.85
+}
+
+ .routemain .mingxing .sub_mingxing a img:hover {
+    width: 160px;
+    height: 160px;
+    opacity: 1;
+}
+
+ .routemain .mingxing .pinpai {
+    width: 234px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.routemain .mingxing .pinpai a {
+    font-size: 14px;
+    color: #333;
+}
+
+ .routemain .mingxing .youhui {
+    width: 234px;
+    height: 12px;
+    line-height: 12px;
+    margin: 15px 0;
+    font-size: 12px;
+    color: rgb(176, 176, 176);
+    text-align: center;
+}
+
+ .routemain .mingxing .jiage {
+    font-size: 14px;
+    text-align: center;
+    color: #ff6709;
+}
+
+.fl {
+    float: left;
+}
+.clear {
+    clear: both;
+}
+.hongmi:hover {
+    margin-top: -2px;
+    box-shadow: 0px 0px 15px #ff6709;
+}
+
+.liulangengduo {
+    margin-top: 12px;
+}
+
+.liulangengduo:hover {
+    margin-top: 10px;
+    box-shadow: 0px 0px 30px #ff6709;
+}
+
+.fr {
+    float: right;
+}
+
+/*******************userRouteDetails***************/
+
+
+
+/*jieshao*/
+.jieshao {
+    height: 560px;
+}
+
+.jieshao .left {
+    width: 560px;
+    height: 560px;
+    border: 1px solid #ccc;
+}
+.jieshao .left>img{
+    width: 100%;
+    height: 100%;
+}
+.jieshao .right {
+    width: 620px;
+    background: rgb(248, 248, 248);
+    height: 600px;
+}
+
+.jieshao .right .jianjie {
+    font-size: 14px;
+    color: rgb(176, 176, 176);
+    line-height: 20px;
+}
+
+.jieshao .right .jiage {
+    font-size: 18px;
+    color: #ff6700;
+    font-weight: bold;
+}
+
+.jieshao .right .xzbb {
+    height: 58px;
+    line-height: 58px;
+}
+
+.jieshao .right .xzbb .banben {
+    height: 58px;
+    line-height: 58px;
+    width: 278px;
+    cursor: pointer;
+    margin-right: 5px;
+    border: 1px solid #bbb;
+}
+
+.jieshao .right .xzbb .banben a {
+    display: block;
+    font-size: 18px;
+    color: #000;
+    padding: 0 10px;
+}
+
+.jieshao .right .xzbb .banben a span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.jieshao .right .xzbb .banben a:hover {
+    color: #ff6700;
+}
+
+.jieshao .right .xzbb .banben:hover {
+    border: 1px solid #ff6700;
+}
+
+.jieshao .right .xzbb .banben a .yuandian {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #000;
+    margin-left: 80px;
+}
+
+.mt20 {
+    margin-top: 100px;
+}
+.left ul li {
+    float: left;
+    font-size: 12px;
+    color: #ccc;
+}
+.left ul li a {
+    display: block;
+    padding: 0 8px;
+    font-size: 12px;
+    font-family: Times New Roman;
+    color: #b0b0b0;
+}
+.left ul li a:hover {
+    color: #fff;
+}
+
+.left div {
+    margin-bottom: 3px;
+}
+
+left .xuangou_left {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.left .xuangou_left a {
+    color: #000;
+}
+.left .xuangou_left a img {
+    valign: middle;
+}
+.left .xuangou_left a span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.left .xuangou_left a span:hover {
+    color: #ff6700;
+}
+.left .xuangou_right {
+    margin-top: 25px;
+    height: 40px;
+    line-height: 40px;
+}
+.left .xuangou_right a {
+    display: block;
+    width: 60px;
+    line-height: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #ff6700;
+    border: 1px solid #ff6700;
+}
+.left .xuangou_right a:hover {
+    display: block;
+    background: #ff6700;
+    color: #fff;
+}
+.right ul li {
+    float: left;
+    font-size: 12px;
+    color: #ccc;
+}
+.right ul li a {
+    display: block;
+    padding: 0 8px;
+    font-size: 12px;
+    font-family: Times New Roman;
+    color: #b0b0b0;
+}
+.right ul li a:hover {
+    color: #fff;
+}
+.right .gouwuche a {
+    color: #fff;
+}
+.right .gouwuche {
+    margin: 0 20px;
+    width: 120px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    background: #ff6700;
+    color: #fff;
+}
+.right .gouwuche:hover {
+    color: #000;
+    background: #666;
+}
+/*选取详情*/
+.xqxq {
+    height: 80px;
+    width: 500px;
+    padding: 20px;
+    border:1px solid #ff6700;
+}
+.ml20 {
+    margin:0 auto;
+}
+.xiaomi6 {
+    width: 1353px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*****************************加减数量框***********************/
+.room-number{
+    margin-bottom: 30px;
+}
+.desc,.bd-box{
+    float: left;
+}
+
+.bd-box{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    background: #fff;
+}
+.addition,.subtraction{
+    width: 17px;
+    padding: 0 6px;
+    color: #727171;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #d3d3d3;
+}
+.addition{
+    border-left: 0;
+}
+.subtraction{
+    border-right: 0;
+}
+.number-box{
+    width: 122px;
+    border: 1px solid #d3d3d3;
+}
+/***********下单**********/
+/*是否下单*/
+.xiadan {
+    height: 50px;
+    line-height: 50px;
+
+}
+
+.xiadan .jrgwc {
+    height: 50px;
+    width: 150px;
+    border: none;
+    background: #ff6700;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.xiadan .jrgwc:hover {
+    border: 1px solid #fff;
+}
+
+/*****************产品介绍****/
+.detail{
+    width: 1000px;
+    height:200px;
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+.detail2{
+    width: 800px;
+    height: 100px;
+    /*background-color: pink;*/
+    position: relative;
+    left: 100px;
+    bottom: 100px;
+}
+#image1{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
+#user2{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
+#image2{
+    position: relative;
+    left: 20px;
+    margin-top: 70px;
+    margin-left: 90px;
+
+}
+.title{
+    background-color: lightgray;
+    width: 800px;
+    height: 30px;
+    margin-top: 50px;
+    margin-left: 100px;
+
+}
+.spana{
+    color: black;
+    font-size: 15px;
+    margin-left: 100px;
+    width: 1000px;
+}
+
+/***************table************/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid lightgrey;
+    margin: 0 auto;
+}
+th{
+    background-color: lightgrey;
+    color:black;
+    padding: 10px;
+
+}
+td{
+    border: 0;
+    border-bottom: 3px solid lightgray;
+    padding: 10px;
+}
+
+tr:hover{
+    background-color: lightgray;
+}
+/***************留言板********/
+.control-group{
+    /*border: 10px solid lightgrey;*/
+
+}
+/*********toCenter*********/
+.login-top input[type="text"], .login-top input[type="password"] {
+    outline: none;
+    font-size:0.9em;
+    color: #999;
+    padding: 12px 12px 12px 40px;
+    margin: 0;
+    width: 89%;
+    border:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    -webkit-appearance: none;
+    margin-bottom: 28px;
+    font-family: 'Rationale', sans-serif;
+}

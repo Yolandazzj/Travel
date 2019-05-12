@@ -84,15 +84,15 @@
         <div class="search-box">
             <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
-                    <ul class="search-toggle-box">
-                        <li><a href="#">跟团游</a></li>
-                        <li><a href="#">景点</a></li>
-                        <li><a href="#">攻略</a></li>
-                        <li><a href="#">酒店</a></li>
-                    </ul>
+<%--                    <ul class="search-toggle-box">--%>
+<%--                        <li><a href="#">跟团游</a></li>--%>
+<%--                        <li><a href="#">景点</a></li>--%>
+<%--                        <li><a href="#">攻略</a></li>--%>
+<%--                        <li><a href="#">酒店</a></li>--%>
+<%--                    </ul>--%>
                 </li>
             </ul>
-            <input class="search-in" type="text" placeholder="请输入关键字">
+            <input class="search-in" type="text" placeholder="${keyword}">
             <input type="button" class="search-but" value="搜索">
 
         </div>

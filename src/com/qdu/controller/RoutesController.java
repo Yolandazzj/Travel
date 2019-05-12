@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class RoutesController {
@@ -222,5 +224,22 @@ public class RoutesController {
         routecomments= request.getParameter("routecomments");
         routeService.toComment(uid,routecomments,routeId);
         return routeService.getCommentById();
+    }
+
+    //点赞功能(路线)
+    @RequestMapping(value = "user/thumb_route", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> thumb_food(HttpServletRequest request) {
+        Map map = new HashMap<>();
+        int routeId = Integer.parseInt(request.getParameter("routeId"));
+        System.out.println(routeId);
+        boolean flag = routeService.thumb_route(routeId);
+        if (flag) {
+            map.put("msg", "点赞成功");
+            return map;
+        } else {
+            map.put("msg", "点赞失败");
+            return map;
+        }
     }
 }

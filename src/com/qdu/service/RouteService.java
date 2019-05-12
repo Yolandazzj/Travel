@@ -27,4 +27,5 @@ public interface RouteService {
     List lowerPriceRoute();//超值路线
     void toComment(String uid,String routecomments,int routeId);//留言
     Routecomment getCommentById();//获取最新留言
+    boolean thumb_route(int routeId);//点赞路线
 }
