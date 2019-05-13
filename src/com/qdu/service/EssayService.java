@@ -31,6 +31,6 @@ public interface EssayService {
     void toEssayComment(int essayId,String uid,String eCommentContent);//发表游记评论
     Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
     List<Essay> getEssayMineList(String uid);//获取我的游记
-    boolean deleteEssayById(int essayId);//删除游记
+    void deleteEssay(int essayId);//删除游记
 
 }

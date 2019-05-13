@@ -1,10 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
-import com.qdu.service.AdminManageService;
-import com.qdu.service.FoodService;
-import com.qdu.service.GroupService;
-import com.qdu.service.SceneService;
+import com.qdu.service.*;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +24,9 @@ public class AdminController {
 
     @Autowired
     private SceneService sceneService;
+
+    @Autowired
+    private EssayService essayService;
 
     @Autowired
     private AdminManageService adminManageService;
@@ -114,5 +114,29 @@ public class AdminController {
     public void deleteScene(int orderId){
 
         adminManageService.deleteOrder(orderId);
+    }
+
+    //管理员首页-攻略
+    @RequestMapping("admin/essay")
+    public String adminEssay(Model model,HttpServletRequest request){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = essayService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page",page);
+            List essayAdminAll = page.getList();
+            model.addAttribute("essayAdminAll", essayAdminAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "adminEssay";
+    }
+    //管理员删除攻略
+    @RequestMapping(value = "admin/deleteEssayByAdmin",method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteEssayByAdmin(int essayId){
+        essayService.deleteEssay(essayId);
     }
 }

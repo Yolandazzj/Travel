@@ -258,26 +258,26 @@ public class EssayDaoImpl implements EssayDao {
     }
 
     @Override
-    public boolean deleteEssay(int essayId) {
-//        Query query=sessionFactory.getCurrentSession().createQuery("delete table from essay where essayId=?");
-//        query.setParameter(0,essayId);
-//        query.executeUpdate();
-//        System.out.println("wwwwwwwwwww");
-        boolean flag = false;
-        Session session = sessionFactory.openSession();
-        try {
-            String hql = "delete from essay where essayId=?";
-            Query query=session.createQuery(hql);
-            query.setInteger(0, essayId);
-            query.executeUpdate();
-            flag = true;
-            session.flush();
-        }catch(Exception e){
-            e.printStackTrace();
-            flag=false;
-        }
-        System.out.println("flag====="+flag);
-        return flag;
+    public void deleteEssay(int essayId) {
+        Query query=sessionFactory.getCurrentSession().createQuery("DELETE from Essay where essayId=?");
+        query.setInteger(0,essayId);
+        query.executeUpdate();
+        System.out.println(essayId+"wwwwwwwwwww");
+//        boolean flag = false;
+//        Session session = sessionFactory.openSession();
+//        try {
+//            String hql = "delete from essay where essayId=?";
+//            Query query=session.createQuery(hql);
+//            query.setInteger(0, essayId);
+//            query.executeUpdate();
+//            flag = true;
+//            session.flush();
+//        }catch(Exception e){
+//            e.printStackTrace();
+//            flag=false;
+//        }
+//        System.out.println("flag====="+flag);
+//        return flag;
      }
 
 

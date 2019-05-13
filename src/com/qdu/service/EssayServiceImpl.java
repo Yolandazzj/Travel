@@ -146,8 +146,8 @@ public class EssayServiceImpl implements EssayService {
     }
 
     @Override
-    public boolean deleteEssayById(int essayId) {
-       return essayDao.deleteEssay(essayId);
+    public void deleteEssay(int essayId) {
+       essayDao.deleteEssay(essayId);
     }
 
 

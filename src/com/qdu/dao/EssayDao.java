@@ -31,5 +31,5 @@ public interface EssayDao  {
     void toEssayComment(int essayId,String uid,String eCommentContent);//发表游记评论
     Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
     List<Essay> getEssayMineList(String uid); //获取我的游记列表
-    boolean deleteEssay(int essayId);
+    void deleteEssay(int essayId);
 }

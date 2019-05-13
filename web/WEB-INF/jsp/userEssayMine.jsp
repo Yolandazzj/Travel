@@ -129,12 +129,12 @@
                     <th>游记操作</th>
                 </tr>
                 <c:forEach items="${essayMineList}" var="e">
-                    <tr style="text-align: center;">
+                    <tr id="${e.essayId}" style="text-align: center;">
                         <td>${e.userinfo.uid}</td>
                         <td>${e.etitle}</td>
                         <td>
                             <a href="user/toEssayDetails?essayId=${e.essayId}">查看详情</a>
-                            <a href="javascript:deleteEssay('${e.essayId}')">删除</a>
+                            <a href="javascript:deleteEssay(${e.essayId})">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -176,8 +176,8 @@
             url: 'user/deleteEssay',
             type: "POST",
             data: {"essayId": essayId},
-            success: function (data) {
-                alert("删除成功！")
+            success: function () {
+                $("#"+essayId).remove();
             },
             error: function () {
                 alert("Ajax请求失败!");

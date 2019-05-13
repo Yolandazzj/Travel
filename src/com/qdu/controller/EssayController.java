@@ -130,18 +130,10 @@ public class EssayController {
     }
 
     //删除游记
-    @RequestMapping(value = "/deleteEssay")
-    public String deleteEssay(int essayId,HttpServletRequest request) {
-        boolean flag = essayService.deleteEssayById(essayId);
-        if(flag==true){
-            System.out.println("success");
-            return "删除成功";
-        }else {
-            System.out.println("essayId........." + essayId+"删除失败");
-            return "删除失败";
-        }
-
-
+    @RequestMapping(value = "/deleteEssay",method=RequestMethod.POST)
+    @ResponseBody
+    public void deleteEssay(int essayId) {
+          essayService.deleteEssay(essayId);
     }
 
 
