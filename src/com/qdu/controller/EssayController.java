@@ -95,7 +95,7 @@ public class EssayController {
     }
 
     //点赞功能(游记评论)
-    @RequestMapping(value = "thumb_Essaycomment", method = RequestMethod.POST)
+    @RequestMapping(value = "thumb_essayComment", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> thumb_Essaycomment(HttpServletRequest request) {
         Map map = new HashMap<>();

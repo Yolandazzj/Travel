@@ -2,10 +2,7 @@ package com.qdu.controller;
 
 import com.qdu.dao.CityDao;
 import com.qdu.page.page;
-import com.qdu.pojo.Essay;
-import com.qdu.pojo.Foodinfo;
-import com.qdu.pojo.Route;
-import com.qdu.pojo.Scene;
+import com.qdu.pojo.*;
 import com.qdu.service.FoodService;
 import com.qdu.service.MessageService;
 import com.qdu.service.RouteService;
@@ -55,6 +52,9 @@ public class IndexController {
 
     @Autowired
     private EssayService essayService;
+
+    @Autowired
+    private HotelService hotelService;
 
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
@@ -377,5 +377,47 @@ public class IndexController {
         model.addAttribute("cateList",cateList);
 
         return "userEssayIndex";
+    }
+
+    //首页酒店
+    @RequestMapping("user/hotel")
+    public String hotel(Model model,HttpServletRequest request){
+        Hotel hotel1=hotelService.hotHotel1();
+        Hotel hotel2=hotelService.hotHotel2();
+        Hotel hotel3=hotelService.hotHotel3();
+        Hotel hotel4=hotelService.hotHotel4();
+        Hotel hotel5=hotelService.hotHotel5();
+        Hotel hotel6=hotelService.hotHotel6();
+        Hotel hotel7=hotelService.hotHotel7();
+        model.addAttribute("hotel1",hotel1);
+        model.addAttribute("hotel2",hotel2);
+        model.addAttribute("hotel3",hotel3);
+        model.addAttribute("hotel4",hotel4);
+        model.addAttribute("hotel5",hotel5);
+        model.addAttribute("hotel6",hotel6);
+        model.addAttribute("hotel7",hotel7);
+
+        List cateList=categoryService.categoryList();
+        model.addAttribute("cateList",cateList);
+
+        return "userHotelIndex";
+    }
+
+    //首页游记列表，分页
+    @RequestMapping("user/hotelAll")
+    public String hotelAll(Model model,HttpServletRequest request){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page2 = hotelService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page2",page2);
+            List hotelAll = page2.getList();
+            model.addAttribute("hotelAll", hotelAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "userHotelAll";
     }
 }

@@ -1,10 +1,14 @@
-package com.qdu.dao;
+package com.qdu.service;
 
-import com.qdu.pojo.*;
+import com.qdu.page.page;
+import com.qdu.pojo.City;
+import com.qdu.pojo.Hotel;
+import com.qdu.pojo.Hotelcomment;
+import com.qdu.pojo.Layout;
 
 import java.util.List;
 
-public interface HotelDao {
+public interface HotelService {
     //获取热门酒店1-7
     Hotel hotHotel1();
     Hotel hotHotel2();
@@ -13,18 +17,14 @@ public interface HotelDao {
     Hotel hotHotel5();
     Hotel hotHotel6();
     Hotel hotHotel7();
-    int getAllRowCount();//获取总行数
-    List hotelAll(int offset, int length);//所有酒店
+    page queryForPage(int currentPage, int pageSize) ;//分页查询
     Hotel hotelDetails(int hotelId);//根据酒店ID获取酒店详细信息；
-    List<Layout> layoutInfo(int hotelId);//根据酒店ID获取具体房型的信息
+    List<Layout> layoutInfo(int hotelId); //根据酒店ID获取酒店房型的详细信息；
     List<City> cityInfo(int hotelId);//根据酒店ID获取所在城市的名字；
     List<Hotelcomment> hotelComment(int hotelId);//根据酒店ID获取评论；
-    void thumb_hotel(int hotelId);//点赞功能（酒店)
-    void thumb_comment(int hCommentId);//点赞功能（酒店评论)
+    boolean thumb_hotel(int hotelId);//点赞功能（酒店)
+    boolean thumb_comment(int hCommentId);//点赞功能（酒店评论)
     void toHotelComment(int hotelId,String uid,String hCommentContent);//发表酒店评论
     Hotelcomment getHotelCommentById(int hotelId);//根据hCommentId获取最新评论
-
-
-
 
 }

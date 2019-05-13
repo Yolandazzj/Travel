@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: zyr
-  Date: 2019/5/10
-  Time: 10:53
+  Date: 2019/5/12
+  Time: 15:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!doctype html>
@@ -14,10 +14,21 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>游记详情</title>
+    <title>酒店详情</title>
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
+    <style type="text/css">
+        .min{
+            width: 50px;
+            height: auto;
+        }
+        .max{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
 <body>
 
 <!--滚动屏-->
@@ -67,7 +78,7 @@
     <img src="resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
-            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle">
+            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
                         <li><a href="#">跟团游</a></li>
@@ -90,13 +101,13 @@
 
         <a href="#">旅行社</a>
         <a href="#">组团游</a>
-        <a href="user/tours">跟团游</a>
-        <a href="user/essayAll">攻略</a>
-        <a href="/user/food">美食</a>
-        <a href="#">酒店</a>
-        <a href="user/scene">景点</a>
-        <a href="#">推荐路线</a>
-        <a href="/user/message">留言板</a>
+        <a href="user/tours" >跟团游</a>
+        <a href="user/essay" >攻略</a>
+        <a href="user/food" >美食</a>
+        <a href="user/hotel">酒店</a>
+        <a href="user/scene" >景点</a>
+        <a href="#" >推荐路线</a>
+        <a href="/user/message" >留言板</a>
 
     </div>
 </div>
@@ -104,45 +115,37 @@
 
 <!-- 详情 -->
 <div class="xiaomi6 fl">
-    游记标题： ${essayDetails.etitle}
+    ${hotelDetails.hotelName}
 </div>
 <br><br><br><br>
 <div class="jieshao mt20 w">
-    <c:forEach items="${cityInfo}" var="ciii">
-        <div class="left fl"><img src="/IMAGE/${ciii[2]}"></div>
-    </c:forEach>
+    <div class="left fl"><img src="/IMAGE/${hotelDetails.hotelImage}"></div>
     <div class="right fr" style="height:562px;padding-left: 20px; ">
         <br>
-        <div class="jianjie mr40 ml20 mt10">游记城市：
-            <div class="jiage ml20 mt10"><br>
-                <c:forEach items="${cityInfo}" var="ci">
-                    <div class="jianjie mr40 ml20 mt10">&nbsp;&nbsp;<span style="color: #FF6700;">${ci[1]}</span></div>
-                </c:forEach></div>
-        </div>
+        <div class="jianjie mr40 ml20 mt10">星级：<div class="jiage ml20 mt10"><br>${hotelDetails.hotelLevel}星级</div></div>
         <br><br><br>
-        <div class="jianjie mr40 ml20 mt10">游记作者：
-            <div class="jiage ml20 mt10"><br>&nbsp;&nbsp;${essayDetails.userinfo.uid}</div>
-        </div>
+        <c:forEach items="${layoutInfo}" var="la">
+            <br/>
+            <div class="jianjie mr40 ml20 mt10">价格：<div class="">${la[1]}元</div></div>
+            <div class="jianjie mr40 ml20 mt10">房型:&nbsp;&nbsp;<span style="color: black;">${la[3]}</span></div>
+            <img onclick="show(this)" style="width: 50px;" src="/IMAGE/${la[2]}.jpg">
+            <br/>
+        </c:forEach>
+<%--        <br><br><br>--%>
+<%--        <c:forEach items="${layoutInfo}" var="lay">--%>
+<%--&lt;%&ndash;            <img style="width: 50px;" src="/IMAGE/${lay[2]}.jpg">&ndash;%&gt;--%>
+<%--        </c:forEach>--%>
         <br><br><br>
-        <div class="jianjie mr40 ml20 mt10">游记内容：
-            <span style="color: black;"><br>&nbsp;&nbsp;${essayDetails.econtent}</span>
-        </div>
+        <c:forEach items="${cityInfo}" var="ci">
+            <div class="jianjie mr40 ml20 mt10">所在城市:&nbsp;&nbsp;<span style="color: black;">${ci[1]}</span></div>
+        </c:forEach>
         <br><br><br>
-        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;
-            <span style="color: black;" id="thumbNumber">${essayDetails.escore}</span>
-        </div>
-        <br><br><br>
-        <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:thumb_essay(${essayDetails.essayId})" method="post">
-                <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
-                <button class="jrgwc" type="submit">我要点赞</button>
-            </form>
-        </div>
+        <div class="jianjie mr40 ml20 mt10">点赞数:&nbsp;&nbsp;<span style="color: black;" id="thumbNumber">${hotelDetails.hotelScore}</span></div>
         <br><br><br>
         <div class="xiadan ml20 mt20" style="margin-left: 230px;">
-            <form action="javascript:reportUser('${essayDetails.userinfo.uid}')" method="post">
-                <input type="hidden" name="sceneId" value="${essayDetails.essayId}">
-                <button class="jrgwc" type="submit">举报作者</button>
+            <form action="javascript:thumb_hotel(${hotelDetails.hotelId})" method="post">
+                <input  type="hidden" name="sceneId" value="${hotelDetails.hotelId}">
+                <button class="jrgwc"  type="submit">我要点赞</button>
             </form>
         </div>
     </div>
@@ -150,19 +153,20 @@
 </div>
 
 <img src="./resources/image/user3.png" id="image2">
-<div class="control-group"
-     style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
+<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
 
     <table id="commentTable">
-        <c:forEach items="${essayCommentList}" var="e">
+        <c:forEach items="${hotelCommentList}" var="h">
             <tr>
-                <td>${e[1]} &nbsp;&nbsp: ${e[2]}&nbsp;&nbsp;
+                <td>${h[2]}
+                    <br/>&nbsp;&nbsp;
                     <span style="font-size: 12px;">
-                        <fmt:formatDate value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss"/>
-                    </span>
-                    <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span
-                            id="${e[0]}">${e[4]}</span></span></a>
-                    <br><br><br>${e[3]}</td>
+                                                <fmt:formatDate  value="${h[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                            </span>
+                    <br/>
+                    <a href="javascript:thumb_comment(${h[0]})"><span style="margin-left: 850px;">👍<span id="${h[0]}">${h[4]}</span></span></a>
+                    <br/>
+                    <br><br><br>${h[3]}</td>
             </tr>
         </c:forEach>
     </table>
@@ -174,15 +178,13 @@
     <form id="commentForm" method="post">
         <div class="message-group">
             <div class="message-controls">
-                <input type="hidden" name="uid" value="${user.uid}">
-                <input type="hidden" name="essayId" value="${essayDetails.essayId}">
+                <input  type="hidden" name="uid" value="${user.uid}">
+                <input  type="hidden" name="fid" value="${hotelDetails.hotelId}">
                 <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
-                        <textarea cols="100" rows="10" id="writeComment" name="eCommentContent"
-                                  style="resize: none;margin-left: 130px"></textarea>
+                        <textarea cols="100" rows="10" id="writeComment" name="hcommentContent" style="resize: none;margin-left: 130px"></textarea>
                         <br> <br>
-                        <input type="button" value="发表评论" id="submitBtn"
-                               style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
+                        <input type="button" value="发表评论" id="submitBtn" style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
                     </div>
                 </div>
             </div>
@@ -215,12 +217,12 @@
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
 <script>
-    //游记点赞
-    function thumb_essay(essayId) {
+    //酒店点赞
+    function thumb_hotel(hotelId) {
         $.ajax({
-            url: 'user/thumb_essay',
+            url: 'user/thumb_hotel',
             type: "POST",
-            data: {"essayId": essayId},
+            data: {"hotelId": hotelId},
             success: function (data) {
                 var onumber = parseInt($("#thumbNumber").text());
                 $("#thumbNumber").html(onumber + 1);
@@ -230,16 +232,18 @@
             }
         });
     }
+</script>
+<script>
 
-    //游记评论点赞
-    function thumb_comment(eCommentId) {
+    //酒店评论点赞
+    function thumb_comment(hcommentId) {
         $.ajax({
-            url: 'user/thumb_essayComment',
+            url: 'user/thumb_hotelComment',
             type: "POST",
-            data: {"eCommentId": eCommentId},
+            data: {"hcommentId": hcommentId},
             success: function (data) {
-                var onumber = parseInt($("#" + eCommentId).text());
-                $("#" + eCommentId).html(onumber + 1);
+                var onumber = parseInt($("#"+hcommentId).text());
+                $("#"+hcommentId).html(onumber + 1);
             },
             error: function () {
                 alert("Ajax请求失败");
@@ -251,46 +255,36 @@
 <script>
     //发表评论
     $(document).ready(function () {
-        $("#submitBtn").click(function (essayComment) {
+        $("#submitBtn").click(function (hotelComment) {
             $.ajax({
-                url: 'user/toEssayComment',
+                url: 'user/toHotelComment',
                 type: "POST",
                 data: $("#commentForm").serialize(),
-                success: function (essayComment) {
-                    var str = "<tr><td>"
+                success: function (hotelComment) {
+                    var str =  "<tr><td>"
                     +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    + essayComment.ecommentTime + "</span><br><a href='javascript:thumb_comment("
-                    + essayComment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
-                    + essayComment.ecommentId + ">"
-                    + essayComment.ecommentScore + "</span></span></a><br><br><br>"
-                    + essayComment.ecommentContent + "</td></tr>"
+                    +hotelComment.hcommentTime+"</span><br><a href='javascript:thumb_comment("
+                    +hotelComment.hcommentId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
+                    +hotelComment.hcommentId+">"
+                    +hotelComment.hcommentScore+"</span></span></a><br><br><br>"
+                    +hotelComment.hcommentContent+"</td></tr>"
                     $("#commentTable").append(str);
                     $("#8").remove();
                     $("#writeComment").val("");
 
                 },
                 error: function (request, status, error) {
-                    alert("发表成功!" + error);
+                    alert("Ajax请求失败!" + error);
                 }
             });
         });
     });
 </script>
-<script>
-    function reportUser(uid) {
-        $.ajax({
-            url: 'user/reportUser',
-            type: "POST",
-            data: {"uid": uid},
-            success: function (data) {
+<script type="">
+    function show(pic) {
+        pic.width=100%;
+        pic.height = auto;
 
-
-                alert("举报成功！")
-            },
-            error: function () {
-                alert("Ajax请求失败!");
-            }
-        });
     }
 </script>
 </body>
