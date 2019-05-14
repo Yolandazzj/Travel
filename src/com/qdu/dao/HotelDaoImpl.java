@@ -187,4 +187,31 @@ public class HotelDaoImpl implements HotelDao {
         query.addScalar("hotelImage", StandardBasicTypes.STRING);
         return query.list();
     }
+
+    //首页显示：超值路线
+    @Override
+    public List lowerHotel() {
+        Query query= sessionFactory.getCurrentSession().createQuery("from Hotel order by hotelPrice asc");
+        query.setFirstResult(0);
+        query.setMaxResults(1);
+        return query.list();
+    }
+
+    //首页显示畅销酒店
+    @Override
+    public List hotSaleHotel() {
+   Query query= sessionFactory.getCurrentSession().createSQLQuery("select hotelName from HotelOrders group by hotelId");
+//        query.addScalar("hotelOrderId",StandardBasicTypes.INTEGER);
+//        query.addScalar("uid",StandardBasicTypes.STRING);
+//        query.addScalar("hotelId",StandardBasicTypes.INTEGER);
+//        query.addScalar("hotelPrice",StandardBasicTypes.FLOAT);
+//        query.addScalar("orderDay",StandardBasicTypes.INTEGER);
+//        query.addScalar("contact",StandardBasicTypes.STRING);
+//        query.addScalar("orderName",StandardBasicTypes.STRING);
+//        query.addScalar("orderPeople",StandardBasicTypes.INTEGER);
+//
+
+
+        return query.list();
+    }
 }

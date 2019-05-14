@@ -20,17 +20,16 @@ public class MyIntercepter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         System.out.println(request.getServletPath());
 
-        if (request.getServletPath().startsWith("/patient")) {
-            if (null == request.getSession().getAttribute("patient")) {
-                response.sendRedirect(request.getContextPath() + "/patient/goToLogin");
+        if (request.getServletPath().startsWith("/user") && !(request.getServletPath().endsWith("/toLogin"))) {
+            if (null == request.getSession().getAttribute("user")) {
+                response.sendRedirect(request.getContextPath() + "/user/toLogin");
                 return false;
-            }
+            }else
+                return true;
 
-        } else if (request.getServletPath().startsWith("/staff")) {
-            if (null == request.getSession().getAttribute("staff")) {
-                response.sendRedirect(request.getContextPath() + "/staff/goToStaffLogin");
-                return false;
-            }
+
+
+
         }
 
         return true;

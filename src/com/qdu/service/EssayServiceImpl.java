@@ -150,5 +150,12 @@ public class EssayServiceImpl implements EssayService {
        essayDao.deleteEssay(essayId);
     }
 
+    //首页显示热门游记
+    @Override
+    public List indexHotEssay() {
+        return essayDao.indexHotEssay();
+    }
+
+
 
 }

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -67,6 +68,23 @@ public class IndexController {
        model.addAttribute("hotRouteList",hotRouteList);
       List lowerPriceRoute= routeService.lowerPriceRoute();
       model.addAttribute("lowerPriceRoute",lowerPriceRoute);
+        List hotEssayList=  essayService.indexHotEssay();
+        model.addAttribute("hotEssayList",hotEssayList);
+        List lowerPriceHotel= hotelService.lowerHotel();
+        model.addAttribute("lowerPriceHotel",lowerPriceHotel);
+      Essay essay1=essayService.hotEssay1();
+        Essay essay2=  essayService.hotEssay2();
+        Essay essay3= essayService.hotEssay3();
+        Essay essay4= essayService.hotEssay4();
+        model.addAttribute("essay1",essay1);
+        model.addAttribute("essay2",essay2);
+        model.addAttribute("essay3",essay3);
+        model.addAttribute("essay4",essay4);
+        List hotSaleHotelList=hotelService.hotSaleHotel();
+//        HashMap map = (HashMap) hotSaleHotelList.get(0);
+//        String hotelName = (String) map.get("hotelName");
+        model.addAttribute("hotSaleHotelList",hotSaleHotelList);
+
         return "index";
     }
 
@@ -359,20 +377,20 @@ public class IndexController {
         model.addAttribute("essay5",essay5);
         model.addAttribute("essay6",essay6);
         model.addAttribute("essay7",essay7);
-        String cityImage1 =  cityService.getCityByCityId(essay1.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage1",cityImage1);
-        String cityImage2 =  cityService.getCityByCityId(essay2.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage2",cityImage2);
-        String cityImage3 =  cityService.getCityByCityId(essay3.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage3",cityImage3);
-        String cityImage4 =  cityService.getCityByCityId(essay4.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage4",cityImage4);
-        String cityImage5 =  cityService.getCityByCityId(essay5.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage5",cityImage5);
-        String cityImage6 =  cityService.getCityByCityId(essay6.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage6",cityImage6);
-        String cityImage7 =  cityService.getCityByCityId(essay7.getCity().getCityId()).getCityImage();
-        model.addAttribute("cityImage7",cityImage7);
+//        String cityImage1 =  cityService.getCityByCityId(essay1.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage1",cityImage1);
+//        String cityImage2 =  cityService.getCityByCityId(essay2.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage2",cityImage2);
+//        String cityImage3 =  cityService.getCityByCityId(essay3.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage3",cityImage3);
+//        String cityImage4 =  cityService.getCityByCityId(essay4.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage4",cityImage4);
+//        String cityImage5 =  cityService.getCityByCityId(essay5.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage5",cityImage5);
+//        String cityImage6 =  cityService.getCityByCityId(essay6.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage6",cityImage6);
+//        String cityImage7 =  cityService.getCityByCityId(essay7.getCity().getCityId()).getCityImage();
+//        model.addAttribute("cityImage7",cityImage7);
         List cateList=categoryService.categoryList();
         model.addAttribute("cateList",cateList);
 

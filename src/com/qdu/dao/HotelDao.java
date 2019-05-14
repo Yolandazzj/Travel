@@ -24,6 +24,8 @@ public interface HotelDao {
     void toHotelComment(int hotelId,String uid,String hCommentContent);//发表酒店评论
     Hotelcomment getHotelCommentById(int hotelId);//根据hCommentId获取最新评论
     List<Hotel> getHotelByCity(int cityId);//根据cityId获取酒店信息
+    List lowerHotel();//首页显示超值酒店
+    List hotSaleHotel();//首页显示热销酒店
 
 
 

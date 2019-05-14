@@ -32,4 +32,6 @@ public interface EssayDao  {
     Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
     List<Essay> getEssayMineList(String uid); //获取我的游记列表
     void deleteEssay(int essayId);
+    List indexHotEssay();//首页显示热门游记;
+
 }

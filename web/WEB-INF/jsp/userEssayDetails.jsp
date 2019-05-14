@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
+    <script src="./resources/js/jquery-2.1.4.min.js"></script>
 <body>
 
 <!--滚动屏-->
@@ -171,7 +172,7 @@
 
 
     <br><br>
-    <form id="commentForm" method="post">
+    <form id="commentForm">
         <div class="message-group">
             <div class="message-controls">
                 <input type="hidden" name="uid" value="${user.uid}">
@@ -257,15 +258,14 @@
                 type: "POST",
                 data: $("#commentForm").serialize(),
                 success: function (essayComment) {
-                    var str = "<tr><td>"
-                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    var str = "<tr><td>&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
                     + essayComment.ecommentTime + "</span><br><a href='javascript:thumb_comment("
                     + essayComment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
                     + essayComment.ecommentId + ">"
                     + essayComment.ecommentScore + "</span></span></a><br><br><br>"
                     + essayComment.ecommentContent + "</td></tr>"
                     $("#commentTable").append(str);
-                    $("#8").remove();
+
                     $("#writeComment").val("");
 
                 },

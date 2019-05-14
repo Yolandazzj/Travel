@@ -280,5 +280,14 @@ public class EssayDaoImpl implements EssayDao {
 //        return flag;
      }
 
+    //首页显示：根据评分排序留言
+    @Override
+    public List indexHotEssay() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(8);
+        return query.list();
+    }
+
 
 }

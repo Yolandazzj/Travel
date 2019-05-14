@@ -32,5 +32,7 @@ public interface EssayService {
     Essaycomment getEssayCommentById();//根据eCommentId获取最新评论
     List<Essay> getEssayMineList(String uid);//获取我的游记
     void deleteEssay(int essayId);//删除游记
+     List indexHotEssay();//首页显示热门游记
+
 
 }
