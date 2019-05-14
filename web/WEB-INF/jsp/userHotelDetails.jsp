@@ -128,7 +128,7 @@
             <br/>
             <div class="jianjie mr40 ml20 mt10">价格：<div class="">${la[1]}元</div></div>
             <div class="jianjie mr40 ml20 mt10">房型:&nbsp;&nbsp;<span style="color: black;">${la[3]}</span></div>
-            <img onclick="show(this)" style="width: 50px;" src="/IMAGE/${la[2]}.jpg">
+            <img onclick="show(this)" style="width: 50px;" src="/IMAGE/${la[2]}">
             <br/>
         </c:forEach>
 <%--        <br><br><br>--%>
