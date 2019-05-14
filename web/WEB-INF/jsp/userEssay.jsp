@@ -140,7 +140,6 @@
 
         </fieldset>
         <button type="submit" class="submit" onclick="submitApply()">发表</button>
-        <%--        <input class="reset" type="button" value="Reset" onclick="valid.reset(); return false" />--%>
     </form>
 </div>
 
