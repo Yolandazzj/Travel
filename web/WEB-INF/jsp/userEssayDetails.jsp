@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
     <script src="./resources/js/jquery-2.1.4.min.js"></script>
-
 <body>
 
 <!--滚动屏-->

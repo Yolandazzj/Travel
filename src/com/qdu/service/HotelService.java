@@ -29,4 +29,7 @@ public interface HotelService {
     List<Hotel> getHotelByCity(int cityId);//根据cityId获取酒店信息
     List<Layout> getLayoutByHotel(int hotelId);//根据hotelId获取信息
     void toOrder(int hotelId,String hotelName,float hotelPrice,Integer orderDay,String contact,String OrderName,int orderPeople,String uid);//预定
+    List lowerHotel();//首页显示超值酒店
+    List hotSaleHotel();//首页显示畅销酒店
+
 }

@@ -19,12 +19,12 @@
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
     
-    <!-- <mvc:interceptors>
+   <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/patient/goToHealthGraphy"/>
+            <mvc:mapping path="/**" />
             <bean class="com.qdu.intercepter.MyIntercepter"/>
         </mvc:interceptor>
-    </mvc:interceptors> -->
+    </mvc:interceptors>
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
     

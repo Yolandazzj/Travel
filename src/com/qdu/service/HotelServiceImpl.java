@@ -134,4 +134,17 @@ public class HotelServiceImpl implements HotelService {
         page.setList(hotelList);
         return page;
     }
+
+    //首页显示超值酒店
+    @Override
+    public List lowerHotel() {
+        return hotelDao.lowerHotel();
+    }
+
+    //首页显示畅销酒店
+    @Override
+    public List hotSaleHotel() {
+        return hotelDao.hotSaleHotel();
+    }
+
 }
