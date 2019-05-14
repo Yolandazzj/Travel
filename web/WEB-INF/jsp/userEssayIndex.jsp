@@ -399,8 +399,8 @@
             <div class="remen fl" style="height: 550px;"><a href="">点赞量高的游记：</a></div>
             <div class="remen fl">
                 <div class="luxian"><span>top1</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay1.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay1.essayId}">${essay1.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay1.essayId}"><img src="/IMAGE/${cityImage1}"></a></div>
+                <div class="miaoshu"><a href="">${essay1.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay1.escore}人点赞</span>

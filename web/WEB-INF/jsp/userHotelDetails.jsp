@@ -178,13 +178,15 @@
     <form id="commentForm" method="post">
         <div class="message-group">
             <div class="message-controls">
-                <input  type="hidden" name="uid" value="${user.uid}">
-                <input  type="hidden" name="fid" value="${hotelDetails.hotelId}">
+                <input type="hidden" name="uid" value="${user.uid}">
+                <input type="hidden" name="essayId" value="${hotelDetails.hotelId}">
                 <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
-                        <textarea cols="100" rows="10" id="writeComment" name="hcommentContent" style="resize: none;margin-left: 130px"></textarea>
+                        <textarea cols="100" rows="10" id="writeComment" name="hCommentContent"
+                                  style="resize: none;margin-left: 130px"></textarea>
                         <br> <br>
-                        <input type="button" value="发表评论" id="submitBtn" style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
+                        <input type="button" value="发表评论" id="submitBtn"
+                               style="margin-left:450px;resize:none;border:1px solid rgba(0,128,0,0.5);background-color: rgba(0,128,0,0.5);color: white">
                     </div>
                 </div>
             </div>

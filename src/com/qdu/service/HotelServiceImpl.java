@@ -96,6 +96,11 @@ public class HotelServiceImpl implements HotelService {
         return hotelDao.getHotelCommentById(hotelId);
     }
 
+    @Override
+    public List<Hotel> getHotelByCity(int cityId) {
+        return hotelDao.getHotelByCity(cityId);
+    }
+
     /**
      * 分页查询
      * @param currentPage 当前页号：现在显示的页数

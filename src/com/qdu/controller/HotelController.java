@@ -1,6 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.pojo.*;
+import com.qdu.service.CityService;
 import com.qdu.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class HotelController {
 
     @Autowired
     private HotelService hotelService;
+
+    @Autowired
+    private CityService cityService;
 
     @RequestMapping("/toHotel")
     public String toLogin() {
@@ -85,4 +89,21 @@ public class HotelController {
         hotelService.toHotelComment(hotelId, uid, hCommentContent);
         return hotelService.getHotelCommentById(hotelId);
     }
+
+    //去预定酒店
+    @RequestMapping(value = "/toOrderHotel")
+    public String toOrderHotel(Model model) {
+        List proList = cityService.proList();
+        model.addAttribute("proList", proList);
+//        List cityList = hotelService.getHotelByCity(cityId);
+//        model.addAttribute("proList", proList);
+        return "userHotel";
+    }
+    //获取酒店
+    @RequestMapping(value = "/toGetHotel")
+    public void toGetHotel(Integer cityId,Model model) {
+        List<Hotel> hotelList = hotelService.getHotelByCity(cityId);
+        model.addAttribute("hotelList", hotelList);
+    }
+
 }

@@ -174,4 +174,17 @@ public class HotelDaoImpl implements HotelDao {
         }
         return hotelList;
     }
+
+    //通过城市ID获取酒店列表；
+    @Override
+    public List<Hotel> getHotelByCity(int cityId) {
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select h.* from Hotel h,City c where h.cityId=c.cityId and h.cityId=?");
+        query.setInteger(0, cityId);
+        query.addScalar("hotelId", StandardBasicTypes.INTEGER);
+        query.addScalar("hotelName", StandardBasicTypes.STRING);
+        query.addScalar("hotelPrice", StandardBasicTypes.FLOAT);
+        query.addScalar("hotelScore", StandardBasicTypes.INTEGER);
+        query.addScalar("hotelImage", StandardBasicTypes.STRING);
+        return query.list();
+    }
 }
