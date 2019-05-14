@@ -21,12 +21,12 @@ public class EssayDaoImpl implements EssayDao {
 
     //数据插入到essay表中
     @Override
-    public void toEssay(String eTitle,String uid, String eContent,int cityId ) {
+    public void toEssay(String eTitle, String uid, String eContent, int cityId) {
         SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into `bishe`.`essay` (`eTitle`, `uid`, `eContent`, `CityId`) values(?,?,?,?)");
-        query.setParameter(0,eTitle);
-        query.setParameter(1,uid);
-        query.setParameter(2,eContent);
-        query.setParameter(3,cityId);
+        query.setParameter(0, eTitle);
+        query.setParameter(1, uid);
+        query.setParameter(2, eContent);
+        query.setParameter(3, cityId);
         query.executeUpdate();
     }
 
@@ -126,21 +126,22 @@ public class EssayDaoImpl implements EssayDao {
 
     @Override
     public List getCityList() {
-        Query query= sessionFactory.getCurrentSession().createQuery("from City");
+        Query query = sessionFactory.getCurrentSession().createQuery("from City");
         return query.list();
     }
 
     /**
      * 分页查询：根据用户查找用户所有
+     * <p>
+     * //     * @param hql 查询的条件
      *
-//     * @param hql 查询的条件
      * @param offset 开始记录
      * @param length 一次查询几条记录
      * @return 返回查询记录集合
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List queryForPage(int offset, int length,String uid) {
+    public List queryForPage(int offset, int length, String uid) {
         List entitylist = null;
         try {
             SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("select uid,etitle,escore,etime,essayId from Essay where uid=?");
@@ -161,10 +162,11 @@ public class EssayDaoImpl implements EssayDao {
 
         return entitylist;
     }
+
     //返回结果的条数
     @Override
     public int getAllRowCount() {
-        Query query=sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `essay`")
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `essay`")
                 .addScalar("num", StandardBasicTypes.INTEGER)
                 .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);//需要关联一张表，未改
         List essayList = query.list();
@@ -175,13 +177,13 @@ public class EssayDaoImpl implements EssayDao {
 
     @Override
     public List essayAll(int offset, int length) {
-        List essayList=null;
-        try{
-            Query query=sessionFactory.getCurrentSession().createQuery("from Essay");//需要关联，未改
+        List essayList = null;
+        try {
+            Query query = sessionFactory.getCurrentSession().createQuery("from Essay");//需要关联，未改
             query.setFirstResult(offset);
             query.setMaxResults(length);
-            essayList=query.list();
-        }catch(RuntimeException re){
+            essayList = query.list();
+        } catch (RuntimeException re) {
             throw re;
         }
         return essayList;
@@ -189,27 +191,27 @@ public class EssayDaoImpl implements EssayDao {
 
     @Override
     public Essay essayDetails(int essayId) {
-        Query query=sessionFactory.getCurrentSession().createQuery("from Essay where essayId=?");
-        query.setParameter(0,essayId);
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay where essayId=?");
+        query.setParameter(0, essayId);
         return (Essay) query.uniqueResult();
     }
 
     //根据游记ID获取所在城市的名字；（essayId  -> cityId -> cityName）;
     @Override
     public List<City> cityInfo(int essayId) {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.cityId,c.cityImage,c.cityName from essay e,city c where  e.CityId=c.CityId and e.essayId=?");
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("select c.cityId,c.cityImage,c.cityName from essay e,city c where  e.CityId=c.CityId and e.essayId=?");
         query.addScalar("cityId", StandardBasicTypes.INTEGER);
         query.addScalar("cityName", StandardBasicTypes.STRING);
         query.addScalar("cityImage", StandardBasicTypes.STRING);
-        query.setParameter(0,essayId);
+        query.setParameter(0, essayId);
         return query.list();
     }
 
     //根据游记ID获取评论；
     @Override
     public List<Essaycomment> essayComment(int essayId) {
-        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select c.eCommentId,c.uid,c.eCommentContent,c.eCommentScore,c.eCommentTime from Essay e,Essaycomment c where e.essayId=c.essayId and e.essayId=?");
-        query.setParameter(0,essayId);
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("select c.eCommentId,c.uid,c.eCommentContent,c.eCommentScore,c.eCommentTime from Essay e,Essaycomment c where e.essayId=c.essayId and e.essayId=?");
+        query.setParameter(0, essayId);
         query.addScalar("eCommentId", StandardBasicTypes.INTEGER);
         query.addScalar("uid", StandardBasicTypes.STRING);
         query.addScalar("eCommentContent", StandardBasicTypes.STRING);
@@ -235,7 +237,7 @@ public class EssayDaoImpl implements EssayDao {
     @Override
     public void toEssayComment(int essayId, String uid, String eCommentContent) {
         SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into Essaycomment (essayId, UId, eCommentContent) values(?,?,?) ");
-        query.setParameter(0,essayId);
+        query.setParameter(0, essayId);
         query.setParameter(1, uid);
         query.setParameter(2, eCommentContent);
         query.executeUpdate();
@@ -244,25 +246,25 @@ public class EssayDaoImpl implements EssayDao {
     //获取最新的游记评论，ajax追加
     @Override
     public Essaycomment getEssayCommentById() {
-        Query query=sessionFactory.getCurrentSession().createQuery("from Essaycomment order by eCommentId desc");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essaycomment order by eCommentId desc");
         query.setMaxResults(1);
         return (Essaycomment) query.uniqueResult();
     }
 
     @Override
     public List<Essay> getEssayMineList(String uid) {
-        Query query=sessionFactory.getCurrentSession().createQuery("from Essay where uid=?");
-        query.setParameter(0,uid);
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay where uid=?");
+        query.setParameter(0, uid);
         return query.list();
 
     }
 
     @Override
     public void deleteEssay(int essayId) {
-        Query query=sessionFactory.getCurrentSession().createQuery("DELETE from Essay where essayId=?");
-        query.setInteger(0,essayId);
+        Query query = sessionFactory.getCurrentSession().createQuery("DELETE from Essay where essayId=?");
+        query.setInteger(0, essayId);
         query.executeUpdate();
-        System.out.println(essayId+"wwwwwwwwwww");
+        System.out.println(essayId + "wwwwwwwwwww");
 //        boolean flag = false;
 //        Session session = sessionFactory.openSession();
 //        try {
@@ -278,7 +280,18 @@ public class EssayDaoImpl implements EssayDao {
 //        }
 //        System.out.println("flag====="+flag);
 //        return flag;
-     }
+    }
+
+    //首页显示：根据评分排序留言
+
+
+    @Override
+    public List indexHotEssay() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Essay order by escore desc");
+        query.setFirstResult(0);
+        query.setMaxResults(8);
+        return query.list();
+    }
 
 
 }

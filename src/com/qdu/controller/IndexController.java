@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -67,6 +68,22 @@ public class IndexController {
        model.addAttribute("hotRouteList",hotRouteList);
       List lowerPriceRoute= routeService.lowerPriceRoute();
       model.addAttribute("lowerPriceRoute",lowerPriceRoute);
+        List hotEssayList=  essayService.indexHotEssay();
+        model.addAttribute("hotEssayList",hotEssayList);
+        List lowerPriceHotel= hotelService.lowerHotel();
+        model.addAttribute("lowerPriceHotel",lowerPriceHotel);
+        Essay essay1=essayService.hotEssay1();
+        Essay essay2=  essayService.hotEssay2();
+        Essay essay3= essayService.hotEssay3();
+        Essay essay4= essayService.hotEssay4();
+        model.addAttribute("essay1",essay1);
+        model.addAttribute("essay2",essay2);
+        model.addAttribute("essay3",essay3);
+        model.addAttribute("essay4",essay4);
+        List hotSaleHotelList=hotelService.hotSaleHotel();
+//        HashMap map = (HashMap) hotSaleHotelList.get(0);
+//        String hotelName = (String) map.get("hotelName");
+        model.addAttribute("hotSaleHotelList",hotSaleHotelList);
         return "index";
     }
 

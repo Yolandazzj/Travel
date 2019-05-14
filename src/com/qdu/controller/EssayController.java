@@ -68,7 +68,7 @@ public class EssayController {
 
     //发表游记评论
     @ResponseBody
-    @RequestMapping(value = "toEssayComment", method = RequestMethod.POST)
+    @RequestMapping(value = "/toEssayComment", method = RequestMethod.POST)
     public Essaycomment toEssayComment(int essayId, String uid, String eCommentContent, HttpServletRequest request) {
         essayId = Integer.parseInt(request.getParameter("essayId"));
         uid = request.getParameter("uid");
