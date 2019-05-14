@@ -3,9 +3,11 @@ package com.qdu.controller;
 import com.qdu.pojo.*;
 import com.qdu.service.CityService;
 import com.qdu.service.HotelService;
+import com.qdu.utils.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -99,11 +101,51 @@ public class HotelController {
 //        model.addAttribute("proList", proList);
         return "userHotel";
     }
-    //获取酒店
-    @RequestMapping(value = "/toGetHotel")
-    public void toGetHotel(Integer cityId,Model model) {
-        List<Hotel> hotelList = hotelService.getHotelByCity(cityId);
-        model.addAttribute("hotelList", hotelList);
+    //根据城市id获取酒店数据后直接使用@ResponseBody装成json数据
+    @RequestMapping(value = "/toGetHotel/{cityId}")
+    @ResponseBody
+    public Json toGetHotel(@PathVariable("cityId") int cityId){
+        List hotelList= hotelService.getHotelByCity(cityId);
+
+        if(hotelList!=null){
+            for (Object c:hotelList) {
+                System.out.println(c);
+            }
+            return new Json(true,"success",hotelList);
+        }else{
+            return new Json(false,"fail",null);
+        }
+    }
+
+    //根据hotelid获取layout数据后直接使用@ResponseBody装成json数据
+    @RequestMapping(value = "/toGetLayout/{hotelId}")
+    @ResponseBody
+    public Json toGetLayout(@PathVariable("hotelId") int hotelId){
+        List layoutList= hotelService.getLayoutByHotel(hotelId);
+
+        if(layoutList!=null){
+            for (Object c:layoutList) {
+                System.out.println(c);
+            }
+            return new Json(true,"success",layoutList);
+        }else{
+            return new Json(false,"fail",null);
+        }
+    }
+
+    //提交预定
+    @RequestMapping("/submitOrder")
+    public String submitOrder(int hotelId, String hotelName, float hotelPrice, Integer orderDay, String contact, String orderName, int orderPeople,String uid,Model model){
+        hotelService.toOrder(hotelId, hotelName,hotelPrice,orderDay,contact,orderName,orderPeople,uid);
+        model.addAttribute("hotelId",hotelId);
+        model.addAttribute("hotelName",hotelName);
+        model.addAttribute("hotelPrice",hotelPrice);
+        model.addAttribute("orderDay",orderDay);
+        model.addAttribute("contact",contact);
+        model.addAttribute("orderName",orderName);
+        model.addAttribute("orderPeople",orderPeople);
+        model.addAttribute("uid",uid);
+        return "userOrder";
     }
 
 }

@@ -101,6 +101,16 @@ public class HotelServiceImpl implements HotelService {
         return hotelDao.getHotelByCity(cityId);
     }
 
+    @Override
+    public List<Layout> getLayoutByHotel(int hotelId) {
+        return hotelDao.getLayoutByHotel(hotelId);
+    }
+
+    @Override
+    public void toOrder(int hotelId, String hotelName, float hotelPrice, Integer orderDay, String contact, String OrderName, int orderPeople,String uid) {
+        hotelDao.toOrder(hotelId,hotelName,hotelPrice,orderDay,contact,OrderName,orderPeople,uid);
+    }
+
     /**
      * 分页查询
      * @param currentPage 当前页号：现在显示的页数

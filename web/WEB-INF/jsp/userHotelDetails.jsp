@@ -148,6 +148,7 @@
                 <button class="jrgwc"  type="submit">我要点赞</button>
             </form>
         </div>
+        <a href="user/toOrderHotel" style="text-align: center"><button>我要预定酒店</button></a>
     </div>
     <div class="clear"></div>
 </div>

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="resources/css/reset.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="resources/css/style.css"/>
+    <script src="./resources/js/jquery-2.1.4.min.js"></script>
+
 <body>
 
 <!--滚动屏-->
@@ -156,13 +158,14 @@
     <table id="commentTable">
         <c:forEach items="${essayCommentList}" var="e">
             <tr>
-                <td>${e[1]} &nbsp;&nbsp: ${e[2]}&nbsp;&nbsp;
+                <td>${e[1]} &nbsp;&nbsp:
                     <span style="font-size: 12px;">
-                        <fmt:formatDate value="${e[5]}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                        <fmt:formatDate value="${e[4]}" pattern="yyyy-MM-dd HH:mm:ss"/>
                     </span>
                     <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span
-                            id="${e[0]}">${e[4]}</span></span></a>
-                    <br><br><br>${e[3]}</td>
+                            id="${e[0]}">${e[3]}</span></span></a>
+                    <br/>
+                  ${e[2]}</td>
             </tr>
         </c:forEach>
     </table>
@@ -171,7 +174,7 @@
 
 
     <br><br>
-    <form id="commentForm" method="post">
+    <form id="commentForm">
         <div class="message-group">
             <div class="message-controls">
                 <input type="hidden" name="uid" value="${user.uid}">
@@ -251,26 +254,26 @@
 <script>
     //发表评论
     $(document).ready(function () {
-        $("#submitBtn").click(function (essayComment) {
+        $("#submitBtn").click(function (essaycomment) {
             $.ajax({
                 url: 'user/toEssayComment',
                 type: "POST",
                 data: $("#commentForm").serialize(),
-                success: function (essayComment) {
-                    var str = "<tr><td>"
-                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    + essayComment.ecommentTime + "</span><br><a href='javascript:thumb_comment("
-                    + essayComment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
-                    + essayComment.ecommentId + ">"
-                    + essayComment.ecommentScore + "</span></span></a><br><br><br>"
-                    + essayComment.ecommentContent + "</td></tr>"
+                success: function (essaycomment) {
+                    var str = "<tr><td>&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    + essaycomment.ecommentTime + "</span><br><a href='javascript:thumb_comment("
+                    + essaycomment.ecommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
+                    + essaycomment.ecommentId + ">"
+                    + essaycomment.ecommentScore + "</span></span></a><br><br><br>"
+                    + essaycomment.ecommentContent + "</td></tr>"
+
                     $("#commentTable").append(str);
-                    $("#8").remove();
+
                     $("#writeComment").val("");
 
                 },
                 error: function (request, status, error) {
-                    alert("发表成功!" + error);
+                    alert("Ajax请求失败!" + error);
                 }
             });
         });

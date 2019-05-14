@@ -97,9 +97,9 @@
         <a href="#">首页</a>
         <a href="user/groupAll">组团游</a>
         <a href="user/tours">跟团游</a>
-        <a href="#">攻略</a>
+        <a href="user/essay">攻略</a>
         <a href="user/food">美食</a>
-        <a href="#">酒店</a>
+        <a href="user/hotel">酒店</a>
         <a href="user/scene">景点</a>
         <a href="user/message">留言板</a>
 
@@ -122,6 +122,7 @@
             </div>
 
         </div>
+        <c:if test="${routeName}!= null">
         <div class="rtcont fr">
             <div class="ddzxbt">交易订单</div>
             <div class="ddxq">
@@ -133,6 +134,25 @@
                         <li>总价：${routePrice}</li>
                         <li>预定人：${routeOrderName}</li>
                         <li><a href="user/routesDetails?routeName=${routeName}&routeId=${routeId}">查看详情></a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+        </c:if>
+        <div class="rtcont fr">
+            <div class="ddzxbt">预定酒店订单</div>
+            <div class="ddxq">
+                <div class="ddspt fl"><img src="../resources/image/bbbb.jpg" alt=""></div>
+                <div class="ddbh fl"><${hotelName}>预定了${orderPeople}人${orderDay}天</div>
+                <div class="ztxx fr">
+                    <ul>
+                        <li>预定成功</li>
+                        <li>总价：${hotelPrice}</li>
+                        <li>预定人：${orderName}</li>
+                        <li><a href="user/toHotelDetails?hotelId=${hotelId}">查看详情></a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>

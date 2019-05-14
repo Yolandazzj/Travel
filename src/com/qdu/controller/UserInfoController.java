@@ -34,13 +34,13 @@ public class UserInfoController {
         //存在就返回了
         Userinfo user = userInfoService.getUserById(uid);
         if (null == user) {
-            return "{\"msg\":\"用户名不存在，请检查\"}";
+            return "用户名不存在，请检查";
         } else {
 
 
             user = userInfoService.validateUser(uid, upassword);
             if (null == user) {
-                return "{\"msg\":\"用户名或者密码错误，请重新登录\"}";
+                return "用户名或者密码错误，请重新登录";
             }
             int isBan = user.getIsBan();
             if (user.getIsBan().equals(1)) {

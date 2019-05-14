@@ -8,12 +8,12 @@
             <column name="ECommentId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="essay" class="com.qdu.pojo.Essay" fetch="select">
-            <column name="EssayId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
-            <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="essay" class="com.qdu.pojo.Essay" fetch="select">-->
+<!--            <column name="EssayId" not-null="true" />-->
+<!--        </many-to-one>-->
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">-->
+<!--            <column name="UId" length="50" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="ecommentContent" type="string">
             <column name="ECommentContent" length="21" not-null="true" />
         </property>

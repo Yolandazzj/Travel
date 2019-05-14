@@ -242,8 +242,7 @@
                 type: "POST",
                 data: $("#commentForm").serialize(),
                 success: function (foodComment) {
-                    var str =  "<tr><td>"
-                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                    var str =  "<tr><td>&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
                     +foodComment.fcommentTime+"</span><br><a href='javascript:thumb_comment("
                     +foodComment.fcommentId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
                     +foodComment.fcommentId+">"

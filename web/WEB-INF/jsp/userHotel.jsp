@@ -104,9 +104,6 @@
 
         <fieldset>
             <legend class="optional">ORDER INFORMATIONS</legend>
-
-
-
             <%--            选择城市--%>
             <div class="form-row">
                 <div class="field-label"><label for="cityId">旅游城市</label>:</div>
@@ -126,29 +123,43 @@
             </div>
 
             <div class="form-row">
-                <div class="field-label"><label for="hotelName">酒店名称</label>:</div>
-                <select id="hotelName">
-                    <option onclick="getHotel(cityId)">=请选择酒店=</option>
-                      <c:forEach items="${hotelList}" var="hot">
-                        <option value="${hot.cityId}">${hot.hotelName}</option>
-                        </c:forEach>
+                <div class="field-label"><label for="hotelId">酒店名称</label>:</div>
+                <select id="hotelId">
+                    <option >=请选择酒店=</option>
                 </select>
+                <input  type="hidden" name="hotelName" id="hotelName">
+            </div>
+            <div class="form-row">
+                <div class="field-label"><label for="layoutSize">酒店房型</label>:</div>
+                <select id="layoutSize">
+                    <option >=请选择房型=</option>
+                </select>
+
+                <input id="layoutPrice" readonly="readonly" value="价格">
+
             </div>
             <div class="form-row">
                 <div class="field-label"><label for="orderpeople">预定人数</label>:</div>
                 <div class="field-widget">
                     <a style="border: 1px solid #adedad;" class="bd-box subtraction min" onclick="changerBuyQuantity(0)" href="javascript:;">-</a>
 
-                    <input style="border: 1px solid #adedad; height: 27.98px" id="orderpeople" name="orderpeople" class="bd-box number-box" value="1" readonly="readonly"  onkeyup="setAmount.modify('#orderpeople');"/>
-                    <a style="border: 1px solid #adedad;" class="bd-box addition add" style="height: 32px;" onclick="changerBuyQuantity(1)" href="javascript:;">+</a>
+                    <input style="background-color:#f3fef3;border: 1px solid #adedad; height: 27.98px" id="orderpeople" name="orderpeople" class="bd-box number-box" value="1" readonly="readonly"  onkeyup="setAmount.modify('#orderpeople');"/>
+                    <a style="background-color:#f3fef3;border: 1px solid #adedad;" class="bd-box addition add" style="height: 32px;" onclick="changerBuyQuantity(1)" href="javascript:;">+</a>
                 </div>
 
             </div>
             <div class="form-row">
                 <div class="field-label"><label for="orderday">预定天数</label>:</div>
                 <div class="field-widget">
-                    <input id="orderday" name="orderday"  class="optional">
+                    <a style="border: 1px solid #adedad;" class="bd-box subtraction min" onclick="changerByDay(0)" href="javascript:;">-</a>
+
+                    <input style="background-color:#f3fef3;border: 1px solid #adedad; height: 27.98px" id="orderday" name="orderday" class="bd-box number-box" value="1" readonly="readonly"  onkeyup="setAmount.modify('#orderpeople');"/>
+                    <a style="background-color:#f3fef3;border: 1px solid #adedad;" class="bd-box addition add" style="height: 32px;" onclick="changerByDay(1)" href="javascript:;">+</a>
                 </div>
+            </div>
+            <div class="form-row">
+                <div class="field-label"><label for="hotelPrice">预定价格</label>:</div>
+                <div class="field-widget"><input type="text" readonly="readonly" onclick="javascript:calculate()" id="hotelPrice" name="hotelPrice" class="required" value="0"></div>
             </div>
 
 
@@ -158,16 +169,17 @@
             <legend>CONTACT INFORMATION</legend>
 
             <div class="form-row">
-                <div class="field-label"><label for="uid">预定人姓名</label>:</div>
+                <div class="field-label"><label for="ordername">预定人姓名</label>:</div>
                 <div class="field-widget"><input name="ordername" id="ordername" class="required" title="Enter your name" /></div>
             </div>
 
             <div class="form-row">
                 <div class="field-label"><label for="contact">预定联系方式</label>:</div>
-                <div class="field-widget"><input name="contact" id="contact" class="required" title="Enter your contact" /></div>
+                <div class="field-widget"><input type="text" name="contact" id="contact" class="required" title="Enter your contact"><span id="sj"></span></div>
             </div>
+<%--            <input  type="hidden" name="uid" value="${user.uid}" id="uid">--%>
         </fieldset>
-        <button type="submit" class="submit" onclick="submitApply()">申请</button>
+        <input class="jrgwc"  type="button" value="预定" onclick="javascript:toOrder();" id="sub" />
         <%--        <input class="reset" type="button" value="Reset" onclick="valid.reset(); return false" />--%>
     </form>
 </div>
@@ -206,7 +218,7 @@
                 if(data.status){
                     var result = "<option>=请选择城市=</option>";
                     $.each(data.obj,function(n,value){
-                        result +="<option value='"+value[0]+"'>"+value[1]+"</option>";
+                        result +="<option value='"+value[0]+"' >"+value[1]+"</option>";
                     });
                     $("#cityId").html('');
                     $("#cityId").append(result);
@@ -216,7 +228,63 @@
 
     });
 </script>
+<script type="text/javascript">
 
+    $("#hotelId").change(
+        function () {
+            $("#hotelName").val($("#hotelId").find("option:selected").attr("hotel"));
+        }
+    );
+    $(document).ready(function () {
+        $("#cityId").change(function () {
+            $.get("user/toGetHotel/"+$("#cityId").val(),function(data){
+                if(data.status){
+                    var result = "<option>=请选择酒店=</option>";
+                    $.each(data.obj,function(n,value){
+                        result +="<option value='"+value[0]+"' hotel='"+value[1]+"'>"+value[1]+"</option>";
+                    });
+                    $("#hotelId").html('');
+                    $("#hotelId").append(result);
+                }
+            },"json");
+        });
+
+    });
+</script>
+<script>
+         var int=self.setInterval("calculate()",50)
+        function calculate() {
+            // alert($("#layoutPrice").val());
+            // alert($("#orderday").val())
+            parseInt( $("#hotelPrice").val((parseInt($("#layoutPrice").val()))*(parseInt($("#orderday").val()))));
+        }
+</script>
+<script type="text/javascript">
+    $("#layoutSize").change(
+      function () {
+          $("#layoutPrice").val($("#layoutSize").find("option:selected").attr("price"));
+      }
+    );
+
+    $(document).ready(function () {
+        $("#hotelId").change(function () {
+            // alert("change")
+            $.get("user/toGetLayout/"+$("#hotelId").val(),function(data){
+                // alert("2");
+                if(data.status){
+                    var result = "<option>=请选择房型=</option>";
+                    // alert(data.obj.length)
+                    $.each(data.obj,function(n,value){
+                        result +="<option value='"+value[0]+"' price='"+value[1]+"'>"+value[2]+"</option>";
+                    });
+                    $("#layoutSize").html('');
+                    $("#layoutSize").append(result);
+                }
+            },"json");
+        });
+
+    });
+</script>
 <%--提交申请--%>
 <script type="text/javascript">
 
@@ -247,6 +315,20 @@
     }
 
 </script>
+<script>
+
+    function changerByDay(obj) {
+        if (obj === 1) {
+            $("#orderday").val(parseInt($("#orderday").val()) + 1);
+        } else {
+            if ($("#orderday").val() <= 1)
+                $("#orderday").val(1);
+            else
+                $("#orderday").val($("#orderday").val() - 1);
+        }
+    }
+
+</script>
 
 <script type="text/javascript">
 
@@ -263,7 +345,38 @@
     }
 
 </script>
+<script>
 
+    function toOrder(){
+        var hotelId = $("#hotelId").val();
+        var hotelName = $("#hotelName").val();
+        var contact=$("#contact").val();
+        var orderDay=$("#orderday").val();
+        var hotelPrice=(parseFloat($("#hotelPrice").val()));
+        var orderName=$("#ordername").val();
+        var orderPeople=$("#orderpeople").val();
+        var uid=$("#uid").val();
+
+
+
+        location.href = "<%=request.getContextPath()%>/user/submitOrder?hotelId="+hotelId
+            +"&hotelName="+hotelName+"&contact="+contact+"&orderDay="+orderDay+"&hotelPrice="+hotelPrice+"&orderName="+orderName+"&orderPeople="+orderPeople+"&uid"+uid+"";
+    }
+</script>
+<script  type="text/javascript">
+    function checkMobile(str) {
+        var  re = /^1\d{10}$/ //验证是不是11位数字
+        if (re.test(str)) {
+            $("#sj").html("手机号码格式正确");
+            $("#sj").css("color","green");
+        }
+        else {
+            $("#sj").html("手机号码格式错误");
+            $("#sj").css("color","red");
+            $("#sub").prop("disabled",true);
+        }
+    }
+</script>
 </body>
 </html>
 

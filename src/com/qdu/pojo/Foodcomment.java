@@ -2,6 +2,8 @@ package com.qdu.pojo;
 // Generated 2019-5-7 15:45:56 by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ public class Foodcomment  implements java.io.Serializable {
      private Userinfo userinfo;
      private String fcommentContent;
      private int fcommentScore;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
      private Date fcommentTime;
 
     public Foodcomment() {

@@ -410,8 +410,8 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top2</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay2.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay2.essayId}">${essay2.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay2.essayId}"><img src="/IMAGE/${cityImage2}"></a></div>
+                <div class="miaoshu"><a href="">${essay2.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay2.escore}人点赞</span>
@@ -420,8 +420,8 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top3</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay3.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay3.essayId}">${essay3.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay3.essayId}"><img src="/IMAGE/${cityImage3}"></a></div>
+                <div class="miaoshu"><a href="">${essay3.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay3.escore}人点赞</span>
@@ -430,8 +430,8 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top4</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay5.essayId}">${essay4.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${cityImage4}"></a></div>
+                <div class="miaoshu"><a href="">${essay4.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay4.escore}人点赞</span>
@@ -444,8 +444,8 @@
 
             <div class="remen fl">
                 <div class="luxian"><span>top5</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay5.essayId}">${essay5.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay5.essayId}"><img src="/IMAGE/${cityImage5}"></a></div>
+                <div class="miaoshu"><a href="">${essay5.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay5.escore}人点赞</span>
@@ -454,8 +454,8 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top6</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay6.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay6.essayId}">${essay6.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay6.essayId}"><img src="/IMAGE/${cityImage6}"></a></div>
+                <div class="miaoshu"><a href="">${essay6.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay6.escore}人点赞</span>
@@ -464,8 +464,8 @@
             </div>
             <div class="remen fl">
                 <div class="luxian"><span>top7</span></div>
-                <div class="tu"><a href="user/toEssayDetails?essayId=${essay7.essayId}"><img src="./resources/image/bbbb.jpg"></a></div>
-                <div class="miaoshu"><a href="user/toEssayDetails?essayId=${essay7.essayId}">${essay7.etitle}</a></div>
+                <div class="tu"><a href="user/toEssayDetails?essayId=${essay7.essayId}"><img src="/IMAGE/${cityImage7}"></a></div>
+                <div class="miaoshu"><a href="">${essay7.etitle}</a></div>
                 <div class="piao">
                     <a href="">
                         <span>${essay7.escore}人点赞</span>

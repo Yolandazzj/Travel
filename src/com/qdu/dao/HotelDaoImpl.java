@@ -187,4 +187,28 @@ public class HotelDaoImpl implements HotelDao {
         query.addScalar("hotelImage", StandardBasicTypes.STRING);
         return query.list();
     }
+
+    @Override
+    public List<Layout> getLayoutByHotel(int hotelId) {
+        SQLQuery query= sessionFactory.getCurrentSession().createSQLQuery("select l.* from Hotel h,Layout l where h.hotelId=l.hotelId and h.hotelId=?");
+        query.setInteger(0, hotelId);
+        query.addScalar("hotelId", StandardBasicTypes.INTEGER);
+        query.addScalar("layoutPrice", StandardBasicTypes.FLOAT);
+        query.addScalar("layoutSize", StandardBasicTypes.STRING);
+        return query.list();
+    }
+
+    @Override
+    public void toOrder(int hotelId, String hotelName, float hotelPrice, Integer orderDay, String contact, String orderName, int orderPeople,String uid) {
+        SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery("insert into hotelorders ( hotelId, hotelName,hotelPrice,orderDay,contact,orderName,orderPeople,uid) values(?,?,?,?,?,?,?,?) ");
+        query.setParameter(0, hotelId);
+        query.setParameter(1, hotelName);
+        query.setParameter(2, hotelPrice);
+        query.setParameter(3, orderDay);
+        query.setParameter(4, contact);
+        query.setParameter(5, orderName);
+        query.setParameter(6, orderPeople);
+        query.setParameter(7, uid);
+        query.executeUpdate();
+    }
 }
