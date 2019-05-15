@@ -21,7 +21,7 @@ public class MyIntercepter implements HandlerInterceptor {
         System.out.println(request.getServletPath());
 
         if (request.getServletPath().startsWith("/user") && !(request.getServletPath().endsWith("/toLogin"))) {
-            if (null == request.getSession().getAttribute("user")) {
+            if (null == request.getSession().getAttribute("user") && !(request.getServletPath().endsWith("/login"))) {
                 response.sendRedirect(request.getContextPath() + "/user/toLogin");
                 return false;
             }else
