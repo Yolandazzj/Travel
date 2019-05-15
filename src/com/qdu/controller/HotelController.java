@@ -83,7 +83,7 @@ public class HotelController {
 
     //发表游记评论
     @ResponseBody
-    @RequestMapping(value = "toHotelComment", method = RequestMethod.POST)
+    @RequestMapping(value = "/toHotelComment", method = RequestMethod.POST)
     public Hotelcomment toHotelComment(int hotelId, String uid, String hCommentContent, HttpServletRequest request) {
         hotelId = Integer.parseInt(request.getParameter("hotelId"));
         uid = request.getParameter("uid");

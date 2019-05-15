@@ -159,15 +159,14 @@
     <table id="commentTable">
         <c:forEach items="${hotelCommentList}" var="h">
             <tr>
-                <td>${h[2]}
-                    <br/>&nbsp;&nbsp;
+                <td>${h[1]} &nbsp;&nbsp:
                     <span style="font-size: 12px;">
-                                                <fmt:formatDate  value="${h[5]}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                            </span>
+                        <fmt:formatDate value="${h[4]}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                    </span>
+                    <a href="javascript:thumb_comment(${h[0]})"><span style="margin-left: 850px;">👍<span
+                            id="${h[0]}">${h[3]}</span></span></a>
                     <br/>
-                    <a href="javascript:thumb_comment(${h[0]})"><span style="margin-left: 850px;">👍<span id="${h[0]}">${h[4]}</span></span></a>
-                    <br/>
-                    <br><br><br>${h[3]}</td>
+                        ${h[2]}</td>
             </tr>
         </c:forEach>
     </table>
@@ -176,11 +175,11 @@
 
 
     <br><br>
-    <form id="commentForm" method="post">
+    <form id="commentForm">
         <div class="message-group">
             <div class="message-controls">
                 <input type="hidden" name="uid" value="${user.uid}">
-                <input type="hidden" name="essayId" value="${hotelDetails.hotelId}">
+                <input type="hidden" name="hotelId" value="${hotelDetails.hotelId}">
                 <div class="message-group" style="margin-bottom: 100px;position: relative;">
                     <div class="controls">
                         <textarea cols="100" rows="10" id="writeComment" name="hCommentContent"
@@ -258,22 +257,23 @@
 <script>
     //发表评论
     $(document).ready(function () {
-        $("#submitBtn").click(function (hotelComment) {
+        $("#submitBtn").click(function (hotelcomment) {
             $.ajax({
                 url: 'user/toHotelComment',
                 type: "POST",
                 data: $("#commentForm").serialize(),
-                success: function (hotelComment) {
-                    var str =  "<tr><td>"
-                    +${user.uid}+"&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
-                    +hotelComment.hcommentTime+"</span><br><a href='javascript:thumb_comment("
-                    +hotelComment.hcommentId+")'><span style=\"margin-left: 850px;\">👍<span id=m"
-                    +hotelComment.hcommentId+">"
-                    +hotelComment.hcommentScore+"</span></span></a><br><br><br>"
-                    +hotelComment.hcommentContent+"</td></tr>"
+                success: function (hotelcomment) {
+                    var str = "<tr><td>&nbsp;&nbsp;<span style=\"font-size: 12px;\">"
+                        + hotelcomment.hcommentTime + "</span><br><a href='javascript:thumb_comment("
+                        + hotelcomment.hcommentId + ")'><span style=\"margin-left: 850px;\">👍<span id=m"
+                        + hotelcomment.hcommentId + ">"
+                        + hotelcomment.hcommentScore + "</span></span></a><br><br><br>"
+                        + hotelcomment.hcommentContent + "</td></tr>"
+
                     $("#commentTable").append(str);
-                    $("#8").remove();
+
                     $("#writeComment").val("");
+
 
                 },
                 error: function (request, status, error) {
@@ -283,12 +283,12 @@
         });
     });
 </script>
-<script type="">
-    function show(pic) {
-        pic.width=100%;
-        pic.height = auto;
+<%--<script type="">--%>
+<%--    function show(pic) {--%>
+<%--        pic.width=100%;--%>
+<%--        pic.height = auto;--%>
 
-    }
-</script>
+<%--    }--%>
+<%--</script>--%>
 </body>
 </html>

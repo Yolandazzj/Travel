@@ -47,5 +47,10 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDao.getUserById(uid);
     }
 
+    @Override
+    public String checkName(String uid) {
+        return userInfoDao.checkName(uid);
+    }
+
 
 }

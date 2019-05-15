@@ -33,7 +33,7 @@
                 </div>
                 <div data-toggle="arrowdown" id="arrow2" class="msg-info">
                     <i class="fa fa-gray"></i>
-                    <a href="#">注册</a>
+                    <a href="user/toRegister">注册</a>
                 </div>
             </c:if>
             <c:if test="${user!=null}">
@@ -538,7 +538,7 @@
         <div class="inner-info">
             <div>
                 <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                <span class="text-title">${essay1.etitle}</span>
+                <span class="text-title">${essay2.etitle}</span>
             </div>
             <div class="inner-left">
                 <a href="user/toEssayDetails?essayId=${essay2.essayId}"><img src="./resources/image/ee.jpg"/></a>
@@ -560,7 +560,7 @@
         <div class="inner-info">
             <div>
                 <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                <span class="text-title">${essay1.etitle}</span>
+                <span class="text-title">${essay3.etitle}</span>
             </div>
             <div class="inner-left">
                 <a href="user/toEssayDetails?essayId=${essay3.essayId}"><img src="./resources/image/ee.jpg"/></a>
@@ -583,7 +583,7 @@
         <div class="inner-info">
             <div>
                 <span class="line-f40" style="color: rgba(0,128,0,0.8);">|</span>
-                <span class="text-title">${essay1.etitle}</span>
+                <span class="text-title">${essay4.etitle}</span>
             </div>
             <div class="inner-left">
                 <a href="user/toEssayDetails?essayId=${essay4.essayId}"><img src="./resources/image/ee.jpg"/></a>

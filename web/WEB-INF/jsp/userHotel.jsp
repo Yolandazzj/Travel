@@ -170,7 +170,7 @@
 
             <div class="form-row">
                 <div class="field-label"><label for="ordername">预定人姓名</label>:</div>
-                <div class="field-widget"><input name="ordername" id="ordername" class="required" title="Enter your name" /></div>
+                <div class="field-widget"><input name="ordername" id="ordername" class="required" title="Enter your name" /><span id="on"></span></div>
             </div>
 
             <div class="form-row">
@@ -360,22 +360,42 @@
 
 
         location.href = "<%=request.getContextPath()%>/user/submitOrder?hotelId="+hotelId
-            +"&hotelName="+hotelName+"&contact="+contact+"&orderDay="+orderDay+"&hotelPrice="+hotelPrice+"&orderName="+orderName+"&orderPeople="+orderPeople+"&uid"+uid+"";
+            +"&hotelName="+hotelName+"&contact="+contact+"&orderDay="+orderDay+"&hotelPrice="+hotelPrice+"&orderName="+orderName+"&orderPeople="+orderPeople+"&uid="+uid+"";
     }
 </script>
 <script  type="text/javascript">
     function checkMobile(str) {
         var  re = /^1\d{10}$/ //验证是不是11位数字
         if (re.test(str)) {
-            $("#sj").html("手机号码格式正确");
+            $("#sj").html("<br/>手机号码格式正确");
             $("#sj").css("color","green");
         }
         else {
-            $("#sj").html("手机号码格式错误");
+            $("#sj").html("<br/>手机号码格式错误");
             $("#sj").css("color","red");
             $("#sub").prop("disabled",true);
         }
     }
+</script>
+<script  type="text/javascript">
+    $("#contact").blur(function(){
+        var str = $(this).val();
+        checkMobile(str);
+    })
+</script>
+<script type="text/javascript">
+    $("#ordername").blur(function()
+    {
+        var ordername = $(this).val();
+        if(ordername ===""){
+            $("#on").html("<br/>姓名不能为空！");
+            $("#on").css("color","red");
+            $("#sub").prop("disabled",true);
+        }else{
+            $("#sub").prop("disabled",false);
+            $("#on").html("");
+        }
+    })
 </script>
 </body>
 </html>

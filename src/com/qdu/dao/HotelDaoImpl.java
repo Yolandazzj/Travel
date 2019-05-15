@@ -224,7 +224,7 @@ public class HotelDaoImpl implements HotelDao {
     //首页显示畅销酒店
     @Override
     public List hotSaleHotel() {
-   Query query= sessionFactory.getCurrentSession().createSQLQuery("select hotelName from HotelOrders group by hotelId");
+   Query query= sessionFactory.getCurrentSession().createSQLQuery("select HotelName from HotelOrders group by HotelId,HotelName");
 //        query.addScalar("hotelOrderId",StandardBasicTypes.INTEGER);
 //        query.addScalar("uid",StandardBasicTypes.STRING);
 //        query.addScalar("hotelId",StandardBasicTypes.INTEGER);

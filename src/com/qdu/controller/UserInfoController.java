@@ -86,6 +86,12 @@ public class UserInfoController {
 
     }
 
+    @RequestMapping("/checkName")
+    public String checkName(String uid, Model model) {
+        return userInfoService.checkName(uid);
+
+    }
+
 
 }
 
