@@ -89,7 +89,7 @@ public class HotelController {
         uid = request.getParameter("uid");
         hCommentContent = request.getParameter("hCommentContent");
         hotelService.toHotelComment(hotelId, uid, hCommentContent);
-        return hotelService.getHotelCommentById(hotelId);
+        return hotelService.getHotelCommentById();
     }
 
     //去预定酒店

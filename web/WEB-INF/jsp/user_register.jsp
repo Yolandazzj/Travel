@@ -77,7 +77,8 @@
 
                 </div>
                 <form action="user/register" method="post">
-                    <input type="text" name="uid" id="uid" class="name" placeholder="用户账号" required="" onblur="checkName()">
+                    <span style="color: red;" id="msg"></span>
+                    <input type="text" name="uid" id="uid" class="name" placeholder="用户账号" required="">
                     <input style="margin: 0px 20px 20px 20px;padding-bottom: 12px;" type="radio" name="ugender"
                            checked="checked" value="女">女
                     <input style="margin: 0px 10px 20px 28px;padding: 12px 30px 12px 40px; " type="radio"
@@ -166,20 +167,24 @@
     })
 </script>
 <script type="text/javascript">
-    function checkName() {
-        $.ajax({
-            type: "POST",
-            url: "user/checkName",
-            data:{"uid": uid},
-            success: function (msg) {
-                $("#msg").html(msg);
-            },
-            error: function (req, status, error) {
-                alert("Ajax请求失败!" + error);
-            }
+    $(document).ready(function(){
 
-        })
-    }
+        $("#uid").blur(function(){
+            var uid = {uid:$("#uid").val()};
+            $.ajax(
+                {url:"user/checkName",
+                    data:uid,
+                    async:true,
+                    type:"POST",
+                    dataType:"html",
+                    success:function(msg){
+
+                        $("#msg").html(msg); }
+
+                });
+        });
+    })
+
 
 </script>
 </body>

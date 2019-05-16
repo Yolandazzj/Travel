@@ -11,5 +11,5 @@ public interface UserInfoDao extends BaseDao<Userinfo> {
     void insert(Userinfo userInfo);//注册用户，添加用户
     void update(Userinfo userInfo);//修改用户信息
     List getUserInfoList();//获取用户信息的列表
-    String checkName(String uid);
+    Userinfo checkName(String uid);
 }

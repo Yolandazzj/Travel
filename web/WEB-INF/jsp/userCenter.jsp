@@ -113,8 +113,8 @@
                 <br>
                 <label for="ugender">性别：</label>
 
-                <input type="radio" name="ugender" value="男">&nbsp;男&nbsp;
-                <input type="radio" name="ugender" value="女">&nbsp;女
+                <input type="radio" name="ugender" value="男" <c:if test = "${user.ugender.equals(\"男\")}">checked</c:if>>&nbsp;男&nbsp;
+                <input type="radio" name="ugender" value="女" checked>&nbsp;女
                 <br><br>
                 <label for="ucity">城市：</label>
                 <input type="text" class="form-control" id="ucity" name="ucity" style="width: 80%; height:25px;" value="${user.ucity}">

@@ -92,8 +92,8 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Hotelcomment getHotelCommentById(int hotelId) {
-        return hotelDao.getHotelCommentById(hotelId);
+    public Hotelcomment getHotelCommentById() {
+        return hotelDao.getHotelCommentById();
     }
 
     @Override

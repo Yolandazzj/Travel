@@ -82,13 +82,20 @@ public class UserInfoController {
     public String editInfo(Userinfo userInfo, Model model) {
         userInfoService.update(userInfo);
         model.addAttribute("userInfoList", userInfoService.getUserInfoList());
-        return "user_loginSuccess";
+        return "redirect:/index";
 
     }
 
-    @RequestMapping("/checkName")
+    @RequestMapping(value = "/checkName", produces = "text/html;charset=utf-8")
+    @ResponseBody
     public String checkName(String uid, Model model) {
-        return userInfoService.checkName(uid);
+        Userinfo user=userInfoService.checkName(uid);
+        System.out.println(user);
+        if(null ==user)
+            return "ok";
+
+        else
+            return "用户名已存在";
 
     }
 

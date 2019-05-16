@@ -41,16 +41,14 @@ public class UserInfoDaoImpl extends BaseDaoImpl<Userinfo> implements UserInfoDa
     }
 
     @Override
-    public String checkName(String uid) {
+    public Userinfo checkName(String uid) {
         Session session = sessionFactory.openSession();
         Query query=session.createQuery(" select uid From Userinfo  where uid=?");
         query.setParameter(0, uid);
-        List user =query.list();
         session.close();
-        if(user.size()==0){
-            return "可以使用";
-        }
-        return "用户名已经存在";
+        return  (Userinfo) query.uniqueResult();
+
+
     }
 
 

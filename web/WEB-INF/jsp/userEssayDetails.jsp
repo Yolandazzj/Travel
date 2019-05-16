@@ -161,7 +161,8 @@
                     <span style="font-size: 12px;">
                         <fmt:formatDate value="${e[4]}" pattern="yyyy-MM-dd HH:mm:ss"/>
                     </span>
-                    <a href="javascript:thumb_comment(${e[0]})"><span style="margin-left: 850px;">👍<span
+<%--                    <input type="hidden" name="ecommentId" value="${e[]}" >--%>
+                    <a href="javascript:thumb_comment(${e[0]})" ><span style="margin-left: 850px;">👍<span
                             id="${e[0]}">${e[3]}</span></span></a>
                     <br/>
                   ${e[2]}</td>
@@ -234,14 +235,14 @@
     }
 
     //游记评论点赞
-    function thumb_comment(eCommentId) {
+    function thumb_comment(ecommentId) {
         $.ajax({
             url: 'user/thumb_essayComment',
             type: "POST",
-            data: {"eCommentId": eCommentId},
+            data: {"ecommentId": ecommentId},
             success: function (data) {
-                var onumber = parseInt($("#" + eCommentId).text());
-                $("#" + eCommentId).html(onumber + 1);
+                var onumber = parseInt($("#" + ecommentId).text());
+                $("#" + ecommentId).html(onumber + 1);
             },
             error: function () {
                 alert("Ajax请求失败");

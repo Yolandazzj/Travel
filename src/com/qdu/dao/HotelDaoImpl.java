@@ -142,9 +142,8 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     @Override
-    public Hotelcomment getHotelCommentById(int hotelId) {
-        Query query=sessionFactory.getCurrentSession().createQuery("from hotelcomment where hotelId=? order by hCommentId desc");
-        query.setInteger(0,hotelId);
+    public Hotelcomment getHotelCommentById() {
+        Query query=sessionFactory.getCurrentSession().createQuery("from Hotelcomment order by hcommentId desc");
         query.setMaxResults(1);
         return (Hotelcomment) query.uniqueResult();
     }
