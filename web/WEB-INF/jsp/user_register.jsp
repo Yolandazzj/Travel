@@ -47,33 +47,33 @@
         <div class="main">
             <div class="login-top left">
                 <div class="social_icons">
-                    <div class="w3-signup-head-top">
-                        <h3>Signedup With</h3>
-                    </div>
+<%--                    <div class="w3-signup-head-top">--%>
+<%--                        <h3>Signedup With</h3>--%>
+<%--                    </div>--%>
                     <!-- Facebook -->
-                    <div class="slide-social w3l">
-                        <a href="#">
+<%--                    <div class="slide-social w3l">--%>
+<%--                        <a href="#">--%>
 
-                            <div class="facebook icon"><i class="facebook"></i></div>
-                            <div class="facebook slide">
-                                <p>Facebook</p>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
+<%--                            <div class="facebook icon"><i class="facebook"></i></div>--%>
+<%--                            <div class="facebook slide">--%>
+<%--                                <p>Facebook</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="clear"></div>--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
                     <!-- Twitter -->
-                    <div class="slide-social w3l">
-                        <a href="#">
-                            <div class="twitter icon"><i class="twitter"></i></div>
-                            <div class="twitter slide">
-                                <p>Twitter</p>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="w3-signup-head2-top">
-                        <h3>OR</h3>
-                    </div>
+<%--                    <div class="slide-social w3l">--%>
+<%--                        <a href="#">--%>
+<%--                            <div class="twitter icon"><i class="twitter"></i></div>--%>
+<%--                            <div class="twitter slide">--%>
+<%--                                <p>Twitter</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="clear"></div>--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
+<%--                    <div class="w3-signup-head2-top">--%>
+<%--                        <h3>OR</h3>--%>
+<%--                    </div>--%>
 
                 </div>
                 <form action="user/register" method="post">
@@ -93,7 +93,7 @@
                     <br/>
                     <span id="tishi" style="color: red;"></span>
                     <br/>
-                    <input type="submit" value="SIGN UP">
+                    <input type="submit" value="SIGN UP" id="submit">
                 </form>
                 <div class="w3-bottom-text">
                     <h3><a href="#">Already Have an account<span>?</span></a></h3>
@@ -179,7 +179,14 @@
                     dataType:"html",
                     success:function(msg){
 
-                        $("#msg").html(msg); }
+                        $("#msg").html(msg);
+                        if(msg!=""){
+                            $("#submit").prop("disabled",true);
+                        }else{
+                            $("#submit").prop("disabled",false);
+                        }
+
+                       }
 
                 });
         });

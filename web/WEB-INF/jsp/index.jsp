@@ -126,35 +126,32 @@
                 <li data-hidden="li" id="hiden-1" >
                     <div class="sub-nav-right" >
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
@@ -171,24 +168,22 @@
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
@@ -257,70 +252,64 @@
                 <li data-hidden="li" id="hiden-4">
                     <div class="sub-nav-right">
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                     </div>
                     <div class="sub-nav-left">
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
@@ -330,70 +319,64 @@
                 <li data-hidden="li" id="hiden-5">
                     <div class="sub-nav-right">
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                     </div>
                     <div class="sub-nav-left">
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>
                         <div class="cell-box">
-                            <h1>省份</h1>
+                            <h1>山东省</h1>
                             <div class="a-box">
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#">城市</a><span>|</span>
-                                <a href="#" class="orange">城市</a>
+                                <a href="user/routeForCity?cityId=37">济南</a><span>|</span>
+                                <a href="user/routeForCity?cityId=38">青岛</a><span>|</span>
+                                <a href="#">潍坊</a><span>|</span>
+                                <a href="#">淄博</a><span>|</span>
 
                             </div>
                         </div>

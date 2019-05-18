@@ -397,7 +397,7 @@
     <div class="biaoti center">酒店</div>
     <div class="routemain center">
         <div class="routecontent">
-            <div class="remen fl" style="height: 550px;"><a href="">大家喜爱的酒店：</a></div>
+<%--            <div class="remen fl" style="height: 550px;"><a href="">大家喜爱的酒店：</a></div>--%>
             <div class="remen fl">
                 <div class="luxian"><span>top1</span></div>
                 <div class="tu"><a href="user/toHotelDetails?hotelId=${hotel1.hotelId}"><img src="/IMAGE/${hotel1.hotelImage}"></a></div>

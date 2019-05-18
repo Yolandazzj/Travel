@@ -369,6 +369,7 @@
         if (re.test(str)) {
             $("#sj").html("<br/>手机号码格式正确");
             $("#sj").css("color","green");
+            $("#sub").prop("disabled",false);
         }
         else {
             $("#sj").html("<br/>手机号码格式错误");

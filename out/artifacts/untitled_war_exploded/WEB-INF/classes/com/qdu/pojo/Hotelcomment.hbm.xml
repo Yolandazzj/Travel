@@ -8,12 +8,12 @@
             <column name="HCommentId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="hotel" class="com.qdu.pojo.Hotel" fetch="select">
-            <column name="HotelId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">
-            <column name="UId" length="50" not-null="true" />
-        </many-to-one>
+<!--        <many-to-one name="hotel" class="com.qdu.pojo.Hotel" fetch="select">-->
+<!--            <column name="HotelId" not-null="true" />-->
+<!--        </many-to-one>-->
+<!--        <many-to-one name="userinfo" class="com.qdu.pojo.Userinfo" fetch="select">-->
+<!--            <column name="UId" length="50" not-null="true" />-->
+<!--        </many-to-one>-->
         <property name="hcommentContent" type="string">
             <column name="HCommentContent" length="100" not-null="true" />
         </property>

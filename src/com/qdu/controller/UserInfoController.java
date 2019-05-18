@@ -92,7 +92,7 @@ public class UserInfoController {
         Userinfo user=userInfoService.checkName(uid);
         System.out.println(user);
         if(null ==user)
-            return "ok";
+            return "";
 
         else
             return "用户名已存在";
