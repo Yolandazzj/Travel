@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
+    <link title="style1" rel="stylesheet" href="./resources/css/groupStyle.css" type="text/css"/>
 </head>
 <body>
 <!--空div-->
@@ -99,41 +100,41 @@
 </div>
 
 <!--main-->
-<div class="main" style="height: 600px;width: 800px;">
-    <div class="login-top left">
-        <form class="login-form" id="loginValidate" action="user/editInfo" method="post" style="margin-top: 100px">
-            <div class="form-group" style="margin-top:50px; padding: 50px 50px 50px 120px;">
-                <input type="hidden" class="form-control" id="uid" name="uid" style="width: 80%; height:25px;"
-                       value="${user.uid}">
-                <br>
-                <label for="upassword">密码：</label>
-                <input class="form-control" id="upassword" type="password" name="upassword"
-                       style="width: 80%;height:25px;"
-                       value="${user.upassword}">
-                <br>
-                <label for="ugender">性别：</label>
+<%--<div class="main" style="height: 600px;width: 800px;">--%>
+<%--    <div class="login-top left">--%>
+<%--        <form class="login-form" id="loginValidate" action="user/editInfo" method="post" style="margin-top: 100px">--%>
+<%--            <div class="form-group" style="margin-top:50px; padding: 50px 50px 50px 120px;">--%>
+<%--                <input type="hidden" class="form-control" id="uid" name="uid" style="width: 80%; height:25px;"--%>
+<%--                       value="${user.uid}">--%>
+<%--                <br>--%>
+<%--                <label for="upassword">密码：</label>--%>
+<%--                <input class="form-control" id="upassword" type="password" name="upassword"--%>
+<%--                       style="width: 80%;height:25px;"--%>
+<%--                       value="${user.upassword}">--%>
+<%--                <br>--%>
+<%--                <label for="ugender">性别：</label>--%>
 
-                <input type="radio" name="ugender" value="男" <c:if test = "${user.ugender.equals(\"男\")}">checked</c:if>>&nbsp;男&nbsp;
-                <input type="radio" name="ugender" value="女" checked>&nbsp;女
-                <br><br>
-                <label for="ucity">城市：</label>
-                <input type="text" class="form-control" id="ucity" name="ucity" style="width: 80%; height:25px;" value="${user.ucity}">
+<%--                <input type="radio" name="ugender" value="男" <c:if test = "${user.ugender.equals(\"男\")}">checked</c:if>>&nbsp;男&nbsp;--%>
+<%--                <input type="radio" name="ugender" value="女" checked>&nbsp;女--%>
+<%--                <br><br>--%>
+<%--                <label for="ucity">城市：</label>--%>
+<%--                <input type="text" class="form-control" id="ucity" name="ucity" style="width: 80%; height:25px;" value="${user.ucity}">--%>
 
-                <br>
-                <label for="ucontact">电话：</label>
-                <input type="text" class="form-control" id="ucontact" name="ucontact" style="width: 80%; height:25px;"
-                       placeholder="请输入手机号" value="${user.ucontact}">
+<%--                <br>--%>
+<%--                <label for="ucontact">电话：</label>--%>
+<%--                <input type="text" class="form-control" id="ucontact" name="ucontact" style="width: 80%; height:25px;"--%>
+<%--                       placeholder="请输入手机号" value="${user.ucontact}">--%>
 
-                <br>
-                <label for="uemail">邮箱：</label>
-                <input type="text" class="form-control" id="uemail" name="uemail" style="width: 80%; height:25px;"
-                       placeholder="请输入正确格式的邮箱" value="${user.uemail}">
-                <br>
-                <button type="submit" class="btn btn-default">提交修改</button>
-            </div>
-        </form>
-    </div>
-</div>
+<%--                <br>--%>
+<%--                <label for="uemail">邮箱：</label>--%>
+<%--                <input type="text" class="form-control" id="uemail" name="uemail" style="width: 80%; height:25px;"--%>
+<%--                       placeholder="请输入正确格式的邮箱" value="${user.uemail}">--%>
+<%--                <br>--%>
+<%--                <button type="submit" class="btn btn-default">提交修改</button>--%>
+<%--            </div>--%>
+<%--        </form>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <%--    <table class="altrowstable" id="alternatecolor">--%>
 <%--        --%>
 <%--        <tr>--%>
@@ -176,7 +177,69 @@
 <%--    </table>--%>
 
 
+<%--</div>--%>
+
+<!--main-->
+<!--个人信息-->
+<div class="xiaomi6 fl">
+    个人信息修改
 </div>
+
+<div class="form_content">
+    <form id="loginValidate" action="user/editInfo" method="post">
+        <fieldset>
+            <legend class="optional">账户信息</legend>
+            <div class="form-row">
+                <div class="field-label"><label for="upassword">用户名：</label></div>
+                <div class="field-widget">
+                    <input type="text" name="uid" class="optional"  value="${user.uid}" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="field-label"><label for="upassword">密码：</label></div>
+                <div class="field-widget">
+                    <input id="upassword" type="password" name="upassword" class="optional"  value="${user.upassword}"><span id="mm"></span>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>个人信息</legend>
+
+            <div class="form-row">
+                <div class="field-label"> <label for="ugender">性别：</label></div>
+                <div class="field-widget">
+                    <input type="radio" name="ugender" value="男" <c:if test = "${user.ugender.equals(\"男\")}">checked</c:if>>&nbsp;男&nbsp
+                    <input type="radio" name="ugender" value="女" checked>&nbsp;女
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="ucity">城市：</label>:</div>
+                <div class="field-widget">
+                    <input id="ucity" type="text" name="ucity" class="required"  value="${user.ucity}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="ucontact">联系方式：</label>:</div>
+                <div class="field-widget">
+                    <input id="ucontact" type="text" name="ucontact" class="required"  value="${user.ucontact}"><span id="sj"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="uemail">邮箱：</label>:</div>
+                <div class="field-widget">
+                    <input id="uemail" type="text" name="uemail" class="required"  value="${user.uemail}"><span id="yx"></span>
+                </div>
+            </div>
+
+        </fieldset>
+        <button type="submit" class="submit" onclick="submitApply()">提交修改</button>
+    </form>
+</div>
+
 
 <!--footer-->
 <div class="footer">
@@ -203,6 +266,69 @@
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
 <script src="./resources/js/show-image.js"></script>
-
+<script  type="text/javascript">
+    function checkMM(str) {
+        var re = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/;
+        if (re.test(str)) {
+            $("#mm").html("");
+            $("#mm").css("color","green");
+            $("#submit").prop("disabled",false);
+        }
+        else {
+            $("#mm").html("<br/>密码长度要大于6位，由数字和字母组成<br/>");
+            $("#mm").css("color","red");
+            $("#submit").prop("disabled",true);
+        }
+    }
+</script>
+<script  type="text/javascript">
+    $("#upassword").blur(function(){
+        var str = $(this).val();
+        checkMM(str);
+    })
+</script>
+<script  type="text/javascript">
+    function checkMobile(str) {
+        // var  re = /^1\d{10}$/ //验证是不是11位数字
+        var re = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+        if (re.test(str)) {
+            $("#sj").html("");
+            $("#sj").css("color","green");
+            $("#submit").prop("disabled",false);
+        }
+        else {
+            $("#sj").html("<br/>手机号码格式错误<br/>");
+            $("#sj").css("color","red");
+            $("#submit").prop("disabled",true);
+        }
+    }
+</script>
+<script  type="text/javascript">
+    $("#ucontact").blur(function(){
+        var str = $(this).val();
+        checkMobile(str);
+    })
+</script>
+<script  type="text/javascript">
+    function checkEmail(str) {
+        var re = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        if (re.test(str)) {
+            $("#yx").html("");
+            $("#yx").css("color","green");
+            $("#submit").prop("disabled",false);
+        }
+        else {
+            $("#yx").html("<br/>邮箱格式错误<br/>");
+            $("#yx").css("color","red");
+            $("#submit").prop("disabled",true);
+        }
+    }
+</script>
+<script  type="text/javascript">
+    $("#uemail").blur(function(){
+        var str = $(this).val();
+        checkEmail(str);
+    })
+</script>
 </body>
 </html>

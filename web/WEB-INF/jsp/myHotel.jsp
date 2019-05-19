@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 张紫捷
-  Date: 2019/4/12
-  Time: 17:26
+  User: zyr
+  Date: 2019/5/18
+  Time: 20:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -14,7 +14,7 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>途牛旅行-跟团游</title>
+    <title>途牛旅行-酒店预定</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
@@ -117,8 +117,8 @@
             <div class="ddzx">订单中心</div>
             <div class="subddzx">
                 <ul>
-                    <li><a href="user/myOrder?uid=${user.uid}" style="color:#ff6700;font-weight:bold;">我的跟团游订单</a></li>
-                    <li><a href="user/myHotel?uid=${user.uid}">我的酒店预定</a></li>
+                    <li><a href="user/myOrder?uid=${user.uid}">我的跟团游订单</a></li>
+                    <li><a href="user/myHotel?uid=${user.uid}" style="color:#ff6700;font-weight:bold;">我的酒店预定</a></li>
                 </ul>
             </div>
             <div class="ddzx">个人中心</div>
@@ -133,23 +133,23 @@
 
         <div class="rtcont fr">
             <div class="ddzxbt">交易订单</div>
-            <c:forEach items="${myOrderList}" var="mo">
-            <div class="ddxq">
-                <div class="ddspt fl"><img src="" alt=""></div>
+            <c:forEach items="${myHotelList}" var="mh">
+                <div class="ddxq">
+                    <div class="ddspt fl"><img src="" alt=""></div>
 
-                <div class="ddbh fl"><${mo.routeName}></div>
-                <div class="ztxx fr">
-                    <ul>
-                        <li>预定成功</li>
-                        <li>总价：${mo.routePrice}</li>
-                        <li>预定人：${mo.routeOrderName}</li>
-                        <li><a href="user/routeComment?routeName=${mo.routeName}&routeId=${mo.routeId}">查看详情></a></li>
-                        <div class="clear"></div>
-                    </ul>
+                    <div class="ddbh fl">${mh.orderName}预定了${mh.orderPeople}人${mh.orderDay}天</div>
+                    <div class="ztxx fr">
+                        <ul>
+                            <li>预定成功</li>
+                            <li>总价：${mh.hotelPrice}</li>
+                            <li>预定人：${mh.orderName}</li>
+                            <li><a href="user/toHotelDetails?hotelId=${mh.hotel.hotelId}">查看详情></a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+
+                    <div class="clear"></div>
                 </div>
-
-                <div class="clear"></div>
-            </div>
             </c:forEach>
 
         </div>
@@ -164,7 +164,7 @@
                     <c:choose>
                         <c:when test="${orderPage.pageNo!=1}">
 
-                            <a href="user/myOrder?pageNo=${orderPage.previousPageNo}&uid=${user.uid}"><input type="button" name="previousPage" value="上一页" /></a>
+                            <a href="user/myHotel?pageNo=${orderPage.previousPageNo}&uid=${user.uid}"><input type="button" name="previousPage" value="上一页" /></a>
 
                         </c:when>
                         <c:otherwise>
@@ -175,7 +175,7 @@
                     </c:choose>
                     <c:choose>
                         <c:when test="${orderPage.pageNo!= orderPage.totalPages}">
-                            <a href="user/myOrder?pageNo=${orderPage.nextPageNo}&uid=${user.uid}"><input type="button" name="nextPage" value="下一页" /></a>
+                            <a href="user/myHotel?pageNo=${orderPage.nextPageNo}&uid=${user.uid}"><input type="button" name="nextPage" value="下一页" /></a>
                         </c:when>
                         <c:otherwise>
 
@@ -183,7 +183,7 @@
 
                         </c:otherwise>
                     </c:choose>
-                    <a href="user/myOrder?pageNo=${orderPage.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
+                    <a href="user/myHotel?pageNo=${orderPage.bottomPageNo }&uid=${user.uid}"><input type="button" name="lastPage" value="尾页" /></a>
                 </td>
             </tr>
         </form>

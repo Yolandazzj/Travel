@@ -83,7 +83,7 @@
                            checked="checked" value="女">女
                     <input style="margin: 0px 10px 20px 28px;padding: 12px 30px 12px 40px; " type="radio"
                            name="ugender" value="男">男
-<%--                    <input type="text" name="ucity" class="name" placeholder="城市" required="">--%>
+<%--                    <input type="text" id="ucity" name="ucity" class="name" placeholder="城市" required="">--%>
 
                     <div style="margin-bottom: 30px;">
                         <!--省份选择-->
@@ -96,7 +96,7 @@
                               </c:if>
                         </select>
                         <!--城市选择-->
-                        <select id="cityId" name="cityId">
+                        <select id="cityId" name="ucity">
                             <option >=请选择城市=</option>
                         </select>
                     </div>
@@ -106,7 +106,7 @@
                     <input type="text" id = "ucontact" name="ucontact" class="name" placeholder="联系电话" required=""><span id="sj"></span>
                     <input type="text" name="uemail" id="uemail" class="email" placeholder="邮箱" required=""><span id="yx"></span>
                     <input type="password" id="upassword" name="upassword" class="password" placeholder="密码"
-                           required="">
+                           required=""><span id="mm"></span>
                     <input type="password" id="upassword2" class="password" placeholder="确认密码" required=""
                            onkeyup="validate()">
                     <br/>
@@ -130,6 +130,27 @@
         <div class="clear"></div>
     </div>
 </div>
+<script  type="text/javascript">
+    function checkMM(str) {
+        var re = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/;
+        if (re.test(str)) {
+            $("#mm").html("");
+            $("#mm").css("color","green");
+            $("#submit").prop("disabled",false);
+        }
+        else {
+            $("#mm").html("<br/>密码长度要大于6位，由数字和字母组成<br/>");
+            $("#mm").css("color","red");
+            $("#submit").prop("disabled",true);
+        }
+    }
+</script>
+<script  type="text/javascript">
+    $("#upassword").blur(function(){
+        var str = $(this).val();
+        checkMM(str);
+    })
+</script>
 <script  type="text/javascript">
     function checkEmail(str) {
         var re = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
@@ -224,7 +245,7 @@
                 if(data.status){
                     var result = "<option>=请选择城市=</option>";
                     $.each(data.obj,function(n,value){
-                        result +="<option value='"+value[0]+"' name='ucity'>"+value[1]+"</option>";
+                        result +="<option value='"+value[1]+"' ucity='"+value[1]+"'>"+value[1]+"</option>";
                     });
                     $("#cityId").html('');
                     $("#cityId").append(result);
