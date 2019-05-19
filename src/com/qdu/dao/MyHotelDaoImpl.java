@@ -42,7 +42,7 @@ public class MyHotelDaoImpl implements MyHotelDao {
     //返回结果的条数
     @Override
     public int getAllRowCount(String uid) {
-        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Routeorders where uid=?")
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from Hotelorders where uid=?")
                 .addScalar("num", StandardBasicTypes.INTEGER)
                 .setParameter(0,uid)
                 .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);

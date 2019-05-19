@@ -1,6 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.page.page;
+import com.qdu.pojo.Hotelorders;
 import com.qdu.service.MyHotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class MyHotelController {
 
             List myHotelList = orderPage.getList();
             for (Object b:myHotelList) {
-                System.out.println(b);
+                System.out.println("zzzzzzzz"+((Hotelorders)b).getHotel()); // 你在这里打印一下 看是不是是空的 然后在往上找 先强转类型
             }
             model.addAttribute("myHotelList", myHotelList);
         } catch (Exception e) {

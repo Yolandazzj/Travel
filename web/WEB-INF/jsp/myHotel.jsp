@@ -137,7 +137,7 @@
                 <div class="ddxq">
                     <div class="ddspt fl"><img src="" alt=""></div>
 
-                    <div class="ddbh fl">${mh.orderName}预定了${mh.orderPeople}人${mh.orderDay}天</div>
+                    <div class="ddbh fl">${mh.hotelName}预定了${mh.orderPeople}人${mh.orderDay}天</div>
                     <div class="ztxx fr">
                         <ul>
                             <li>预定成功</li>
@@ -159,7 +159,7 @@
                 <td colspan="8" align="center" >共${orderPage.totalRecords}条记录 共${orderPage.totalPages}页 当前第${orderPage.pageNo}页
                     <br> <br>
 
-                    <a href="user/myOrder?pageNo=${orderPage.topPageNo}&uid=${user.uid}"><input type="button" name="fristPage" value="首页" /></a>
+                    <a href="user/myHotel?pageNo=${orderPage.topPageNo}&uid=${user.uid}"><input type="button" name="fristPage" value="首页" /></a>
 
                     <c:choose>
                         <c:when test="${orderPage.pageNo!=1}">
