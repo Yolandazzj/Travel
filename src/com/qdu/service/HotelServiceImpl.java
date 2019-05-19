@@ -147,4 +147,9 @@ public class HotelServiceImpl implements HotelService {
         return hotelDao.hotSaleHotel();
     }
 
+    @Override
+    public void deleteHotelOrder(int hotelorderId) {
+        hotelDao.deleteHotelOrder(hotelorderId);
+    }
+
 }

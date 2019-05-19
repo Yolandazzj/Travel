@@ -2,6 +2,7 @@
 package com.qdu.controller;
 
 import com.qdu.pojo.Userinfo;
+import com.qdu.service.CityService;
 import com.qdu.service.UserInfoService;
 
 import javax.servlet.http.HttpSession;
@@ -15,12 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
 public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
+
+    @Autowired
+    private CityService cityService;
 
     @RequestMapping("/toLogin")
     public String toLogin() {
@@ -63,7 +68,9 @@ public class UserInfoController {
 
 
     @RequestMapping("/toRegister")
-    public String toRegister() {
+    public String toRegister(Model model) {
+        List proList = cityService.proList();
+        model.addAttribute("proList", proList);
         return "user_register";
     }
 
@@ -74,14 +81,15 @@ public class UserInfoController {
     }
 
     @RequestMapping("/toCenter")
-    public String toCenter() {
+    public String toCenter(String uid) {
         return "userCenter";
     }
 
     @RequestMapping("/editInfo")
-    public String editInfo(Userinfo userInfo, Model model) {
+    public String editInfo(Userinfo userInfo, Model model,HttpSession session) {
         userInfoService.update(userInfo);
         model.addAttribute("userInfoList", userInfoService.getUserInfoList());
+        session.setAttribute("user", userInfo);
         return "redirect:/index";
 
     }

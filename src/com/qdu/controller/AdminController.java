@@ -29,6 +29,12 @@ public class AdminController {
     private EssayService essayService;
 
     @Autowired
+    private HotelService hotelService;
+
+    @Autowired
+    private AdminInfoService adminInfoService;
+
+    @Autowired
     private AdminManageService adminManageService;
 
     //管理员首页-组团游
@@ -139,4 +145,29 @@ public class AdminController {
     public void deleteEssayByAdmin(int essayId){
         essayService.deleteEssay(essayId);
     }
+
+    //管理员首页-酒店预定
+    @RequestMapping("admin/hotel")
+    public String adminHotel(Model model,HttpServletRequest request){
+        try {
+            String pageNo = request.getParameter("pageNo");
+            if (pageNo == null) {
+                pageNo = "1";
+            }
+            page page = adminInfoService.queryForPage(Integer.valueOf(pageNo),8);
+            model.addAttribute("page",page);
+            List hotelAdminAll = page.getList();
+            model.addAttribute("hotelAdminAll", hotelAdminAll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "adminHotel";
+    }
+    //管理员删除预定
+    @RequestMapping(value = "admin/deleteHotelOrderByAdmin",method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteHotelOrderByAdmin(int hotelOrderId){
+        hotelService.deleteHotelOrder(hotelOrderId);
+    }
+
 }

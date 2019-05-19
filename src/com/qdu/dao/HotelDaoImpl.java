@@ -211,6 +211,13 @@ public class HotelDaoImpl implements HotelDao {
         query.executeUpdate();
     }
 
+    @Override
+    public void deleteHotelOrder(int hotelorderId) {
+        Query query = sessionFactory.getCurrentSession().createQuery("DELETE from Hotelorders where hotelorderId=?");
+        query.setInteger(0, hotelorderId);
+        query.executeUpdate();
+    }
+
     //首页显示：超值路线
     @Override
     public List lowerHotel() {

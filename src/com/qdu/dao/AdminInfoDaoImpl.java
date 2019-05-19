@@ -1,15 +1,18 @@
 package com.qdu.dao;
 
+import com.qdu.page.page;
 import com.qdu.pojo.Admininfo;
 import com.qdu.pojo.Userinfo;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -57,5 +60,35 @@ public class AdminInfoDaoImpl extends BaseDaoImpl<Userinfo> implements AdminInfo
         Query query = sessionFactory.getCurrentSession().createSQLQuery("update  userinfo set isBan=1 where uid=?");
         query.setString(0, uid);
         query.executeUpdate();
+    }
+
+    @Override
+    public page queryForPage(int currentPage, int pageSize) {
+        return null;
+    }
+
+    @Override
+    public int getAllRowCount() {
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("select COUNT(*) as num from `Hotelorders`")
+                .addScalar("num", StandardBasicTypes.INTEGER)
+                .setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+        List hotelOrderList = query.list();
+        HashMap map = (HashMap) hotelOrderList.get(0);
+        int num = (int) map.get("num");
+        return num;
+    }
+
+    @Override
+    public List hotelOrderAll(int offset, int length) {
+        List hotelOrderList = null;
+        try {
+            Query query = sessionFactory.getCurrentSession().createQuery("from Hotelorders");//需要关联，未改
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
+            hotelOrderList = query.list();
+        } catch (RuntimeException re) {
+            throw re;
+        }
+        return hotelOrderList;
     }
 }

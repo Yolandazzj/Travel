@@ -28,7 +28,7 @@ public interface HotelDao {
     List hotSaleHotel();//首页显示热销酒店
     List<Layout> getLayoutByHotel(int hotelId);//根据hotelId获取信息
     void toOrder(int hotelId,String hotelName,float hotelPrice,Integer orderDay,String contact,String OrderName,int orderPeople,String uid);//预定
-
+    void deleteHotelOrder(int hotelorderId);//删除酒店预定
 
 
 

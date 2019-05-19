@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: zyr
-  Date: 2019/5/6
-  Time: 20:20
+  Date: 2019/5/13
+  Time: 10:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
@@ -13,7 +13,7 @@
 <head>
     <base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
-    <title>管理员中心</title>
+    <title>所有酒店预定</title>
     <link rel="stylesheet" href="./resources/css/reset.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./resources/css/style.css"/>
@@ -49,7 +49,7 @@
             </div>
             <div data-toggle="arrowdown" id="arrow4" class="user-name">
                 <i class="fa fa-shopping-cart fa-orange"></i>
-                <a href="admin/orderAll">用户订单</a>
+                <a href="#">我的订单</a>
 
             </div>
         </div>
@@ -61,7 +61,7 @@
     <img src="resources/image/logo.jpg" alt="logo"/>
     <div class="search-wrapper">
         <div class="search-box">
-            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle">
+            <ul data-toggle="arrowdown" id="arrow8" class="search-toggle" >
                 <li class="drop-down"><a href="#">所有产品</a><span class="down-icon"></span>
                     <ul class="search-toggle-box">
                         <li><a href="admin/group">组团游</a></li>
@@ -99,19 +99,63 @@
 
 
     </div>
-    <br/> <br/> <br/> <br/> <br/>
-</div>
-<!--main-->
-<div class="sub-nav">
-    <!--sub-nav-cell-->
-    <div class="sub-nav-cell" style="width: 500px;height:550px;margin-left: 300px;font-size: 20px;line-height: 30px;">
-        <a href="admin/manageUser">管理用户</a> <br/>
-        <a href="admin/essay">管理游记</a> <br/>
-        <a href="admin/group">组团游</a><br/>
-    </div>
-</div>
-<br/><br/><br/><br/><br/><br/>
 
+
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<!--美食列表-->
+<div class="control-group" style="border: 10px solid rgba(0,128,0,0.5); width: 1000px;height: 1000px;margin-bottom:0px;margin: 0 auto;">
+
+    <table id="commentTable">
+        <c:forEach items="${hotelAdminAll}" var="h">
+            <tr id="${h.hotelOrderId}">
+                <td>预定人${h.orderName}&nbsp;&nbsp;
+                    <a href="javascript:deleteHotelOrder(${h.hotelOrderId})" ><span style="margin-left: 850px;"><button>删除</button></span></a><br><br><br>
+                    <a href="user/toHotelDetails?hotelId=${h.hotel.hotelId}">${h.hotelName}</a></td>
+
+            </tr>
+        </c:forEach>
+    </table>
+    <br><br><br>
+    <form id="paging" style="text-align:center;">
+        <tr>
+            <td colspan="8" align="center" >共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页
+                <br> <br>
+
+                <a href="admin/hotel?pageNo=${page.topPageNo}"><input type="button" name="fristPage" value="首页" /></a>
+
+                <c:choose>
+                    <c:when test="${page.pageNo!=1}">
+
+                        <a href="admin/hotel?pageNo=${page.previousPageNo}"><input type="button" name="previousPage" value="上一页" /></a>
+
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="previousPage" value="上一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${page.pageNo!= page.totalPages}">
+                        <a href="admin/hotel?pageNo=${page.nextPageNo}"><input type="button" name="nextPage" value="下一页" /></a>
+                    </c:when>
+                    <c:otherwise>
+
+                        <input type="button" disabled="disabled" name="nextPage" value="下一页" />
+
+                    </c:otherwise>
+                </c:choose>
+                <a href="admin/hotel?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
+            </td>
+        </tr>
+    </form>
+
+    <br><br>
+
+</div>
 <!--footer-->
 <div class="footer">
     <div class="footer-right">
@@ -136,20 +180,20 @@
 <script src="./resources/js/jquery_1.9.js"></script>
 <script src="./resources/js/main.js"></script>
 <script>
-    //管理员批准组团游申请
-    function approve_group(gid) {
+    function deleteHotelOrder(hotelorderId) {
         $.ajax({
-            url: 'admin/approveGroup',
+            url: 'admin/deleteHotelOrderByAdmin',
             type: "POST",
-            data: {"gid": gid},
-            success: function (data) {
-                $("#"+gid).remove();
+            data: {"hotelorderId": hotelorderId},
+            success: function () {
+                $("#"+hotelorderId).remove();
             },
             error: function () {
-                alert("Ajax请求失败");
+                alert("Ajax请求失败!");
             }
         });
     }
 </script>
 </body>
 </html>
+

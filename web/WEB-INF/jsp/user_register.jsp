@@ -5,7 +5,7 @@
   Time: 14:31
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <html>
@@ -34,7 +34,7 @@
         var pwd2 = document.getElementById("upassword2").value;
 
         if (pwd1 == pwd2) {
-            document.getElementById("tishi").innerHTML = "<span>两次密码相同</span>";
+            document.getElementById("tishi").innerHTML = "<span> </span>";
 
         } else {
             document.getElementById("tishi").innerHTML = "<span>两次密码不相同</span>";
@@ -83,7 +83,26 @@
                            checked="checked" value="女">女
                     <input style="margin: 0px 10px 20px 28px;padding: 12px 30px 12px 40px; " type="radio"
                            name="ugender" value="男">男
-                    <input type="text" name="ucity" class="name" placeholder="城市" required="">
+<%--                    <input type="text" name="ucity" class="name" placeholder="城市" required="">--%>
+
+                    <div style="margin-bottom: 30px;">
+                        <!--省份选择-->
+                        <select id="provinceId">
+                            <option>=请选择省份=</option>
+                              <c:if test="${!empty proList}">
+                                <c:forEach items="${proList}" var="pro">
+                                <option value="${pro.provinceId}">${pro.cityName}</option>
+                                </c:forEach>
+                              </c:if>
+                        </select>
+                        <!--城市选择-->
+                        <select id="cityId" name="cityId">
+                            <option >=请选择城市=</option>
+                        </select>
+                    </div>
+
+
+
                     <input type="text" id = "ucontact" name="ucontact" class="name" placeholder="联系电话" required=""><span id="sj"></span>
                     <input type="text" name="uemail" id="uemail" class="email" placeholder="邮箱" required=""><span id="yx"></span>
                     <input type="password" id="upassword" name="upassword" class="password" placeholder="密码"
@@ -115,13 +134,14 @@
     function checkEmail(str) {
         var re = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if (re.test(str)) {
-            $("#yx").html("ok");
+            $("#yx").html("");
             $("#yx").css("color","green");
+            $("#submit").prop("disabled",false);
         }
         else {
             $("#yx").html("<br/>邮箱格式错误<br/>");
             $("#yx").css("color","red");
-            $("#sub").prop("disabled",true);
+            $("#submit").prop("disabled",true);
         }
     }
 </script>
@@ -138,10 +158,10 @@
         if(ordername ===""){
             $("#on").html("<br/>姓名不能为空！");
             $("#on").css("color","red");
-            $("#sub").prop("disabled",true);
+            $("#submit").prop("disabled",true);
         }else{
-            $("#sub").prop("disabled",false);
             $("#on").html("");
+            $("#submit").prop("disabled",false);
         }
     })
 </script>
@@ -150,13 +170,14 @@
         // var  re = /^1\d{10}$/ //验证是不是11位数字
         var re = /^[1][3,4,5,7,8,9][0-9]{9}$/;
         if (re.test(str)) {
-            $("#sj").html("ok");
+            $("#sj").html("");
             $("#sj").css("color","green");
+            $("#submit").prop("disabled",false);
         }
         else {
             $("#sj").html("<br/>手机号码格式错误<br/>");
             $("#sj").css("color","red");
-            $("#sub").prop("disabled",true);
+            $("#submit").prop("disabled",true);
         }
     }
 </script>
@@ -193,6 +214,25 @@
     })
 
 
+</script>
+<script type="text/javascript">
+    /*页面加载就开始执行*/
+    // 省市二级联动
+    $(document).ready(function () {
+        $("#provinceId").change(function () {
+            $.get("user/getCityByPro/"+$("#provinceId").val(),function(data){
+                if(data.status){
+                    var result = "<option>=请选择城市=</option>";
+                    $.each(data.obj,function(n,value){
+                        result +="<option value='"+value[0]+"' name='ucity'>"+value[1]+"</option>";
+                    });
+                    $("#cityId").html('');
+                    $("#cityId").append(result);
+                }
+            },"json");
+        });
+
+    });
 </script>
 </body>
 </html>

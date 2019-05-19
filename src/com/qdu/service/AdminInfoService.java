@@ -1,5 +1,6 @@
 package com.qdu.service;
 
+import com.qdu.page.page;
 import com.qdu.pojo.Admininfo;
 import com.qdu.pojo.Userinfo;
 
@@ -17,4 +18,7 @@ public interface AdminInfoService {
     List<Userinfo> getReportUserList();//获取被举报用户的列表
 
     boolean reportUser(String uid);//禁用用户
+
+    page queryForPage(int currentPage, int pageSize) ;//分页查询
+
 }

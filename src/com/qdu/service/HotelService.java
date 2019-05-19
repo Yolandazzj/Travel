@@ -31,5 +31,5 @@ public interface HotelService {
     void toOrder(int hotelId,String hotelName,float hotelPrice,Integer orderDay,String contact,String OrderName,int orderPeople,String uid);//预定
     List lowerHotel();//首页显示超值酒店
     List hotSaleHotel();//首页显示畅销酒店
-
+    void deleteHotelOrder(int hotelorderId);//删除酒店预定
 }
